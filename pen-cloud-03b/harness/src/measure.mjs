@@ -1,4 +1,5 @@
 // Per-arm browser measurements (dom-roles, geometry, responsive, scroll probe, tokens, a11y, screenshots).
+import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -296,7 +297,36 @@ export function normaliseTokenValue(v) {
 }
 const squash = (s) => s.replace(/[-_.]/g, '').toLowerCase();
 
-export function aggregateTokens({ arm, tokenPages, dsc }) {
+/** Read generated-manifest.json `ungoverned[]` (entries {file, property, value, reason, source}). */
+export function loadUngovernedManifest(file) {
+  try {
+    const j = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const entries = Array.isArray(j.ungoverned) ? j.ungoverned : [];
+    return { path: file, entries, count: entries.length, reasons: [...new Set(entries.map((e) => e.reason))].slice(0, 20) };
+  } catch (e) { return { path: file, entries: null, error: String(e.message || e).slice(0, 200) }; }
+}
+
+/**
+ * Coverage of a literal declaration by the manifest:
+ *  strict = same file basename + property + value;
+ *  loose  = same property + value where the stylesheet is not identifiable as any manifest file (e.g. a hashed bundle).
+ */
+export function makeCoverage(entries) {
+  const nv = (v) => normaliseTokenValue(String(v).replace(/\s*!important\s*$/i, ''));
+  const bn = (f) => String(f || '').split('?')[0].split('/').pop();
+  const files = new Set(entries.map((e) => bn(e.file)));
+  const strict = new Set(entries.map((e) => `${bn(e.file)}|${String(e.property).toLowerCase()}|${nv(e.value)}`));
+  const loose = new Set(entries.map((e) => `${String(e.property).toLowerCase()}|${nv(e.value)}`));
+  return (d) => {
+    const base = bn(d.sheet);
+    if (strict.has(`${base}|${d.prop}|${nv(d.value)}`)) return 'strict';
+    if (!files.has(base) && loose.has(`${d.prop}|${nv(d.value)}`)) return 'loose';
+    return null;
+  };
+}
+
+export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
+  const cover = manifest && manifest.entries ? makeCoverage(manifest.entries) : null;
   const union = new Map();
   const perPage = {};
   const unreadable = new Set();
@@ -313,6 +343,12 @@ export function aggregateTokens({ arm, tokenPages, dsc }) {
         if (!union.has(d.key)) union.set(d.key, d);
       }
       c.boundShare = c.var + c.literal ? round(c.var / (c.var + c.literal), 4) : null;
+      if (cover) {
+        const lit = t.decls.filter((d) => !d.shorthand && d.cls === 'literal');
+        c.excludedByManifest = lit.filter((d) => cover(d)).length;
+        c.governedLiteral = lit.length - c.excludedByManifest;
+        c.boundShareGoverned = c.var + c.governedLiteral ? round(c.var / (c.var + c.governedLiteral), 4) : null;
+      }
       c.decls = t.decls.length; c.inlineStyleElements = t.inlineStyleElements;
       (perPage[route] ||= {})[w] = c;
       t.unreadable.forEach((u) => unreadable.add(u));
@@ -321,11 +357,20 @@ export function aggregateTokens({ arm, tokenPages, dsc }) {
   }
   const tot = { var: 0, literal: 0, otherVar: 0, neutral: 0, mixed: 0 };
   const literalSamples = [];
+  const excl = { strict: 0, loose: 0, uncoveredTruncated: 0 };
+  const uncovered = [];
   for (const d of union.values()) {
     if (d.shorthand) continue;
     tot[d.cls]++;
     if (d.cls === 'var' && d.mixed) tot.mixed++;
-    if (d.cls === 'literal' && literalSamples.length < 300) literalSamples.push({ selector: d.selector, prop: d.prop, value: d.value });
+    if (d.cls === 'literal' && literalSamples.length < 300) literalSamples.push({ selector: d.selector, prop: d.prop, value: d.value, sheet: d.sheet });
+    if (d.cls === 'literal' && cover) {
+      const how = cover(d);
+      if (how === 'strict') excl.strict++;
+      else if (how === 'loose') excl.loose++;
+      else if (uncovered.length < 300) uncovered.push({ selector: d.selector, prop: d.prop, value: d.value, sheet: d.sheet });
+      else excl.uncoveredTruncated++;
+    }
   }
   const agg = {
     varDecls: tot.var, literalDecls: tot.literal, otherVarDecls: tot.otherVar, neutralDecls: tot.neutral, mixedVarDecls: tot.mixed,
@@ -333,6 +378,18 @@ export function aggregateTokens({ arm, tokenPages, dsc }) {
     boundShareStrict: tot.var + tot.literal + tot.otherVar ? round(tot.var / (tot.var + tot.literal + tot.otherVar), 4) : null,
     uniqueDeclarations: union.size, literalSamples, unreadableSheets: [...unreadable],
   };
+  if (cover) {
+    const excluded = excl.strict + excl.loose;
+    const real = tot.literal - excluded;
+    agg.governed = {
+      manifest: { path: manifest.path, entries: manifest.count, reasons: manifest.reasons },
+      excludedByManifest: excluded, excludedStrict: excl.strict, excludedLoose: excl.loose,
+      uncoveredLiteralDecls: real, uncoveredLiterals: uncovered,
+      boundShareGoverned: tot.var + real ? round(tot.var / (tot.var + real), 4) : null,
+    };
+  } else if (arm.isC) {
+    agg.governed = { manifest: manifest ? { path: manifest.path, error: manifest.error } : null, unavailable: true };
+  }
   const result = { arm: arm.id, arm_level: agg, perPage };
   if (arm.isC) result.tokens = compareTokens(dsc, fsVars);
   return result;

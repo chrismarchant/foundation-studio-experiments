@@ -19,58 +19,10 @@
       "resolution": "Container is fluid: max-width 1280px (lg container) inside 5% side padding; md/sm values arise from the padding"
     },
     {
-      "id": "cta.h2.font-size.md",
-      "intent": "fs.token.font.size.h2 = 40px at md",
-      "observed": "Penpot md board text is 48px",
-      "resolution": "DSC wins: 40px"
-    },
-    {
-      "id": "cta.h2.font-size.sm",
-      "intent": "fs.token.font.size.h2 = 36px at sm",
-      "observed": "Penpot sm board text is 48px",
-      "resolution": "DSC wins: 36px"
-    },
-    {
       "id": "features.grid-gap.sm",
       "intent": "DSC binds features gridGap to fs.token.space.gap.8 (32px); 1 column with no dividers at sm",
       "observed": "Penpot mobile Grid gap is 0px; rows are ruled by 1px top/bottom lines",
       "resolution": "gridGap token applied between columns from md; at sm rows are stacked with 1px rules and no extra gap"
-    },
-    {
-      "id": "features.h2.font-size.md",
-      "intent": "fs.token.font.size.h2 = 40px at md",
-      "observed": "Penpot md board text is 48px",
-      "resolution": "DSC wins: 40px"
-    },
-    {
-      "id": "features.h2.font-size.sm",
-      "intent": "fs.token.font.size.h2 = 36px at sm",
-      "observed": "Penpot sm board text is 48px",
-      "resolution": "DSC wins: 36px"
-    },
-    {
-      "id": "features.item-heading.font-size.md",
-      "intent": "fs.token.font.size.h4 = 28px at md",
-      "observed": "Penpot md board text is 32px",
-      "resolution": "DSC wins: 28px"
-    },
-    {
-      "id": "features.item-heading.font-size.sm",
-      "intent": "fs.token.font.size.h4 = 24px at sm",
-      "observed": "Penpot sm board text is 32px",
-      "resolution": "DSC wins: 24px"
-    },
-    {
-      "id": "hero.h1.font-size.md",
-      "intent": "fs.token.font.size.h1 = 48px at md",
-      "observed": "Penpot md board text is 56px",
-      "resolution": "DSC wins: 48px"
-    },
-    {
-      "id": "hero.h1.font-size.sm",
-      "intent": "fs.token.font.size.h1 = 40px at sm",
-      "observed": "Penpot sm board text is 56px",
-      "resolution": "DSC wins: 40px"
     },
     {
       "id": "hero.text-offset.lg",
@@ -103,18 +55,6 @@
       "resolution": "DSC wins: 32px at sm as well"
     },
     {
-      "id": "testimonials.h2.font-size.md",
-      "intent": "fs.token.font.size.h2 = 40px at md",
-      "observed": "Penpot md board text is 48px",
-      "resolution": "DSC wins: 40px"
-    },
-    {
-      "id": "testimonials.h2.font-size.sm",
-      "intent": "fs.token.font.size.h2 = 36px at sm",
-      "observed": "Penpot sm board text is 48px",
-      "resolution": "DSC wins: 36px"
-    },
-    {
       "id": "testimonials.order.below-lg",
       "intent": "Owner task statement: card index 2 (first quote card) is ordered last below lg",
       "observed": "Penpot tablet/mobile boards keep DOM order (logo, logo, quote, quote, logo, logo) with both quote cards adjacent",
@@ -123,7 +63,7 @@
   ],
   "dsc": {
     "id": "fs.ds.relume-default",
-    "revision": "sha256:13d4a3adbf9c5b80c2d4d46d84a9a2369aa40e97d92c8839f944b014411faed8",
+    "revision": "sha256:4243b7aa087b568fcf16cfab27ec72a2f3d04fc13fb5ff81c06c98ae8393cf25",
     "version": "0.1"
   },
   "files": [
@@ -229,11 +169,11 @@
     },
     {
       "path": "app/src/generated/tokens.css",
-      "sha256": "80e8c489548cc90072d8625ef119aeb104075f0a3438d3b0d749a824bfc352a0"
+      "sha256": "aa223c5329b49057895a42f765d1e0f1013c8d03d4c056795214e38b91cdb9ec"
     },
     {
       "path": "app/src/generated/tokens.ts",
-      "sha256": "17d86fb772d090d84cc35277d0212bc8f6114802971d3380f3fa9aaac2ab4dd9"
+      "sha256": "6c49e96848a97612ef89d21af9f5f89e3696c023a47552db854aa61735182a58"
     },
     {
       "path": "ssr/public/fonts/source-sans-3.css",
@@ -278,7 +218,7 @@
     "generator/emit/routes.ts": "9451f80b0dcdf5acc33e280fd6477350219a9787e969d4c213bd3545a3580a42",
     "generator/emit/static.ts": "5cd55963b46db1580f980a2dcb2b8fc1cec9fc1f623da73763273a5a6a62f82e",
     "generator/emit/testimonials.ts": "b731426084199315b18266f1345534eebb0ef0fa20bd59c07379a7f8a27eec87",
-    "generator/generate.ts": "880d26128171646900bae54b39c691dba0d4f68707abd520b9ba56fffada4257",
+    "generator/generate.ts": "db060fca735efea6f8c7b4f0453603fcbd81cd6f926d98f91945749ad054bcfe",
     "generator/lib/css.ts": "ca567282e81824a9c4117c8dafb0ffb1aca16d76063bc7f5b3fd9092817e95c2",
     "generator/lib/ctx.ts": "cd4d8e7f59678901808acb865e7c1ecde05802685ab5bf616a872dddcf05ab0a",
     "generator/lib/emitutil.ts": "c7eb5dcc76b176bd2d38058c3a3da6cc695023bafdbc77c13deeb64568e045b5",
@@ -292,7 +232,7 @@
   },
   "inputs": {
     "../inputs/copy.json": "af8154ee64ed982dd63a7ef8b07fc4016229a60458b4c78c9ff64e9bbaa2cf66",
-    "../inputs/dsc/fs.ds.relume-default.r1.json": "ca24195a796a2797aa36f5c0d4eea45bf444ef6c7551560fb9007af62984a114",
+    "../inputs/dsc/fs.ds.relume-default.r2.json": "d837c29245617c6948be147c03541d7094d1f5cd3e1ffc41d75e9ad955b91731",
     "../inputs/fonts/MANIFEST.json": "261df4482f6d22fa056f707c65b31b0b0cc5aa42958d39b270c83073ab9eda2d",
     "../inputs/fonts/source-sans-3.css": "e9a751883bf0c84fe7ec5703ec460b6cbe68da56b1186184128b9e7b0e204875",
     "../inputs/fonts/ss3-1.woff2": "19143dca075972bc84e3fd9eab7416dd40cc565dccb2435a044bdfabe060c7d5",

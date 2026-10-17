@@ -40,9 +40,6 @@
 /* md: below 1024px (canvas 768) */
 @media (max-width: 1023.98px) {
   :root {
-    --fs-font-size-h1: 48px;
-    --fs-font-size-h2: 40px;
-    --fs-font-size-h4: 28px;
     --fs-space-section-lg: 96px;
   }
 }
@@ -50,9 +47,6 @@
 /* sm: below 768px (canvas 375) */
 @media (max-width: 767.98px) {
   :root {
-    --fs-font-size-h1: 40px;
-    --fs-font-size-h2: 36px;
-    --fs-font-size-h4: 24px;
     --fs-space-section-lg: 64px;
   }
 }

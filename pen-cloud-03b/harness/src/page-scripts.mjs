@@ -32,17 +32,22 @@ export function installHelpers(arg) {
   };
 
   // ---- section location (works identically for every arm: uses the shared copy) ----
-  const locateSections = () => {
-    const root = subject() || document.body;
+  const getAnchors = () => {
     const hs = [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')];
     const byText = (t) => hs.find((h) => norm(h.textContent) === norm(t));
-    const anchors = {
-      navbar: document.querySelector('nav'),
+    // navbar anchor: a <nav> if the arm has one, else the first nav link by its copy text
+    const navLink = [...document.querySelectorAll('a,button')].find((a) => norm(a.textContent) === norm(copy.navbar.links[0]));
+    return {
+      navbar: document.querySelector('nav') || navLink || null,
       header80: byText(copy.header80.heading),
       layout620: byText(copy.layout620.heading),
       testimonial37: byText(copy.testimonial37.heading),
       cta25: byText(copy.cta25.heading),
     };
+  };
+  const locateSections = () => {
+    const root = subject() || document.body;
+    const anchors = getAnchors();
     const out = {};
     if (route === 'button') return out;
     if (route !== 'page') {
@@ -146,7 +151,27 @@ export function installHelpers(arg) {
     return { els, roles };
   };
 
-  window.__pc = { norm, r2, subject, box, styleOf, textOf, isVisible, locateSections, layoutColumns, testimonialColumns, findStage, collectRoles, distinct, implicitRole };
+  // r2 padding target: nearest <section>, else nearest data-fs-id section root, else nearest header/nav.
+  const nearestSection = (a) => {
+    if (!a) return null;
+    return a.closest('section')
+      || (() => { for (let e = a; e; e = e.parentElement) { const id = e.getAttribute && e.getAttribute('data-fs-id'); if (id && /^fs\.section\.[^.]+\.[^.]+$/.test(id)) return e; } return null; })()
+      || a.closest('header,nav');
+  };
+  const sectionPadding = () => {
+    const anchors = getAnchors();
+    const keys = route === 'page' ? Object.keys(anchors) : anchors[route] !== undefined ? [route] : [];
+    const out = {};
+    for (const k of keys) {
+      const s = nearestSection(anchors[k]);
+      if (!s) { out[k] = null; continue; }
+      const cs = getComputedStyle(s);
+      out[k] = { tag: s.tagName.toLowerCase(), dataFsId: s.getAttribute('data-fs-id'), paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom };
+    }
+    return out;
+  };
+
+  window.__pc = { getAnchors, nearestSection, sectionPadding, norm, r2, subject, box, styleOf, textOf, isVisible, locateSections, layoutColumns, testimonialColumns, findStage, collectRoles, distinct, implicitRole };
   return true;
 }
 
@@ -201,6 +226,7 @@ export function collectSweep() {
     overflowX: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > window.innerWidth,
     subject: { found: !!pc.subject(), paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom },
     sections: sectionsOut,
+    sectionPadding: pc.sectionPadding(),
     columns: {},
   };
   if (sections.layout620) out.columns.layout620 = pc.layoutColumns(sections).columns;
@@ -310,14 +336,14 @@ export function collectDecls() {
     try { const s2 = stripState(sel).trim(); if (s2 && s2 !== sel) return !!document.querySelector(s2); } catch { return true; }
     return false;
   };
-  const handleDecls = (decls, selector, key) => {
+  const handleDecls = (decls, selector, key, sheet) => {
     for (const [prop, value] of decls) {
       if (prop.startsWith('--fs-')) fsProps.add(prop);
       const isGov = governed(prop);
       const isShort = SHORT.has(prop);
       if (!isGov && !isShort) continue;
       const c = classify(value);
-      out.push({ key: key + '|' + prop, selector: selector.slice(0, 120), prop, value: value.slice(0, 160), cls: c.cls, mixed: !!c.mixed, shorthand: isShort });
+      out.push({ key: key + '|' + prop, sheet: sheet || '', selector: selector.slice(0, 120), prop, value: value.slice(0, 160), cls: c.cls, mixed: !!c.mixed, shorthand: isShort });
     }
   };
   const walk = (rules, sid, path) => {
@@ -328,7 +354,7 @@ export function collectDecls() {
       if (ctor === 'CSSStyleRule') {
         const decls = splitDecls(rule.style.cssText);
         for (const [prop] of decls) if (prop.startsWith('--fs-')) fsProps.add(prop);
-        if (matches(rule.selectorText)) handleDecls(decls, rule.selectorText, sid + '|' + p);
+        if (matches(rule.selectorText)) handleDecls(decls, rule.selectorText, sid + '|' + p, sid);
         if (rule.cssRules && rule.cssRules.length) walk(rule.cssRules, sid, p);
       } else if (ctor === 'CSSMediaRule') {
         let ok = true;
@@ -363,7 +389,7 @@ export function collectDecls() {
     for (const d of decls) {
       if (d[0].startsWith('--fs-')) fsProps.add(d[0]);
     }
-    handleDecls(decls, 'style[' + sel + ']', 'attr|' + sel + '|' + css.slice(0, 80));
+    handleDecls(decls, 'style[' + sel + ']', 'attr|' + sel + '|' + css.slice(0, 80), 'inline-style-attribute');
   }
   const rootCs = getComputedStyle(document.documentElement);
   const fsVars = {};

@@ -20,10 +20,10 @@ export const tokens = {
   "font.lineHeight.body": { id: "fs.token.font.lineHeight.body", type: "lineHeight", value: "1.5", cssVar: "--fs-font-lineHeight-body" },
   "font.lineHeight.h4": { id: "fs.token.font.lineHeight.h4", type: "lineHeight", value: "1.3", cssVar: "--fs-font-lineHeight-h4" },
   "font.lineHeight.heading": { id: "fs.token.font.lineHeight.heading", type: "lineHeight", value: "1.2", cssVar: "--fs-font-lineHeight-heading" },
-  "font.size.h1": { id: "fs.token.font.size.h1", type: "fontSize", value: "56px", cssVar: "--fs-font-size-h1", responsive: {"md":"48px","sm":"40px"} },
-  "font.size.h2": { id: "fs.token.font.size.h2", type: "fontSize", value: "48px", cssVar: "--fs-font-size-h2", responsive: {"md":"40px","sm":"36px"} },
+  "font.size.h1": { id: "fs.token.font.size.h1", type: "fontSize", value: "56px", cssVar: "--fs-font-size-h1" },
+  "font.size.h2": { id: "fs.token.font.size.h2", type: "fontSize", value: "48px", cssVar: "--fs-font-size-h2" },
   "font.size.h3": { id: "fs.token.font.size.h3", type: "fontSize", value: "40px", cssVar: "--fs-font-size-h3" },
-  "font.size.h4": { id: "fs.token.font.size.h4", type: "fontSize", value: "32px", cssVar: "--fs-font-size-h4", responsive: {"md":"28px","sm":"24px"} },
+  "font.size.h4": { id: "fs.token.font.size.h4", type: "fontSize", value: "32px", cssVar: "--fs-font-size-h4" },
   "font.size.h5": { id: "fs.token.font.size.h5", type: "fontSize", value: "24px", cssVar: "--fs-font-size-h5" },
   "font.size.h6": { id: "fs.token.font.size.h6", type: "fontSize", value: "20px", cssVar: "--fs-font-size-h6" },
   "font.size.medium": { id: "fs.token.font.size.medium", type: "fontSize", value: "18px", cssVar: "--fs-font-size-medium" },
@@ -55,4 +55,4 @@ export const breakpoints = [
   { id: "sm", minWidth: 0, canvas: 375, container: 337, sidePadding: "5%" },
 ] as const;
 
-export const dscRevision = "sha256:13d4a3adbf9c5b80c2d4d46d84a9a2369aa40e97d92c8839f944b014411faed8";
+export const dscRevision = "sha256:4243b7aa087b568fcf16cfab27ec72a2f3d04fc13fb5ff81c06c98ae8393cf25";

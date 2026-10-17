@@ -11,9 +11,11 @@
   "scripts": {
     "generate": "tsx generator/generate.ts",
     "generate:verify": "tsx generator/generate.ts --verify",
+    "generate:r2": "tsx generator/generate.ts --dsc dsc/fs.ds.relume-default.r2.json",
+    "generate:verify:r2": "tsx generator/generate.ts --verify --dsc dsc/fs.ds.relume-default.r2.json",
     "typecheck": "tsc -p generator/tsconfig.json --noEmit && pnpm -C app typecheck && pnpm -C ssr typecheck",
     "lint": "biome check",
-    "build": "pnpm generate && pnpm -C app build && pnpm -C ssr build",
+    "build": "pnpm generate:r2 && pnpm -C app build && pnpm -C ssr build",
     "serve": "pnpm -C app serve",
     "serve:ssr": "pnpm -C ssr serve"
   },

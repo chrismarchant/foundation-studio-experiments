@@ -27,6 +27,10 @@ export function lineHashesOfTree(root, { skip = SKIP } = {}) {
   return { set, files, lines };
 }
 
+// Pure import / re-export statements (single line, or the closing line of a multi-line import).
+const IMPORT_LINE = /^(?:import\b[^;]*?\bfrom\s*['"][^'"]+['"]|import\s*['"][^'"]+['"]|export\b[^;]*?\bfrom\s*['"][^'"]+['"]|\}\s*from\s*['"][^'"]+['"])\s*;?$/;
+export const isImportLine = (t) => IMPORT_LINE.test(t);
+
 export function licenceCheck({ armCDir, relumeSrc }) {
   const ref = lineHashesOfTree(relumeSrc);
   const targets = [path.join(armCDir, 'app', 'src', 'generated'), path.join(armCDir, 'generator')];
@@ -43,7 +47,7 @@ export function licenceCheck({ armCDir, relumeSrc }) {
         if (t.length < MIN_LEN) return;
         scannedLines++;
         const h = sha256(t);
-        if (ref.set.has(h)) matches.push({ file: path.relative(armCDir, path.join(root, f)).split(path.sep).join('/'), line: i + 1, sha256: h });
+        if (ref.set.has(h)) matches.push({ importLine: isImportLine(t), file: path.relative(armCDir, path.join(root, f)).split(path.sep).join('/'), line: i + 1, sha256: h });
       });
     }
   }
@@ -51,6 +55,9 @@ export function licenceCheck({ armCDir, relumeSrc }) {
     minLineLength: MIN_LEN, referenceFiles: ref.files, referenceLines: ref.lines,
     targets: targets.map((t) => ({ dir: t, exists: fs.existsSync(t) })), scannedFiles, scannedLines,
     matchCount: matches.length, uniqueMatchingHashes: [...new Set(matches.map((m) => m.sha256))].length, matches,
+    matchCountExclImports: matches.filter((m) => !m.importLine).length,
+    importLineMatchCount: matches.filter((m) => m.importLine).length,
+    importLineMatches: matches.filter((m) => m.importLine),
     note: 'Supplementary, not proof. Only hashes and C-side file:line locations are recorded, never the lines.',
   };
 }

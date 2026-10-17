@@ -38,6 +38,22 @@ export function compareFrozen(genHashes, frozenText) {
   };
 }
 
+/** r2: FROZEN.md paths are relative to the arm-c root; compare every entry by exact path. */
+export function compareFrozenRoot(rootHashes, frozenText) {
+  const { entries } = parseFrozen(frozenText);
+  const norm = (p) => p.replace(/^\.?\//, '').replace(/\\/g, '/');
+  const byPath = new Map(entries.map((e) => [norm(e.path), e.sha256]));
+  const matched = [], mismatched = [], frozenNotOnDisk = [];
+  for (const [p, h] of byPath) {
+    if (!(p in rootHashes)) frozenNotOnDisk.push(p);
+    else if (rootHashes[p] === h) matched.push(p);
+    else mismatched.push({ file: p, actual: rootHashes[p], frozen: h });
+  }
+  const unlisted = Object.keys(rootHashes).filter((p) => !byPath.has(p));
+  return { frozenEntries: byPath.size, matched: matched.length, mismatched, frozenNotOnDisk, unlisted,
+    allMatch: byPath.size > 0 && mismatched.length === 0 && frozenNotOnDisk.length === 0 };
+}
+
 export async function runDeterminism({ armCDir, outDir, armId = 'C', log = () => {} }) {
   const dir = ensureDir(path.join(outDir, armId));
   const out = { armCDir };
@@ -57,6 +73,14 @@ export async function runDeterminism({ armCDir, outDir, armId = 'C', log = () =>
       out.frozen = { file: frozenFile, ...compareFrozen(hashes, fs.readFileSync(frozenFile, 'utf8')) };
     } else out.frozen = { file: frozenFile, missing: true };
   }
+  // r2 comparison: hash app/src/generated and generator keyed by arm-c-root-relative path
+  const rootHashes = {};
+  for (const sub of ['app/src/generated', 'generator']) {
+    const d = path.join(armCDir, sub);
+    if (fs.existsSync(d)) for (const [f, h] of Object.entries(hashTree(d))) rootHashes[`${sub}/${f}`] = h;
+  }
+  out.rootHashes = { fileCount: Object.keys(rootHashes).length };
+  out.frozenRoot = fs.existsSync(frozenFile) ? { file: frozenFile, ...compareFrozenRoot(rootHashes, fs.readFileSync(frozenFile, 'utf8')) } : { file: frozenFile, missing: true };
   // 3. bundle reproducibility: two builds, compare dist hashes
   const buildDir = resolveScriptDir([path.join(armCDir, 'app'), armCDir], 'build') || null;
   out.bundleReproducibility = { buildDir };

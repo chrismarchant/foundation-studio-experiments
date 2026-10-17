@@ -5,7 +5,7 @@ import { parseArgs } from 'node:util';
 import { ARM_ORDER, EXP_DIR, ARM_A_ROOT, ROUTES, makeArms, loadDsc, BROWSER_CONTEXT, VIEWPORTS, sweepWidths } from './config.mjs';
 import { ensureDir, writeJson, readJson } from './util.mjs';
 import { startArmServer, stopAllServers } from './servers.mjs';
-import { launchBrowser, measurePages, measureResponsive, measureScrollProbe, aggregateTokens } from './measure.mjs';
+import { launchBrowser, measurePages, measureResponsive, measureScrollProbe, aggregateTokens, loadUngovernedManifest } from './measure.mjs';
 import { runBuild } from './build.mjs';
 import { runVisual } from './visual.mjs';
 import { runDeterminism } from './determinism.mjs';
@@ -138,7 +138,8 @@ try {
         writeJson(path.join(dir, 'geometry.json'), { arm: id, routes: r.geometry });
         writeJson(path.join(dir, 'accessibility.json'), { arm: id, routes: r.a11y });
         writeJson(path.join(dir, 'page-meta.json'), { arm: id, routes: r.meta });
-        const tok = aggregateTokens({ arm, tokenPages: r.tokens, dsc });
+        const manifest = arm.isC ? loadUngovernedManifest(path.join(arm.rootDir, 'app', 'src', 'generated', 'generated-manifest.json')) : null;
+        const tok = aggregateTokens({ arm, tokenPages: r.tokens, dsc, manifest });
         writeJson(path.join(dir, 'token-integrity.json'), tok);
       }
       if (has('responsive')) writeJson(path.join(dir, 'responsive.json'), { arm: id, widths: sweepWidths(), height: 900, routes: await measureResponsive({ browser, arm, log }) });

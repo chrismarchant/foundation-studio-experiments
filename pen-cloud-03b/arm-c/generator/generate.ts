@@ -39,8 +39,23 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
 const INPUT_DIR = resolve(ROOT, "../inputs");
 
+const DEFAULT_DSC = "dsc/fs.ds.relume-default.r1.json";
+
+/** DSC selection (C-R2-01): `--dsc <path relative to ../inputs>` or FS_DSC; default stays r1. */
+function selectedDsc(): string {
+  const argv = process.argv;
+  const i = argv.findIndex((a) => a === "--dsc" || a.startsWith("--dsc="));
+  if (i >= 0) {
+    const a = argv[i] as string;
+    const v = a.includes("=") ? a.slice(a.indexOf("=") + 1) : argv[i + 1];
+    if (!v) throw new Error("--dsc requires a path relative to ../inputs");
+    return v;
+  }
+  return process.env.FS_DSC || DEFAULT_DSC;
+}
+
 const INPUT_FILES = {
-  dsc: "dsc/fs.ds.relume-default.r1.json",
+  dsc: selectedDsc(),
   sac: "sac/landing-sac.json",
   structure: "penpot/structure.json",
   copy: "copy.json",
