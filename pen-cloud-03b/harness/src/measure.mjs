@@ -335,7 +335,7 @@ export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
   for (const [route, byW] of Object.entries(tokenPages)) {
     for (const [w, t] of Object.entries(byW)) {
       if (t.error) { (perPage[route] ||= {})[w] = { error: t.error }; continue; }
-      const c = { var: 0, literal: 0, otherVar: 0, neutral: 0, mixed: 0, shorthandVar: 0, shorthandLiteral: 0 };
+      const c = { var: 0, literal: 0, otherVar: 0, neutral: 0, unknown: 0, mixed: 0, shorthandVar: 0, shorthandLiteral: 0 };
       for (const d of t.decls) {
         if (d.shorthand) { if (d.cls === 'var') c.shorthandVar++; else if (d.cls === 'literal') c.shorthandLiteral++; continue; }
         c[d.cls]++;
@@ -355,7 +355,7 @@ export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
       Object.assign(fsVars, t.fsVars || {});
     }
   }
-  const tot = { var: 0, literal: 0, otherVar: 0, neutral: 0, mixed: 0 };
+  const tot = { var: 0, literal: 0, otherVar: 0, neutral: 0, unknown: 0, mixed: 0 };
   const literalSamples = [];
   const excl = { strict: 0, loose: 0, uncoveredTruncated: 0 };
   const uncovered = [];
@@ -373,7 +373,7 @@ export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
     }
   }
   const agg = {
-    varDecls: tot.var, literalDecls: tot.literal, otherVarDecls: tot.otherVar, neutralDecls: tot.neutral, mixedVarDecls: tot.mixed,
+    varDecls: tot.var, literalDecls: tot.literal, otherVarDecls: tot.otherVar, neutralDecls: tot.neutral, unreadableValueDecls: tot.unknown, mixedVarDecls: tot.mixed,
     boundShare: tot.var + tot.literal ? round(tot.var / (tot.var + tot.literal), 4) : null,
     boundShareStrict: tot.var + tot.literal + tot.otherVar ? round(tot.var / (tot.var + tot.literal + tot.otherVar), 4) : null,
     uniqueDeclarations: union.size, literalSamples, unreadableSheets: [...unreadable],

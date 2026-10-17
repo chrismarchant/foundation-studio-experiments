@@ -36,7 +36,7 @@ const tol = 0.51;
 const fmtPct = (x) => (x == null ? 'n/a' : (x * 100).toFixed(x === 1 || x === 0 ? 0 : 2) + '%');
 const sig = (r) => [r.tag, r.role, r.level, r.text].join('|');
 
-export function summarise(runDir, { criteria = 'r2' } = {}) {
+export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
   if (!['r1', 'r2'].includes(criteria)) throw new Error(`unknown --criteria ${criteria} (r1|r2)`);
   const R2 = criteria === 'r2';
   runDir = path.resolve(runDir);
@@ -106,9 +106,17 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
         } else if (!isRef) eqKnown = false;
         per[w] = row;
       }
-      const status = !anyData ? 'MISSING' : isRef ? 'REF' : allScore && allEq && eqKnown ? 'PASS' : allScore && allEq && !eqKnown ? 'MISSING' : 'FAIL';
-      add({ dimension: 'semantic', route, name: 'expected roles + role tree vs A', status, threshold: '100% roles, tree == A',
-        value: { score: Object.fromEntries(VPS.map((w) => [w, per[w]?.score ?? null])), treeEqualA: isRef ? null : Object.fromEntries(VPS.map((w) => [w, per[w]?.treeEqualA ?? null])), detail: per } });
+      const scoreMap = Object.fromEntries(VPS.map((w) => [w, per[w]?.score ?? null]));
+      const treeMap = isRef ? null : Object.fromEntries(VPS.map((w) => [w, per[w]?.treeEqualA ?? null]));
+      if (R2) {
+        add({ dimension: 'semantic', route, name: 'SAC-expected roles present', status: !anyData ? 'MISSING' : isRef ? 'REF' : allScore ? 'PASS' : 'FAIL', threshold: '100% at every viewport',
+          value: { score: scoreMap, missing: Object.fromEntries(VPS.map((w) => [w, per[w]?.missing ?? []])) } });
+        if (!isRef) add({ dimension: 'semantic', route, level: 'info', name: 'role tree vs A (informational)', status: !anyData ? 'MISSING' : 'INFO', threshold: 'n/a (A has its own defects)',
+          value: { treeEqualA: treeMap, visibleTreeEqualA: Object.fromEntries(VPS.map((w) => [w, per[w]?.visibleTreeEqualA ?? null])), firstDiff: Object.fromEntries(VPS.map((w) => [w, per[w]?.firstDiff ?? null])) } });
+      } else {
+        const status = !anyData ? 'MISSING' : isRef ? 'REF' : allScore && allEq && eqKnown ? 'PASS' : allScore && allEq && !eqKnown ? 'MISSING' : 'FAIL';
+        add({ dimension: 'semantic', route, name: 'expected roles + role tree vs A', status, threshold: '100% roles, tree == A', value: { score: scoreMap, treeEqualA: treeMap, detail: per } });
+      }
     }
 
     // responsive
@@ -117,6 +125,7 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
       if (!rr) { add({ dimension: 'responsive', route, name: 'sweep', status: 'MISSING', value: null, threshold: 'matches A' }); continue; }
       const widths = D.resp.widths || Object.keys(rr).map(Number);
       const overflow = [], colMis = [], padMis = [], errors = [];
+      let padNoData = false;
       for (const w of widths) {
         const s = rr[w];
         if (!s || s.error) { errors.push(w); continue; }
@@ -125,18 +134,27 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
         if (a && !a.error && !isRef) {
           for (const k of Object.keys(a.columns || {})) if (a.columns[k] !== s.columns?.[k]) colMis.push({ w, section: k, A: a.columns[k], arm: s.columns?.[k] ?? null });
           const pa = (x) => parseFloat(x);
-          if (Math.abs(pa(a.subject.paddingTop) - pa(s.subject.paddingTop)) > tol) padMis.push({ w, section: 'subject', A: a.subject.paddingTop, arm: s.subject.paddingTop });
-          for (const k of Object.keys(a.sections || {})) {
-            const bs = s.sections?.[k];
-            if (!bs || Math.abs(pa(a.sections[k].paddingTop) - pa(bs.paddingTop)) > tol) padMis.push({ w, section: k, A: a.sections[k].paddingTop, arm: bs?.paddingTop ?? null });
+          if (R2) {
+            if (!a.sectionPadding || !s.sectionPadding) padNoData = true;
+            else for (const k of Object.keys(a.sectionPadding)) {
+              if (!a.sectionPadding[k]) continue; // A has no such section element: nothing to compare against
+              const bs = s.sectionPadding[k];
+              if (!bs || Math.abs(pa(a.sectionPadding[k].paddingTop) - pa(bs.paddingTop)) > tol) padMis.push({ w, section: k, A: a.sectionPadding[k].paddingTop, arm: bs?.paddingTop ?? null, armTag: bs?.tag });
+            }
+          } else {
+            if (Math.abs(pa(a.subject.paddingTop) - pa(s.subject.paddingTop)) > tol) padMis.push({ w, section: 'subject', A: a.subject.paddingTop, arm: s.subject.paddingTop });
+            for (const k of Object.keys(a.sections || {})) {
+              const bs = s.sections?.[k];
+              if (!bs || Math.abs(pa(a.sections[k].paddingTop) - pa(bs.paddingTop)) > tol) padMis.push({ w, section: k, A: a.sections[k].paddingTop, arm: bs?.paddingTop ?? null });
+            }
           }
         }
       }
-      const refMissing = !A?.resp && !isRef;
+      const refMissing = (!A?.resp && !isRef) || padNoData;
       const ok = !overflow.length && !colMis.length && !padMis.length && !errors.length;
       add({ dimension: 'responsive', route, name: 'columns/padding == A, no overflow', threshold: 'all widths match A, no overflow',
         status: isRef ? 'REF' : refMissing ? 'MISSING' : ok ? 'PASS' : 'FAIL',
-        value: { widthsChecked: widths.length, overflowAt: overflow, columnMismatches: colMis.slice(0, 20), paddingMismatches: padMis.slice(0, 20), errors } });
+        value: { padding: R2 ? 'nearest section containing the route heading' : 'subject wrapper + located sections', note: padNoData ? 'sectionPadding absent: re-measure with the r2 harness' : undefined, widthsChecked: widths.length, overflowAt: overflow, columnMismatches: colMis.slice(0, 20), paddingMismatches: padMis.slice(0, 20), errors } });
     }
 
     // animation
@@ -175,7 +193,18 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
     if (D.tok) {
       const al = D.tok.arm_level || {};
       const tk = D.tok.tokens;
-      if (isC) {
+      const gv = al.governed;
+      if (isC && R2) {
+        add({ dimension: 'tokens', route: 'ALL', name: 'boundShare over DSC-governed declarations = 100%', threshold: '100% (manifest-listed ungoverned literals excluded)',
+          status: !gv || gv.unavailable ? 'MISSING' : gv.boundShareGoverned === 1 ? 'PASS' : 'FAIL',
+          value: !gv || gv.unavailable ? { note: 'generated-manifest.json ungoverned[] not readable', manifest: gv?.manifest ?? null }
+            : { boundShareGoverned: gv.boundShareGoverned, rawBoundShare_info: al.boundShare, varDecls: al.varDecls, rawLiteralDecls: al.literalDecls, unreadableValueDecls: al.unreadableValueDecls,
+                excludedByManifest: gv.excludedByManifest, excludedStrict: gv.excludedStrict, excludedLoose_fileNotIdentifiable: gv.excludedLoose,
+                uncoveredLiteralDecls: gv.uncoveredLiteralDecls, uncoveredLiterals: (gv.uncoveredLiterals || []).slice(0, 15), manifest: gv.manifest } });
+        add({ dimension: 'tokens', route: 'ALL', name: 'DSC token values (computed :root) have 0 mismatches', threshold: '0 mismatches, 0 missing',
+          status: tk && tk.mismatchCount === 0 && tk.missingCount === 0 ? 'PASS' : 'FAIL',
+          value: tk ? { tokenCount: tk.tokenCount, ok: tk.ok, mismatches: tk.mismatches?.slice(0, 20), missing: tk.missing?.slice(0, 20) } : 'no token data' });
+      } else if (isC) {
         add({ dimension: 'tokens', route: 'ALL', name: 'boundShare = 100%', threshold: '100% var(--fs-*)', status: al.boundShare === 1 ? 'PASS' : 'FAIL',
           value: { boundShare: al.boundShare, boundShareStrict: al.boundShareStrict, varDecls: al.varDecls, literalDecls: al.literalDecls, otherVarDecls: al.otherVarDecls, mixedVarDecls: al.mixedVarDecls, literalSamples: (al.literalSamples || []).slice(0, 15) } });
         add({ dimension: 'tokens', route: 'ALL', name: 'DSC token values (computed :root) have 0 mismatches', threshold: '0 mismatches, 0 missing',
@@ -188,8 +217,10 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
       for (const route of ROUTES) {
         const p = D.tok.perPage?.[route]?.[1440];
         if (!p) continue;
-        add({ dimension: 'tokens', route, name: 'boundShare @1440', threshold: isC ? '100%' : 'n/a', status: isC ? (p.boundShare === 1 ? 'PASS' : 'FAIL') : 'INFO', level: isC ? 'required' : 'info',
-          value: { boundShare: p.boundShare, var: p.var, literal: p.literal } });
+        const share = isC && R2 ? p.boundShareGoverned : p.boundShare;
+        add({ dimension: 'tokens', route, name: isC && R2 ? 'governed boundShare @1440' : 'boundShare @1440', threshold: isC ? '100%' : 'n/a',
+          status: isC ? (R2 && share === undefined ? 'MISSING' : share === 1 ? 'PASS' : 'FAIL') : 'INFO', level: isC ? 'required' : 'info',
+          value: { share, rawBoundShare: p.boundShare, var: p.var, literal: p.literal, excludedByManifest: p.excludedByManifest } });
       }
     }
 
@@ -238,17 +269,20 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
     if (arm === 'C') {
       if (D.det) {
         add({ dimension: 'determinism', route: '-', name: 'pnpm generate:verify exit code', threshold: 'exit 0', status: D.det.generateVerify?.exitCode === 0 ? 'PASS' : 'FAIL', value: `exit ${D.det.generateVerify?.exitCode}` });
-        const f = D.det.frozen;
-        add({ dimension: 'determinism', route: '-', name: 'generated/ hashes == FROZEN.md', threshold: 'all equal', status: !f ? 'MISSING' : f.missing ? 'FAIL' : f.allMatch ? 'PASS' : 'FAIL',
-          value: f ? { files: D.det.generated?.fileCount, frozenEntries: f.frozenEntries, matched: f.matched, mismatched: f.mismatched, notInFrozen: f.notInFrozen?.slice?.(0, 10), frozenNotOnDisk: f.frozenNotOnDisk?.slice?.(0, 10), aggregateFound: f.aggregateFound, missingFile: f.missing } : null });
+        const f = R2 && D.det.frozenRoot ? D.det.frozenRoot : D.det.frozen;
+        add({ dimension: 'determinism', route: '-', name: R2 ? 'every FROZEN.md entry (root-relative) matches disk' : 'generated/ hashes == FROZEN.md', threshold: 'all equal', status: !f ? 'MISSING' : f.missing ? 'FAIL' : f.allMatch ? 'PASS' : 'FAIL',
+          value: f ? { files: D.det.generated?.fileCount, unlisted: f.unlisted?.slice?.(0, 10), frozenEntries: f.frozenEntries, matched: f.matched, mismatched: f.mismatched, notInFrozen: f.notInFrozen?.slice?.(0, 10), frozenNotOnDisk: f.frozenNotOnDisk?.slice?.(0, 10), aggregateFound: f.aggregateFound, missingFile: f.missing } : null });
         const br = D.det.bundleReproducibility;
         add({ dimension: 'determinism', route: '-', name: 'bundle reproducibility (two builds, reported separately)', threshold: 'identical dist hashes (info)', level: 'info', status: br?.identical ? 'PASS' : br?.buildDir ? 'FAIL' : 'MISSING',
           value: br ? { exitCodes: br.exitCodes, fileCounts: br.fileCounts, differingFiles: br.differingFiles?.slice(0, 20) } : null });
       } else add({ dimension: 'determinism', route: '-', name: 'determinism', threshold: 'exit 0', status: 'MISSING', value: 'step not run' });
       if (D.lic) {
         const l = D.lic.licenceLines, fb = D.lic.forbiddenStrings;
-        add({ dimension: 'licence', route: '-', name: 'matching lines >= 40 chars vs Arm A source (supplementary, not proof)', threshold: '0', status: l.matchCount === 0 ? 'PASS' : 'FAIL',
-          value: { matchCount: l.matchCount, uniqueHashes: l.uniqueMatchingHashes, scannedLines: l.scannedLines, referenceLines: l.referenceLines, locations: l.matches?.slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
+        const nonImport = R2 && l.matchCountExclImports !== undefined ? l.matchCountExclImports : l.matchCount;
+        if (R2 && l.importLineMatchCount !== undefined) add({ dimension: 'licence', route: '-', level: 'info', name: 'import-line matches (excluded from the check, reported separately)', threshold: 'n/a', status: 'INFO',
+          value: { importLineMatchCount: l.importLineMatchCount, locations: l.importLineMatches?.slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
+        add({ dimension: 'licence', route: '-', name: R2 ? 'matching non-import lines >= 40 chars vs Arm A source (supplementary, not proof)' : 'matching lines >= 40 chars vs Arm A source (supplementary, not proof)', threshold: '0', status: nonImport === 0 ? 'PASS' : 'FAIL',
+          value: { matchCount: nonImport, uniqueHashes: l.uniqueMatchingHashes, scannedLines: l.scannedLines, referenceLines: l.referenceLines, locations: l.matches?.filter((m) => !(R2 && m.importLine)).slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
         add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir', threshold: '0 hits', status: fb.hitCount === 0 ? 'PASS' : 'FAIL', value: { hitCount: fb.hitCount, filesScanned: fb.filesScanned, hits: fb.hits?.slice(0, 20) } });
       } else add({ dimension: 'licence', route: '-', name: 'licence check', threshold: '0', status: 'MISSING', value: 'step not run (run after C is frozen: --licence)' });
     }
@@ -260,11 +294,25 @@ export function summarise(runDir, { criteria = 'r2' } = {}) {
     };
     out.arms[arm] = { reference: isRef, verdict: { required: tally('required'), stretch: tally('stretch'), info: tally('info') }, checks };
   }
-  fs.writeFileSync(path.join(runDir, 'summary.json'), JSON.stringify(out, null, 2) + '\n');
-  fs.writeFileSync(path.join(runDir, 'summary.md'), renderMd(out));
+  out.aReferenceAnomalies = referenceAnomalies(A);
+  fs.writeFileSync(path.join(runDir, `summary${suffix}.json`), JSON.stringify(out, null, 2) + '\n');
+  fs.writeFileSync(path.join(runDir, `summary${suffix}.md`), renderMd(out));
   const tl = Object.entries(out.arms).map(([a, r]) => `${a}: ${r.reference ? 'reference' : `${r.verdict.required.pass} pass / ${r.verdict.required.fail} fail / ${r.verdict.required.missing} missing`}`).join('; ');
-  console.log(`  wrote ${path.join(runDir, 'summary.json')} and summary.md  (${tl})`);
+  console.log(`  wrote ${path.join(runDir, `summary${suffix}.json`)} and summary${suffix}.md [${criteria}]  (${tl})`);
   return out;
+}
+
+export function referenceAnomalies(A) {
+  if (!A) return { present: false };
+  const semantic = [], axe = [];
+  for (const route of ROUTES) for (const w of VPS) {
+    const e = A.dom?.routes?.[route]?.[w];
+    if (e && !e.error && e.semantic && e.semantic.score !== 1) semantic.push({ route, width: w, score: e.semantic.score, missing: e.semantic.missing, h1Count: e.semantic.h1Count });
+    const a = A.a11y?.routes?.[route]?.[w];
+    const hits = (a?.violations || []).filter((v) => v.impact === 'serious' || v.impact === 'critical');
+    if (hits.length) axe.push({ route, width: w, violations: hits.map((v) => ({ id: v.id, impact: v.impact, nodeCount: v.nodeCount })) });
+  }
+  return { present: true, semantic, axe };
 }
 
 const cell = (v) => {
@@ -277,11 +325,21 @@ const short = (v, n = 160) => { const s = cell(v); return s.length > n ? s.slice
 function renderMd(s) {
   const L = [];
   L.push(`# PEN-CLOUD-03-B acceptance summary${s.dryRun ? ' (DRY RUN - stub arms, not a result)' : ''}`, '');
+  L.push(`Criteria: **${s.criteria}**${s.criteria === 'r2' ? ' (semantic: roles only; governed token share; section padding; root-relative FROZEN; import lines excluded)' : ' (original acceptance wording)'}`, '');
   L.push(`Run: \`${s.label}\`  ·  generated ${s.generatedAt}  ·  reference arm A ${s.referencePresent ? 'present' : '**absent** (comparisons marked MISSING)'}`, '');
   L.push('## Verdict (required checks)', '', '| Arm | PASS | FAIL | MISSING | stretch PASS/FAIL |', '|---|---|---|---|---|');
   for (const [a, r] of Object.entries(s.arms)) {
     if (r.reference) L.push(`| ${a} | reference | | | |`);
     else L.push(`| ${a} | ${r.verdict.required.pass} | ${r.verdict.required.fail} | ${r.verdict.required.missing} | ${r.verdict.stretch.pass}/${r.verdict.stretch.fail} |`);
+  }
+  L.push('', '## A reference anomalies', '', 'Defects in the Relume control itself (arm A). They are not C defects and are not scored; they are listed so they are not mistaken for C results.', '');
+  const an = s.aReferenceAnomalies;
+  if (!an?.present) L.push('_Arm A not in this run._');
+  else {
+    L.push(`- **A semantic score below 1:** ${an.semantic.length ? '' : 'none'}`);
+    for (const x of an.semantic) L.push(`  - ${x.route} @${x.width}: score ${x.score}; missing ${JSON.stringify(x.missing)}${x.h1Count !== undefined ? `; h1 count ${x.h1Count}` : ''}`);
+    L.push(`- **A axe serious/critical:** ${an.axe.length ? '' : 'none'}`);
+    for (const x of an.axe) L.push(`  - ${x.route} @${x.width}: ${x.violations.map((v) => `${v.id} (${v.impact}, ${v.nodeCount} nodes)`).join(', ')}`);
   }
   L.push('', '## Dimension matrix', '');
   const dims = [...new Set(Object.values(s.arms).flatMap((r) => r.checks.map((c) => c.dimension)))];
@@ -323,7 +381,10 @@ function compactValue(dim, v) {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
-  const dir = process.argv.slice(2).filter((a) => a !== '--')[0];
-  if (!dir) { console.error('usage: node summarise.mjs <run-dir>'); process.exit(2); }
-  summarise(dir);
+  const args = process.argv.slice(2).filter((a) => a !== '--');
+  const ci = args.indexOf('--criteria');
+  const criteria = ci >= 0 ? args[ci + 1] : 'r2';
+  const dir = args.find((a, i) => !a.startsWith('--') && i !== ci + 1);
+  if (!dir) { console.error('usage: node summarise.mjs <run-dir> [--criteria r1|r2]'); process.exit(2); }
+  summarise(dir, { criteria });
 }

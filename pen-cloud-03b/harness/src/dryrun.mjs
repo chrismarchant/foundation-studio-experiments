@@ -4,16 +4,19 @@ import os from 'node:os';
 import path from 'node:path';
 import { ensureDir, writeJson, readJson, hashTree, sha256 } from './util.mjs';
 import { ROUTES, VIEWPORTS, SWEEP_ROUTES, sweepWidths } from './config.mjs';
-import { compareFrozen, parseFrozen } from './determinism.mjs';
+import { compareFrozen, compareFrozenRoot, parseFrozen } from './determinism.mjs';
+import { aggregateTokens } from './measure.mjs';
+import { referenceAnomalies } from '../summarise.mjs';
 import { forbiddenStringScan } from './licence.mjs';
 
+const IMPORT_PLANT = "import { somethingShared } from '../lib/some-long-module-path-name-x';";
 const PLANT = "const syntheticSharedLineForSelfTest = 'zzz-unique-marker-12345-abcdef';";
 
 export function setupFixtures(outDir) {
   const root = ensureDir(path.join(outDir, '_fixtures'));
   const armC = ensureDir(path.join(root, 'arm-c'));
   const relumeSrc = ensureDir(path.join(root, 'relume-src', 'sections'));
-  fs.writeFileSync(path.join(relumeSrc, 'Fake.tsx'), `// fixture\n${PLANT}\nexport const shortOne = 1;\nexport const aDifferentLongLineThatIsOnlyInTheReference = 'reference-only';\n`);
+  fs.writeFileSync(path.join(relumeSrc, 'Fake.tsx'), `// fixture\n${IMPORT_PLANT}\n${PLANT}\nexport const shortOne = 1;\nexport const aDifferentLongLineThatIsOnlyInTheReference = 'reference-only';\n`);
   ensureDir(path.join(armC, 'scripts'));
   ensureDir(path.join(armC, 'generator'));
   ensureDir(path.join(armC, 'app', 'src', 'generated'));
@@ -24,11 +27,21 @@ export function setupFixtures(outDir) {
   fs.writeFileSync(path.join(armC, 'scripts', 'verify.mjs'), "console.log('verify ok');\n");
   fs.writeFileSync(path.join(armC, 'scripts', 'build.mjs'),
     "import fs from 'node:fs';fs.mkdirSync('dist/assets',{recursive:true});fs.writeFileSync('dist/index.html','<html></html>');fs.writeFileSync('dist/assets/app.js','console.log(1);'.repeat(50));\n");
-  fs.writeFileSync(path.join(armC, 'generator', 'gen.mjs'), `// generator fixture\n${PLANT}\nexport const nothingElseShared = 'this line is long enough but unique to arm c';\n`);
+  fs.writeFileSync(path.join(armC, 'generator', 'gen.mjs'), `// generator fixture\n${IMPORT_PLANT}\n${PLANT}\nexport const nothingElseShared = 'this line is long enough but unique to arm c';\n`);
   fs.writeFileSync(path.join(armC, 'app', 'src', 'generated', 'tokens.css'), ':root{--fs-color:#000}\n');
   fs.writeFileSync(path.join(armC, 'app', 'src', 'generated', 'index.js'), "export const generated = true;\n");
-  const gen = hashTree(path.join(armC, 'app', 'src', 'generated'));
-  fs.writeFileSync(path.join(armC, 'FROZEN.md'), '# FROZEN\n\n| file | sha256 |\n|---|---|\n' + Object.entries(gen).map(([f, h]) => `| \`app/src/generated/${f}\` | ${h} |`).join('\n') + '\n');
+  // manifest of declarations the DSC does not govern (matches the stub's literal geometry; the stub sheet is inline, so these match loosely)
+  fs.writeFileSync(path.join(armC, 'app', 'src', 'generated', 'generated-manifest.json'), JSON.stringify({ ungoverned: [
+    { file: 'components.css', property: 'padding', value: '12px 24px', reason: 'geometry', source: 'fixture' },
+    { file: 'components.css', property: 'padding', value: '80px', reason: 'geometry', source: 'fixture' },
+    { file: 'components.css', property: 'gap', value: '16px', reason: 'geometry', source: 'fixture' },
+    { file: 'components.css', property: 'padding', value: '0px 5%', reason: 'geometry', source: 'fixture' },
+    { file: 'components.css', property: 'padding', value: '0px', reason: 'geometry', source: 'fixture' },
+    { file: 'components.css', property: 'border-width', value: '1px', reason: 'geometry', source: 'fixture' },
+  ] }, null, 2));
+  const hashesRel = {};
+  for (const sub of ['app/src/generated', 'generator']) for (const [f, h] of Object.entries(hashTree(path.join(armC, sub)))) hashesRel[`${sub}/${f}`] = h;
+  fs.writeFileSync(path.join(armC, 'FROZEN.md'), '# FROZEN\n\n| file | sha256 |\n|---|---|\n' + Object.entries(hashesRel).map(([f, h]) => `| \`${f}\` | ${h} |`).join('\n') + '\n');
   const serveArm = ensureDir(path.join(root, 'serve-arm'));
   fs.writeFileSync(path.join(serveArm, 'package.json'), JSON.stringify({ name: 'fixture-serve', private: true, scripts: { serve: 'node serve.mjs' } }));
   fs.writeFileSync(path.join(serveArm, 'serve.mjs'), "import http from 'node:http';http.createServer((q,r)=>r.end('ok')).listen(4396,'127.0.0.1');\n");
@@ -86,6 +99,9 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
       if (isC) add(`${id} DSC tokens resolved with 0 mismatches`, tok?.tokens?.mismatchCount === 0 && tok?.tokens?.missingCount === 0 && tok.tokens.ok === tok.tokens.tokenCount, JSON.stringify({ ...tok?.tokens, resolvedNames: undefined, extraFsVars: undefined }).slice(0, 300));
       if (id === 'A') add('A boundShare is 0 (no tokens)', tok?.arm_level?.varDecls === 0);
       if (isC) add(`${id} has var() declarations`, tok?.arm_level?.varDecls > 0);
+      if (isC) add(`${id} governed boundShare 1.0 via manifest (raw < 1, exclusions counted, 0 uncovered)`, tok?.arm_level?.governed?.boundShareGoverned === 1 && tok.arm_level.governed.excludedByManifest > 0 && tok.arm_level.governed.uncoveredLiteralDecls === 0 && tok.arm_level.boundShare < 1, JSON.stringify(tok?.arm_level?.governed)?.slice(0, 300));
+      const sp = J(id, 'responsive.json')?.routes?.layout620?.[1440]?.sectionPadding;
+      add(`${id} r2 section padding measured on the nearest section (layout620)`, sp?.layout620?.tag === 'section' && /px$/.test(sp.layout620.paddingTop), JSON.stringify(sp));
     }
     if (steps.includes('responsive')) {
       const rs = J(id, 'responsive.json');
@@ -139,19 +155,22 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
   if (steps.includes('determinism') && armIds.includes('C')) {
     const d = J('C', 'determinism.json');
     add('determinism: generate:verify exit 0', d?.generateVerify?.exitCode === 0, JSON.stringify(d?.generateVerify));
-    add('determinism: generated hashes match FROZEN.md', d?.frozen?.allMatch === true, JSON.stringify(d?.frozen));
+    add('determinism (r2): every root-relative FROZEN.md entry matches disk', d?.frozenRoot?.allMatch === true && d.frozenRoot.frozenEntries === 4 && d.frozenRoot.matched === 4, JSON.stringify(d?.frozenRoot));
+    add('determinism (r1 legacy) reproduces the path-prefix artefact: generator entry reported not on disk', d?.frozen?.allMatch === false && d.frozen.frozenNotOnDisk?.length === 1, JSON.stringify(d?.frozen)?.slice(0, 200));
     add('determinism: two builds identical', d?.bundleReproducibility?.identical === true, JSON.stringify(d?.bundleReproducibility));
     // negative test of the pure comparison
     const text = fs.readFileSync(path.join(fixtures.armC, 'FROZEN.md'), 'utf8');
     const tampered = { ...d.generated.hashes, 'index.js': sha256('tampered') };
-    const neg = compareFrozen(tampered, text);
-    add('determinism: tampered file is detected', neg.mismatched.length === 1 && !neg.allMatch);
-    add('determinism: FROZEN.md parser finds entries', parseFrozen(text).entries.length === 2);
+    const tamperedRoot = { ...(() => { const h = {}; for (const [f, x] of Object.entries(d.generated.hashes)) h[`app/src/generated/${f}`] = x; return h; })(), 'generator/gen.mjs': sha256('x') };
+    tamperedRoot['app/src/generated/index.js'] = sha256('tampered');
+    const neg = compareFrozenRoot(tamperedRoot, text);
+    add('determinism: tampered files are detected', neg.mismatched.length === 2 && !neg.allMatch, JSON.stringify(neg));
+    add('determinism: FROZEN.md parser finds entries', parseFrozen(text).entries.length === 4);
   }
   if (steps.includes('licence')) {
     const lic = fixtures.licenceResult;
     const file = J('C', 'licence.json');
-    add('licence: exactly the planted line matched (1 C-side line)', lic?.matchCount === 1 && lic.uniqueMatchingHashes === 1, JSON.stringify({ m: lic?.matchCount, u: lic?.uniqueMatchingHashes }));
+    add('licence: planted non-import line matched once; planted import line reported separately', lic?.matchCountExclImports === 1 && lic.importLineMatchCount === 1 && lic.matchCount === 2, JSON.stringify({ m: lic?.matchCount, x: lic?.matchCountExclImports, i: lic?.importLineMatchCount }));
     add('licence: output has hashes only, never the line', !fs.readFileSync(path.join(outDir, 'C', 'licence.json'), 'utf8').includes('zzz-unique-marker'));
     add('licence: forbidden-string scan clean on clean root', file?.forbiddenStrings?.hitCount === 0);
     const planted = fs.mkdtempSync(path.join(os.tmpdir(), 'pc03b-planted-'));
@@ -160,6 +179,25 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
       const f = forbiddenStringScan(planted);
       add('licence: forbidden-string scan detects a planted string', f.hitCount === 1 && f.hits[0].patternIndex === 0, JSON.stringify(f));
     } finally { fs.rmSync(planted, { recursive: true, force: true }); }
+  }
+  // unit checks of the r2 refinements
+  {
+    const mk = (prop, value, sheet) => ({ key: `${sheet}|${prop}|${value}`, sheet, selector: '.x', prop, value, cls: 'literal', mixed: false, shorthand: false });
+    const v = (prop) => ({ key: `s|${prop}`, sheet: 's.css', selector: '.v', prop, value: 'var(--fs-a)', cls: 'var', mixed: false, shorthand: false });
+    const man = { path: 'm', count: 1, entries: [{ file: 'components.css', property: 'padding', value: '12px', reason: 'geometry' }] };
+    const r = aggregateTokens({ arm: { id: 'C', isC: true }, dsc: { tokens: { entries: [] } }, manifest: man,
+      tokenPages: { page: { 1440: { decls: [v('color'), v('gap'), mk('padding', '12px', '/assets/components.css'), mk('padding', '12px', '/assets/other.css'), mk('gap', '3px', '/assets/components.css')], unreadable: [], fsVars: {}, inlineStyleElements: 0 } } } });
+    const g = r.arm_level.governed;
+    add('tokens (r2): manifest matches by file basename+property+value; uncovered literals are the real failures',
+      g.excludedStrict === 1 && g.excludedLoose === 1 && g.uncoveredLiteralDecls === 1 && g.uncoveredLiterals[0].prop === 'gap' && g.boundShareGoverned === 0.6667 && r.arm_level.boundShare === 0.4, JSON.stringify(g));
+    const an = referenceAnomalies({ dom: { routes: { page: { 1440: { semantic: { score: 0.8, missing: [{ role: 'nav' }], h1Count: 2 } } } } }, a11y: { routes: { navbar: { 375: { violations: [{ id: 'x', impact: 'serious', nodeCount: 2 }] } } } } });
+    add('summary: A reference anomalies lists semantic<1 and axe serious/critical', an.semantic.length === 1 && an.axe.length === 1, JSON.stringify(an));
+    const md = fs.existsSync(path.join(outDir, 'summary.md')) ? fs.readFileSync(path.join(outDir, 'summary.md'), 'utf8') : '';
+    add('summary.md (r2 default) has the A reference anomalies section and criteria label', md.includes('## A reference anomalies') && md.includes('Criteria: **r2**'));
+    const s1 = J('summary-r1.json');
+    add('--criteria r1 summary still produced (legacy semantics: role tree row required)', s1?.criteria === 'r1' && armIds.filter((a) => a !== 'A').every((a) => s1.arms[a]?.checks.some((c) => c.dimension === 'semantic' && c.name === 'expected roles + role tree vs A')));
+    const s2 = J('summary.json');
+    add('r2 summary: role tree is informational', armIds.filter((a) => a !== 'A').every((a) => s2.arms[a]?.checks.some((c) => c.dimension === 'semantic' && c.level === 'info')));
   }
   add('summary.json and summary.md written', fs.existsSync(path.join(outDir, 'summary.json')) && fs.existsSync(path.join(outDir, 'summary.md')));
   const sum = J('summary.json');

@@ -309,6 +309,7 @@ export function collectDecls() {
   };
   const NEUTRAL = /^(inherit|initial|unset|revert|revert-layer|currentcolor|transparent|none|normal|auto|0)$/i;
   const classify = (v) => {
+    if (!v) return { cls: 'unknown' }; // empty longhand left by a var()-containing shorthand: value not readable from cssText
     if (/var\(\s*--fs-/i.test(v)) {
       const stripped = v.replace(/var\((?:[^()]|\([^()]*\))*\)/gi, '');
       return { cls: 'var', mixed: /#[0-9a-f]{3,8}\b|\d(px|rem|em)\b/i.test(stripped) };

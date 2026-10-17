@@ -19,7 +19,7 @@ const { values: opt } = parseArgs({
     arms: { type: 'string' }, out: { type: 'string' }, label: { type: 'string' }, steps: { type: 'string' },
     'dry-run': { type: 'boolean', default: false }, licence: { type: 'boolean', default: false },
     'skip-build': { type: 'boolean', default: false }, 'no-summary': { type: 'boolean', default: false },
-    routes: { type: 'string' }, help: { type: 'boolean', default: false },
+    routes: { type: 'string' }, criteria: { type: 'string', default: 'r2' }, help: { type: 'boolean', default: false },
   },
   allowPositionals: false,
 });
@@ -31,11 +31,13 @@ if (opt.help) {
   --skip-build      do not run pnpm build (servers must serve an existing build)
   --routes r1,r2    restrict the per-page measurements to these routes (debugging)
   --dry-run         validate the harness against built-in stub arms and fixtures, no real arm needed
+  --criteria r1|r2  acceptance criteria used by the summary (default r2; r1 = original wording)
   --no-summary      do not run summarise.mjs afterwards`);
   process.exit(0);
 }
 
 const DRY = opt['dry-run'];
+if (!['r1', 'r2'].includes(opt.criteria)) { console.error('--criteria must be r1 or r2'); process.exit(2); }
 const ALL_STEPS = ['build', 'pages', 'responsive', 'scroll', 'visual', 'determinism', 'licence'];
 let steps = opt.steps ? opt.steps.split(',').map((s) => s.trim()).filter(Boolean) : ALL_STEPS.filter((s) => s !== 'licence');
 if ((opt.licence || (DRY && !opt.steps)) && !steps.includes('licence')) steps.push('licence');
@@ -90,7 +92,7 @@ if (DRY) {
 
 const needServers = has('pages') || has('responsive') || has('scroll');
 const run = {
-  label, startedAt: new Date().toISOString(), dryRun: DRY, arms: armIds, steps, routes,
+  label, criteria: opt.criteria, startedAt: new Date().toISOString(), dryRun: DRY, arms: armIds, steps, routes,
   node: process.version, cwd: process.cwd(),
   browser: { engine: 'chromium', context: BROWSER_CONTEXT, viewports: VIEWPORTS, sweepWidths: sweepWidths() },
   ports: Object.fromEntries(armIds.map((a) => [a, arms[a].port])),
@@ -194,10 +196,11 @@ try {
 
   if (!opt['no-summary']) {
     log('\n=== summarise ===');
-    summarise(outDir);
+    summarise(outDir, { criteria: opt.criteria });
   }
 
   if (DRY) {
+    summarise(outDir, { criteria: 'r1', suffix: '-r1' });
     const { assertDryRun } = await import('./dryrun.mjs');
     const result = assertDryRun({ outDir, armIds, fixtures, steps });
     writeJson(path.join(outDir, 'dry-run-assertions.json'), result);
