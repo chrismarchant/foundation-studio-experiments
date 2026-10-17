@@ -1,0 +1,720 @@
+{
+  "arm": "A",
+  "arm_level": {
+    "varDecls": 0,
+    "literalDecls": 69,
+    "otherVarDecls": 0,
+    "neutralDecls": 9,
+    "unreadableValueDecls": 0,
+    "mixedVarDecls": 0,
+    "boundShare": 0,
+    "boundShareStrict": 0,
+    "uniqueDeclarations": 78,
+    "literalSamples": [
+      {
+        "selector": "*, ::before, ::after",
+        "prop": "border-color",
+        "value": "rgb(229, 231, 235)",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": "html, :host",
+        "prop": "line-height",
+        "value": "1.5",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": "html, :host",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\", system-ui, sans-serif",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": "button, input, optgroup, select, textarea",
+        "prop": "font-size",
+        "value": "100%",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": "button, input, optgroup, select, textarea",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-3",
+        "prop": "gap",
+        "value": "0.75rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-4",
+        "prop": "gap",
+        "value": "1rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".rounded-button, .rounded-card, .rounded-image",
+        "prop": "border-radius",
+        "value": "0rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".border-scheme-border",
+        "prop": "border-color",
+        "value": "rgb(0 0 0 / var(--tw-border-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".bg-neutral-darkest",
+        "prop": "background-color",
+        "value": "rgb(17 17 17 / var(--tw-bg-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".bg-white",
+        "prop": "background-color",
+        "value": "rgb(255 255 255 / var(--tw-bg-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".p-20",
+        "prop": "padding",
+        "value": "5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".px-6",
+        "prop": "padding-left",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".px-6",
+        "prop": "padding-right",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-3",
+        "prop": "padding-top",
+        "value": "0.75rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-3",
+        "prop": "padding-bottom",
+        "value": "0.75rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".font-sans",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\", system-ui, sans-serif",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-scheme-text",
+        "prop": "color",
+        "value": "rgb(0 0 0 / var(--tw-text-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-white",
+        "prop": "color",
+        "value": "rgb(255 255 255 / var(--tw-text-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-2",
+        "prop": "gap",
+        "value": "0.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".bg-scheme-background",
+        "prop": "background-color",
+        "value": "rgb(255 255 255 / var(--tw-bg-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".bg-scheme-text",
+        "prop": "background-color",
+        "value": "rgb(0 0 0 / var(--tw-bg-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".px-4",
+        "prop": "padding-left",
+        "value": "1rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".px-4",
+        "prop": "padding-right",
+        "value": "1rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".px-\\[5\\%\\]",
+        "prop": "padding-left",
+        "value": "5%",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".px-\\[5\\%\\]",
+        "prop": "padding-right",
+        "value": "5%",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-1",
+        "prop": "padding-top",
+        "value": "0.25rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-1",
+        "prop": "padding-bottom",
+        "value": "0.25rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:px-6",
+        "prop": "padding-left",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:px-6",
+        "prop": "padding-right",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:py-2",
+        "prop": "padding-top",
+        "value": "0.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:py-2",
+        "prop": "padding-bottom",
+        "value": "0.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".lg\\:gap-4",
+        "prop": "gap",
+        "value": "1rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-\\[26vw\\]",
+        "prop": "gap",
+        "value": "26vw",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-x-4",
+        "prop": "column-gap",
+        "value": "1rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".pb-24",
+        "prop": "padding-bottom",
+        "value": "6rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".pt-16",
+        "prop": "padding-top",
+        "value": "4rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".pt-\\[120\\%\\]",
+        "prop": "padding-top",
+        "value": "120%",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".pt-\\[70vh\\]",
+        "prop": "padding-top",
+        "value": "70vh",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-h1",
+        "prop": "font-size",
+        "value": "3.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-h1",
+        "prop": "line-height",
+        "value": "1.2",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-medium",
+        "prop": "font-size",
+        "value": "1.125rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-medium",
+        "prop": "line-height",
+        "value": "1.5",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".font-bold",
+        "prop": "font-weight",
+        "value": "700",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:pt-24",
+        "prop": "padding-top",
+        "value": "6rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".lg\\:py-28",
+        "prop": "padding-top",
+        "value": "7rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".lg\\:py-28",
+        "prop": "padding-bottom",
+        "value": "7rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".bg-scheme-border",
+        "prop": "background-color",
+        "value": "rgb(0 0 0 / var(--tw-bg-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".p-0",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-16",
+        "prop": "padding-top",
+        "value": "4rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-16",
+        "prop": "padding-bottom",
+        "value": "4rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-6",
+        "prop": "padding-top",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".py-6",
+        "prop": "padding-bottom",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-h2",
+        "prop": "font-size",
+        "value": "3rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-h2",
+        "prop": "line-height",
+        "value": "1.2",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-h4",
+        "prop": "font-size",
+        "value": "2rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".text-h4",
+        "prop": "line-height",
+        "value": "1.3",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".font-semibold",
+        "prop": "font-weight",
+        "value": "600",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:gap-8",
+        "prop": "gap",
+        "value": "2rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:py-24",
+        "prop": "padding-top",
+        "value": "6rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:py-24",
+        "prop": "padding-bottom",
+        "value": "6rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:py-8",
+        "prop": "padding-top",
+        "value": "2rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:py-8",
+        "prop": "padding-bottom",
+        "value": "2rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-1",
+        "prop": "gap",
+        "value": "0.25rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".gap-6",
+        "prop": "gap",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".bg-scheme-foreground",
+        "prop": "background-color",
+        "value": "rgb(255 255 255 / var(--tw-bg-opacity, 1))",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".p-6",
+        "prop": "padding",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".md\\:p-8",
+        "prop": "padding",
+        "value": "2rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      },
+      {
+        "selector": ".lg\\:p-6",
+        "prop": "padding",
+        "value": "1.5rem",
+        "sheet": "/assets/index-CMJ4eUb1.css"
+      }
+    ],
+    "unreadableSheets": []
+  },
+  "perPage": {
+    "button": {
+      "375": {
+        "var": 0,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 6,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 6,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 6,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      }
+    },
+    "navbar": {
+      "375": {
+        "var": 0,
+        "literal": 22,
+        "otherVar": 0,
+        "neutral": 7,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 29,
+        "inlineStyleElements": 4
+      },
+      "768": {
+        "var": 0,
+        "literal": 26,
+        "otherVar": 0,
+        "neutral": 7,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 33,
+        "inlineStyleElements": 4
+      },
+      "1440": {
+        "var": 0,
+        "literal": 27,
+        "otherVar": 0,
+        "neutral": 7,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 34,
+        "inlineStyleElements": 4
+      }
+    },
+    "header80": {
+      "375": {
+        "var": 0,
+        "literal": 30,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 38,
+        "inlineStyleElements": 2
+      },
+      "768": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 39,
+        "inlineStyleElements": 2
+      },
+      "1440": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 41,
+        "inlineStyleElements": 2
+      }
+    },
+    "layout620": {
+      "375": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 41,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 38,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 46,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 40,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 48,
+        "inlineStyleElements": 0
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "var": 0,
+        "literal": 22,
+        "otherVar": 0,
+        "neutral": 3,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 26,
+        "otherVar": 0,
+        "neutral": 3,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 29,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 29,
+        "otherVar": 0,
+        "neutral": 3,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 32,
+        "inlineStyleElements": 0
+      }
+    },
+    "cta25": {
+      "375": {
+        "var": 0,
+        "literal": 27,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 35,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 29,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 37,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 8,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 39,
+        "inlineStyleElements": 0
+      }
+    },
+    "page": {
+      "375": {
+        "var": 0,
+        "literal": 53,
+        "otherVar": 0,
+        "neutral": 9,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 62,
+        "inlineStyleElements": 6
+      },
+      "768": {
+        "var": 0,
+        "literal": 64,
+        "otherVar": 0,
+        "neutral": 9,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 73,
+        "inlineStyleElements": 6
+      },
+      "1440": {
+        "var": 0,
+        "literal": 68,
+        "otherVar": 0,
+        "neutral": 9,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 77,
+        "inlineStyleElements": 6
+      }
+    }
+  }
+}

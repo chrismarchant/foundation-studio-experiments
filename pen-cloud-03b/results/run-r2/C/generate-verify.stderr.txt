@@ -1,0 +1,4 @@
+generate:verify FAILED
+  differs: app/src/generated/generated-manifest.json
+  differs: app/src/generated/tokens.css
+  differs: app/src/generated/tokens.ts

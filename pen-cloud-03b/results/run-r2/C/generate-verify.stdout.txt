@@ -1,0 +1,5 @@
+
+> pc03b-arm-c@1.0.0 generate:verify /home/user/foundation-studio-experiments/pen-cloud-03b/arm-c
+> tsx generator/generate.ts --verify
+
+ ELIFECYCLE  Command failed with exit code 1.

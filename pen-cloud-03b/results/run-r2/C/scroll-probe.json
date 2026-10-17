@@ -1,0 +1,740 @@
+{
+  "arm": "C",
+  "viewports": {
+    "375": {
+      "url": "http://127.0.0.1:4304/header80",
+      "samples": [
+        {
+          "p": 0,
+          "sectionTop": 0,
+          "sectionHeight": 1218,
+          "targetY": 0,
+          "stickyFound": true,
+          "scrollY": 0,
+          "maxScrollY": 406,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -126.736)",
+            "none": false,
+            "tx": 0,
+            "ty": -126.74,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1014,
+            "translateYPct": -12.5
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -92.9863)",
+            "none": false,
+            "tx": 0,
+            "ty": -92.99,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 744,
+            "translateYPct": -12.5
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 812,
+            "innerHeight": 812
+          }
+        },
+        {
+          "p": 0.25,
+          "sectionTop": 0,
+          "sectionHeight": 1218,
+          "targetY": 101.5,
+          "stickyFound": true,
+          "scrollY": 102,
+          "maxScrollY": 406,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -309.866)",
+            "none": false,
+            "tx": 0,
+            "ty": -309.87,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1014,
+            "translateYPct": -30.56
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -227.348)",
+            "none": false,
+            "tx": 0,
+            "ty": -227.35,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 744,
+            "translateYPct": -30.56
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 812,
+            "innerHeight": 812
+          }
+        },
+        {
+          "p": 0.5,
+          "sectionTop": 0,
+          "sectionHeight": 1218,
+          "targetY": 203,
+          "stickyFound": true,
+          "scrollY": 203,
+          "maxScrollY": 406,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -492.569)",
+            "none": false,
+            "tx": 0,
+            "ty": -492.57,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1014,
+            "translateYPct": -48.58
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -361.398)",
+            "none": false,
+            "tx": 0,
+            "ty": -361.4,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 744,
+            "translateYPct": -48.58
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 812,
+            "innerHeight": 812
+          }
+        },
+        {
+          "p": 0.75,
+          "sectionTop": 0,
+          "sectionHeight": 1218,
+          "targetY": 304.5,
+          "stickyFound": true,
+          "scrollY": 305,
+          "maxScrollY": 406,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -677.227)",
+            "none": false,
+            "tx": 0,
+            "ty": -677.23,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1014,
+            "translateYPct": -66.79
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -496.88)",
+            "none": false,
+            "tx": 0,
+            "ty": -496.88,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 744,
+            "translateYPct": -66.78
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 812,
+            "innerHeight": 812
+          }
+        },
+        {
+          "p": 1,
+          "sectionTop": 0,
+          "sectionHeight": 1218,
+          "targetY": 406,
+          "stickyFound": true,
+          "scrollY": 406,
+          "maxScrollY": 406,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -860.103)",
+            "none": false,
+            "tx": 0,
+            "ty": -860.1,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1014,
+            "translateYPct": -84.82
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -631.057)",
+            "none": false,
+            "tx": 0,
+            "ty": -631.06,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 744,
+            "translateYPct": -84.82
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 812,
+            "innerHeight": 812
+          }
+        }
+      ],
+      "hasMotionElements": true,
+      "hasTransform": true,
+      "stickyFound": true,
+      "reducedMotion": {
+        "p": 0.5,
+        "sectionTop": 0,
+        "sectionHeight": 1218,
+        "targetY": 203,
+        "stickyFound": true,
+        "scrollY": 203,
+        "maxScrollY": 406,
+        "left": {
+          "found": true,
+          "raw": "none",
+          "none": true,
+          "tx": 0,
+          "ty": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "identity": true,
+          "offsetHeight": 1014,
+          "translateYPct": 0
+        },
+        "right": {
+          "found": true,
+          "raw": "none",
+          "none": true,
+          "tx": 0,
+          "ty": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "identity": true,
+          "offsetHeight": 744,
+          "translateYPct": 0
+        },
+        "stage": {
+          "found": true,
+          "top": 0,
+          "height": 812,
+          "innerHeight": 812
+        },
+        "identity": true,
+        "motionElementsFound": true,
+        "mediaMatches": true
+      }
+    },
+    "768": {
+      "url": "http://127.0.0.1:4304/header80",
+      "samples": [
+        {
+          "p": 0,
+          "sectionTop": 0,
+          "sectionHeight": 3072,
+          "targetY": 0,
+          "stickyFound": true,
+          "scrollY": 0,
+          "maxScrollY": 2048,
+          "left": {
+            "found": true,
+            "raw": "none",
+            "none": true,
+            "tx": 0,
+            "ty": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": true,
+            "offsetHeight": 1555,
+            "translateYPct": 0
+          },
+          "right": {
+            "found": true,
+            "raw": "none",
+            "none": true,
+            "tx": 0,
+            "ty": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": true,
+            "offsetHeight": 1039,
+            "translateYPct": 0
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 1024,
+            "innerHeight": 1024
+          }
+        },
+        {
+          "p": 0.25,
+          "sectionTop": 0,
+          "sectionHeight": 3072,
+          "targetY": 512,
+          "stickyFound": true,
+          "scrollY": 512,
+          "maxScrollY": 2048,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -327.946)",
+            "none": false,
+            "tx": 0,
+            "ty": -327.95,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1555,
+            "translateYPct": -21.09
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -154.685)",
+            "none": false,
+            "tx": 0,
+            "ty": -154.68,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1039,
+            "translateYPct": -14.89
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 1024,
+            "innerHeight": 1024
+          }
+        },
+        {
+          "p": 0.5,
+          "sectionTop": 0,
+          "sectionHeight": 3072,
+          "targetY": 1024,
+          "stickyFound": true,
+          "scrollY": 1024,
+          "maxScrollY": 2048,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -657.966)",
+            "none": false,
+            "tx": 0,
+            "ty": -657.97,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1555,
+            "translateYPct": -42.31
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -310.348)",
+            "none": false,
+            "tx": 0,
+            "ty": -310.35,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1039,
+            "translateYPct": -29.87
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 1024,
+            "innerHeight": 1024
+          }
+        },
+        {
+          "p": 0.75,
+          "sectionTop": 0,
+          "sectionHeight": 3072,
+          "targetY": 1536,
+          "stickyFound": true,
+          "scrollY": 1536,
+          "maxScrollY": 2048,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -988.483)",
+            "none": false,
+            "tx": 0,
+            "ty": -988.48,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1555,
+            "translateYPct": -63.57
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -466.245)",
+            "none": false,
+            "tx": 0,
+            "ty": -466.24,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1039,
+            "translateYPct": -44.87
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 1024,
+            "innerHeight": 1024
+          }
+        },
+        {
+          "p": 1,
+          "sectionTop": 0,
+          "sectionHeight": 3072,
+          "targetY": 2048,
+          "stickyFound": true,
+          "scrollY": 2048,
+          "maxScrollY": 2048,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -1319.49)",
+            "none": false,
+            "tx": 0,
+            "ty": -1319.49,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1555,
+            "translateYPct": -84.85
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -622.373)",
+            "none": false,
+            "tx": 0,
+            "ty": -622.37,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1039,
+            "translateYPct": -59.9
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 1024,
+            "innerHeight": 1024
+          }
+        }
+      ],
+      "hasMotionElements": true,
+      "hasTransform": true,
+      "stickyFound": true,
+      "reducedMotion": {
+        "p": 0.5,
+        "sectionTop": 0,
+        "sectionHeight": 3072,
+        "targetY": 1024,
+        "stickyFound": true,
+        "scrollY": 1024,
+        "maxScrollY": 2048,
+        "left": {
+          "found": true,
+          "raw": "none",
+          "none": true,
+          "tx": 0,
+          "ty": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "identity": true,
+          "offsetHeight": 1555,
+          "translateYPct": 0
+        },
+        "right": {
+          "found": true,
+          "raw": "none",
+          "none": true,
+          "tx": 0,
+          "ty": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "identity": true,
+          "offsetHeight": 1039,
+          "translateYPct": 0
+        },
+        "stage": {
+          "found": true,
+          "top": 0,
+          "height": 1024,
+          "innerHeight": 1024
+        },
+        "identity": true,
+        "motionElementsFound": true,
+        "mediaMatches": true
+      }
+    },
+    "1440": {
+      "url": "http://127.0.0.1:4304/header80",
+      "samples": [
+        {
+          "p": 0,
+          "sectionTop": 0,
+          "sectionHeight": 2700,
+          "targetY": 0,
+          "stickyFound": true,
+          "scrollY": 0,
+          "maxScrollY": 1800,
+          "left": {
+            "found": true,
+            "raw": "none",
+            "none": true,
+            "tx": 0,
+            "ty": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": true,
+            "offsetHeight": 1788,
+            "translateYPct": 0
+          },
+          "right": {
+            "found": true,
+            "raw": "none",
+            "none": true,
+            "tx": 0,
+            "ty": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": true,
+            "offsetHeight": 1027,
+            "translateYPct": 0
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 900,
+            "innerHeight": 900
+          }
+        },
+        {
+          "p": 0.25,
+          "sectionTop": 0,
+          "sectionHeight": 2700,
+          "targetY": 450,
+          "stickyFound": true,
+          "scrollY": 450,
+          "maxScrollY": 1800,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -376.712)",
+            "none": false,
+            "tx": 0,
+            "ty": -376.71,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1788,
+            "translateYPct": -21.07
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -152.823)",
+            "none": false,
+            "tx": 0,
+            "ty": -152.82,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1027,
+            "translateYPct": -14.88
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 900,
+            "innerHeight": 900
+          }
+        },
+        {
+          "p": 0.5,
+          "sectionTop": 0,
+          "sectionHeight": 2700,
+          "targetY": 900,
+          "stickyFound": true,
+          "scrollY": 900,
+          "maxScrollY": 1800,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -756.238)",
+            "none": false,
+            "tx": 0,
+            "ty": -756.24,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1788,
+            "translateYPct": -42.3
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -306.787)",
+            "none": false,
+            "tx": 0,
+            "ty": -306.79,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1027,
+            "translateYPct": -29.87
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 900,
+            "innerHeight": 900
+          }
+        },
+        {
+          "p": 0.75,
+          "sectionTop": 0,
+          "sectionHeight": 2700,
+          "targetY": 1350,
+          "stickyFound": true,
+          "scrollY": 1350,
+          "maxScrollY": 1800,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -1136.09)",
+            "none": false,
+            "tx": 0,
+            "ty": -1136.09,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1788,
+            "translateYPct": -63.54
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -460.884)",
+            "none": false,
+            "tx": 0,
+            "ty": -460.88,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1027,
+            "translateYPct": -44.88
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 900,
+            "innerHeight": 900
+          }
+        },
+        {
+          "p": 1,
+          "sectionTop": 0,
+          "sectionHeight": 2700,
+          "targetY": 1800,
+          "stickyFound": true,
+          "scrollY": 1800,
+          "maxScrollY": 1800,
+          "left": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -1516.01)",
+            "none": false,
+            "tx": 0,
+            "ty": -1516.01,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1788,
+            "translateYPct": -84.79
+          },
+          "right": {
+            "found": true,
+            "raw": "matrix(1, 0, 0, 1, 0, -615.008)",
+            "none": false,
+            "tx": 0,
+            "ty": -615.01,
+            "scaleX": 1,
+            "scaleY": 1,
+            "identity": false,
+            "offsetHeight": 1027,
+            "translateYPct": -59.88
+          },
+          "stage": {
+            "found": true,
+            "top": 0,
+            "height": 900,
+            "innerHeight": 900
+          }
+        }
+      ],
+      "hasMotionElements": true,
+      "hasTransform": true,
+      "stickyFound": true,
+      "reducedMotion": {
+        "p": 0.5,
+        "sectionTop": 0,
+        "sectionHeight": 2700,
+        "targetY": 900,
+        "stickyFound": true,
+        "scrollY": 900,
+        "maxScrollY": 1800,
+        "left": {
+          "found": true,
+          "raw": "none",
+          "none": true,
+          "tx": 0,
+          "ty": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "identity": true,
+          "offsetHeight": 1788,
+          "translateYPct": 0
+        },
+        "right": {
+          "found": true,
+          "raw": "none",
+          "none": true,
+          "tx": 0,
+          "ty": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "identity": true,
+          "offsetHeight": 1027,
+          "translateYPct": 0
+        },
+        "stage": {
+          "found": true,
+          "top": 0,
+          "height": 900,
+          "innerHeight": 900
+        },
+        "identity": true,
+        "motionElementsFound": true,
+        "mediaMatches": true
+      }
+    }
+  }
+}

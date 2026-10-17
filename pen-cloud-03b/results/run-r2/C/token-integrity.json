@@ -1,0 +1,601 @@
+{
+  "arm": "C",
+  "arm_level": {
+    "varDecls": 92,
+    "literalDecls": 20,
+    "otherVarDecls": 0,
+    "neutralDecls": 1,
+    "unreadableValueDecls": 0,
+    "mixedVarDecls": 0,
+    "boundShare": 0.8214,
+    "boundShareStrict": 0.8214,
+    "uniqueDeclarations": 113,
+    "literalSamples": [
+      {
+        "selector": ".fs-button",
+        "prop": "gap",
+        "value": "12px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-button",
+        "prop": "padding",
+        "value": "0px 24px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-route-button",
+        "prop": "padding",
+        "value": "80px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-navbar__right",
+        "prop": "gap",
+        "value": "8px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-navbar__toggle",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-navbar__lines",
+        "prop": "gap",
+        "value": "5px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-sr-only",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-hero__col",
+        "prop": "gap",
+        "value": "26vw",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-hero__col",
+        "prop": "padding-top",
+        "value": "70vh",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-hero__img::before",
+        "prop": "padding-top",
+        "value": "120%",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "48px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-features__link",
+        "prop": "gap",
+        "value": "8px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "72px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "80px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "48px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-testimonials__grid",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-testimonials__stars",
+        "prop": "gap",
+        "value": "4px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": "ul",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "72px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "80px",
+        "sheet": "/assets/index-BXXP4SKq.css"
+      }
+    ],
+    "unreadableSheets": [],
+    "governed": {
+      "manifest": {
+        "path": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/src/generated/generated-manifest.json",
+        "entries": 74,
+        "reasons": [
+          "DSC component geometry (not tokenised)",
+          "no spacing token equals this observed value",
+          "CTA text column width (observation)",
+          "divider thickness (task: 1px dividers)",
+          "container row gap (observation; no DSC token)",
+          "link label/chevron gap (observation: two spaces in 'Button  ›')",
+          "feature icon placeholder (ARM-CONTRACT 48x48)",
+          "section header column width (observation)",
+          "scroll-parallax geometry (DSC interaction block, not tokenised)",
+          "hero text column width (observation)",
+          "image aspect ratio (DSC interaction.imageLayout.aspect)",
+          "divider thickness",
+          "hamburger line gap (observation; ARM-CONTRACT 24x2 lines)",
+          "hamburger line thickness (observation; ARM-CONTRACT 24x2 lines)",
+          "logo placeholder size (ARM-CONTRACT 84x36)",
+          "hamburger hit area (observation; ARM-CONTRACT 24x2 lines)",
+          "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)",
+          "menu panel height (DSC interaction.menu.panel)",
+          "hamburger line length (observation; ARM-CONTRACT 24x2 lines)",
+          "social icon placeholder size (assumption: DSC gives no size)"
+        ]
+      },
+      "excludedByManifest": 15,
+      "excludedStrict": 0,
+      "excludedLoose": 15,
+      "uncoveredLiteralDecls": 5,
+      "uncoveredLiterals": [
+        {
+          "selector": ".fs-button",
+          "prop": "padding",
+          "value": "0px 24px",
+          "sheet": "/assets/index-BXXP4SKq.css"
+        },
+        {
+          "selector": ".fs-navbar__toggle",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BXXP4SKq.css"
+        },
+        {
+          "selector": ".fs-sr-only",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BXXP4SKq.css"
+        },
+        {
+          "selector": ".fs-testimonials__grid",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BXXP4SKq.css"
+        },
+        {
+          "selector": "ul",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BXXP4SKq.css"
+        }
+      ],
+      "boundShareGoverned": 0.9485
+    }
+  },
+  "perPage": {
+    "button": {
+      "375": {
+        "var": 13,
+        "literal": 3,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 4,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8125,
+        "excludedByManifest": 2,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9286,
+        "decls": 21,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 13,
+        "literal": 3,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 4,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8125,
+        "excludedByManifest": 2,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9286,
+        "decls": 21,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 13,
+        "literal": 3,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 4,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8125,
+        "excludedByManifest": 2,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9286,
+        "decls": 21,
+        "inlineStyleElements": 0
+      }
+    },
+    "navbar": {
+      "375": {
+        "var": 13,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 2,
+        "boundShare": 0.6842,
+        "excludedByManifest": 3,
+        "governedLiteral": 3,
+        "boundShareGoverned": 0.8125,
+        "decls": 29,
+        "inlineStyleElements": 4
+      },
+      "768": {
+        "var": 13,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 2,
+        "boundShare": 0.6842,
+        "excludedByManifest": 3,
+        "governedLiteral": 3,
+        "boundShareGoverned": 0.8125,
+        "decls": 29,
+        "inlineStyleElements": 4
+      },
+      "1440": {
+        "var": 14,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 2,
+        "boundShare": 0.7,
+        "excludedByManifest": 3,
+        "governedLiteral": 3,
+        "boundShareGoverned": 0.8235,
+        "decls": 30,
+        "inlineStyleElements": 4
+      }
+    },
+    "header80": {
+      "375": {
+        "var": 23,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8214,
+        "excludedByManifest": 4,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9583,
+        "decls": 34,
+        "inlineStyleElements": 2
+      },
+      "768": {
+        "var": 23,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8214,
+        "excludedByManifest": 4,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9583,
+        "decls": 34,
+        "inlineStyleElements": 2
+      },
+      "1440": {
+        "var": 23,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8214,
+        "excludedByManifest": 4,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9583,
+        "decls": 34,
+        "inlineStyleElements": 2
+      }
+    },
+    "layout620": {
+      "375": {
+        "var": 36,
+        "literal": 4,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 8,
+        "shorthandLiteral": 0,
+        "boundShare": 0.9,
+        "excludedByManifest": 3,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.973,
+        "decls": 49,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 38,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 9,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8837,
+        "excludedByManifest": 4,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9744,
+        "decls": 53,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 38,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 9,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8636,
+        "excludedByManifest": 5,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9744,
+        "decls": 54,
+        "inlineStyleElements": 0
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "var": 30,
+        "literal": 4,
+        "otherVar": 0,
+        "neutral": 0,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8824,
+        "excludedByManifest": 2,
+        "governedLiteral": 2,
+        "boundShareGoverned": 0.9375,
+        "decls": 40,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 32,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 0,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8649,
+        "excludedByManifest": 3,
+        "governedLiteral": 2,
+        "boundShareGoverned": 0.9412,
+        "decls": 43,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 32,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 0,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8421,
+        "excludedByManifest": 4,
+        "governedLiteral": 2,
+        "boundShareGoverned": 0.9412,
+        "decls": 44,
+        "inlineStyleElements": 0
+      }
+    },
+    "cta25": {
+      "375": {
+        "var": 23,
+        "literal": 2,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.92,
+        "excludedByManifest": 1,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9583,
+        "decls": 31,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 23,
+        "literal": 2,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.92,
+        "excludedByManifest": 1,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9583,
+        "decls": 31,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 23,
+        "literal": 2,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.92,
+        "excludedByManifest": 1,
+        "governedLiteral": 1,
+        "boundShareGoverned": 0.9583,
+        "decls": 31,
+        "inlineStyleElements": 0
+      }
+    },
+    "page": {
+      "375": {
+        "var": 86,
+        "literal": 15,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 19,
+        "shorthandLiteral": 2,
+        "boundShare": 0.8515,
+        "excludedByManifest": 10,
+        "governedLiteral": 5,
+        "boundShareGoverned": 0.9451,
+        "decls": 124,
+        "inlineStyleElements": 6
+      },
+      "768": {
+        "var": 90,
+        "literal": 17,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 20,
+        "shorthandLiteral": 2,
+        "boundShare": 0.8411,
+        "excludedByManifest": 12,
+        "governedLiteral": 5,
+        "boundShareGoverned": 0.9474,
+        "decls": 131,
+        "inlineStyleElements": 6
+      },
+      "1440": {
+        "var": 91,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 20,
+        "shorthandLiteral": 2,
+        "boundShare": 0.8273,
+        "excludedByManifest": 14,
+        "governedLiteral": 5,
+        "boundShareGoverned": 0.9479,
+        "decls": 134,
+        "inlineStyleElements": 6
+      }
+    }
+  },
+  "tokens": {
+    "tokenCount": 32,
+    "ok": 32,
+    "mismatchCount": 0,
+    "missingCount": 0,
+    "mismatches": [],
+    "missing": [],
+    "definedFsVars": 34,
+    "extraFsVars": [
+      "--fs-layout-container-max",
+      "--fs-layout-side-padding"
+    ],
+    "resolvedNames": {
+      "fs.token.color.neutral.darkest": "--fs-color-neutral-darkest",
+      "fs.token.color.scheme.background": "--fs-color-scheme-background",
+      "fs.token.color.scheme.border": "--fs-color-scheme-border",
+      "fs.token.color.scheme.btn-text": "--fs-color-scheme-btn-text",
+      "fs.token.color.scheme.foreground": "--fs-color-scheme-foreground",
+      "fs.token.color.scheme.text": "--fs-color-scheme-text",
+      "fs.token.font.size.h1": "--fs-font-size-h1",
+      "fs.token.font.size.h2": "--fs-font-size-h2",
+      "fs.token.font.size.h3": "--fs-font-size-h3",
+      "fs.token.font.size.h4": "--fs-font-size-h4",
+      "fs.token.font.size.h5": "--fs-font-size-h5",
+      "fs.token.font.size.h6": "--fs-font-size-h6",
+      "fs.token.font.size.medium": "--fs-font-size-medium",
+      "fs.token.font.size.regular": "--fs-font-size-regular",
+      "fs.token.font.size.small": "--fs-font-size-small",
+      "fs.token.radius.button": "--fs-radius-button",
+      "fs.token.radius.card": "--fs-radius-card",
+      "fs.token.radius.image": "--fs-radius-image",
+      "fs.token.space.gap.4": "--fs-space-gap-4",
+      "fs.token.space.gap.6": "--fs-space-gap-6",
+      "fs.token.space.gap.8": "--fs-space-gap-8",
+      "fs.token.space.section.lg": "--fs-space-section-lg",
+      "fs.token.space.section.md": "--fs-space-section-md",
+      "fs.token.space.section.sm": "--fs-space-section-sm",
+      "fs.token.font.lineHeight.heading": "--fs-font-lineHeight-heading",
+      "fs.token.font.lineHeight.h4": "--fs-font-lineHeight-h4",
+      "fs.token.font.lineHeight.body": "--fs-font-lineHeight-body",
+      "fs.token.font.weight.bold": "--fs-font-weight-bold",
+      "fs.token.font.weight.semibold": "--fs-font-weight-semibold",
+      "fs.token.font.weight.regular": "--fs-font-weight-regular",
+      "fs.token.font.letterSpacing.heading": "--fs-font-letterSpacing-heading",
+      "fs.token.font.family.sans": "--fs-font-family-sans"
+    }
+  }
+}

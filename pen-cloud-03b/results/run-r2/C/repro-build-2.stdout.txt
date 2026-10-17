@@ -1,0 +1,13 @@
+
+> @arm-c/app@1.0.0 build /home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 448 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.45 kB │ gzip:   0.29 kB
+dist/assets/index-BXXP4SKq.css   13.63 kB │ gzip:   2.42 kB
+dist/assets/index-BQuCcmLg.js   378.89 kB │ gzip: 119.77 kB
+✓ built in 1.84s
