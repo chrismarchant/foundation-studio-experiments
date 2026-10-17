@@ -1,0 +1,460 @@
+{
+  "reference": "A",
+  "routes": {
+    "button": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 812
+        },
+        "armSize": {
+          "w": 375,
+          "h": 812
+        },
+        "canvas": {
+          "w": 375,
+          "h": 812
+        },
+        "mismatchedPixels": 527,
+        "mismatchRatio": 0.001731,
+        "ssim": 0.9824,
+        "ssimMs": 97,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/button-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "armSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "canvas": {
+          "w": 768,
+          "h": 1024
+        },
+        "mismatchedPixels": 530,
+        "mismatchRatio": 0.000674,
+        "ssim": 0.99461,
+        "ssimMs": 114,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/button-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 900
+        },
+        "mismatchedPixels": 530,
+        "mismatchRatio": 0.000409,
+        "ssim": 0.99938,
+        "ssimMs": 336,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/button-1440.png"
+      }
+    },
+    "navbar": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 812
+        },
+        "armSize": {
+          "w": 375,
+          "h": 812
+        },
+        "canvas": {
+          "w": 375,
+          "h": 812
+        },
+        "mismatchedPixels": 2838,
+        "mismatchRatio": 0.00932,
+        "ssim": 0.97575,
+        "ssimMs": 101,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/navbar-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "armSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "canvas": {
+          "w": 768,
+          "h": 1024
+        },
+        "mismatchedPixels": 1549,
+        "mismatchRatio": 0.00197,
+        "ssim": 0.99266,
+        "ssimMs": 117,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/navbar-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 900
+        },
+        "mismatchedPixels": 672,
+        "mismatchRatio": 0.000519,
+        "ssim": 0.99885,
+        "ssimMs": 253,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/navbar-1440.png"
+      }
+    },
+    "header80": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 1218
+        },
+        "armSize": {
+          "w": 375,
+          "h": 1218
+        },
+        "canvas": {
+          "w": 375,
+          "h": 1218
+        },
+        "mismatchedPixels": 52573,
+        "mismatchRatio": 0.115102,
+        "ssim": 0.72831,
+        "ssimMs": 107,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/header80-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 3072
+        },
+        "armSize": {
+          "w": 768,
+          "h": 3072
+        },
+        "canvas": {
+          "w": 768,
+          "h": 3072
+        },
+        "mismatchedPixels": 75345,
+        "mismatchRatio": 0.031935,
+        "ssim": 0.91742,
+        "ssimMs": 795,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/header80-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 2700
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 2700
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 2700
+        },
+        "mismatchedPixels": 137919,
+        "mismatchRatio": 0.035473,
+        "ssim": 0.90249,
+        "ssimMs": 2615,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/header80-1440.png"
+      }
+    },
+    "layout620": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 1317
+        },
+        "armSize": {
+          "w": 375,
+          "h": 1200
+        },
+        "canvas": {
+          "w": 375,
+          "h": 1317
+        },
+        "mismatchedPixels": 41504,
+        "mismatchRatio": 0.084037,
+        "ssim": 0.60742,
+        "ssimMs": 135,
+        "heightDiff": -117,
+        "widthDiff": 0,
+        "diffPng": "C/diff/layout620-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "armSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "canvas": {
+          "w": 768,
+          "h": 1024
+        },
+        "mismatchedPixels": 35270,
+        "mismatchRatio": 0.044848,
+        "ssim": 0.62062,
+        "ssimMs": 120,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/layout620-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 982
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 982
+        },
+        "mismatchedPixels": 37341,
+        "mismatchRatio": 0.026407,
+        "ssim": 0.6717,
+        "ssimMs": 298,
+        "heightDiff": 82,
+        "widthDiff": 0,
+        "diffPng": "C/diff/layout620-1440.png"
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 1475
+        },
+        "armSize": {
+          "w": 375,
+          "h": 1406
+        },
+        "canvas": {
+          "w": 375,
+          "h": 1475
+        },
+        "mismatchedPixels": 62710,
+        "mismatchRatio": 0.113374,
+        "ssim": 0.57332,
+        "ssimMs": 212,
+        "heightDiff": -69,
+        "widthDiff": 0,
+        "diffPng": "C/diff/testimonial37-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 1353
+        },
+        "armSize": {
+          "w": 768,
+          "h": 1129
+        },
+        "canvas": {
+          "w": 768,
+          "h": 1353
+        },
+        "mismatchedPixels": 87549,
+        "mismatchRatio": 0.084254,
+        "ssim": 0.45162,
+        "ssimMs": 159,
+        "heightDiff": -224,
+        "widthDiff": 0,
+        "diffPng": "C/diff/testimonial37-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 900
+        },
+        "mismatchedPixels": 5896,
+        "mismatchRatio": 0.004549,
+        "ssim": 0.97948,
+        "ssimMs": 278,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/testimonial37-1440.png"
+      }
+    },
+    "cta25": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 812
+        },
+        "armSize": {
+          "w": 375,
+          "h": 812
+        },
+        "canvas": {
+          "w": 375,
+          "h": 812
+        },
+        "mismatchedPixels": 20840,
+        "mismatchRatio": 0.06844,
+        "ssim": 0.78627,
+        "ssimMs": 87,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/cta25-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "armSize": {
+          "w": 768,
+          "h": 1024
+        },
+        "canvas": {
+          "w": 768,
+          "h": 1024
+        },
+        "mismatchedPixels": 14370,
+        "mismatchRatio": 0.018272,
+        "ssim": 0.88811,
+        "ssimMs": 145,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/cta25-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 900
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 900
+        },
+        "mismatchedPixels": 21915,
+        "mismatchRatio": 0.01691,
+        "ssim": 0.90871,
+        "ssimMs": 210,
+        "heightDiff": 0,
+        "widthDiff": 0,
+        "diffPng": "C/diff/cta25-1440.png"
+      }
+    },
+    "page": {
+      "375": {
+        "refSize": {
+          "w": 375,
+          "h": 4523
+        },
+        "armSize": {
+          "w": 375,
+          "h": 4249
+        },
+        "canvas": {
+          "w": 375,
+          "h": 4523
+        },
+        "mismatchedPixels": 190367,
+        "mismatchRatio": 0.112236,
+        "ssim": 0.62331,
+        "ssimMs": 919,
+        "heightDiff": -274,
+        "widthDiff": 0,
+        "diffPng": "C/diff/page-375.png"
+      },
+      "768": {
+        "refSize": {
+          "w": 768,
+          "h": 5848
+        },
+        "armSize": {
+          "w": 768,
+          "h": 5605
+        },
+        "canvas": {
+          "w": 768,
+          "h": 5848
+        },
+        "mismatchedPixels": 223355,
+        "mismatchRatio": 0.049731,
+        "ssim": 0.73727,
+        "ssimMs": 988,
+        "heightDiff": -243,
+        "widthDiff": 0,
+        "diffPng": "C/diff/page-768.png"
+      },
+      "1440": {
+        "refSize": {
+          "w": 1440,
+          "h": 4967
+        },
+        "armSize": {
+          "w": 1440,
+          "h": 5111
+        },
+        "canvas": {
+          "w": 1440,
+          "h": 5111
+        },
+        "mismatchedPixels": 291088,
+        "mismatchRatio": 0.039551,
+        "ssim": 0.75293,
+        "ssimMs": 5757,
+        "heightDiff": 144,
+        "widthDiff": 0,
+        "diffPng": "C/diff/page-1440.png"
+      }
+    }
+  }
+}

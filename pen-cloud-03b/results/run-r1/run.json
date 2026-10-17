@@ -1,0 +1,92 @@
+{
+  "label": "2026-10-17T18-11-18-266Z",
+  "startedAt": "2026-10-17T18:11:18.267Z",
+  "dryRun": false,
+  "arms": [
+    "A",
+    "B",
+    "Bp",
+    "C",
+    "Cssr"
+  ],
+  "steps": [
+    "build",
+    "pages",
+    "responsive",
+    "scroll",
+    "visual",
+    "determinism",
+    "licence"
+  ],
+  "routes": [
+    "button",
+    "navbar",
+    "header80",
+    "layout620",
+    "testimonial37",
+    "cta25",
+    "page"
+  ],
+  "node": "v22.22.0",
+  "cwd": "/home/user/foundation-studio-experiments/pen-cloud-03b/harness",
+  "browser": {
+    "engine": "chromium",
+    "context": {
+      "deviceScaleFactor": 1,
+      "locale": "en-GB",
+      "timezoneId": "UTC",
+      "colorScheme": "light",
+      "reducedMotion": "no-preference"
+    },
+    "viewports": [
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "bp": null
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024,
+        "bp": "tablet"
+      },
+      {
+        "name": "mobile",
+        "width": 375,
+        "height": 812,
+        "bp": "mobile"
+      }
+    ],
+    "sweepWidths": [
+      375,
+      439,
+      503,
+      567,
+      631,
+      695,
+      759,
+      823,
+      887,
+      951,
+      1015,
+      1079,
+      1143,
+      1207,
+      1271,
+      1335,
+      1399,
+      1440
+    ],
+    "version": "141.0.7390.37"
+  },
+  "ports": {
+    "A": 4301,
+    "B": 4302,
+    "Bp": 4303,
+    "C": 4304,
+    "Cssr": 4305
+  },
+  "dscRevision": "sha256:13d4a3adbf9c5b80c2d4d46d84a9a2369aa40e97d92c8839f944b014411faed8",
+  "finishedAt": "2026-10-17T18:18:25.525Z"
+}

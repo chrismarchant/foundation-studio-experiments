@@ -1,0 +1,85 @@
+{
+  "armCDir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c",
+  "generateVerify": {
+    "exitCode": 0,
+    "signal": null,
+    "timedOut": false,
+    "durationMs": 767,
+    "stdoutBytes": 176,
+    "stderrBytes": 0,
+    "stdoutFile": "C/generate-verify.stdout.txt",
+    "stderrFile": "C/generate-verify.stderr.txt"
+  },
+  "generated": {
+    "dir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/src/generated",
+    "exists": true,
+    "fileCount": 20,
+    "hashes": {
+      "Button.css": "16f9df324dd11f15c4f475da55d18ab2010af2a08cdbeca3b7096a599a859116",
+      "Button.tsx": "93123fc159e05a720377683da39a4edc3da453d0e8e5d06b810f5652adc23190",
+      "Cta.css": "a9acb0e81bfccefac789eaccffc9fabfb6ef17e308d803c6d8f4f8308bb8c45e",
+      "Cta.tsx": "cc0bfcd6313588f668918486a7024ffb2c2c7c47ea84826c247a0148482b7b50",
+      "Features.css": "70a6163c0e5f2d337dd21b7e4b7f37278313fffc940fb1badb2cf5ae23341812",
+      "Features.tsx": "d8c0b9d6d88a87a1190ecbb0110c9d2527bb757f99a3625353d9b1379f56e63f",
+      "Hero.css": "c72e316e8b27b96df46f14bf65168453b0a83f08f3da6c8d178b06b16deb69c9",
+      "Hero.tsx": "fb3b87029bb0865082ac9638a1e74e627e395da05a477fadcfda91422b14f369",
+      "Navbar.css": "4371c6c88a95320e8975fa65fa2adf2420be1b74172eeb6a532c260ea16186b5",
+      "Navbar.tsx": "f53d59aef117fb7a9e3f1462dcea602c3e00a085ac09d3a0a225f0cb26dcf40c",
+      "Testimonials.css": "8742e285d42df2e00172068a7d87944a9142cd637630f9731de57466b993c020",
+      "Testimonials.tsx": "74b47846b1170b84d97b3f57e4c0abe69f51f374aa39c8cec60e841ed34bc389",
+      "base.css": "1d4a51b0bd0c5002b6579c652bbc75c1e2d00934ab53ec81378d5192e50b3e86",
+      "copy.ts": "92133538d97cf7f37c77dd2e4f033f93c047f34f636a8171042416e919de904a",
+      "generated-manifest.json": "c8b45a7b59d73ab9506547e2d5a0520377c6fb6441b854e9fa496e229eff11b6",
+      "routes.css": "ef0902cb2d32000bb1ff7c8e9685aa63c33543c4b4d99accd68d98797a3b60b9",
+      "routes.tsx": "1997cb8df9bffdb0bbcaeea3dcecab460b4f3f411e7346cd77adb9c4440946ee",
+      "runtime.ts": "1cd97fa31954e407b5d2546c0163bae04e9bae067e1d8ee00b095622adc1f4f0",
+      "tokens.css": "80e8c489548cc90072d8625ef119aeb104075f0a3438d3b0d749a824bfc352a0",
+      "tokens.ts": "17d86fb772d090d84cc35277d0212bc8f6114802971d3380f3fa9aaac2ab4dd9"
+    }
+  },
+  "frozen": {
+    "file": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/FROZEN.md",
+    "frozenEntries": 41,
+    "matched": 20,
+    "mismatched": [],
+    "notInFrozen": [],
+    "frozenNotOnDisk": [
+      "app/src/generated/generated-manifest.json",
+      "generator/emit/button.ts",
+      "generator/emit/conflicts.ts",
+      "generator/emit/cta.ts",
+      "generator/emit/features.ts",
+      "generator/emit/hero.ts",
+      "generator/emit/navbar.ts",
+      "generator/emit/routes.ts",
+      "generator/emit/static.ts",
+      "generator/emit/testimonials.ts",
+      "generator/generate.ts",
+      "generator/lib/css.ts",
+      "generator/lib/ctx.ts",
+      "generator/lib/emitutil.ts",
+      "generator/lib/io.ts",
+      "generator/lib/obs.ts",
+      "generator/lib/sac.ts",
+      "generator/lib/tokens.ts",
+      "generator/lib/twparse.ts",
+      "generator/lib/types.ts",
+      "generator/tsconfig.json"
+    ],
+    "aggregateFound": false,
+    "allMatch": false
+  },
+  "bundleReproducibility": {
+    "buildDir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app",
+    "exitCodes": [
+      0,
+      0
+    ],
+    "fileCounts": [
+      11,
+      11
+    ],
+    "identical": true,
+    "differingFiles": []
+  }
+}

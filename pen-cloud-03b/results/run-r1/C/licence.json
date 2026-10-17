@@ -1,0 +1,36 @@
+{
+  "licenceLines": {
+    "minLineLength": 40,
+    "referenceFiles": 9,
+    "referenceLines": 208,
+    "targets": [
+      {
+        "dir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/src/generated",
+        "exists": true
+      },
+      {
+        "dir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/generator",
+        "exists": true
+      }
+    ],
+    "scannedFiles": 40,
+    "scannedLines": 1462,
+    "matchCount": 1,
+    "uniqueMatchingHashes": 1,
+    "matches": [
+      {
+        "file": "app/src/generated/Hero.tsx",
+        "line": 2,
+        "sha256": "0549bfa6255a3dafc22317f0a2b92e4db0d0ca08a0ec256621d7243490d5938a"
+      }
+    ],
+    "note": "Supplementary, not proof. Only hashes and C-side file:line locations are recorded, never the lines."
+  },
+  "forbiddenStrings": {
+    "root": "/home/user/foundation-studio-experiments/pen-cloud-03b",
+    "patternsChecked": 3,
+    "filesScanned": 737,
+    "hitCount": 0,
+    "hits": []
+  }
+}

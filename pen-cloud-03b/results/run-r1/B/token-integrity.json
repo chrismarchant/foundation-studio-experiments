@@ -1,0 +1,1784 @@
+{
+  "arm": "B",
+  "arm_level": {
+    "varDecls": 0,
+    "literalDecls": 1318,
+    "otherVarDecls": 0,
+    "neutralDecls": 0,
+    "mixedVarDecls": 0,
+    "boundShare": 0,
+    "boundShareStrict": 0,
+    "uniqueDeclarations": 1318,
+    "literalSamples": [
+      {
+        "selector": ".fs-button-stage",
+        "prop": "padding",
+        "value": "80px"
+      },
+      {
+        "selector": ".fs-button-row",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".button-b-cdeb4ffc5595",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-b-cdeb4ffc5595",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-b-cdeb4ffc5595",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".button-b-cdeb50084766",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-b-cdeb50084766",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-b-cdeb50084766",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdeb500cd5b0 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdeb500cd5b0 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdeb500cd5b0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".label-cdeb500cd5b0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdeb500cd5b0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdeb500cd5b0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".navbar17-cdec6b14b2eb",
+        "prop": "padding-inline",
+        "value": "19px"
+      },
+      {
+        "selector": ".nav-right-cdec6b1b2823",
+        "prop": "gap",
+        "value": "8px"
+      },
+      {
+        "selector": ".hamburger-cdec6b20ce11",
+        "prop": "gap",
+        "value": "5px"
+      },
+      {
+        "selector": ".button-p-cdec6b1f7401",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec6b1f7401",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-p-cdec6b1f7401",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec6b1f7402 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec6b1f7402 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec6b1f7402 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdec6b1f7402 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec6b1f7402 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec6b1f7402 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".navbar17-cdec691c465e",
+        "prop": "padding-inline",
+        "value": "38px"
+      },
+      {
+        "selector": ".nav-right-cdec69237d4f",
+        "prop": "gap",
+        "value": "8px"
+      },
+      {
+        "selector": ".hamburger-cdec6928a519",
+        "prop": "gap",
+        "value": "5px"
+      },
+      {
+        "selector": ".button-p-cdec69275e4e",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec69275e4e",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-p-cdec69275e4e",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec69275e4f .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec69275e4f .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec69275e4f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdec69275e4f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec69275e4f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec69275e4f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": "html, body",
+        "prop": "padding",
+        "value": "0px"
+      },
+      {
+        "selector": "html, body",
+        "prop": "padding",
+        "value": "0px"
+      },
+      {
+        "selector": ".navbar17-cdec56e0c462",
+        "prop": "padding-inline",
+        "value": "72px"
+      },
+      {
+        "selector": ".nav-right-cdec56e9ca43",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".hamburger-cdec56f63a9d",
+        "prop": "gap",
+        "value": "5px"
+      },
+      {
+        "selector": ".button-p-cdec56f2522f",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec56f2522f",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-p-cdec56f2522f",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec56f25230 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec56f25230 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec56f25230 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdec56f25230 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec56f25230 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec56f25230 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".buttons-cdec6b4c0f98",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".descriptio-cdec6b4603f2 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".descriptio-cdec6b4603f2 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".descriptio-cdec6b4603f2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".descriptio-cdec6b4603f2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "18px"
+      },
+      {
+        "selector": ".descriptio-cdec6b4603f2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".descriptio-cdec6b4603f2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h1-cdec6b41365b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h1-cdec6b41365b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".h1-cdec6b41365b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h1-cdec6b41365b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "56px"
+      },
+      {
+        "selector": ".h1-cdec6b41365b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h1-cdec6b41365b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".button-s-cdec6b51d06e",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-s-cdec6b51d06e",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-s-cdec6b51d06e",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec6b5059bf",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec6b5059bf",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-p-cdec6b5059bf",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec6b51d06f .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec6b51d06f .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec6b51d06f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".label-cdec6b51d06f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec6b51d06f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec6b51d06f .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".label-cdec6b5059c0 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec6b5059c0 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec6b5059c0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdec6b5059c0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec6b5059c0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec6b5059c0 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".buttons-cdec695ad418",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".descriptio-cdec6955a6f5 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".descriptio-cdec6955a6f5 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".descriptio-cdec6955a6f5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".descriptio-cdec6955a6f5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "18px"
+      },
+      {
+        "selector": ".descriptio-cdec6955a6f5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".descriptio-cdec6955a6f5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h1-cdec694ef890 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h1-cdec694ef890 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".h1-cdec694ef890 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h1-cdec694ef890 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "56px"
+      },
+      {
+        "selector": ".h1-cdec694ef890 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h1-cdec694ef890 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".button-s-cdec69602326",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-s-cdec69602326",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-s-cdec69602326",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec695ec7b8",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec695ec7b8",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-p-cdec695ec7b8",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec69602327 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec69602327 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec69602327 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".label-cdec69602327 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec69602327 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec69602327 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".label-cdec695ec7b9 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec695ec7b9 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec695ec7b9 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdec695ec7b9 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec695ec7b9 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec695ec7b9 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".buttons-cdec573fbb2b",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".descriptio-cdec5739dc36 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".descriptio-cdec5739dc36 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".descriptio-cdec5739dc36 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".descriptio-cdec5739dc36 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "18px"
+      },
+      {
+        "selector": ".descriptio-cdec5739dc36 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".descriptio-cdec5739dc36 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h1-cdec57334678 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h1-cdec57334678 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".h1-cdec57334678 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h1-cdec57334678 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "56px"
+      },
+      {
+        "selector": ".h1-cdec57334678 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h1-cdec57334678 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".button-s-cdec574ea8c7",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-s-cdec574ea8c7",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-s-cdec574ea8c7",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec574a88a4",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-p-cdec574a88a4",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-p-cdec574a88a4",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec574ea8c8 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec574ea8c8 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec574ea8c8 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".label-cdec574ea8c8 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec574ea8c8 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec574ea8c8 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".label-cdec574a88a5 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec574a88a5 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec574a88a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(255, 255, 255)"
+      },
+      {
+        "selector": ".label-cdec574a88a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec574a88a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec574a88a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".layout620-cdec6b55321c",
+        "prop": "padding-inline",
+        "value": "19px"
+      },
+      {
+        "selector": ".layout620-cdec6b55321c",
+        "prop": "padding-block",
+        "value": "64px"
+      },
+      {
+        "selector": ".container-cdec6b59416e",
+        "prop": "gap",
+        "value": "48px"
+      },
+      {
+        "selector": ".buttons-cdec6bc77a82",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".link-button-cdec6bcd84a5 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".link-button-cdec6bcd84a5 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".link-button-cdec6bcd84a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".link-button-cdec6bcd84a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".link-button-cdec6bcd84a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".link-button-cdec6bcd84a5 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".button-s-cdec6bcc4c60",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-s-cdec6bcc4c60",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-s-cdec6bcc4c60",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec6bcc4c61 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec6bcc4c61 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec6bcc4c61 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".label-cdec6bcc4c61 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec6bcc4c61 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec6bcc4c61 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".item3-cdec6bad9134",
+        "prop": "padding-block",
+        "value": "24px"
+      },
+      {
+        "selector": ".item2-cdec6b9421e5",
+        "prop": "padding-block",
+        "value": "24px"
+      },
+      {
+        "selector": ".item1-cdec6b7a87e4",
+        "prop": "padding-block",
+        "value": "24px"
+      },
+      {
+        "selector": ".body-cdec6bbf96b4 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".body-cdec6bbf96b4 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".body-cdec6bbf96b4 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".body-cdec6bbf96b4 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".body-cdec6bbf96b4 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".body-cdec6bbf96b4 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h4-cdec6bb563f1 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h4-cdec6bb563f1 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".h4-cdec6bb563f1 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h4-cdec6bb563f1 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "32px"
+      },
+      {
+        "selector": ".h4-cdec6bb563f1 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h4-cdec6bb563f1 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".body-cdec6ba52d0c .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".body-cdec6ba52d0c .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".body-cdec6ba52d0c .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".body-cdec6ba52d0c .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".body-cdec6ba52d0c .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".body-cdec6ba52d0c .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h4-cdec6b9be1ee .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h4-cdec6b9be1ee .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".h4-cdec6b9be1ee .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h4-cdec6b9be1ee .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "32px"
+      },
+      {
+        "selector": ".h4-cdec6b9be1ee .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h4-cdec6b9be1ee .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".body-cdec6b8b911d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".body-cdec6b8b911d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".body-cdec6b8b911d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".body-cdec6b8b911d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".body-cdec6b8b911d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".body-cdec6b8b911d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h4-cdec6b832b60 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h4-cdec6b832b60 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".h4-cdec6b832b60 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h4-cdec6b832b60 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "32px"
+      },
+      {
+        "selector": ".h4-cdec6b832b60 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h4-cdec6b832b60 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".descriptio-cdec6b70171b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".descriptio-cdec6b70171b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".descriptio-cdec6b70171b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".descriptio-cdec6b70171b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "18px"
+      },
+      {
+        "selector": ".descriptio-cdec6b70171b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".descriptio-cdec6b70171b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h2-cdec6b68f5a2 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h2-cdec6b68f5a2 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".h2-cdec6b68f5a2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h2-cdec6b68f5a2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "48px"
+      },
+      {
+        "selector": ".h2-cdec6b68f5a2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h2-cdec6b68f5a2 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".tagline-cdec6b6018cf .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".tagline-cdec6b6018cf .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".tagline-cdec6b6018cf .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".tagline-cdec6b6018cf .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".tagline-cdec6b6018cf .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".tagline-cdec6b6018cf .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "600"
+      },
+      {
+        "selector": ".layout620-cdec6963eaef",
+        "prop": "padding-inline",
+        "value": "38px"
+      },
+      {
+        "selector": ".layout620-cdec6963eaef",
+        "prop": "padding-block",
+        "value": "96px"
+      },
+      {
+        "selector": ".container-cdec6967a51b",
+        "prop": "gap",
+        "value": "72px"
+      },
+      {
+        "selector": ".buttons-cdec69c8f248",
+        "prop": "gap",
+        "value": "16px"
+      },
+      {
+        "selector": ".grid-cdec69843457",
+        "prop": "gap",
+        "value": "32px"
+      },
+      {
+        "selector": ".link-button-cdec69ce457b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".link-button-cdec69ce457b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".link-button-cdec69ce457b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".link-button-cdec69ce457b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".link-button-cdec69ce457b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".link-button-cdec69ce457b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".button-s-cdec69cd2b75",
+        "prop": "gap",
+        "value": "12px"
+      },
+      {
+        "selector": ".button-s-cdec69cd2b75",
+        "prop": "padding-inline",
+        "value": "24px"
+      },
+      {
+        "selector": ".button-s-cdec69cd2b75",
+        "prop": "padding-block",
+        "value": "12px"
+      },
+      {
+        "selector": ".label-cdec69cd2b76 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".label-cdec69cd2b76 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".label-cdec69cd2b76 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".label-cdec69cd2b76 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".label-cdec69cd2b76 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".label-cdec69cd2b76 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".item3-cdec69b40a73",
+        "prop": "padding-block",
+        "value": "32px"
+      },
+      {
+        "selector": ".item2-cdec699ec21f",
+        "prop": "padding-block",
+        "value": "32px"
+      },
+      {
+        "selector": ".item1-cdec698a1d0d",
+        "prop": "padding-block",
+        "value": "32px"
+      },
+      {
+        "selector": ".body-cdec69c3982d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".body-cdec69c3982d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".body-cdec69c3982d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".body-cdec69c3982d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".body-cdec69c3982d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".body-cdec69c3982d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h4-cdec69bc177b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h4-cdec69bc177b .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".h4-cdec69bc177b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h4-cdec69bc177b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "32px"
+      },
+      {
+        "selector": ".h4-cdec69bc177b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h4-cdec69bc177b .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".body-cdec69ad740d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".body-cdec69ad740d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".body-cdec69ad740d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".body-cdec69ad740d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".body-cdec69ad740d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".body-cdec69ad740d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h4-cdec69a64498 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h4-cdec69a64498 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".h4-cdec69a64498 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h4-cdec69a64498 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "32px"
+      },
+      {
+        "selector": ".h4-cdec69a64498 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h4-cdec69a64498 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".body-cdec6998a0eb .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".body-cdec6998a0eb .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".body-cdec6998a0eb .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".body-cdec6998a0eb .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "16px"
+      },
+      {
+        "selector": ".body-cdec6998a0eb .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".body-cdec6998a0eb .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h4-cdec699129f3 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h4-cdec699129f3 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".h4-cdec699129f3 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h4-cdec699129f3 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "32px"
+      },
+      {
+        "selector": ".h4-cdec699129f3 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h4-cdec699129f3 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".descriptio-cdec697ecf8d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".descriptio-cdec697ecf8d .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".descriptio-cdec697ecf8d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".descriptio-cdec697ecf8d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "18px"
+      },
+      {
+        "selector": ".descriptio-cdec697ecf8d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".descriptio-cdec697ecf8d .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "400"
+      },
+      {
+        "selector": ".h2-cdec69768171 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".h2-cdec69768171 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".h2-cdec69768171 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "color",
+        "value": "rgb(0, 0, 0)"
+      },
+      {
+        "selector": ".h2-cdec69768171 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-size",
+        "value": "48px"
+      },
+      {
+        "selector": ".h2-cdec69768171 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\""
+      },
+      {
+        "selector": ".h2-cdec69768171 .root-0-paragraph-set-0-paragraph-0-text-0",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".tagline-cdec696dcb81 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "font-size",
+        "value": "0px"
+      },
+      {
+        "selector": ".tagline-cdec696dcb81 .root-0-paragraph-set-0-paragraph-0",
+        "prop": "line-height",
+        "value": "1.5"
+      }
+    ],
+    "unreadableSheets": []
+  },
+  "perPage": {
+    "button": {
+      "375": {
+        "var": 0,
+        "literal": 20,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 4,
+        "boundShare": 0,
+        "decls": 24,
+        "inlineStyleElements": 4
+      },
+      "768": {
+        "var": 0,
+        "literal": 20,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 4,
+        "boundShare": 0,
+        "decls": 24,
+        "inlineStyleElements": 4
+      },
+      "1440": {
+        "var": 0,
+        "literal": 20,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 4,
+        "boundShare": 0,
+        "decls": 24,
+        "inlineStyleElements": 4
+      }
+    },
+    "navbar": {
+      "375": {
+        "var": 0,
+        "literal": 12,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 8,
+        "boundShare": 0,
+        "decls": 20,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 12,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 8,
+        "boundShare": 0,
+        "decls": 20,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 14,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 8,
+        "boundShare": 0,
+        "decls": 22,
+        "inlineStyleElements": 0
+      }
+    },
+    "header80": {
+      "375": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 11,
+        "boundShare": 0,
+        "decls": 42,
+        "inlineStyleElements": 1
+      },
+      "768": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 11,
+        "boundShare": 0,
+        "decls": 42,
+        "inlineStyleElements": 1
+      },
+      "1440": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 11,
+        "boundShare": 0,
+        "decls": 42,
+        "inlineStyleElements": 1
+      }
+    },
+    "layout620": {
+      "375": {
+        "var": 0,
+        "literal": 76,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 9,
+        "boundShare": 0,
+        "decls": 85,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 77,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 9,
+        "boundShare": 0,
+        "decls": 86,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 77,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 9,
+        "boundShare": 0,
+        "decls": 86,
+        "inlineStyleElements": 0
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "var": 0,
+        "literal": 68,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 30,
+        "boundShare": 0,
+        "decls": 98,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 70,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 30,
+        "boundShare": 0,
+        "decls": 100,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 70,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 30,
+        "boundShare": 0,
+        "decls": 100,
+        "inlineStyleElements": 0
+      }
+    },
+    "cta25": {
+      "375": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 5,
+        "boundShare": 0,
+        "decls": 38,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 5,
+        "boundShare": 0,
+        "decls": 38,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 5,
+        "boundShare": 0,
+        "decls": 38,
+        "inlineStyleElements": 0
+      }
+    },
+    "page": {
+      "375": {
+        "var": 0,
+        "literal": 220,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 59,
+        "boundShare": 0,
+        "decls": 279,
+        "inlineStyleElements": 1
+      },
+      "768": {
+        "var": 0,
+        "literal": 223,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 59,
+        "boundShare": 0,
+        "decls": 282,
+        "inlineStyleElements": 1
+      },
+      "1440": {
+        "var": 0,
+        "literal": 225,
+        "otherVar": 0,
+        "neutral": 0,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 59,
+        "boundShare": 0,
+        "decls": 284,
+        "inlineStyleElements": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "arm": "A",
+  "arm_level": {
+    "varDecls": 0,
+    "literalDecls": 69,
+    "otherVarDecls": 0,
+    "neutralDecls": 9,
+    "mixedVarDecls": 0,
+    "boundShare": 0,
+    "boundShareStrict": 0,
+    "uniqueDeclarations": 78,
+    "literalSamples": [
+      {
+        "selector": "*, ::before, ::after",
+        "prop": "border-color",
+        "value": "rgb(229, 231, 235)"
+      },
+      {
+        "selector": "html, :host",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": "html, :host",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\", system-ui, sans-serif"
+      },
+      {
+        "selector": "button, input, optgroup, select, textarea",
+        "prop": "font-size",
+        "value": "100%"
+      },
+      {
+        "selector": "button, input, optgroup, select, textarea",
+        "prop": "padding",
+        "value": "0px"
+      },
+      {
+        "selector": ".gap-3",
+        "prop": "gap",
+        "value": "0.75rem"
+      },
+      {
+        "selector": ".gap-4",
+        "prop": "gap",
+        "value": "1rem"
+      },
+      {
+        "selector": ".rounded-button, .rounded-card, .rounded-image",
+        "prop": "border-radius",
+        "value": "0rem"
+      },
+      {
+        "selector": ".border-scheme-border",
+        "prop": "border-color",
+        "value": "rgb(0 0 0 / var(--tw-border-opacity, 1))"
+      },
+      {
+        "selector": ".bg-neutral-darkest",
+        "prop": "background-color",
+        "value": "rgb(17 17 17 / var(--tw-bg-opacity, 1))"
+      },
+      {
+        "selector": ".bg-white",
+        "prop": "background-color",
+        "value": "rgb(255 255 255 / var(--tw-bg-opacity, 1))"
+      },
+      {
+        "selector": ".p-20",
+        "prop": "padding",
+        "value": "5rem"
+      },
+      {
+        "selector": ".px-6",
+        "prop": "padding-left",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".px-6",
+        "prop": "padding-right",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".py-3",
+        "prop": "padding-top",
+        "value": "0.75rem"
+      },
+      {
+        "selector": ".py-3",
+        "prop": "padding-bottom",
+        "value": "0.75rem"
+      },
+      {
+        "selector": ".font-sans",
+        "prop": "font-family",
+        "value": "\"Source Sans 3\", system-ui, sans-serif"
+      },
+      {
+        "selector": ".text-scheme-text",
+        "prop": "color",
+        "value": "rgb(0 0 0 / var(--tw-text-opacity, 1))"
+      },
+      {
+        "selector": ".text-white",
+        "prop": "color",
+        "value": "rgb(255 255 255 / var(--tw-text-opacity, 1))"
+      },
+      {
+        "selector": ".gap-2",
+        "prop": "gap",
+        "value": "0.5rem"
+      },
+      {
+        "selector": ".bg-scheme-background",
+        "prop": "background-color",
+        "value": "rgb(255 255 255 / var(--tw-bg-opacity, 1))"
+      },
+      {
+        "selector": ".bg-scheme-text",
+        "prop": "background-color",
+        "value": "rgb(0 0 0 / var(--tw-bg-opacity, 1))"
+      },
+      {
+        "selector": ".px-4",
+        "prop": "padding-left",
+        "value": "1rem"
+      },
+      {
+        "selector": ".px-4",
+        "prop": "padding-right",
+        "value": "1rem"
+      },
+      {
+        "selector": ".px-\\[5\\%\\]",
+        "prop": "padding-left",
+        "value": "5%"
+      },
+      {
+        "selector": ".px-\\[5\\%\\]",
+        "prop": "padding-right",
+        "value": "5%"
+      },
+      {
+        "selector": ".py-1",
+        "prop": "padding-top",
+        "value": "0.25rem"
+      },
+      {
+        "selector": ".py-1",
+        "prop": "padding-bottom",
+        "value": "0.25rem"
+      },
+      {
+        "selector": ".md\\:px-6",
+        "prop": "padding-left",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".md\\:px-6",
+        "prop": "padding-right",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".md\\:py-2",
+        "prop": "padding-top",
+        "value": "0.5rem"
+      },
+      {
+        "selector": ".md\\:py-2",
+        "prop": "padding-bottom",
+        "value": "0.5rem"
+      },
+      {
+        "selector": ".lg\\:gap-4",
+        "prop": "gap",
+        "value": "1rem"
+      },
+      {
+        "selector": ".gap-\\[26vw\\]",
+        "prop": "gap",
+        "value": "26vw"
+      },
+      {
+        "selector": ".gap-x-4",
+        "prop": "column-gap",
+        "value": "1rem"
+      },
+      {
+        "selector": ".pb-24",
+        "prop": "padding-bottom",
+        "value": "6rem"
+      },
+      {
+        "selector": ".pt-16",
+        "prop": "padding-top",
+        "value": "4rem"
+      },
+      {
+        "selector": ".pt-\\[120\\%\\]",
+        "prop": "padding-top",
+        "value": "120%"
+      },
+      {
+        "selector": ".pt-\\[70vh\\]",
+        "prop": "padding-top",
+        "value": "70vh"
+      },
+      {
+        "selector": ".text-h1",
+        "prop": "font-size",
+        "value": "3.5rem"
+      },
+      {
+        "selector": ".text-h1",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".text-medium",
+        "prop": "font-size",
+        "value": "1.125rem"
+      },
+      {
+        "selector": ".text-medium",
+        "prop": "line-height",
+        "value": "1.5"
+      },
+      {
+        "selector": ".font-bold",
+        "prop": "font-weight",
+        "value": "700"
+      },
+      {
+        "selector": ".md\\:pt-24",
+        "prop": "padding-top",
+        "value": "6rem"
+      },
+      {
+        "selector": ".lg\\:py-28",
+        "prop": "padding-top",
+        "value": "7rem"
+      },
+      {
+        "selector": ".lg\\:py-28",
+        "prop": "padding-bottom",
+        "value": "7rem"
+      },
+      {
+        "selector": ".bg-scheme-border",
+        "prop": "background-color",
+        "value": "rgb(0 0 0 / var(--tw-bg-opacity, 1))"
+      },
+      {
+        "selector": ".p-0",
+        "prop": "padding",
+        "value": "0px"
+      },
+      {
+        "selector": ".py-16",
+        "prop": "padding-top",
+        "value": "4rem"
+      },
+      {
+        "selector": ".py-16",
+        "prop": "padding-bottom",
+        "value": "4rem"
+      },
+      {
+        "selector": ".py-6",
+        "prop": "padding-top",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".py-6",
+        "prop": "padding-bottom",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".text-h2",
+        "prop": "font-size",
+        "value": "3rem"
+      },
+      {
+        "selector": ".text-h2",
+        "prop": "line-height",
+        "value": "1.2"
+      },
+      {
+        "selector": ".text-h4",
+        "prop": "font-size",
+        "value": "2rem"
+      },
+      {
+        "selector": ".text-h4",
+        "prop": "line-height",
+        "value": "1.3"
+      },
+      {
+        "selector": ".font-semibold",
+        "prop": "font-weight",
+        "value": "600"
+      },
+      {
+        "selector": ".md\\:gap-8",
+        "prop": "gap",
+        "value": "2rem"
+      },
+      {
+        "selector": ".md\\:py-24",
+        "prop": "padding-top",
+        "value": "6rem"
+      },
+      {
+        "selector": ".md\\:py-24",
+        "prop": "padding-bottom",
+        "value": "6rem"
+      },
+      {
+        "selector": ".md\\:py-8",
+        "prop": "padding-top",
+        "value": "2rem"
+      },
+      {
+        "selector": ".md\\:py-8",
+        "prop": "padding-bottom",
+        "value": "2rem"
+      },
+      {
+        "selector": ".gap-1",
+        "prop": "gap",
+        "value": "0.25rem"
+      },
+      {
+        "selector": ".gap-6",
+        "prop": "gap",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".bg-scheme-foreground",
+        "prop": "background-color",
+        "value": "rgb(255 255 255 / var(--tw-bg-opacity, 1))"
+      },
+      {
+        "selector": ".p-6",
+        "prop": "padding",
+        "value": "1.5rem"
+      },
+      {
+        "selector": ".md\\:p-8",
+        "prop": "padding",
+        "value": "2rem"
+      },
+      {
+        "selector": ".lg\\:p-6",
+        "prop": "padding",
+        "value": "1.5rem"
+      }
+    ],
+    "unreadableSheets": []
+  },
+  "perPage": {
+    "button": {
+      "375": {
+        "var": 0,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 6,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 6,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 6,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      }
+    },
+    "navbar": {
+      "375": {
+        "var": 0,
+        "literal": 22,
+        "otherVar": 0,
+        "neutral": 7,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 29,
+        "inlineStyleElements": 4
+      },
+      "768": {
+        "var": 0,
+        "literal": 26,
+        "otherVar": 0,
+        "neutral": 7,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 33,
+        "inlineStyleElements": 4
+      },
+      "1440": {
+        "var": 0,
+        "literal": 27,
+        "otherVar": 0,
+        "neutral": 7,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 34,
+        "inlineStyleElements": 4
+      }
+    },
+    "header80": {
+      "375": {
+        "var": 0,
+        "literal": 30,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 38,
+        "inlineStyleElements": 2
+      },
+      "768": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 39,
+        "inlineStyleElements": 2
+      },
+      "1440": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 41,
+        "inlineStyleElements": 2
+      }
+    },
+    "layout620": {
+      "375": {
+        "var": 0,
+        "literal": 33,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 41,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 38,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 46,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 40,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 48,
+        "inlineStyleElements": 0
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "var": 0,
+        "literal": 22,
+        "otherVar": 0,
+        "neutral": 3,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 25,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 26,
+        "otherVar": 0,
+        "neutral": 3,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 29,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 29,
+        "otherVar": 0,
+        "neutral": 3,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 32,
+        "inlineStyleElements": 0
+      }
+    },
+    "cta25": {
+      "375": {
+        "var": 0,
+        "literal": 27,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 35,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 0,
+        "literal": 29,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 37,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 0,
+        "literal": 31,
+        "otherVar": 0,
+        "neutral": 8,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 39,
+        "inlineStyleElements": 0
+      }
+    },
+    "page": {
+      "375": {
+        "var": 0,
+        "literal": 53,
+        "otherVar": 0,
+        "neutral": 9,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 62,
+        "inlineStyleElements": 6
+      },
+      "768": {
+        "var": 0,
+        "literal": 64,
+        "otherVar": 0,
+        "neutral": 9,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 73,
+        "inlineStyleElements": 6
+      },
+      "1440": {
+        "var": 0,
+        "literal": 68,
+        "otherVar": 0,
+        "neutral": 9,
+        "mixed": 0,
+        "shorthandVar": 0,
+        "shorthandLiteral": 0,
+        "boundShare": 0,
+        "decls": 77,
+        "inlineStyleElements": 6
+      }
+    }
+  }
+}
