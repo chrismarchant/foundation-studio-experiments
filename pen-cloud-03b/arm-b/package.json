@@ -1,0 +1,24 @@
+{
+  "name": "pen-cloud-03b-arm-b",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PEN-CLOUD-03-B Arm B (static, port 4302) and B' (Vite 7 + React 19, port 4303): official Penpot HTML/CSS output, mechanically wrapped",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "node scripts/dedupe.mjs && node scripts/wrap.mjs && node scripts/copy-fonts.mjs",
+    "build:static": "node scripts/build-static.mjs",
+    "build:react": "pnpm --filter pen-cloud-03b-arm-b-react build",
+    "build": "pnpm generate && pnpm build:static && pnpm build:react",
+    "serve": "node scripts/serve-static.mjs",
+    "serve:react": "pnpm --filter pen-cloud-03b-arm-b-react serve",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "parse5": "8.0.1",
+    "sirv": "3.0.2"
+  }
+}

@@ -1,0 +1,69 @@
+/* Button / Button / Primary */
+.button-b-cdeb4ffc5595 {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 100%;
+  background: #000000FF;
+  border: 1px  #000000FF;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: center;
+  gap: 12px;
+  padding-inline-start: 24px;
+  padding-inline-end: 24px;
+  padding-block-start: 12px;
+  padding-block-end: 12px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+  min-height: 48px;
+  min-block-size: 48px;
+  min-width: 95px;
+  min-inline-size: 95px;
+}
+
+/* Label */
+.label-cdeb5001d0b6 {
+  height: 24px;
+  flex-shrink: 0;
+}
+.label-cdeb5001d0b6 .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.label-cdeb5001d0b6 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  
+  margin-right: 1px;
+  vertical-align: top;
+}
+.label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+}
+.label-cdeb5001d0b6 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(255, 255, 255, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: pre;
+  font-size: 16px;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+}

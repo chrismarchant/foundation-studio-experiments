@@ -1,0 +1,26 @@
+{
+  "name": "pc03b-arm-c",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PEN-CLOUD-03-B Arm C: Foundation-generated React from accepted DSC/SAC/Penpot inputs",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "tsx generator/generate.ts",
+    "generate:verify": "tsx generator/generate.ts --verify",
+    "typecheck": "tsc -p generator/tsconfig.json --noEmit && pnpm -C app typecheck && pnpm -C ssr typecheck",
+    "lint": "biome check generator app/src/main.tsx app/src/App.tsx app/vite.config.ts ssr/src ssr/vite.config.ts ssr/server.mjs",
+    "build": "pnpm generate && pnpm -C app build && pnpm -C ssr build",
+    "serve": "pnpm -C app serve",
+    "serve:ssr": "pnpm -C ssr serve"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

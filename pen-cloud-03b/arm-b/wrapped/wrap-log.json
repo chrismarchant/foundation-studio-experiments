@@ -1,0 +1,217 @@
+{
+  "script": "scripts/wrap.mjs",
+  "preludeBytes": 551,
+  "outputs": [
+    {
+      "bp": "desktop",
+      "route": "button",
+      "htmlBytes": 1657,
+      "cssBytes": 2884,
+      "slots": [
+        {
+          "class": "button-b-cdeb4ffc5595",
+          "left": 24,
+          "top": 24,
+          "w": 95,
+          "h": 48
+        },
+        {
+          "class": "button-b-cdeb50084766",
+          "left": 200,
+          "top": 24,
+          "w": 95,
+          "h": 48
+        }
+      ]
+    },
+    {
+      "bp": "desktop",
+      "route": "navbar",
+      "htmlBytes": 1309,
+      "cssBytes": 3506
+    },
+    {
+      "bp": "desktop",
+      "route": "header80",
+      "htmlBytes": 3919,
+      "cssBytes": 6870,
+      "scrollHeightVh": 300,
+      "motionAttributes": [
+        {
+          "value": "images-right",
+          "class": "images-righ-cdec57296f5e"
+        },
+        {
+          "value": "images-left",
+          "class": "images-left-cdec5710db18"
+        }
+      ]
+    },
+    {
+      "bp": "desktop",
+      "route": "layout620",
+      "htmlBytes": 8865,
+      "cssBytes": 14432
+    },
+    {
+      "bp": "desktop",
+      "route": "testimonial37",
+      "htmlBytes": 9242,
+      "cssBytes": 16277
+    },
+    {
+      "bp": "desktop",
+      "route": "cta25",
+      "htmlBytes": 3073,
+      "cssBytes": 5911
+    },
+    {
+      "bp": "desktop",
+      "route": "page",
+      "htmlBytes": 26481,
+      "cssBytes": 47000,
+      "scrollHeightVh": 300
+    },
+    {
+      "bp": "tablet",
+      "route": "button",
+      "htmlBytes": 1657,
+      "cssBytes": 2884,
+      "slots": [
+        {
+          "class": "button-b-cdeb4ffc5595",
+          "left": 24,
+          "top": 24,
+          "w": 95,
+          "h": 48
+        },
+        {
+          "class": "button-b-cdeb50084766",
+          "left": 200,
+          "top": 24,
+          "w": 95,
+          "h": 48
+        }
+      ]
+    },
+    {
+      "bp": "tablet",
+      "route": "navbar",
+      "htmlBytes": 1309,
+      "cssBytes": 2863
+    },
+    {
+      "bp": "tablet",
+      "route": "header80",
+      "htmlBytes": 3923,
+      "cssBytes": 6869,
+      "scrollHeightVh": 300,
+      "motionAttributes": [
+        {
+          "value": "images-right",
+          "class": "images-righ-cdec69455202"
+        },
+        {
+          "value": "images-left",
+          "class": "images-left-cdec6936527c"
+        }
+      ]
+    },
+    {
+      "bp": "tablet",
+      "route": "layout620",
+      "htmlBytes": 8875,
+      "cssBytes": 14447
+    },
+    {
+      "bp": "tablet",
+      "route": "testimonial37",
+      "htmlBytes": 9114,
+      "cssBytes": 16297
+    },
+    {
+      "bp": "tablet",
+      "route": "cta25",
+      "htmlBytes": 3077,
+      "cssBytes": 5909
+    },
+    {
+      "bp": "tablet",
+      "route": "page",
+      "htmlBytes": 26371,
+      "cssBytes": 46389,
+      "scrollHeightVh": 300
+    },
+    {
+      "bp": "mobile",
+      "route": "button",
+      "htmlBytes": 1657,
+      "cssBytes": 2884,
+      "slots": [
+        {
+          "class": "button-b-cdeb4ffc5595",
+          "left": 24,
+          "top": 24,
+          "w": 95,
+          "h": 48
+        },
+        {
+          "class": "button-b-cdeb50084766",
+          "left": 200,
+          "top": 24,
+          "w": 95,
+          "h": 48
+        }
+      ]
+    },
+    {
+      "bp": "mobile",
+      "route": "navbar",
+      "htmlBytes": 1309,
+      "cssBytes": 2863
+    },
+    {
+      "bp": "mobile",
+      "route": "header80",
+      "htmlBytes": 3955,
+      "cssBytes": 6860,
+      "scrollHeightVh": 150,
+      "motionAttributes": [
+        {
+          "value": "images-right",
+          "class": "images-righ-cdec6b36b208"
+        },
+        {
+          "value": "images-left",
+          "class": "images-left-cdec6b2c1ebf"
+        }
+      ]
+    },
+    {
+      "bp": "mobile",
+      "route": "layout620",
+      "htmlBytes": 8940,
+      "cssBytes": 14574
+    },
+    {
+      "bp": "mobile",
+      "route": "testimonial37",
+      "htmlBytes": 8730,
+      "cssBytes": 15659
+    },
+    {
+      "bp": "mobile",
+      "route": "cta25",
+      "htmlBytes": 3085,
+      "cssBytes": 5909
+    },
+    {
+      "bp": "mobile",
+      "route": "page",
+      "htmlBytes": 26092,
+      "cssBytes": 45869,
+      "scrollHeightVh": 150
+    }
+  ],
+  "motionAttributesAdded": 12
+}

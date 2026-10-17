@@ -1,0 +1,7 @@
+/* Wrapper prelude (Arm B / B'): not Penpot output. Reproduces the flex-column body Penpot's CSS assumes. */
+html, body { background: #fff; }
+.fs-stage { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; width: 100%; }
+.fs-button-stage { box-sizing: border-box; display: flex; justify-content: center; width: 100%; max-width: 1440px; padding: 80px; }
+.fs-button-row { display: flex; gap: 16px; }
+.fs-button-slot { position: relative; flex: none; }
+.fs-button-origin { position: absolute; width: 100%; height: 100%; }

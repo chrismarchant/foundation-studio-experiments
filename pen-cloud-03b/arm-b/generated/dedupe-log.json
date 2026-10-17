@@ -1,0 +1,2421 @@
+{
+  "tool": {
+    "script": "scripts/dedupe.mjs",
+    "parser": "parse5@8.0.1"
+  },
+  "input": {
+    "file": "penpot-output.json",
+    "sha256": "a31d6cac64277c18a4085450da7cb67d92bc24ed4bac2b78cdf3f4526cc93bdc",
+    "capturedAt": "2026-10-17T17:28:41.036Z"
+  },
+  "fontAlias": {
+    "from": "\"sourcesanspro\"",
+    "to": "\"Source Sans 3\""
+  },
+  "items": [
+    {
+      "board": "desktop",
+      "section": "Navbar17",
+      "route": "navbar",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec56e0c462",
+      "htmlBytesBefore": 4021,
+      "htmlBytesAfter": 1254,
+      "cssBytes": 3506,
+      "fontFamilyReplacements": 1,
+      "topLevelBefore": 9,
+      "topLevelAfter": 1,
+      "elementsBefore": 47,
+      "elementsAfter": 14,
+      "removedCount": 8,
+      "removedElements": 33,
+      "removedIds": [
+        "nav-right-cdec56e9ca43",
+        "logo-cdec56e78dc8",
+        "hamburger-cdec56f63a9d",
+        "button-p-cdec56f2522f",
+        "line3-cdec5703b8bc",
+        "line2-cdec57003da1",
+        "line1-cdec56fe7f6c",
+        "label-cdec56f25230"
+      ],
+      "removed": [
+        {
+          "id": "nav-right-cdec56e9ca43",
+          "class": "frame nav-right-cdec56e9ca43",
+          "elements": 12
+        },
+        {
+          "id": "logo-cdec56e78dc8",
+          "class": "shape rect logo-cdec56e78dc8",
+          "elements": 1
+        },
+        {
+          "id": "hamburger-cdec56f63a9d",
+          "class": "frame hamburger-cdec56f63a9d",
+          "elements": 4
+        },
+        {
+          "id": "button-p-cdec56f2522f",
+          "class": "frame button-p-cdec56f2522f",
+          "elements": 7
+        },
+        {
+          "id": "line3-cdec5703b8bc",
+          "class": "shape rect line3-cdec5703b8bc",
+          "elements": 1
+        },
+        {
+          "id": "line2-cdec57003da1",
+          "class": "shape rect line2-cdec57003da1",
+          "elements": 1
+        },
+        {
+          "id": "line1-cdec56fe7f6c",
+          "class": "shape rect line1-cdec56fe7f6c",
+          "elements": 1
+        },
+        {
+          "id": "label-cdec56f25230",
+          "class": "shape text label-cdec56f25230",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "desktop",
+      "section": "Header80 / StickyStage",
+      "route": "header80",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec570ada2a",
+      "htmlBytesBefore": 12711,
+      "htmlBytesAfter": 3782,
+      "cssBytes": 6870,
+      "fontFamilyReplacements": 4,
+      "topLevelBefore": 19,
+      "topLevelAfter": 1,
+      "elementsBefore": 138,
+      "elementsAfter": 39,
+      "removedCount": 18,
+      "removedElements": 99,
+      "removedIds": [
+        "images-left-cdec5710db18",
+        "images-righ-cdec57296f5e",
+        "hero-text-cdec5730029d",
+        "image1-cdec57172113",
+        "image2-cdec571f77dc",
+        "image3-cdec57219989",
+        "image4-cdec5726e942",
+        "image5-cdec572ad36d",
+        "image6-cdec572dd9a3",
+        "buttons-cdec573fbb2b",
+        "space32-cdec573e120f",
+        "descriptio-cdec5739dc36",
+        "space24-cdec5737b8ea",
+        "h1-cdec57334678",
+        "button-s-cdec574ea8c7",
+        "button-p-cdec574a88a4",
+        "label-cdec574ea8c8",
+        "label-cdec574a88a5"
+      ],
+      "removed": [
+        {
+          "id": "images-left-cdec5710db18",
+          "class": "frame images-left-cdec5710db18",
+          "elements": 5
+        },
+        {
+          "id": "images-righ-cdec57296f5e",
+          "class": "frame images-righ-cdec57296f5e",
+          "elements": 3
+        },
+        {
+          "id": "hero-text-cdec5730029d",
+          "class": "frame hero-text-cdec5730029d",
+          "elements": 30
+        },
+        {
+          "id": "image1-cdec57172113",
+          "class": "shape rect image1-cdec57172113",
+          "elements": 1
+        },
+        {
+          "id": "image2-cdec571f77dc",
+          "class": "shape rect image2-cdec571f77dc",
+          "elements": 1
+        },
+        {
+          "id": "image3-cdec57219989",
+          "class": "shape rect image3-cdec57219989",
+          "elements": 1
+        },
+        {
+          "id": "image4-cdec5726e942",
+          "class": "shape rect image4-cdec5726e942",
+          "elements": 1
+        },
+        {
+          "id": "image5-cdec572ad36d",
+          "class": "shape rect image5-cdec572ad36d",
+          "elements": 1
+        },
+        {
+          "id": "image6-cdec572dd9a3",
+          "class": "shape rect image6-cdec572dd9a3",
+          "elements": 1
+        },
+        {
+          "id": "buttons-cdec573fbb2b",
+          "class": "frame buttons-cdec573fbb2b",
+          "elements": 15
+        },
+        {
+          "id": "space32-cdec573e120f",
+          "class": "shape rect space32-cdec573e120f",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec5739dc36",
+          "class": "shape text descriptio-cdec5739dc36",
+          "elements": 6
+        },
+        {
+          "id": "space24-cdec5737b8ea",
+          "class": "shape rect space24-cdec5737b8ea",
+          "elements": 1
+        },
+        {
+          "id": "h1-cdec57334678",
+          "class": "shape text h1-cdec57334678",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec574ea8c7",
+          "class": "frame button-s-cdec574ea8c7",
+          "elements": 7
+        },
+        {
+          "id": "button-p-cdec574a88a4",
+          "class": "frame button-p-cdec574a88a4",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec574ea8c8",
+          "class": "shape text label-cdec574ea8c8",
+          "elements": 6
+        },
+        {
+          "id": "label-cdec574a88a5",
+          "class": "shape text label-cdec574a88a5",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "desktop",
+      "section": "Layout620",
+      "route": "layout620",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+      "htmlBytesBefore": 37044,
+      "htmlBytesAfter": 8807,
+      "cssBytes": 14432,
+      "fontFamilyReplacements": 11,
+      "topLevelBefore": 33,
+      "topLevelAfter": 1,
+      "elementsBefore": 395,
+      "elementsAfter": 88,
+      "removedCount": 32,
+      "removedElements": 307,
+      "removedIds": [
+        "container-cdec5763597d",
+        "buttons-cdec58195eec",
+        "grid-cdec578a5d8e",
+        "header-cdec576ebbe6",
+        "link-button-cdec58219cc6",
+        "button-s-cdec581fdb32",
+        "label-cdec581fdb33",
+        "item3-cdec5802c5f2",
+        "divider-cdec57fec02f",
+        "item2-cdec57ea1972",
+        "divider-cdec57e833e6",
+        "item1-cdec579d4adf",
+        "body-cdec58142d37",
+        "space-cdec58121c71",
+        "h4-cdec580abe03",
+        "space-cdec58087921",
+        "icon-cdec5806a40b",
+        "body-cdec57fa2a4f",
+        "space-cdec57f875e5",
+        "h4-cdec57f128e3",
+        "space-cdec57ef9807",
+        "icon-cdec57eda677",
+        "body-cdec57d6734d",
+        "space-cdec57cec1ac",
+        "h4-cdec57b84a19",
+        "space-cdec57b67335",
+        "icon-cdec57b2f1d0",
+        "descriptio-cdec57844b52",
+        "space-cdec57828d27",
+        "h2-cdec577b5c88",
+        "space-cdec5779d2d5",
+        "tagline-cdec577176ce"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec5763597d",
+          "class": "frame container-cdec5763597d",
+          "elements": 87
+        },
+        {
+          "id": "buttons-cdec58195eec",
+          "class": "frame buttons-cdec58195eec",
+          "elements": 14
+        },
+        {
+          "id": "grid-cdec578a5d8e",
+          "class": "frame grid-cdec578a5d8e",
+          "elements": 51
+        },
+        {
+          "id": "header-cdec576ebbe6",
+          "class": "frame header-cdec576ebbe6",
+          "elements": 21
+        },
+        {
+          "id": "link-button-cdec58219cc6",
+          "class": "shape text link-button-cdec58219cc6",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec581fdb32",
+          "class": "frame button-s-cdec581fdb32",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec581fdb33",
+          "class": "shape text label-cdec581fdb33",
+          "elements": 6
+        },
+        {
+          "id": "item3-cdec5802c5f2",
+          "class": "frame item3-cdec5802c5f2",
+          "elements": 16
+        },
+        {
+          "id": "divider-cdec57fec02f",
+          "class": "shape rect divider-cdec57fec02f",
+          "elements": 1
+        },
+        {
+          "id": "item2-cdec57ea1972",
+          "class": "frame item2-cdec57ea1972",
+          "elements": 16
+        },
+        {
+          "id": "divider-cdec57e833e6",
+          "class": "shape rect divider-cdec57e833e6",
+          "elements": 1
+        },
+        {
+          "id": "item1-cdec579d4adf",
+          "class": "frame item1-cdec579d4adf",
+          "elements": 16
+        },
+        {
+          "id": "body-cdec58142d37",
+          "class": "shape text body-cdec58142d37",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec58121c71",
+          "class": "shape rect space-cdec58121c71",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec580abe03",
+          "class": "shape text h4-cdec580abe03",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec58087921",
+          "class": "shape rect space-cdec58087921",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec5806a40b",
+          "class": "shape rect icon-cdec5806a40b",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec57fa2a4f",
+          "class": "shape text body-cdec57fa2a4f",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec57f875e5",
+          "class": "shape rect space-cdec57f875e5",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec57f128e3",
+          "class": "shape text h4-cdec57f128e3",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec57ef9807",
+          "class": "shape rect space-cdec57ef9807",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec57eda677",
+          "class": "shape rect icon-cdec57eda677",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec57d6734d",
+          "class": "shape text body-cdec57d6734d",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec57cec1ac",
+          "class": "shape rect space-cdec57cec1ac",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec57b84a19",
+          "class": "shape text h4-cdec57b84a19",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec57b67335",
+          "class": "shape rect space-cdec57b67335",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec57b2f1d0",
+          "class": "shape rect icon-cdec57b2f1d0",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec57844b52",
+          "class": "shape text descriptio-cdec57844b52",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec57828d27",
+          "class": "shape rect space-cdec57828d27",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec577b5c88",
+          "class": "shape text h2-cdec577b5c88",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec5779d2d5",
+          "class": "shape rect space-cdec5779d2d5",
+          "elements": 1
+        },
+        {
+          "id": "tagline-cdec577176ce",
+          "class": "shape text tagline-cdec577176ce",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "desktop",
+      "section": "Testimonial37",
+      "route": "testimonial37",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec58238586",
+      "htmlBytesBefore": 50770,
+      "htmlBytesAfter": 9180,
+      "cssBytes": 16277,
+      "fontFamilyReplacements": 8,
+      "topLevelBefore": 47,
+      "topLevelAfter": 1,
+      "elementsBefore": 533,
+      "elementsAfter": 87,
+      "removedCount": 46,
+      "removedElements": 446,
+      "removedIds": [
+        "container-cdec5827f4ae",
+        "grid-cdec58431139",
+        "header-cdec582c5a58",
+        "row2-cdec5895af88",
+        "row1-cdec5847bbdc",
+        "logo-card-cdec58ca60b3",
+        "logo-card-cdec58c418d9",
+        "quote-card-cdec58997704",
+        "logo-cdec58cf236c",
+        "logo-cdec58c8c538",
+        "author-cdec58b80e94",
+        "space-cdec58b6447b",
+        "quote-cdec58a9cefe",
+        "space-cdec58a7e858",
+        "stars-cdec589d57a6",
+        "name-block-cdec58bd9b5a",
+        "avatar-cdec58bba034",
+        "position-cdec58c2673a",
+        "name-cdec58c09ff4",
+        "star-cdec58a68231",
+        "star-cdec58a529fb",
+        "star-cdec58a3b6c1",
+        "star-cdec58a2753c",
+        "star-cdec58a0da4a",
+        "quote-card-cdec5858f430",
+        "logo-card-cdec58524cde",
+        "logo-card-cdec584b62dd",
+        "author-cdec5888ba09",
+        "space-cdec5886a1b3",
+        "quote-cdec587be0f1",
+        "space-cdec587a38d4",
+        "stars-cdec58692976",
+        "name-block-cdec588e527d",
+        "avatar-cdec588cb8a0",
+        "position-cdec5893b12f",
+        "name-cdec58915df6",
+        "star-cdec5878ea32",
+        "star-cdec5877592e",
+        "star-cdec58758ee4",
+        "star-cdec5870c1f3",
+        "star-cdec586e8796",
+        "logo-cdec585705cd",
+        "logo-cdec5850b8c2",
+        "descriptio-cdec583be34c",
+        "space-cdec5839c972",
+        "h2-cdec58300d69"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec5827f4ae",
+          "class": "frame container-cdec5827f4ae",
+          "elements": 86
+        },
+        {
+          "id": "grid-cdec58431139",
+          "class": "frame grid-cdec58431139",
+          "elements": 71
+        },
+        {
+          "id": "header-cdec582c5a58",
+          "class": "frame header-cdec582c5a58",
+          "elements": 14
+        },
+        {
+          "id": "row2-cdec5895af88",
+          "class": "frame row2-cdec5895af88",
+          "elements": 35
+        },
+        {
+          "id": "row1-cdec5847bbdc",
+          "class": "frame row1-cdec5847bbdc",
+          "elements": 35
+        },
+        {
+          "id": "logo-card-cdec58ca60b3",
+          "class": "frame logo-card-cdec58ca60b3",
+          "elements": 2
+        },
+        {
+          "id": "logo-card-cdec58c418d9",
+          "class": "frame logo-card-cdec58c418d9",
+          "elements": 2
+        },
+        {
+          "id": "quote-card-cdec58997704",
+          "class": "frame quote-card-cdec58997704",
+          "elements": 30
+        },
+        {
+          "id": "logo-cdec58cf236c",
+          "class": "shape rect logo-cdec58cf236c",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec58c8c538",
+          "class": "shape rect logo-cdec58c8c538",
+          "elements": 1
+        },
+        {
+          "id": "author-cdec58b80e94",
+          "class": "frame author-cdec58b80e94",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec58b6447b",
+          "class": "shape rect space-cdec58b6447b",
+          "elements": 1
+        },
+        {
+          "id": "quote-cdec58a9cefe",
+          "class": "shape text quote-cdec58a9cefe",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec58a7e858",
+          "class": "shape rect space-cdec58a7e858",
+          "elements": 1
+        },
+        {
+          "id": "stars-cdec589d57a6",
+          "class": "frame stars-cdec589d57a6",
+          "elements": 6
+        },
+        {
+          "id": "name-block-cdec58bd9b5a",
+          "class": "frame name-block-cdec58bd9b5a",
+          "elements": 13
+        },
+        {
+          "id": "avatar-cdec58bba034",
+          "class": "shape rect avatar-cdec58bba034",
+          "elements": 1
+        },
+        {
+          "id": "position-cdec58c2673a",
+          "class": "shape text position-cdec58c2673a",
+          "elements": 6
+        },
+        {
+          "id": "name-cdec58c09ff4",
+          "class": "shape text name-cdec58c09ff4",
+          "elements": 6
+        },
+        {
+          "id": "star-cdec58a68231",
+          "class": "shape rect star-cdec58a68231",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec58a529fb",
+          "class": "shape rect star-cdec58a529fb",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec58a3b6c1",
+          "class": "shape rect star-cdec58a3b6c1",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec58a2753c",
+          "class": "shape rect star-cdec58a2753c",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec58a0da4a",
+          "class": "shape rect star-cdec58a0da4a",
+          "elements": 1
+        },
+        {
+          "id": "quote-card-cdec5858f430",
+          "class": "frame quote-card-cdec5858f430",
+          "elements": 30
+        },
+        {
+          "id": "logo-card-cdec58524cde",
+          "class": "frame logo-card-cdec58524cde",
+          "elements": 2
+        },
+        {
+          "id": "logo-card-cdec584b62dd",
+          "class": "frame logo-card-cdec584b62dd",
+          "elements": 2
+        },
+        {
+          "id": "author-cdec5888ba09",
+          "class": "frame author-cdec5888ba09",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec5886a1b3",
+          "class": "shape rect space-cdec5886a1b3",
+          "elements": 1
+        },
+        {
+          "id": "quote-cdec587be0f1",
+          "class": "shape text quote-cdec587be0f1",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec587a38d4",
+          "class": "shape rect space-cdec587a38d4",
+          "elements": 1
+        },
+        {
+          "id": "stars-cdec58692976",
+          "class": "frame stars-cdec58692976",
+          "elements": 6
+        },
+        {
+          "id": "name-block-cdec588e527d",
+          "class": "frame name-block-cdec588e527d",
+          "elements": 13
+        },
+        {
+          "id": "avatar-cdec588cb8a0",
+          "class": "shape rect avatar-cdec588cb8a0",
+          "elements": 1
+        },
+        {
+          "id": "position-cdec5893b12f",
+          "class": "shape text position-cdec5893b12f",
+          "elements": 6
+        },
+        {
+          "id": "name-cdec58915df6",
+          "class": "shape text name-cdec58915df6",
+          "elements": 6
+        },
+        {
+          "id": "star-cdec5878ea32",
+          "class": "shape rect star-cdec5878ea32",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec5877592e",
+          "class": "shape rect star-cdec5877592e",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec58758ee4",
+          "class": "shape rect star-cdec58758ee4",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec5870c1f3",
+          "class": "shape rect star-cdec5870c1f3",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec586e8796",
+          "class": "shape rect star-cdec586e8796",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec585705cd",
+          "class": "shape rect logo-cdec585705cd",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec5850b8c2",
+          "class": "shape rect logo-cdec5850b8c2",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec583be34c",
+          "class": "shape text descriptio-cdec583be34c",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec5839c972",
+          "class": "shape rect space-cdec5839c972",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec58300d69",
+          "class": "shape text h2-cdec58300d69",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "desktop",
+      "section": "Cta25",
+      "route": "cta25",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+      "htmlBytesBefore": 10808,
+      "htmlBytesAfter": 3019,
+      "cssBytes": 5911,
+      "fontFamilyReplacements": 4,
+      "topLevelBefore": 11,
+      "topLevelAfter": 1,
+      "elementsBefore": 116,
+      "elementsAfter": 31,
+      "removedCount": 10,
+      "removedElements": 85,
+      "removedIds": [
+        "container-cdec58d4c18b",
+        "buttons-cdec58f2cb2a",
+        "space-cdec58f130bc",
+        "descriptio-cdec58e73c65",
+        "space-cdec58e53cb7",
+        "h2-cdec58d8bbd3",
+        "button-s-cdec58f88230",
+        "button-p-cdec58f702cf",
+        "label-cdec58f88231",
+        "label-cdec58f702d0"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec58d4c18b",
+          "class": "frame container-cdec58d4c18b",
+          "elements": 30
+        },
+        {
+          "id": "buttons-cdec58f2cb2a",
+          "class": "frame buttons-cdec58f2cb2a",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec58f130bc",
+          "class": "shape rect space-cdec58f130bc",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec58e73c65",
+          "class": "shape text descriptio-cdec58e73c65",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec58e53cb7",
+          "class": "shape rect space-cdec58e53cb7",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec58d8bbd3",
+          "class": "shape text h2-cdec58d8bbd3",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec58f88230",
+          "class": "frame button-s-cdec58f88230",
+          "elements": 7
+        },
+        {
+          "id": "button-p-cdec58f702cf",
+          "class": "frame button-p-cdec58f702cf",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec58f88231",
+          "class": "shape text label-cdec58f88231",
+          "elements": 6
+        },
+        {
+          "id": "label-cdec58f702d0",
+          "class": "shape text label-cdec58f702d0",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "tablet",
+      "section": "Navbar17",
+      "route": "navbar",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec691c465e",
+      "htmlBytesBefore": 4021,
+      "htmlBytesAfter": 1254,
+      "cssBytes": 2863,
+      "fontFamilyReplacements": 1,
+      "topLevelBefore": 9,
+      "topLevelAfter": 1,
+      "elementsBefore": 47,
+      "elementsAfter": 14,
+      "removedCount": 8,
+      "removedElements": 33,
+      "removedIds": [
+        "nav-right-cdec69237d4f",
+        "logo-cdec69216877",
+        "hamburger-cdec6928a519",
+        "button-p-cdec69275e4e",
+        "line3-cdec69329fcd",
+        "line2-cdec6930d821",
+        "line1-cdec692d1891",
+        "label-cdec69275e4f"
+      ],
+      "removed": [
+        {
+          "id": "nav-right-cdec69237d4f",
+          "class": "frame nav-right-cdec69237d4f",
+          "elements": 12
+        },
+        {
+          "id": "logo-cdec69216877",
+          "class": "shape rect logo-cdec69216877",
+          "elements": 1
+        },
+        {
+          "id": "hamburger-cdec6928a519",
+          "class": "frame hamburger-cdec6928a519",
+          "elements": 4
+        },
+        {
+          "id": "button-p-cdec69275e4e",
+          "class": "frame button-p-cdec69275e4e",
+          "elements": 7
+        },
+        {
+          "id": "line3-cdec69329fcd",
+          "class": "shape rect line3-cdec69329fcd",
+          "elements": 1
+        },
+        {
+          "id": "line2-cdec6930d821",
+          "class": "shape rect line2-cdec6930d821",
+          "elements": 1
+        },
+        {
+          "id": "line1-cdec692d1891",
+          "class": "shape rect line1-cdec692d1891",
+          "elements": 1
+        },
+        {
+          "id": "label-cdec69275e4f",
+          "class": "shape text label-cdec69275e4f",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "tablet",
+      "section": "Header80 / StickyStage",
+      "route": "header80",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6934bfcc",
+      "htmlBytesBefore": 12727,
+      "htmlBytesAfter": 3786,
+      "cssBytes": 6869,
+      "fontFamilyReplacements": 4,
+      "topLevelBefore": 19,
+      "topLevelAfter": 1,
+      "elementsBefore": 138,
+      "elementsAfter": 39,
+      "removedCount": 18,
+      "removedElements": 99,
+      "removedIds": [
+        "images-left-cdec6936527c",
+        "images-righ-cdec69455202",
+        "hero-text-cdec694bd4df",
+        "image1-cdec6939ff66",
+        "image2-cdec693c36c1",
+        "image3-cdec69405f4e",
+        "image4-cdec69437a44",
+        "image5-cdec694717a0",
+        "image6-cdec6949bf52",
+        "buttons-cdec695ad418",
+        "space32-cdec695923e9",
+        "descriptio-cdec6955a6f5",
+        "space24-cdec6953d60b",
+        "h1-cdec694ef890",
+        "button-s-cdec69602326",
+        "button-p-cdec695ec7b8",
+        "label-cdec69602327",
+        "label-cdec695ec7b9"
+      ],
+      "removed": [
+        {
+          "id": "images-left-cdec6936527c",
+          "class": "frame images-left-cdec6936527c",
+          "elements": 5
+        },
+        {
+          "id": "images-righ-cdec69455202",
+          "class": "frame images-righ-cdec69455202",
+          "elements": 3
+        },
+        {
+          "id": "hero-text-cdec694bd4df",
+          "class": "frame hero-text-cdec694bd4df",
+          "elements": 30
+        },
+        {
+          "id": "image1-cdec6939ff66",
+          "class": "shape rect image1-cdec6939ff66",
+          "elements": 1
+        },
+        {
+          "id": "image2-cdec693c36c1",
+          "class": "shape rect image2-cdec693c36c1",
+          "elements": 1
+        },
+        {
+          "id": "image3-cdec69405f4e",
+          "class": "shape rect image3-cdec69405f4e",
+          "elements": 1
+        },
+        {
+          "id": "image4-cdec69437a44",
+          "class": "shape rect image4-cdec69437a44",
+          "elements": 1
+        },
+        {
+          "id": "image5-cdec694717a0",
+          "class": "shape rect image5-cdec694717a0",
+          "elements": 1
+        },
+        {
+          "id": "image6-cdec6949bf52",
+          "class": "shape rect image6-cdec6949bf52",
+          "elements": 1
+        },
+        {
+          "id": "buttons-cdec695ad418",
+          "class": "frame buttons-cdec695ad418",
+          "elements": 15
+        },
+        {
+          "id": "space32-cdec695923e9",
+          "class": "shape rect space32-cdec695923e9",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec6955a6f5",
+          "class": "shape text descriptio-cdec6955a6f5",
+          "elements": 6
+        },
+        {
+          "id": "space24-cdec6953d60b",
+          "class": "shape rect space24-cdec6953d60b",
+          "elements": 1
+        },
+        {
+          "id": "h1-cdec694ef890",
+          "class": "shape text h1-cdec694ef890",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec69602326",
+          "class": "frame button-s-cdec69602326",
+          "elements": 7
+        },
+        {
+          "id": "button-p-cdec695ec7b8",
+          "class": "frame button-p-cdec695ec7b8",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec69602327",
+          "class": "shape text label-cdec69602327",
+          "elements": 6
+        },
+        {
+          "id": "label-cdec695ec7b9",
+          "class": "shape text label-cdec695ec7b9",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "tablet",
+      "section": "Layout620",
+      "route": "layout620",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6963eaef",
+      "htmlBytesBefore": 37065,
+      "htmlBytesAfter": 8817,
+      "cssBytes": 14447,
+      "fontFamilyReplacements": 11,
+      "topLevelBefore": 33,
+      "topLevelAfter": 1,
+      "elementsBefore": 395,
+      "elementsAfter": 88,
+      "removedCount": 32,
+      "removedElements": 307,
+      "removedIds": [
+        "container-cdec6967a51b",
+        "buttons-cdec69c8f248",
+        "grid-cdec69843457",
+        "header-cdec696ae3d6",
+        "link-button-cdec69ce457b",
+        "button-s-cdec69cd2b75",
+        "label-cdec69cd2b76",
+        "item3-cdec69b40a73",
+        "divider-cdec69b21189",
+        "item2-cdec699ec21f",
+        "divider-cdec699cf397",
+        "item1-cdec698a1d0d",
+        "body-cdec69c3982d",
+        "space-cdec69c18f03",
+        "h4-cdec69bc177b",
+        "space-cdec69ba32d8",
+        "icon-cdec69b818a2",
+        "body-cdec69ad740d",
+        "space-cdec69ab1a4b",
+        "h4-cdec69a64498",
+        "space-cdec69a44456",
+        "icon-cdec69a2d9b3",
+        "body-cdec6998a0eb",
+        "space-cdec6996a323",
+        "h4-cdec699129f3",
+        "space-cdec698f34dc",
+        "icon-cdec698daadd",
+        "descriptio-cdec697ecf8d",
+        "space-cdec697cc742",
+        "h2-cdec69768171",
+        "space-cdec6974e973",
+        "tagline-cdec696dcb81"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec6967a51b",
+          "class": "frame container-cdec6967a51b",
+          "elements": 87
+        },
+        {
+          "id": "buttons-cdec69c8f248",
+          "class": "frame buttons-cdec69c8f248",
+          "elements": 14
+        },
+        {
+          "id": "grid-cdec69843457",
+          "class": "frame grid-cdec69843457",
+          "elements": 51
+        },
+        {
+          "id": "header-cdec696ae3d6",
+          "class": "frame header-cdec696ae3d6",
+          "elements": 21
+        },
+        {
+          "id": "link-button-cdec69ce457b",
+          "class": "shape text link-button-cdec69ce457b",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec69cd2b75",
+          "class": "frame button-s-cdec69cd2b75",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec69cd2b76",
+          "class": "shape text label-cdec69cd2b76",
+          "elements": 6
+        },
+        {
+          "id": "item3-cdec69b40a73",
+          "class": "frame item3-cdec69b40a73",
+          "elements": 16
+        },
+        {
+          "id": "divider-cdec69b21189",
+          "class": "shape rect divider-cdec69b21189",
+          "elements": 1
+        },
+        {
+          "id": "item2-cdec699ec21f",
+          "class": "frame item2-cdec699ec21f",
+          "elements": 16
+        },
+        {
+          "id": "divider-cdec699cf397",
+          "class": "shape rect divider-cdec699cf397",
+          "elements": 1
+        },
+        {
+          "id": "item1-cdec698a1d0d",
+          "class": "frame item1-cdec698a1d0d",
+          "elements": 16
+        },
+        {
+          "id": "body-cdec69c3982d",
+          "class": "shape text body-cdec69c3982d",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec69c18f03",
+          "class": "shape rect space-cdec69c18f03",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec69bc177b",
+          "class": "shape text h4-cdec69bc177b",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec69ba32d8",
+          "class": "shape rect space-cdec69ba32d8",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec69b818a2",
+          "class": "shape rect icon-cdec69b818a2",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec69ad740d",
+          "class": "shape text body-cdec69ad740d",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec69ab1a4b",
+          "class": "shape rect space-cdec69ab1a4b",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec69a64498",
+          "class": "shape text h4-cdec69a64498",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec69a44456",
+          "class": "shape rect space-cdec69a44456",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec69a2d9b3",
+          "class": "shape rect icon-cdec69a2d9b3",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec6998a0eb",
+          "class": "shape text body-cdec6998a0eb",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6996a323",
+          "class": "shape rect space-cdec6996a323",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec699129f3",
+          "class": "shape text h4-cdec699129f3",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec698f34dc",
+          "class": "shape rect space-cdec698f34dc",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec698daadd",
+          "class": "shape rect icon-cdec698daadd",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec697ecf8d",
+          "class": "shape text descriptio-cdec697ecf8d",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec697cc742",
+          "class": "shape rect space-cdec697cc742",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec69768171",
+          "class": "shape text h2-cdec69768171",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6974e973",
+          "class": "shape rect space-cdec6974e973",
+          "elements": 1
+        },
+        {
+          "id": "tagline-cdec696dcb81",
+          "class": "shape text tagline-cdec696dcb81",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "tablet",
+      "section": "Testimonial37",
+      "route": "testimonial37",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec69d0902a",
+      "htmlBytesBefore": 44954,
+      "htmlBytesAfter": 9052,
+      "cssBytes": 16297,
+      "fontFamilyReplacements": 8,
+      "topLevelBefore": 47,
+      "topLevelAfter": 1,
+      "elementsBefore": 473,
+      "elementsAfter": 87,
+      "removedCount": 46,
+      "removedElements": 386,
+      "removedIds": [
+        "container-cdec69d558d4",
+        "grid-cdec69ef9e8c",
+        "header-cdec69d97718",
+        "row4-cdec6a6c1753",
+        "quote-card-cdec6a384299",
+        "quote-card-cdec6a06a3ae",
+        "row1-cdec69f3e461",
+        "logo-card-cdec6a79547c",
+        "logo-card-cdec6a70cfb3",
+        "logo-cdec6a7f3a59",
+        "logo-cdec6a76e388",
+        "author-cdec6a5ce1d3",
+        "space-cdec6a5a135a",
+        "quote-cdec6a4e369d",
+        "space-cdec6a4bd610",
+        "stars-cdec6a3db46b",
+        "name-block-cdec6a63397d",
+        "avatar-cdec6a610d27",
+        "position-cdec6a69fc24",
+        "name-cdec6a674e86",
+        "star-cdec6a4a3ce3",
+        "star-cdec6a4826c1",
+        "star-cdec6a464f6b",
+        "star-cdec6a43f26a",
+        "star-cdec6a41d246",
+        "author-cdec6a29077b",
+        "space-cdec6a26cfb3",
+        "quote-cdec6a1b9add",
+        "space-cdec6a1936bc",
+        "stars-cdec6a0b541f",
+        "name-block-cdec6a2f7c2f",
+        "avatar-cdec6a2d580a",
+        "position-cdec6a363c2e",
+        "name-cdec6a33be4f",
+        "star-cdec6a175ff3",
+        "star-cdec6a15525a",
+        "star-cdec6a1394a1",
+        "star-cdec6a11932c",
+        "star-cdec6a0fa7a1",
+        "logo-card-cdec69ff21bd",
+        "logo-card-cdec69f7dd64",
+        "logo-cdec6a049172",
+        "logo-cdec69fd5a27",
+        "descriptio-cdec69e83a4c",
+        "space-cdec69e5e2f9",
+        "h2-cdec69dd75b0"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec69d558d4",
+          "class": "frame container-cdec69d558d4",
+          "elements": 86
+        },
+        {
+          "id": "grid-cdec69ef9e8c",
+          "class": "frame grid-cdec69ef9e8c",
+          "elements": 71
+        },
+        {
+          "id": "header-cdec69d97718",
+          "class": "frame header-cdec69d97718",
+          "elements": 14
+        },
+        {
+          "id": "row4-cdec6a6c1753",
+          "class": "frame row4-cdec6a6c1753",
+          "elements": 5
+        },
+        {
+          "id": "quote-card-cdec6a384299",
+          "class": "frame quote-card-cdec6a384299",
+          "elements": 30
+        },
+        {
+          "id": "quote-card-cdec6a06a3ae",
+          "class": "frame quote-card-cdec6a06a3ae",
+          "elements": 30
+        },
+        {
+          "id": "row1-cdec69f3e461",
+          "class": "frame row1-cdec69f3e461",
+          "elements": 5
+        },
+        {
+          "id": "logo-card-cdec6a79547c",
+          "class": "frame logo-card-cdec6a79547c",
+          "elements": 2
+        },
+        {
+          "id": "logo-card-cdec6a70cfb3",
+          "class": "frame logo-card-cdec6a70cfb3",
+          "elements": 2
+        },
+        {
+          "id": "logo-cdec6a7f3a59",
+          "class": "shape rect logo-cdec6a7f3a59",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec6a76e388",
+          "class": "shape rect logo-cdec6a76e388",
+          "elements": 1
+        },
+        {
+          "id": "author-cdec6a5ce1d3",
+          "class": "frame author-cdec6a5ce1d3",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec6a5a135a",
+          "class": "shape rect space-cdec6a5a135a",
+          "elements": 1
+        },
+        {
+          "id": "quote-cdec6a4e369d",
+          "class": "shape text quote-cdec6a4e369d",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6a4bd610",
+          "class": "shape rect space-cdec6a4bd610",
+          "elements": 1
+        },
+        {
+          "id": "stars-cdec6a3db46b",
+          "class": "frame stars-cdec6a3db46b",
+          "elements": 6
+        },
+        {
+          "id": "name-block-cdec6a63397d",
+          "class": "frame name-block-cdec6a63397d",
+          "elements": 13
+        },
+        {
+          "id": "avatar-cdec6a610d27",
+          "class": "shape rect avatar-cdec6a610d27",
+          "elements": 1
+        },
+        {
+          "id": "position-cdec6a69fc24",
+          "class": "shape text position-cdec6a69fc24",
+          "elements": 6
+        },
+        {
+          "id": "name-cdec6a674e86",
+          "class": "shape text name-cdec6a674e86",
+          "elements": 6
+        },
+        {
+          "id": "star-cdec6a4a3ce3",
+          "class": "shape rect star-cdec6a4a3ce3",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a4826c1",
+          "class": "shape rect star-cdec6a4826c1",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a464f6b",
+          "class": "shape rect star-cdec6a464f6b",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a43f26a",
+          "class": "shape rect star-cdec6a43f26a",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a41d246",
+          "class": "shape rect star-cdec6a41d246",
+          "elements": 1
+        },
+        {
+          "id": "author-cdec6a29077b",
+          "class": "frame author-cdec6a29077b",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec6a26cfb3",
+          "class": "shape rect space-cdec6a26cfb3",
+          "elements": 1
+        },
+        {
+          "id": "quote-cdec6a1b9add",
+          "class": "shape text quote-cdec6a1b9add",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6a1936bc",
+          "class": "shape rect space-cdec6a1936bc",
+          "elements": 1
+        },
+        {
+          "id": "stars-cdec6a0b541f",
+          "class": "frame stars-cdec6a0b541f",
+          "elements": 6
+        },
+        {
+          "id": "name-block-cdec6a2f7c2f",
+          "class": "frame name-block-cdec6a2f7c2f",
+          "elements": 13
+        },
+        {
+          "id": "avatar-cdec6a2d580a",
+          "class": "shape rect avatar-cdec6a2d580a",
+          "elements": 1
+        },
+        {
+          "id": "position-cdec6a363c2e",
+          "class": "shape text position-cdec6a363c2e",
+          "elements": 6
+        },
+        {
+          "id": "name-cdec6a33be4f",
+          "class": "shape text name-cdec6a33be4f",
+          "elements": 6
+        },
+        {
+          "id": "star-cdec6a175ff3",
+          "class": "shape rect star-cdec6a175ff3",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a15525a",
+          "class": "shape rect star-cdec6a15525a",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a1394a1",
+          "class": "shape rect star-cdec6a1394a1",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a11932c",
+          "class": "shape rect star-cdec6a11932c",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6a0fa7a1",
+          "class": "shape rect star-cdec6a0fa7a1",
+          "elements": 1
+        },
+        {
+          "id": "logo-card-cdec69ff21bd",
+          "class": "frame logo-card-cdec69ff21bd",
+          "elements": 2
+        },
+        {
+          "id": "logo-card-cdec69f7dd64",
+          "class": "frame logo-card-cdec69f7dd64",
+          "elements": 2
+        },
+        {
+          "id": "logo-cdec6a049172",
+          "class": "shape rect logo-cdec6a049172",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec69fd5a27",
+          "class": "shape rect logo-cdec69fd5a27",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec69e83a4c",
+          "class": "shape text descriptio-cdec69e83a4c",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec69e5e2f9",
+          "class": "shape rect space-cdec69e5e2f9",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec69dd75b0",
+          "class": "shape text h2-cdec69dd75b0",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "tablet",
+      "section": "Cta25",
+      "route": "cta25",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6a816963",
+      "htmlBytesBefore": 10824,
+      "htmlBytesAfter": 3023,
+      "cssBytes": 5909,
+      "fontFamilyReplacements": 4,
+      "topLevelBefore": 11,
+      "topLevelAfter": 1,
+      "elementsBefore": 116,
+      "elementsAfter": 31,
+      "removedCount": 10,
+      "removedElements": 85,
+      "removedIds": [
+        "container-cdec6a8694b6",
+        "buttons-cdec6aa833c6",
+        "space-cdec6aa5bb86",
+        "descriptio-cdec6a9b5edf",
+        "space-cdec6a98dd9d",
+        "h2-cdec6a8af665",
+        "button-s-cdec6aaf9a46",
+        "button-p-cdec6aad92a6",
+        "label-cdec6aaf9a47",
+        "label-cdec6aad92a7"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec6a8694b6",
+          "class": "frame container-cdec6a8694b6",
+          "elements": 30
+        },
+        {
+          "id": "buttons-cdec6aa833c6",
+          "class": "frame buttons-cdec6aa833c6",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec6aa5bb86",
+          "class": "shape rect space-cdec6aa5bb86",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec6a9b5edf",
+          "class": "shape text descriptio-cdec6a9b5edf",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6a98dd9d",
+          "class": "shape rect space-cdec6a98dd9d",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec6a8af665",
+          "class": "shape text h2-cdec6a8af665",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec6aaf9a46",
+          "class": "frame button-s-cdec6aaf9a46",
+          "elements": 7
+        },
+        {
+          "id": "button-p-cdec6aad92a6",
+          "class": "frame button-p-cdec6aad92a6",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec6aaf9a47",
+          "class": "shape text label-cdec6aaf9a47",
+          "elements": 6
+        },
+        {
+          "id": "label-cdec6aad92a7",
+          "class": "shape text label-cdec6aad92a7",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "mobile",
+      "section": "Navbar17",
+      "route": "navbar",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6b14b2eb",
+      "htmlBytesBefore": 4021,
+      "htmlBytesAfter": 1254,
+      "cssBytes": 2863,
+      "fontFamilyReplacements": 1,
+      "topLevelBefore": 9,
+      "topLevelAfter": 1,
+      "elementsBefore": 47,
+      "elementsAfter": 14,
+      "removedCount": 8,
+      "removedElements": 33,
+      "removedIds": [
+        "nav-right-cdec6b1b2823",
+        "logo-cdec6b18f748",
+        "hamburger-cdec6b20ce11",
+        "button-p-cdec6b1f7401",
+        "line3-cdec6b27fc11",
+        "line2-cdec6b2669cd",
+        "line1-cdec6b249994",
+        "label-cdec6b1f7402"
+      ],
+      "removed": [
+        {
+          "id": "nav-right-cdec6b1b2823",
+          "class": "frame nav-right-cdec6b1b2823",
+          "elements": 12
+        },
+        {
+          "id": "logo-cdec6b18f748",
+          "class": "shape rect logo-cdec6b18f748",
+          "elements": 1
+        },
+        {
+          "id": "hamburger-cdec6b20ce11",
+          "class": "frame hamburger-cdec6b20ce11",
+          "elements": 4
+        },
+        {
+          "id": "button-p-cdec6b1f7401",
+          "class": "frame button-p-cdec6b1f7401",
+          "elements": 7
+        },
+        {
+          "id": "line3-cdec6b27fc11",
+          "class": "shape rect line3-cdec6b27fc11",
+          "elements": 1
+        },
+        {
+          "id": "line2-cdec6b2669cd",
+          "class": "shape rect line2-cdec6b2669cd",
+          "elements": 1
+        },
+        {
+          "id": "line1-cdec6b249994",
+          "class": "shape rect line1-cdec6b249994",
+          "elements": 1
+        },
+        {
+          "id": "label-cdec6b1f7402",
+          "class": "shape text label-cdec6b1f7402",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "mobile",
+      "section": "Header80 / StickyStage",
+      "route": "header80",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6b29ee70",
+      "htmlBytesBefore": 12887,
+      "htmlBytesAfter": 3818,
+      "cssBytes": 6860,
+      "fontFamilyReplacements": 4,
+      "topLevelBefore": 19,
+      "topLevelAfter": 1,
+      "elementsBefore": 138,
+      "elementsAfter": 39,
+      "removedCount": 18,
+      "removedElements": 99,
+      "removedIds": [
+        "images-left-cdec6b2c1ebf",
+        "images-righ-cdec6b36b208",
+        "hero-text-cdec6b3dd651",
+        "image1-cdec6b2e344a",
+        "image2-cdec6b300c85",
+        "image3-cdec6b325558",
+        "image4-cdec6b348543",
+        "image5-cdec6b38705a",
+        "image6-cdec6b3b52e4",
+        "buttons-cdec6b4c0f98",
+        "space32-cdec6b4a7bad",
+        "descriptio-cdec6b4603f2",
+        "space24-cdec6b447ea2",
+        "h1-cdec6b41365b",
+        "button-s-cdec6b51d06e",
+        "button-p-cdec6b5059bf",
+        "label-cdec6b51d06f",
+        "label-cdec6b5059c0"
+      ],
+      "removed": [
+        {
+          "id": "images-left-cdec6b2c1ebf",
+          "class": "frame images-left-cdec6b2c1ebf",
+          "elements": 5
+        },
+        {
+          "id": "images-righ-cdec6b36b208",
+          "class": "frame images-righ-cdec6b36b208",
+          "elements": 3
+        },
+        {
+          "id": "hero-text-cdec6b3dd651",
+          "class": "frame hero-text-cdec6b3dd651",
+          "elements": 30
+        },
+        {
+          "id": "image1-cdec6b2e344a",
+          "class": "shape rect image1-cdec6b2e344a",
+          "elements": 1
+        },
+        {
+          "id": "image2-cdec6b300c85",
+          "class": "shape rect image2-cdec6b300c85",
+          "elements": 1
+        },
+        {
+          "id": "image3-cdec6b325558",
+          "class": "shape rect image3-cdec6b325558",
+          "elements": 1
+        },
+        {
+          "id": "image4-cdec6b348543",
+          "class": "shape rect image4-cdec6b348543",
+          "elements": 1
+        },
+        {
+          "id": "image5-cdec6b38705a",
+          "class": "shape rect image5-cdec6b38705a",
+          "elements": 1
+        },
+        {
+          "id": "image6-cdec6b3b52e4",
+          "class": "shape rect image6-cdec6b3b52e4",
+          "elements": 1
+        },
+        {
+          "id": "buttons-cdec6b4c0f98",
+          "class": "frame buttons-cdec6b4c0f98",
+          "elements": 15
+        },
+        {
+          "id": "space32-cdec6b4a7bad",
+          "class": "shape rect space32-cdec6b4a7bad",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec6b4603f2",
+          "class": "shape text descriptio-cdec6b4603f2",
+          "elements": 6
+        },
+        {
+          "id": "space24-cdec6b447ea2",
+          "class": "shape rect space24-cdec6b447ea2",
+          "elements": 1
+        },
+        {
+          "id": "h1-cdec6b41365b",
+          "class": "shape text h1-cdec6b41365b",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec6b51d06e",
+          "class": "frame button-s-cdec6b51d06e",
+          "elements": 7
+        },
+        {
+          "id": "button-p-cdec6b5059bf",
+          "class": "frame button-p-cdec6b5059bf",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec6b51d06f",
+          "class": "shape text label-cdec6b51d06f",
+          "elements": 6
+        },
+        {
+          "id": "label-cdec6b5059c0",
+          "class": "shape text label-cdec6b5059c0",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "mobile",
+      "section": "Layout620",
+      "route": "layout620",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6b55321c",
+      "htmlBytesBefore": 37261,
+      "htmlBytesAfter": 8882,
+      "cssBytes": 14574,
+      "fontFamilyReplacements": 11,
+      "topLevelBefore": 34,
+      "topLevelAfter": 1,
+      "elementsBefore": 399,
+      "elementsAfter": 89,
+      "removedCount": 33,
+      "removedElements": 310,
+      "removedIds": [
+        "container-cdec6b59416e",
+        "buttons-cdec6bc77a82",
+        "grid-cdec6b75b796",
+        "header-cdec6b5cf29c",
+        "link-button-cdec6bcd84a5",
+        "button-s-cdec6bcc4c60",
+        "label-cdec6bcc4c61",
+        "item3-cdec6bad9134",
+        "border-bott-cdec6babd634",
+        "item2-cdec6b9421e5",
+        "border-bott-cdec6b91badf",
+        "item1-cdec6b7a87e4",
+        "border-top-cdec6b78c429",
+        "body-cdec6bbf96b4",
+        "space-cdec6bbd50ac",
+        "h4-cdec6bb563f1",
+        "space-cdec6bb362a5",
+        "icon-cdec6bb189ca",
+        "body-cdec6ba52d0c",
+        "space-cdec6ba2c4bd",
+        "h4-cdec6b9be1ee",
+        "space-cdec6b99cf65",
+        "icon-cdec6b980307",
+        "body-cdec6b8b911d",
+        "space-cdec6b89430f",
+        "h4-cdec6b832b60",
+        "space-cdec6b812aa3",
+        "icon-cdec6b7f6246",
+        "descriptio-cdec6b70171b",
+        "space-cdec6b6e29a1",
+        "h2-cdec6b68f5a2",
+        "space-cdec6b66f66c",
+        "tagline-cdec6b6018cf"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec6b59416e",
+          "class": "frame container-cdec6b59416e",
+          "elements": 88
+        },
+        {
+          "id": "buttons-cdec6bc77a82",
+          "class": "frame buttons-cdec6bc77a82",
+          "elements": 14
+        },
+        {
+          "id": "grid-cdec6b75b796",
+          "class": "frame grid-cdec6b75b796",
+          "elements": 52
+        },
+        {
+          "id": "header-cdec6b5cf29c",
+          "class": "frame header-cdec6b5cf29c",
+          "elements": 21
+        },
+        {
+          "id": "link-button-cdec6bcd84a5",
+          "class": "shape text link-button-cdec6bcd84a5",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec6bcc4c60",
+          "class": "frame button-s-cdec6bcc4c60",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec6bcc4c61",
+          "class": "shape text label-cdec6bcc4c61",
+          "elements": 6
+        },
+        {
+          "id": "item3-cdec6bad9134",
+          "class": "frame item3-cdec6bad9134",
+          "elements": 16
+        },
+        {
+          "id": "border-bott-cdec6babd634",
+          "class": "shape rect border-bott-cdec6babd634",
+          "elements": 1
+        },
+        {
+          "id": "item2-cdec6b9421e5",
+          "class": "frame item2-cdec6b9421e5",
+          "elements": 16
+        },
+        {
+          "id": "border-bott-cdec6b91badf",
+          "class": "shape rect border-bott-cdec6b91badf",
+          "elements": 1
+        },
+        {
+          "id": "item1-cdec6b7a87e4",
+          "class": "frame item1-cdec6b7a87e4",
+          "elements": 16
+        },
+        {
+          "id": "border-top-cdec6b78c429",
+          "class": "shape rect border-top-cdec6b78c429",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec6bbf96b4",
+          "class": "shape text body-cdec6bbf96b4",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6bbd50ac",
+          "class": "shape rect space-cdec6bbd50ac",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec6bb563f1",
+          "class": "shape text h4-cdec6bb563f1",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6bb362a5",
+          "class": "shape rect space-cdec6bb362a5",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec6bb189ca",
+          "class": "shape rect icon-cdec6bb189ca",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec6ba52d0c",
+          "class": "shape text body-cdec6ba52d0c",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6ba2c4bd",
+          "class": "shape rect space-cdec6ba2c4bd",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec6b9be1ee",
+          "class": "shape text h4-cdec6b9be1ee",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6b99cf65",
+          "class": "shape rect space-cdec6b99cf65",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec6b980307",
+          "class": "shape rect icon-cdec6b980307",
+          "elements": 1
+        },
+        {
+          "id": "body-cdec6b8b911d",
+          "class": "shape text body-cdec6b8b911d",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6b89430f",
+          "class": "shape rect space-cdec6b89430f",
+          "elements": 1
+        },
+        {
+          "id": "h4-cdec6b832b60",
+          "class": "shape text h4-cdec6b832b60",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6b812aa3",
+          "class": "shape rect space-cdec6b812aa3",
+          "elements": 1
+        },
+        {
+          "id": "icon-cdec6b7f6246",
+          "class": "shape rect icon-cdec6b7f6246",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec6b70171b",
+          "class": "shape text descriptio-cdec6b70171b",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6b6e29a1",
+          "class": "shape rect space-cdec6b6e29a1",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec6b68f5a2",
+          "class": "shape text h2-cdec6b68f5a2",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6b66f66c",
+          "class": "shape rect space-cdec6b66f66c",
+          "elements": 1
+        },
+        {
+          "id": "tagline-cdec6b6018cf",
+          "class": "shape text tagline-cdec6b6018cf",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "mobile",
+      "section": "Testimonial37",
+      "route": "testimonial37",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+      "htmlBytesBefore": 42578,
+      "htmlBytesAfter": 8668,
+      "cssBytes": 15659,
+      "fontFamilyReplacements": 8,
+      "topLevelBefore": 45,
+      "topLevelAfter": 1,
+      "elementsBefore": 457,
+      "elementsAfter": 85,
+      "removedCount": 44,
+      "removedElements": 372,
+      "removedIds": [
+        "container-cdec6bd51885",
+        "grid-cdec6bf1da21",
+        "header-cdec6bd98b9d",
+        "logo-card-cdec6c76cbf3",
+        "logo-card-cdec6c6e1e5b",
+        "quote-card-cdec6c3852d2",
+        "quote-card-cdec6c060faf",
+        "logo-card-cdec6bfdc250",
+        "logo-card-cdec6bf6a6c1",
+        "logo-cdec6c7cde1a",
+        "logo-cdec6c7442bd",
+        "author-cdec6c5d6589",
+        "space-cdec6c5acc6d",
+        "quote-cdec6c4f20f0",
+        "space-cdec6c4c85b9",
+        "stars-cdec6c3d8082",
+        "name-block-cdec6c645ea5",
+        "avatar-cdec6c625175",
+        "position-cdec6c6b65e6",
+        "name-cdec6c68a31a",
+        "star-cdec6c4a5e3f",
+        "star-cdec6c486c40",
+        "star-cdec6c465828",
+        "star-cdec6c447fd9",
+        "star-cdec6c420ac1",
+        "author-cdec6c28977d",
+        "space-cdec6c26526f",
+        "quote-cdec6c1c1bc6",
+        "space-cdec6c19e3bf",
+        "stars-cdec6c0b1c14",
+        "name-block-cdec6c2f75cf",
+        "avatar-cdec6c2d4e03",
+        "position-cdec6c3634ac",
+        "name-cdec6c3366f5",
+        "star-cdec6c17dcbd",
+        "star-cdec6c15f9c4",
+        "star-cdec6c137466",
+        "star-cdec6c114fbe",
+        "star-cdec6c0f369b",
+        "logo-cdec6c03e4ac",
+        "logo-cdec6bfbf1db",
+        "descriptio-cdec6be99beb",
+        "space-cdec6be6e4cf",
+        "h2-cdec6bde1dd5"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec6bd51885",
+          "class": "frame container-cdec6bd51885",
+          "elements": 84
+        },
+        {
+          "id": "grid-cdec6bf1da21",
+          "class": "frame grid-cdec6bf1da21",
+          "elements": 69
+        },
+        {
+          "id": "header-cdec6bd98b9d",
+          "class": "frame header-cdec6bd98b9d",
+          "elements": 14
+        },
+        {
+          "id": "logo-card-cdec6c76cbf3",
+          "class": "frame logo-card-cdec6c76cbf3",
+          "elements": 2
+        },
+        {
+          "id": "logo-card-cdec6c6e1e5b",
+          "class": "frame logo-card-cdec6c6e1e5b",
+          "elements": 2
+        },
+        {
+          "id": "quote-card-cdec6c3852d2",
+          "class": "frame quote-card-cdec6c3852d2",
+          "elements": 30
+        },
+        {
+          "id": "quote-card-cdec6c060faf",
+          "class": "frame quote-card-cdec6c060faf",
+          "elements": 30
+        },
+        {
+          "id": "logo-card-cdec6bfdc250",
+          "class": "frame logo-card-cdec6bfdc250",
+          "elements": 2
+        },
+        {
+          "id": "logo-card-cdec6bf6a6c1",
+          "class": "frame logo-card-cdec6bf6a6c1",
+          "elements": 2
+        },
+        {
+          "id": "logo-cdec6c7cde1a",
+          "class": "shape rect logo-cdec6c7cde1a",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec6c7442bd",
+          "class": "shape rect logo-cdec6c7442bd",
+          "elements": 1
+        },
+        {
+          "id": "author-cdec6c5d6589",
+          "class": "frame author-cdec6c5d6589",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec6c5acc6d",
+          "class": "shape rect space-cdec6c5acc6d",
+          "elements": 1
+        },
+        {
+          "id": "quote-cdec6c4f20f0",
+          "class": "shape text quote-cdec6c4f20f0",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6c4c85b9",
+          "class": "shape rect space-cdec6c4c85b9",
+          "elements": 1
+        },
+        {
+          "id": "stars-cdec6c3d8082",
+          "class": "frame stars-cdec6c3d8082",
+          "elements": 6
+        },
+        {
+          "id": "name-block-cdec6c645ea5",
+          "class": "frame name-block-cdec6c645ea5",
+          "elements": 13
+        },
+        {
+          "id": "avatar-cdec6c625175",
+          "class": "shape rect avatar-cdec6c625175",
+          "elements": 1
+        },
+        {
+          "id": "position-cdec6c6b65e6",
+          "class": "shape text position-cdec6c6b65e6",
+          "elements": 6
+        },
+        {
+          "id": "name-cdec6c68a31a",
+          "class": "shape text name-cdec6c68a31a",
+          "elements": 6
+        },
+        {
+          "id": "star-cdec6c4a5e3f",
+          "class": "shape rect star-cdec6c4a5e3f",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c486c40",
+          "class": "shape rect star-cdec6c486c40",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c465828",
+          "class": "shape rect star-cdec6c465828",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c447fd9",
+          "class": "shape rect star-cdec6c447fd9",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c420ac1",
+          "class": "shape rect star-cdec6c420ac1",
+          "elements": 1
+        },
+        {
+          "id": "author-cdec6c28977d",
+          "class": "frame author-cdec6c28977d",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec6c26526f",
+          "class": "shape rect space-cdec6c26526f",
+          "elements": 1
+        },
+        {
+          "id": "quote-cdec6c1c1bc6",
+          "class": "shape text quote-cdec6c1c1bc6",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6c19e3bf",
+          "class": "shape rect space-cdec6c19e3bf",
+          "elements": 1
+        },
+        {
+          "id": "stars-cdec6c0b1c14",
+          "class": "frame stars-cdec6c0b1c14",
+          "elements": 6
+        },
+        {
+          "id": "name-block-cdec6c2f75cf",
+          "class": "frame name-block-cdec6c2f75cf",
+          "elements": 13
+        },
+        {
+          "id": "avatar-cdec6c2d4e03",
+          "class": "shape rect avatar-cdec6c2d4e03",
+          "elements": 1
+        },
+        {
+          "id": "position-cdec6c3634ac",
+          "class": "shape text position-cdec6c3634ac",
+          "elements": 6
+        },
+        {
+          "id": "name-cdec6c3366f5",
+          "class": "shape text name-cdec6c3366f5",
+          "elements": 6
+        },
+        {
+          "id": "star-cdec6c17dcbd",
+          "class": "shape rect star-cdec6c17dcbd",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c15f9c4",
+          "class": "shape rect star-cdec6c15f9c4",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c137466",
+          "class": "shape rect star-cdec6c137466",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c114fbe",
+          "class": "shape rect star-cdec6c114fbe",
+          "elements": 1
+        },
+        {
+          "id": "star-cdec6c0f369b",
+          "class": "shape rect star-cdec6c0f369b",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec6c03e4ac",
+          "class": "shape rect logo-cdec6c03e4ac",
+          "elements": 1
+        },
+        {
+          "id": "logo-cdec6bfbf1db",
+          "class": "shape rect logo-cdec6bfbf1db",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec6be99beb",
+          "class": "shape text descriptio-cdec6be99beb",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6be6e4cf",
+          "class": "shape rect space-cdec6be6e4cf",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec6bde1dd5",
+          "class": "shape text h2-cdec6bde1dd5",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "mobile",
+      "section": "Cta25",
+      "route": "cta25",
+      "shapeId": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+      "htmlBytesBefore": 10860,
+      "htmlBytesAfter": 3031,
+      "cssBytes": 5909,
+      "fontFamilyReplacements": 4,
+      "topLevelBefore": 11,
+      "topLevelAfter": 1,
+      "elementsBefore": 116,
+      "elementsAfter": 31,
+      "removedCount": 10,
+      "removedElements": 85,
+      "removedIds": [
+        "container-cdec6c85577f",
+        "buttons-cdec6ca58f00",
+        "space-cdec6ca33971",
+        "descriptio-cdec6c98d6d6",
+        "space-cdec6c9656f4",
+        "h2-cdec6c899773",
+        "button-s-cdec6cad56fc",
+        "button-p-cdec6cab2665",
+        "label-cdec6cad56fd",
+        "label-cdec6cab2666"
+      ],
+      "removed": [
+        {
+          "id": "container-cdec6c85577f",
+          "class": "frame container-cdec6c85577f",
+          "elements": 30
+        },
+        {
+          "id": "buttons-cdec6ca58f00",
+          "class": "frame buttons-cdec6ca58f00",
+          "elements": 15
+        },
+        {
+          "id": "space-cdec6ca33971",
+          "class": "shape rect space-cdec6ca33971",
+          "elements": 1
+        },
+        {
+          "id": "descriptio-cdec6c98d6d6",
+          "class": "shape text descriptio-cdec6c98d6d6",
+          "elements": 6
+        },
+        {
+          "id": "space-cdec6c9656f4",
+          "class": "shape rect space-cdec6c9656f4",
+          "elements": 1
+        },
+        {
+          "id": "h2-cdec6c899773",
+          "class": "shape text h2-cdec6c899773",
+          "elements": 6
+        },
+        {
+          "id": "button-s-cdec6cad56fc",
+          "class": "frame button-s-cdec6cad56fc",
+          "elements": 7
+        },
+        {
+          "id": "button-p-cdec6cab2665",
+          "class": "frame button-p-cdec6cab2665",
+          "elements": 7
+        },
+        {
+          "id": "label-cdec6cad56fd",
+          "class": "shape text label-cdec6cad56fd",
+          "elements": 6
+        },
+        {
+          "id": "label-cdec6cab2666",
+          "class": "shape text label-cdec6cab2666",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "library",
+      "section": "Button/Primary",
+      "route": "button-primary",
+      "shapeId": "4d569422-e5e3-8076-8008-cdeb4ffc5595",
+      "htmlBytesBefore": 1134,
+      "htmlBytesAfter": 623,
+      "cssBytes": 1456,
+      "fontFamilyReplacements": 1,
+      "topLevelBefore": 2,
+      "topLevelAfter": 1,
+      "elementsBefore": 13,
+      "elementsAfter": 7,
+      "removedCount": 1,
+      "removedElements": 6,
+      "removedIds": [
+        "label-cdeb5001d0b6"
+      ],
+      "removed": [
+        {
+          "id": "label-cdeb5001d0b6",
+          "class": "shape text label-cdeb5001d0b6",
+          "elements": 6
+        }
+      ]
+    },
+    {
+      "board": "library",
+      "section": "Button/Secondary",
+      "route": "button-secondary",
+      "shapeId": "4d569422-e5e3-8076-8008-cdeb50084766",
+      "htmlBytesBefore": 1134,
+      "htmlBytesAfter": 624,
+      "cssBytes": 1427,
+      "fontFamilyReplacements": 1,
+      "topLevelBefore": 2,
+      "topLevelAfter": 1,
+      "elementsBefore": 13,
+      "elementsAfter": 7,
+      "removedCount": 1,
+      "removedElements": 6,
+      "removedIds": [
+        "label-cdeb500cd5b0"
+      ],
+      "removed": [
+        {
+          "id": "label-cdeb500cd5b0",
+          "class": "shape text label-cdeb500cd5b0",
+          "elements": 6
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "before": 3581,
+    "after": 790,
+    "removedTop": 343,
+    "fontReplacements": 86
+  }
+}
