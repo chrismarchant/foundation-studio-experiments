@@ -42,7 +42,7 @@ p{margin:0}
 .navlinks{display:flex;gap:${v('space.gap.6')}}
 .burger{display:none;width:24px;height:24px;background:none;border:0;padding:0}
 .hero-scroll{height:300vh;position:relative}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:${v('space.gap.8')};padding:0 5%;align-items:center}
+.stage{position:${variant === 'static' ? 'static' : 'sticky'};top:0;height:100vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:${v('space.gap.8')};padding:0 5%;align-items:center}
 .cols{display:flex;gap:${v('space.gap.4')}}
 .col{display:flex;flex-direction:column;gap:${v('space.gap.4')};width:50%;will-change:transform}
 .img{background:#d9d9d9;height:160px}

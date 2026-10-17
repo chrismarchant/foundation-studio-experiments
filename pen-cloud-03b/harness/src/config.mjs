@@ -83,9 +83,9 @@ export function makeArms(o = {}) {
     Bp: { id: 'Bp', port: ports.Bp, group: 'B', usesBp: true, isC: false,
           serve: { cwd: armB, cmd: ['pnpm', 'serve:react'] }, buildDirs: [armB] },
     C: { id: 'C', port: ports.C, group: 'C', usesBp: false, isC: true,
-         serve: { cwd: armC, cmd: ['pnpm', 'serve'] }, buildDirs: [armC, path.join(armC, 'app')] },
+         rootDir: armC, serve: { cwd: armC, cmd: ['pnpm', 'serve'] }, buildDirs: [path.join(armC, 'app'), armC] },
     Cssr: { id: 'Cssr', port: ports.Cssr, group: 'C', usesBp: false, isC: true,
-            serve: { cwd: armC, cmd: ['pnpm', 'serve:ssr'] }, buildDirs: [armC, path.join(armC, 'app')] },
+            rootDir: armC, serve: { cwd: armC, cmd: ['pnpm', 'serve:ssr'] }, buildDirs: [path.join(armC, 'app'), armC] },
   };
 }
 export const ARM_ORDER = ['A', 'B', 'Bp', 'C', 'Cssr'];

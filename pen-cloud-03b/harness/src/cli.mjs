@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 import { ARM_ORDER, EXP_DIR, ARM_A_ROOT, ROUTES, makeArms, loadDsc, BROWSER_CONTEXT, VIEWPORTS, sweepWidths } from './config.mjs';
-import { ensureDir, writeJson, runCommand } from './util.mjs';
+import { ensureDir, writeJson, readJson } from './util.mjs';
 import { startArmServer, stopAllServers } from './servers.mjs';
 import { launchBrowser, measurePages, measureResponsive, measureScrollProbe, aggregateTokens } from './measure.mjs';
 import { runBuild } from './build.mjs';
@@ -38,19 +38,23 @@ if (opt.help) {
 const DRY = opt['dry-run'];
 const ALL_STEPS = ['build', 'pages', 'responsive', 'scroll', 'visual', 'determinism', 'licence'];
 let steps = opt.steps ? opt.steps.split(',').map((s) => s.trim()).filter(Boolean) : ALL_STEPS.filter((s) => s !== 'licence');
-if (opt.licence && !steps.includes('licence')) steps.push('licence');
+if ((opt.licence || (DRY && !opt.steps)) && !steps.includes('licence')) steps.push('licence');
 for (const s of steps) if (!ALL_STEPS.includes(s)) { console.error(`unknown step ${s}`); process.exit(2); }
 if (opt['skip-build']) steps = steps.filter((s) => s !== 'build');
 const has = (s) => steps.includes(s);
 
-const armIds = (opt.arms ? opt.arms.split(',').map((s) => s.trim()) : DRY ? ['A', 'B', 'Bp', 'C', 'Cssr'] : ARM_ORDER)
+const armIds = (opt.arms ? opt.arms.split(',').map((s) => s.trim()) : DRY ? ['A', 'B', 'C'] : ARM_ORDER)
   .filter(Boolean);
 for (const a of armIds) if (!ARM_ORDER.includes(a)) { console.error(`unknown arm ${a} (valid: ${ARM_ORDER.join(',')})`); process.exit(2); }
 armIds.sort((a, b) => ARM_ORDER.indexOf(a) - ARM_ORDER.indexOf(b)); // A first so visual refs exist
 
 const label = opt.label || new Date().toISOString().replace(/[:.]/g, '-');
 const outDir = path.resolve(opt.out || (DRY ? path.join(path.dirname(new URL(import.meta.url).pathname), '..', '.dry-run-out') : path.join(EXP_DIR, 'results', `run-${label}`)));
-if (DRY && fs.existsSync(outDir)) fs.rmSync(outDir, { recursive: true, force: true });
+if (DRY && fs.existsSync(outDir) && fs.readdirSync(outDir).length) {
+  // never wipe a directory that is not obviously a dry-run scratch dir
+  if (!/dry/i.test(path.basename(outDir))) { console.error(`refusing to wipe non-empty ${outDir} for --dry-run (name it *dry*)`); process.exit(2); }
+  fs.rmSync(outDir, { recursive: true, force: true });
+}
 ensureDir(outDir);
 
 const log = (...a) => console.log(...a);
@@ -66,6 +70,18 @@ if (DRY) {
   fixtures = setupFixtures(outDir);
   const ports = { A: 4391, B: 4392, Bp: 4393, C: 4394, Cssr: 4395 };
   arms = makeArms({ ports, armCDir: fixtures.armC, armARoot: fixtures.armARoot });
+  {
+    const { httpProbe } = await import('./util.mjs');
+    const t = {};
+    const srv = await startArmServer({ id: 'selftest', port: 4396, serve: { cwd: fixtures.serveArm, cmd: ['pnpm', 'serve'] } }, path.join(outDir, '_fixtures', 'selftest-log'));
+    t.started = srv.ok;
+    t.upWhileRunning = srv.ok && (await httpProbe(4396)).up;
+    if (srv.ok) await srv.stop();
+    t.downAfterStop = !(await httpProbe(4396)).up;
+    const bad = await startArmServer({ id: 'selftest2', port: 4397, serve: { cwd: fixtures.armC, cmd: ['pnpm', 'serve'] } }, path.join(outDir, '_fixtures', 'selftest-log2'));
+    t.missingScriptRefused = bad.ok === false && /no "serve" script/.test(bad.error || '');
+    fixtures.serverSelfTest = t;
+  }
   const variants = { A: 'plain', B: 'static', Bp: 'static', C: 'fs', Cssr: 'fs' };
   for (const id of armIds) stubs.push(await startStub({ port: ports[id], variant: variants[id], name: id }));
 } else {
@@ -89,7 +105,8 @@ try {
   if (needServers) { browser = await launchBrowser(); run.browser.version = browser.version(); }
   for (const id of armIds) {
     const arm = arms[id];
-    const dir = ensureDir(path.join(outDir, id));
+    const dir = path.join(outDir, id);
+    if (has('build') || needServers) ensureDir(dir);
     log(`\n=== Arm ${id} (port ${arm.port}) ===`);
     // 1. build verification
     if (has('build') && !DRY) {
@@ -152,7 +169,7 @@ try {
   // determinism (C only)
   if (has('determinism') && (armIds.includes('C') || armIds.includes('Cssr'))) {
     log('\n=== determinism (C) ===');
-    const d = await runDeterminism({ armCDir: arms.C.buildDirs[0], outDir, armId: 'C', log });
+    const d = await runDeterminism({ armCDir: arms.C.rootDir, outDir, armId: 'C', log });
     writeJson(path.join(outDir, 'C', 'determinism.json'), d);
   }
 
@@ -160,7 +177,7 @@ try {
   if (has('licence')) {
     log('\n=== licence check ===');
     const relumeSrc = DRY ? fixtures.relumeSrc : path.join(ARM_A_ROOT, 'relume-src');
-    const armCDir = arms.C.buildDirs[0];
+    const armCDir = arms.C.rootDir;
     const lic = licenceCheck({ armCDir, relumeSrc });
     const forb = forbiddenStringScan(DRY ? fixtures.cleanRoot : EXP_DIR);
     ensureDir(path.join(outDir, 'C'));
@@ -170,6 +187,8 @@ try {
   }
 
   run.finishedAt = new Date().toISOString();
+  const prevRun = readJson(path.join(outDir, 'run.json'));
+  if (prevRun) { const { history, ...rest } = prevRun; run.history = [...(history || []), rest]; }
   writeJson(path.join(outDir, 'run.json'), run);
 
   if (!opt['no-summary']) {

@@ -279,7 +279,7 @@ export function collectDecls() {
       cur += ch;
     }
     if (cur.trim()) out.push(cur.trim());
-    return out.map((d) => { const i = d.indexOf(':'); return i < 0 ? null : [d.slice(0, i).trim().toLowerCase(), d.slice(i + 1).replace(/!important\s*$/i, '').trim()]; }).filter(Boolean);
+    return out.map((d) => { const i = d.indexOf(':'); if (i < 0) return null; const name = d.slice(0, i).trim(); return [name.startsWith('--') ? name : name.toLowerCase(), d.slice(i + 1).replace(/!important\s*$/i, '').trim()]; }).filter(Boolean);
   };
   const NEUTRAL = /^(inherit|initial|unset|revert|revert-layer|currentcolor|transparent|none|normal|auto|0)$/i;
   const classify = (v) => {

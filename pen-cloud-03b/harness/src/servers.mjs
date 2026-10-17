@@ -2,10 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { ensureDir, httpProbe, waitForPort, sleep } from './util.mjs';
+import { hasScript } from './build.mjs';
 
 const active = new Set();
 
 export async function startArmServer(arm, logDir) {
+  const scriptName = arm.serve.cmd[1] === 'run' ? arm.serve.cmd[2] : arm.serve.cmd[1];
+  if (!hasScript(arm.serve.cwd, scriptName)) return { ok: false, error: `no "${scriptName}" script in ${arm.serve.cwd}/package.json` };
   const pre = await httpProbe(arm.port);
   if (pre.up) return { ok: false, error: `port ${arm.port} already serving before start (stale server?)` };
   ensureDir(logDir);
@@ -16,7 +19,7 @@ export async function startArmServer(arm, logDir) {
   try {
     child = spawn(arm.serve.cmd[0], arm.serve.cmd.slice(1), {
       cwd: arm.serve.cwd, detached: true, stdio: ['ignore', fd, fd],
-      env: { ...process.env, PORT: String(arm.port) },
+      env: { ...process.env },
     });
   } catch (e) { return { ok: false, error: String(e) }; }
   child.on('exit', () => { exited = true; });

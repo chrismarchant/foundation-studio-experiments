@@ -29,9 +29,12 @@ export function setupFixtures(outDir) {
   fs.writeFileSync(path.join(armC, 'app', 'src', 'generated', 'index.js'), "export const generated = true;\n");
   const gen = hashTree(path.join(armC, 'app', 'src', 'generated'));
   fs.writeFileSync(path.join(armC, 'FROZEN.md'), '# FROZEN\n\n| file | sha256 |\n|---|---|\n' + Object.entries(gen).map(([f, h]) => `| \`app/src/generated/${f}\` | ${h} |`).join('\n') + '\n');
+  const serveArm = ensureDir(path.join(root, 'serve-arm'));
+  fs.writeFileSync(path.join(serveArm, 'package.json'), JSON.stringify({ name: 'fixture-serve', private: true, scripts: { serve: 'node serve.mjs' } }));
+  fs.writeFileSync(path.join(serveArm, 'serve.mjs'), "import http from 'node:http';http.createServer((q,r)=>r.end('ok')).listen(4396,'127.0.0.1');\n");
   const cleanRoot = ensureDir(path.join(root, 'clean-exp'));
   fs.writeFileSync(path.join(cleanRoot, 'a.txt'), 'nothing to see here\n');
-  return { root, armC, armARoot: path.join(root, 'arm-a'), relumeSrc: path.join(root, 'relume-src'), cleanRoot, plant: PLANT };
+  return { root, serveArm, armC, armARoot: path.join(root, 'arm-a'), relumeSrc: path.join(root, 'relume-src'), cleanRoot, plant: PLANT };
 }
 
 export function assertDryRun({ outDir, armIds, fixtures, steps }) {
@@ -120,8 +123,12 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
       const diffs = fs.existsSync(path.join(outDir, id, 'diff')) ? fs.readdirSync(path.join(outDir, id, 'diff')).length : 0;
       add(`${id} diff PNGs saved (21)`, diffs === 21, diffs);
       if (id === 'C' || id === 'Cssr') add(`${id} stub pixel-identical to A on /layout620@1440`, v?.routes?.layout620?.[1440]?.mismatchRatio === 0 && v.routes.layout620[1440].ssim === 1, JSON.stringify(v?.routes?.layout620?.[1440]));
-      if (id === 'B') add('B stub differs from A: +1px height on /layout620@1440, mismatch > 0', v?.routes?.layout620?.[1440]?.heightDiff === 1 && v.routes.layout620[1440].mismatchRatio > 0, JSON.stringify(v?.routes?.layout620?.[1440]));
+      if (id === 'B') add('B stub differs from A: +3px height on /page@1440, mismatch > 0 on /layout620@1440', v?.routes?.page?.[1440]?.heightDiff === 3 && v?.routes?.layout620?.[1440]?.mismatchRatio > 0, JSON.stringify([v?.routes?.page?.[1440], v?.routes?.layout620?.[1440]]));
     }
+  }
+  if (fixtures?.serverSelfTest) {
+    const t = fixtures.serverSelfTest;
+    add('server lifecycle: started via pnpm, port up, stopped, port released, missing script refused', t.started && t.upWhileRunning && t.downAfterStop && t.missingScriptRefused, JSON.stringify(t));
   }
   if (fixtures?.stubRequests) {
     const rq = fixtures.stubRequests;
