@@ -13,3 +13,7 @@
 | Arm A (Relume React control) | **outside this repository**, untracked, `/home/user/pc03b-arm-a/` in the agent environment | Relume Library MCP `get_component` for `navbar17_component`, `section_header80`, `section_layout620`, `section_testimonial37`, `section_cta25` with primitives, retrieved 2026-10-17 | section/primitive file hashes recorded in `results/arm-a-source-hashes.txt` (hashes only; no source) |
 
 Rules in force: OD-25/OD-37 (no Relume source enters any repository), OD-41 (Penpot structure is a design observation, not canonical intent), the Arm C isolation rule (Arm C's agent never sees Arm A or comparison results before C is frozen).
+
+## Incidents
+
+- 2026-10-17, harness agent: while testing the harness's failure path it ran a normal-mode invocation against the real `arm-b` and `arm-c` directories (built them, started/stopped their servers, ran Arm C's `generate:verify`, rebuilt `arm-c/app/dist`, and ran the licence hash step, which reads Arm A line hashes). The harness agent is not Arm C's implementation agent and Arm C had already been frozen (`FROZEN.md`, commit `9498478`), so the Arm C isolation rule was not breached. The output directory was deleted unread. Tracked files of arms B and C are unchanged against their freeze commits (`git diff cdf447b` / `git diff 9498478`, verified before run r1), and all 40 frozen Arm C files match `FROZEN.md`.
