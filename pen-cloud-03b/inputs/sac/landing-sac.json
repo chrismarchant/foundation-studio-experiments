@@ -1,0 +1,796 @@
+{
+ "v": "sac/0.1",
+ "source": "foundation.semantic plugin data read back from FS_Test001 Landing boards",
+ "capturedAt": "2026-10-17T17:28:39.806Z",
+ "annotations": [
+  {
+   "v": "sac/0.1",
+   "role": "navigation",
+   "logicalId": "fs.section.navbar.desktop",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec56e0c462",
+   "landmark": "nav",
+   "bbc": [
+    "bbc.nav.open-menu",
+    "bbc.nav.cta.click"
+   ],
+   "breakpoint": "desktop",
+   "section": "Navbar17",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec56e0c462",
+   "name": "Navbar17",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.navbar.desktop.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec56f2522f",
+   "interactive": true,
+   "bbc": [
+    "bbc.nav.cta.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "desktop",
+   "section": "Navbar17",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec56f2522f",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "hero",
+   "logicalId": "fs.section.hero.desktop",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec570ada2a",
+   "landmark": "header",
+   "bbc": [
+    "bbc.hero.primary-cta.click",
+    "bbc.hero.scroll-parallax"
+   ],
+   "breakpoint": "desktop",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec570ada2a",
+   "name": "Header80 / StickyStage",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.hero.desktop.h1",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec57334678",
+   "level": 1,
+   "section": "Header80 / StickyStage",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec57334678",
+   "name": "H1",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.hero.desktop.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec574a88a4",
+   "interactive": true,
+   "bbc": [
+    "bbc.hero.primary.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "desktop",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec574a88a4",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.hero.desktop.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+   "interactive": true,
+   "bbc": [
+    "bbc.hero.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "desktop",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "feature-section",
+   "logicalId": "fs.section.features.desktop",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+   "landmark": "section",
+   "breakpoint": "desktop",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+   "name": "Layout620",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.desktop.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec577b5c88",
+   "level": 2,
+   "section": "Layout620",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec577b5c88",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.desktop.item1.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec57b84a19",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec57b84a19",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.desktop.item2.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec57f128e3",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec57f128e3",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.desktop.item3.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec580abe03",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec580abe03",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.features.desktop.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec581fdb32",
+   "interactive": true,
+   "bbc": [
+    "bbc.feature-section.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "desktop",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec581fdb32",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "link",
+   "logicalId": "fs.section.features.desktop.link",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58219cc6",
+   "interactive": true,
+   "bbc": [
+    "bbc.feature-section.link.click"
+   ],
+   "breakpoint": "desktop",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58219cc6",
+   "name": "LinkButton",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "testimonials",
+   "logicalId": "fs.section.testimonials.desktop",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58238586",
+   "landmark": "section",
+   "breakpoint": "desktop",
+   "section": "Testimonial37",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58238586",
+   "name": "Testimonial37",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.testimonials.desktop.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58300d69",
+   "level": 2,
+   "section": "Testimonial37",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58300d69",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-section",
+   "logicalId": "fs.section.cta.desktop",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+   "landmark": "section",
+   "breakpoint": "desktop",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+   "name": "Cta25",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.cta.desktop.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58d8bbd3",
+   "level": 2,
+   "section": "Cta25",
+   "breakpoint": "desktop",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58d8bbd3",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.cta.desktop.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58f702cf",
+   "interactive": true,
+   "bbc": [
+    "bbc.cta-section.primary.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "desktop",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58f702cf",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.cta.desktop.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec58f88230",
+   "interactive": true,
+   "bbc": [
+    "bbc.cta-section.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "desktop",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec58f88230",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "navigation",
+   "logicalId": "fs.section.navbar.tablet",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec691c465e",
+   "landmark": "nav",
+   "bbc": [
+    "bbc.nav.open-menu",
+    "bbc.nav.cta.click"
+   ],
+   "breakpoint": "tablet",
+   "section": "Navbar17",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec691c465e",
+   "name": "Navbar17",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.navbar.tablet.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69275e4e",
+   "interactive": true,
+   "bbc": [
+    "bbc.nav.cta.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "tablet",
+   "section": "Navbar17",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69275e4e",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "hero",
+   "logicalId": "fs.section.hero.tablet",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6934bfcc",
+   "landmark": "header",
+   "bbc": [
+    "bbc.hero.primary-cta.click",
+    "bbc.hero.scroll-parallax"
+   ],
+   "breakpoint": "tablet",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6934bfcc",
+   "name": "Header80 / StickyStage",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.hero.tablet.h1",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec694ef890",
+   "level": 1,
+   "section": "Header80 / StickyStage",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec694ef890",
+   "name": "H1",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.hero.tablet.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+   "interactive": true,
+   "bbc": [
+    "bbc.hero.primary.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "tablet",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.hero.tablet.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69602326",
+   "interactive": true,
+   "bbc": [
+    "bbc.hero.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "tablet",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69602326",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "feature-section",
+   "logicalId": "fs.section.features.tablet",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6963eaef",
+   "landmark": "section",
+   "breakpoint": "tablet",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6963eaef",
+   "name": "Layout620",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.tablet.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69768171",
+   "level": 2,
+   "section": "Layout620",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69768171",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.tablet.item1.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec699129f3",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec699129f3",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.tablet.item2.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69a64498",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69a64498",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.tablet.item3.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69bc177b",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69bc177b",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.features.tablet.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+   "interactive": true,
+   "bbc": [
+    "bbc.feature-section.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "tablet",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "link",
+   "logicalId": "fs.section.features.tablet.link",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69ce457b",
+   "interactive": true,
+   "bbc": [
+    "bbc.feature-section.link.click"
+   ],
+   "breakpoint": "tablet",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69ce457b",
+   "name": "LinkButton",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "testimonials",
+   "logicalId": "fs.section.testimonials.tablet",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69d0902a",
+   "landmark": "section",
+   "breakpoint": "tablet",
+   "section": "Testimonial37",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69d0902a",
+   "name": "Testimonial37",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.testimonials.tablet.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec69dd75b0",
+   "level": 2,
+   "section": "Testimonial37",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec69dd75b0",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-section",
+   "logicalId": "fs.section.cta.tablet",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6a816963",
+   "landmark": "section",
+   "breakpoint": "tablet",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6a816963",
+   "name": "Cta25",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.cta.tablet.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6a8af665",
+   "level": 2,
+   "section": "Cta25",
+   "breakpoint": "tablet",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6a8af665",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.cta.tablet.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+   "interactive": true,
+   "bbc": [
+    "bbc.cta-section.primary.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "tablet",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.cta.tablet.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+   "interactive": true,
+   "bbc": [
+    "bbc.cta-section.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "tablet",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "navigation",
+   "logicalId": "fs.section.navbar.mobile",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b14b2eb",
+   "landmark": "nav",
+   "bbc": [
+    "bbc.nav.open-menu",
+    "bbc.nav.cta.click"
+   ],
+   "breakpoint": "mobile",
+   "section": "Navbar17",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b14b2eb",
+   "name": "Navbar17",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.navbar.mobile.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+   "interactive": true,
+   "bbc": [
+    "bbc.nav.cta.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "mobile",
+   "section": "Navbar17",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "hero",
+   "logicalId": "fs.section.hero.mobile",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b29ee70",
+   "landmark": "header",
+   "bbc": [
+    "bbc.hero.primary-cta.click",
+    "bbc.hero.scroll-parallax"
+   ],
+   "breakpoint": "mobile",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b29ee70",
+   "name": "Header80 / StickyStage",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.hero.mobile.h1",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b41365b",
+   "level": 1,
+   "section": "Header80 / StickyStage",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b41365b",
+   "name": "H1",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.hero.mobile.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+   "interactive": true,
+   "bbc": [
+    "bbc.hero.primary.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "mobile",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.hero.mobile.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+   "interactive": true,
+   "bbc": [
+    "bbc.hero.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "mobile",
+   "section": "Header80 / StickyStage",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "feature-section",
+   "logicalId": "fs.section.features.mobile",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b55321c",
+   "landmark": "section",
+   "breakpoint": "mobile",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b55321c",
+   "name": "Layout620",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.mobile.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b68f5a2",
+   "level": 2,
+   "section": "Layout620",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b68f5a2",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.mobile.item1.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b832b60",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b832b60",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.mobile.item2.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6b9be1ee",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6b9be1ee",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.features.mobile.item3.h3",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6bb563f1",
+   "level": 3,
+   "section": "Layout620",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6bb563f1",
+   "name": "H4",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.features.mobile.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+   "interactive": true,
+   "bbc": [
+    "bbc.feature-section.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "mobile",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+   "name": "Button / Secondary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "link",
+   "logicalId": "fs.section.features.mobile.link",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6bcd84a5",
+   "interactive": true,
+   "bbc": [
+    "bbc.feature-section.link.click"
+   ],
+   "breakpoint": "mobile",
+   "section": "Layout620",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6bcd84a5",
+   "name": "LinkButton",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "testimonials",
+   "logicalId": "fs.section.testimonials.mobile",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+   "landmark": "section",
+   "breakpoint": "mobile",
+   "section": "Testimonial37",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+   "name": "Testimonial37",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.testimonials.mobile.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6bde1dd5",
+   "level": 2,
+   "section": "Testimonial37",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6bde1dd5",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-section",
+   "logicalId": "fs.section.cta.mobile",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+   "landmark": "section",
+   "breakpoint": "mobile",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+   "name": "Cta25",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "heading",
+   "logicalId": "fs.section.cta.mobile.h2",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6c899773",
+   "level": 2,
+   "section": "Cta25",
+   "breakpoint": "mobile",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6c899773",
+   "name": "H2",
+   "type": "text"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-primary",
+   "logicalId": "fs.section.cta.mobile.cta-primary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6cab2665",
+   "interactive": true,
+   "bbc": [
+    "bbc.cta-section.primary.click"
+   ],
+   "instanceOf": "fs.component.button.primary",
+   "breakpoint": "mobile",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6cab2665",
+   "name": "Button / Primary",
+   "type": "board"
+  },
+  {
+   "v": "sac/0.1",
+   "role": "cta-secondary",
+   "logicalId": "fs.section.cta.mobile.cta-secondary",
+   "penpotId": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+   "interactive": true,
+   "bbc": [
+    "bbc.cta-section.secondary.click"
+   ],
+   "instanceOf": "fs.component.button.secondary",
+   "breakpoint": "mobile",
+   "section": "Cta25",
+   "actualPenpotId": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+   "name": "Button / Secondary",
+   "type": "board"
+  }
+ ]
+}

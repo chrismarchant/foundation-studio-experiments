@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.output/
+.vinxi/
+.tanstack/
+*.log
+# Arm A (Relume React control) lives OUTSIDE this repository and is never committed
+arm-a/
+**/arm-a/

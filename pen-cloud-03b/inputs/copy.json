@@ -1,0 +1,36 @@
+{
+  "note": "Synthetic copy shared by all arms; identical to the PEN-CLOUD-02 Penpot design.",
+  "navbar": {"logoAlt": "Synthetic logo", "button": "Button", "links": ["Link One", "Link Two", "Link Three", "Link Four"]},
+  "header80": {
+    "heading": "Design systems that move with your product",
+    "description": "A synthetic hero description for the PEN-CLOUD-02 fidelity experiment. It stands in for the Relume default paragraph and wraps across the column.",
+    "buttons": [{"label": "Button", "variant": "primary"}, {"label": "Button", "variant": "secondary"}],
+    "images": 6
+  },
+  "layout620": {
+    "tagline": "Tagline",
+    "heading": "Three reasons teams pick this synthetic product",
+    "description": "A synthetic description for the feature section, written for the PEN-CLOUD-02 experiment and long enough to wrap.",
+    "items": [
+      {"heading": "Fast setup", "description": "Synthetic feature copy for item 1, wrapping within its column."},
+      {"heading": "Honest metrics", "description": "Synthetic feature copy for item 2, wrapping within its column."},
+      {"heading": "Portable output", "description": "Synthetic feature copy for item 3, wrapping within its column."}
+    ],
+    "buttons": [{"label": "Button", "variant": "secondary"}, {"label": "Button", "variant": "link"}]
+  },
+  "testimonial37": {
+    "heading": "Customer testimonials",
+    "description": "Synthetic social proof for the PEN-CLOUD-02 experiment.",
+    "cards": [
+      {"kind": "logo"}, {"kind": "logo"},
+      {"kind": "quote", "stars": 5, "quote": "\"A synthetic quote used only to evaluate card layout fidelity in Penpot.\"", "name": "Name Surname", "position": "Position", "company": "Company name"},
+      {"kind": "quote", "stars": 5, "quote": "\"A synthetic quote used only to evaluate card layout fidelity in Penpot.\"", "name": "Name Surname", "position": "Position", "company": "Company name"},
+      {"kind": "logo"}, {"kind": "logo"}
+    ]
+  },
+  "cta25": {
+    "heading": "Ready to try the synthetic product?",
+    "description": "Closing call to action copy for the experiment.",
+    "buttons": [{"label": "Button", "variant": "primary"}, {"label": "Button", "variant": "secondary"}]
+  }
+}

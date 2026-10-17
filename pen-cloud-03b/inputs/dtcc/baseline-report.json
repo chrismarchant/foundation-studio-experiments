@@ -1,0 +1,4412 @@
+{
+ "desktop": {
+  "v": "dtcc/0.1",
+  "dsc": {
+   "id": "fs.ds.relume-default",
+   "revision": "r1-pending"
+  },
+  "board": "desktop",
+  "at": "2026-10-17T17:26:56.384Z",
+  "counts": {
+   "bound": 21,
+   "bound-stale": 0,
+   "exact-unbound": 153,
+   "near": 0,
+   "orphan": 50,
+   "ungoverned": 0
+  },
+  "governed": 224,
+  "coverage": 9.4,
+  "unbound": [
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56e0c462",
+    "name": "Navbar17",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56e0c462",
+    "name": "Navbar17",
+    "prop": "paddingLeft",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56e0c462",
+    "name": "Navbar17",
+    "prop": "paddingRight",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56e78dc8",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56e9ca43",
+    "name": "NavRight",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56e9ca43",
+    "name": "NavRight",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f2522f",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f25230",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f63a9d",
+    "name": "Hamburger",
+    "prop": "columnGap",
+    "value": 5,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56f63a9d",
+    "name": "Hamburger",
+    "prop": "rowGap",
+    "value": 5,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec56fe7f6c",
+    "name": "Line1",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57003da1",
+    "name": "Line2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5703b8bc",
+    "name": "Line3",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec570ada2a",
+    "name": "Header80 / StickyStage",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57172113",
+    "name": "Image1",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec571f77dc",
+    "name": "Image2",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57219989",
+    "name": "Image3",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5726e942",
+    "name": "Image4",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec572ad36d",
+    "name": "Image5",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec572dd9a3",
+    "name": "Image6",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57334678",
+    "name": "H1",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5739dc36",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec573fbb2b",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a4",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574a88a5",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c7",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec574ea8c8",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+    "name": "Layout620",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+    "name": "Layout620",
+    "prop": "paddingTop",
+    "value": 112,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+    "name": "Layout620",
+    "prop": "paddingBottom",
+    "value": 112,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+    "name": "Layout620",
+    "prop": "paddingLeft",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+    "name": "Layout620",
+    "prop": "paddingRight",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5763597d",
+    "name": "Container",
+    "prop": "columnGap",
+    "value": 80,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5763597d",
+    "name": "Container",
+    "prop": "rowGap",
+    "value": 80,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec577176ce",
+    "name": "Tagline",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec577176ce",
+    "name": "Tagline",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec577b5c88",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57844b52",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57844b52",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec578a5d8e",
+    "name": "Grid",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec578a5d8e",
+    "name": "Grid",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec579d4adf",
+    "name": "Item1",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec579d4adf",
+    "name": "Item1",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57b2f1d0",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57b84a19",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57b84a19",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57d6734d",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57d6734d",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57e833e6",
+    "name": "Divider",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57ea1972",
+    "name": "Item2",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57ea1972",
+    "name": "Item2",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57eda677",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57f128e3",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57f128e3",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57fa2a4f",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57fa2a4f",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec57fec02f",
+    "name": "Divider",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5802c5f2",
+    "name": "Item3",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5802c5f2",
+    "name": "Item3",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5806a40b",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec580abe03",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec580abe03",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58142d37",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58142d37",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58195eec",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58195eec",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb32",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb32",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb32",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb32",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb32",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb32",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec581fdb33",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58219cc6",
+    "name": "LinkButton",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58219cc6",
+    "name": "LinkButton",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58238586",
+    "name": "Testimonial37",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58238586",
+    "name": "Testimonial37",
+    "prop": "paddingTop",
+    "value": 112,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58238586",
+    "name": "Testimonial37",
+    "prop": "paddingBottom",
+    "value": 112,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58238586",
+    "name": "Testimonial37",
+    "prop": "paddingLeft",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58238586",
+    "name": "Testimonial37",
+    "prop": "paddingRight",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5827f4ae",
+    "name": "Container",
+    "prop": "columnGap",
+    "value": 80,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5827f4ae",
+    "name": "Container",
+    "prop": "rowGap",
+    "value": 80,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58300d69",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec583be34c",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec583be34c",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58431139",
+    "name": "Grid",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58431139",
+    "name": "Grid",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5847bbdc",
+    "name": "Row1",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5847bbdc",
+    "name": "Row1",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec584b62dd",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec584b62dd",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec584b62dd",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec584b62dd",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec584b62dd",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec584b62dd",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5850b8c2",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58524cde",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58524cde",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58524cde",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58524cde",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58524cde",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58524cde",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec585705cd",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5858f430",
+    "name": "QuoteCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5858f430",
+    "name": "QuoteCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5858f430",
+    "name": "QuoteCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5858f430",
+    "name": "QuoteCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5858f430",
+    "name": "QuoteCard",
+    "prop": "paddingLeft",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5858f430",
+    "name": "QuoteCard",
+    "prop": "paddingRight",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58692976",
+    "name": "Stars",
+    "prop": "columnGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58692976",
+    "name": "Stars",
+    "prop": "rowGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec586e8796",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5870c1f3",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58758ee4",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5877592e",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5878ea32",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec587be0f1",
+    "name": "Quote",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec587be0f1",
+    "name": "Quote",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5888ba09",
+    "name": "Author",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5888ba09",
+    "name": "Author",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec588cb8a0",
+    "name": "Avatar",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58915df6",
+    "name": "Name",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58915df6",
+    "name": "Name",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5893b12f",
+    "name": "Position",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5893b12f",
+    "name": "Position",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5895af88",
+    "name": "Row2",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec5895af88",
+    "name": "Row2",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58997704",
+    "name": "QuoteCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58997704",
+    "name": "QuoteCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58997704",
+    "name": "QuoteCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58997704",
+    "name": "QuoteCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58997704",
+    "name": "QuoteCard",
+    "prop": "paddingLeft",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58997704",
+    "name": "QuoteCard",
+    "prop": "paddingRight",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec589d57a6",
+    "name": "Stars",
+    "prop": "columnGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec589d57a6",
+    "name": "Stars",
+    "prop": "rowGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a0da4a",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a2753c",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a3b6c1",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a529fb",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a68231",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a9cefe",
+    "name": "Quote",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58a9cefe",
+    "name": "Quote",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58b80e94",
+    "name": "Author",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58b80e94",
+    "name": "Author",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58bba034",
+    "name": "Avatar",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c09ff4",
+    "name": "Name",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c09ff4",
+    "name": "Name",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c2673a",
+    "name": "Position",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c2673a",
+    "name": "Position",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c418d9",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c418d9",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c418d9",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c418d9",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c418d9",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c418d9",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58c8c538",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58ca60b3",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58ca60b3",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58ca60b3",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58ca60b3",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58ca60b3",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58ca60b3",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58cf236c",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+    "name": "Cta25",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+    "name": "Cta25",
+    "prop": "paddingLeft",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+    "name": "Cta25",
+    "prop": "paddingRight",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58d8bbd3",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58e73c65",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58e73c65",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f2cb2a",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f2cb2a",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702cf",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f702d0",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88230",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88230",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88230",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88230",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88230",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88230",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec58f88231",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   }
+  ]
+ },
+ "tablet": {
+  "v": "dtcc/0.1",
+  "dsc": {
+   "id": "fs.ds.relume-default",
+   "revision": "r1-pending"
+  },
+  "board": "tablet",
+  "at": "2026-10-17T17:26:56.432Z",
+  "counts": {
+   "bound": 12,
+   "bound-stale": 0,
+   "exact-unbound": 160,
+   "near": 0,
+   "orphan": 52,
+   "ungoverned": 0
+  },
+  "governed": 224,
+  "coverage": 5.4,
+  "unbound": [
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec691c465e",
+    "name": "Navbar17",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec691c465e",
+    "name": "Navbar17",
+    "prop": "paddingLeft",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec691c465e",
+    "name": "Navbar17",
+    "prop": "paddingRight",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69216877",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69237d4f",
+    "name": "NavRight",
+    "prop": "columnGap",
+    "value": 8,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69237d4f",
+    "name": "NavRight",
+    "prop": "rowGap",
+    "value": 8,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4e",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69275e4f",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6928a519",
+    "name": "Hamburger",
+    "prop": "columnGap",
+    "value": 5,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6928a519",
+    "name": "Hamburger",
+    "prop": "rowGap",
+    "value": 5,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec692d1891",
+    "name": "Line1",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6930d821",
+    "name": "Line2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69329fcd",
+    "name": "Line3",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6934bfcc",
+    "name": "Header80 / StickyStage",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6939ff66",
+    "name": "Image1",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec693c36c1",
+    "name": "Image2",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69405f4e",
+    "name": "Image3",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69437a44",
+    "name": "Image4",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec694717a0",
+    "name": "Image5",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6949bf52",
+    "name": "Image6",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec694ef890",
+    "name": "H1",
+    "prop": "fontSize",
+    "value": "56",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec694ef890",
+    "name": "H1",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6955a6f5",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6955a6f5",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ad418",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ad418",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b8",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec695ec7b9",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602326",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602326",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602326",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602326",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602326",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602326",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69602327",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6963eaef",
+    "name": "Layout620",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6963eaef",
+    "name": "Layout620",
+    "prop": "paddingTop",
+    "value": 96,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6963eaef",
+    "name": "Layout620",
+    "prop": "paddingBottom",
+    "value": 96,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6963eaef",
+    "name": "Layout620",
+    "prop": "paddingLeft",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6963eaef",
+    "name": "Layout620",
+    "prop": "paddingRight",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6967a51b",
+    "name": "Container",
+    "prop": "columnGap",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6967a51b",
+    "name": "Container",
+    "prop": "rowGap",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec696dcb81",
+    "name": "Tagline",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec696dcb81",
+    "name": "Tagline",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69768171",
+    "name": "H2",
+    "prop": "fontSize",
+    "value": "48",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69768171",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec697ecf8d",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec697ecf8d",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69843457",
+    "name": "Grid",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69843457",
+    "name": "Grid",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69843457",
+    "name": "Grid",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec698a1d0d",
+    "name": "Item1",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec698a1d0d",
+    "name": "Item1",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec698daadd",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec699129f3",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec699129f3",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6998a0eb",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6998a0eb",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec699cf397",
+    "name": "Divider",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec699ec21f",
+    "name": "Item2",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec699ec21f",
+    "name": "Item2",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69a2d9b3",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69a64498",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69a64498",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ad740d",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ad740d",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69b21189",
+    "name": "Divider",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69b40a73",
+    "name": "Item3",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69b40a73",
+    "name": "Item3",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69b818a2",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69bc177b",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69bc177b",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69c3982d",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69c3982d",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69c8f248",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69c8f248",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b75",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69cd2b76",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ce457b",
+    "name": "LinkButton",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ce457b",
+    "name": "LinkButton",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d0902a",
+    "name": "Testimonial37",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d0902a",
+    "name": "Testimonial37",
+    "prop": "paddingTop",
+    "value": 96,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d0902a",
+    "name": "Testimonial37",
+    "prop": "paddingBottom",
+    "value": 96,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d0902a",
+    "name": "Testimonial37",
+    "prop": "paddingLeft",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d0902a",
+    "name": "Testimonial37",
+    "prop": "paddingRight",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d558d4",
+    "name": "Container",
+    "prop": "columnGap",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69d558d4",
+    "name": "Container",
+    "prop": "rowGap",
+    "value": 72,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69dd75b0",
+    "name": "H2",
+    "prop": "fontSize",
+    "value": "48",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69dd75b0",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69e83a4c",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69e83a4c",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ef9e8c",
+    "name": "Grid",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ef9e8c",
+    "name": "Grid",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f3e461",
+    "name": "Row1",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f3e461",
+    "name": "Row1",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f7dd64",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f7dd64",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f7dd64",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f7dd64",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f7dd64",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69f7dd64",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69fd5a27",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ff21bd",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ff21bd",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ff21bd",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ff21bd",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ff21bd",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec69ff21bd",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a049172",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a06a3ae",
+    "name": "QuoteCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a06a3ae",
+    "name": "QuoteCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a06a3ae",
+    "name": "QuoteCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a06a3ae",
+    "name": "QuoteCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a06a3ae",
+    "name": "QuoteCard",
+    "prop": "paddingLeft",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a06a3ae",
+    "name": "QuoteCard",
+    "prop": "paddingRight",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a0b541f",
+    "name": "Stars",
+    "prop": "columnGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a0b541f",
+    "name": "Stars",
+    "prop": "rowGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a0fa7a1",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a11932c",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a1394a1",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a15525a",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a175ff3",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a1b9add",
+    "name": "Quote",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a1b9add",
+    "name": "Quote",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a29077b",
+    "name": "Author",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a29077b",
+    "name": "Author",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a2d580a",
+    "name": "Avatar",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a33be4f",
+    "name": "Name",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a33be4f",
+    "name": "Name",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a363c2e",
+    "name": "Position",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a363c2e",
+    "name": "Position",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a384299",
+    "name": "QuoteCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a384299",
+    "name": "QuoteCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a384299",
+    "name": "QuoteCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a384299",
+    "name": "QuoteCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a384299",
+    "name": "QuoteCard",
+    "prop": "paddingLeft",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a384299",
+    "name": "QuoteCard",
+    "prop": "paddingRight",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a3db46b",
+    "name": "Stars",
+    "prop": "columnGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a3db46b",
+    "name": "Stars",
+    "prop": "rowGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a41d246",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a43f26a",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a464f6b",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a4826c1",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a4a3ce3",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a4e369d",
+    "name": "Quote",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a4e369d",
+    "name": "Quote",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a5ce1d3",
+    "name": "Author",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a5ce1d3",
+    "name": "Author",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a610d27",
+    "name": "Avatar",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a674e86",
+    "name": "Name",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a674e86",
+    "name": "Name",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a69fc24",
+    "name": "Position",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a69fc24",
+    "name": "Position",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a6c1753",
+    "name": "Row4",
+    "prop": "columnGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a6c1753",
+    "name": "Row4",
+    "prop": "rowGap",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a70cfb3",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a70cfb3",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a70cfb3",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a70cfb3",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a70cfb3",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a70cfb3",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a76e388",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a79547c",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a79547c",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a79547c",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a79547c",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 32,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a79547c",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a79547c",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a7f3a59",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a816963",
+    "name": "Cta25",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a816963",
+    "name": "Cta25",
+    "prop": "paddingTop",
+    "value": 96,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a816963",
+    "name": "Cta25",
+    "prop": "paddingBottom",
+    "value": 96,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a816963",
+    "name": "Cta25",
+    "prop": "paddingLeft",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a816963",
+    "name": "Cta25",
+    "prop": "paddingRight",
+    "value": 38,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a8af665",
+    "name": "H2",
+    "prop": "fontSize",
+    "value": "48",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a8af665",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a9b5edf",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6a9b5edf",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aa833c6",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aa833c6",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a6",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aad92a7",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a46",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6aaf9a47",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   }
+  ]
+ },
+ "mobile": {
+  "v": "dtcc/0.1",
+  "dsc": {
+   "id": "fs.ds.relume-default",
+   "revision": "r1-pending"
+  },
+  "board": "mobile",
+  "at": "2026-10-17T17:26:56.493Z",
+  "counts": {
+   "bound": 12,
+   "bound-stale": 0,
+   "exact-unbound": 154,
+   "near": 0,
+   "orphan": 52,
+   "ungoverned": 0
+  },
+  "governed": 218,
+  "coverage": 5.5,
+  "unbound": [
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b14b2eb",
+    "name": "Navbar17",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b14b2eb",
+    "name": "Navbar17",
+    "prop": "paddingLeft",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b14b2eb",
+    "name": "Navbar17",
+    "prop": "paddingRight",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b18f748",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1b2823",
+    "name": "NavRight",
+    "prop": "columnGap",
+    "value": 8,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1b2823",
+    "name": "NavRight",
+    "prop": "rowGap",
+    "value": 8,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7401",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b1f7402",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b20ce11",
+    "name": "Hamburger",
+    "prop": "columnGap",
+    "value": 5,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b20ce11",
+    "name": "Hamburger",
+    "prop": "rowGap",
+    "value": 5,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b249994",
+    "name": "Line1",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b2669cd",
+    "name": "Line2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b27fc11",
+    "name": "Line3",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b29ee70",
+    "name": "Header80 / StickyStage",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b2e344a",
+    "name": "Image1",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b300c85",
+    "name": "Image2",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b325558",
+    "name": "Image3",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b348543",
+    "name": "Image4",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b38705a",
+    "name": "Image5",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b3b52e4",
+    "name": "Image6",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b41365b",
+    "name": "H1",
+    "prop": "fontSize",
+    "value": "56",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b41365b",
+    "name": "H1",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b4603f2",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b4603f2",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b4c0f98",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b4c0f98",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059bf",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b5059c0",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06e",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b51d06f",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b55321c",
+    "name": "Layout620",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b55321c",
+    "name": "Layout620",
+    "prop": "paddingTop",
+    "value": 64,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b55321c",
+    "name": "Layout620",
+    "prop": "paddingBottom",
+    "value": 64,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b55321c",
+    "name": "Layout620",
+    "prop": "paddingLeft",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b55321c",
+    "name": "Layout620",
+    "prop": "paddingRight",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b59416e",
+    "name": "Container",
+    "prop": "columnGap",
+    "value": 48,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b59416e",
+    "name": "Container",
+    "prop": "rowGap",
+    "value": 48,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b6018cf",
+    "name": "Tagline",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b6018cf",
+    "name": "Tagline",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b68f5a2",
+    "name": "H2",
+    "prop": "fontSize",
+    "value": "48",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b68f5a2",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b70171b",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b70171b",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b78c429",
+    "name": "BorderTop",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b7a87e4",
+    "name": "Item1",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b7a87e4",
+    "name": "Item1",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b7f6246",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b832b60",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b832b60",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b8b911d",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b8b911d",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b91badf",
+    "name": "BorderBottom",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b9421e5",
+    "name": "Item2",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b9421e5",
+    "name": "Item2",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b980307",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b9be1ee",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6b9be1ee",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6ba52d0c",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6ba52d0c",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6babd634",
+    "name": "BorderBottom",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bad9134",
+    "name": "Item3",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bad9134",
+    "name": "Item3",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bb189ca",
+    "name": "Icon",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bb563f1",
+    "name": "H4",
+    "prop": "fontSize",
+    "value": "32",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bb563f1",
+    "name": "H4",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bbf96b4",
+    "name": "Body",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bbf96b4",
+    "name": "Body",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bc77a82",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bc77a82",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c60",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcc4c61",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcd84a5",
+    "name": "LinkButton",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcd84a5",
+    "name": "LinkButton",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+    "name": "Testimonial37",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+    "name": "Testimonial37",
+    "prop": "paddingTop",
+    "value": 64,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+    "name": "Testimonial37",
+    "prop": "paddingBottom",
+    "value": 64,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+    "name": "Testimonial37",
+    "prop": "paddingLeft",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bcfccf7",
+    "name": "Testimonial37",
+    "prop": "paddingRight",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bd51885",
+    "name": "Container",
+    "prop": "columnGap",
+    "value": 48,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bd51885",
+    "name": "Container",
+    "prop": "rowGap",
+    "value": 48,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bde1dd5",
+    "name": "H2",
+    "prop": "fontSize",
+    "value": "48",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bde1dd5",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6be99beb",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6be99beb",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf1da21",
+    "name": "Grid",
+    "prop": "columnGap",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf1da21",
+    "name": "Grid",
+    "prop": "rowGap",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf6a6c1",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf6a6c1",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf6a6c1",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf6a6c1",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf6a6c1",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bf6a6c1",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfbf1db",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfdc250",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfdc250",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfdc250",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfdc250",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfdc250",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6bfdc250",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c03e4ac",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+    "name": "QuoteCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+    "name": "QuoteCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+    "name": "QuoteCard",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+    "name": "QuoteCard",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+    "name": "QuoteCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+    "name": "QuoteCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c0b1c14",
+    "name": "Stars",
+    "prop": "columnGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c0b1c14",
+    "name": "Stars",
+    "prop": "rowGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c0f369b",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c114fbe",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c137466",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c15f9c4",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c17dcbd",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c1c1bc6",
+    "name": "Quote",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c1c1bc6",
+    "name": "Quote",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c28977d",
+    "name": "Author",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c28977d",
+    "name": "Author",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c2d4e03",
+    "name": "Avatar",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3366f5",
+    "name": "Name",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3366f5",
+    "name": "Name",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3634ac",
+    "name": "Position",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3634ac",
+    "name": "Position",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+    "name": "QuoteCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+    "name": "QuoteCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+    "name": "QuoteCard",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+    "name": "QuoteCard",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+    "name": "QuoteCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+    "name": "QuoteCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3d8082",
+    "name": "Stars",
+    "prop": "columnGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c3d8082",
+    "name": "Stars",
+    "prop": "rowGap",
+    "value": 4,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c420ac1",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c447fd9",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c465828",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c486c40",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c4a5e3f",
+    "name": "Star",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c4f20f0",
+    "name": "Quote",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c4f20f0",
+    "name": "Quote",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c5d6589",
+    "name": "Author",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c5d6589",
+    "name": "Author",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c625175",
+    "name": "Avatar",
+    "prop": "fill",
+    "value": "#D9D9D9",
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c68a31a",
+    "name": "Name",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c68a31a",
+    "name": "Name",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6b65e6",
+    "name": "Position",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6b65e6",
+    "name": "Position",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6e1e5b",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6e1e5b",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6e1e5b",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6e1e5b",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6e1e5b",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c6e1e5b",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7442bd",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c76cbf3",
+    "name": "LogoCard",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c76cbf3",
+    "name": "LogoCard",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c76cbf3",
+    "name": "LogoCard",
+    "prop": "paddingTop",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c76cbf3",
+    "name": "LogoCard",
+    "prop": "paddingBottom",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c76cbf3",
+    "name": "LogoCard",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c76cbf3",
+    "name": "LogoCard",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7cde1a",
+    "name": "Logo",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+    "name": "Cta25",
+    "prop": "fill",
+    "value": "#FFFFFF",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+    "name": "Cta25",
+    "prop": "paddingTop",
+    "value": 64,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+    "name": "Cta25",
+    "prop": "paddingBottom",
+    "value": 64,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+    "name": "Cta25",
+    "prop": "paddingLeft",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c7f6ab4",
+    "name": "Cta25",
+    "prop": "paddingRight",
+    "value": 19,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c899773",
+    "name": "H2",
+    "prop": "fontSize",
+    "value": "48",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c899773",
+    "name": "H2",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c98d6d6",
+    "name": "Description",
+    "prop": "fontSize",
+    "value": "18",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6c98d6d6",
+    "name": "Description",
+    "prop": "fill",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6ca58f00",
+    "name": "Buttons",
+    "prop": "columnGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6ca58f00",
+    "name": "Buttons",
+    "prop": "rowGap",
+    "value": 16,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "strokeColor",
+    "value": "#000000",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2665",
+    "name": "Button / Primary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cab2666",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+    "name": "Button / Secondary",
+    "prop": "columnGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+    "name": "Button / Secondary",
+    "prop": "rowGap",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+    "name": "Button / Secondary",
+    "prop": "paddingTop",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+    "name": "Button / Secondary",
+    "prop": "paddingBottom",
+    "value": 12,
+    "cls": "orphan"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+    "name": "Button / Secondary",
+    "prop": "paddingLeft",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fc",
+    "name": "Button / Secondary",
+    "prop": "paddingRight",
+    "value": 24,
+    "cls": "exact-unbound"
+   },
+   {
+    "id": "4d569422-e5e3-8076-8008-cdec6cad56fd",
+    "name": "Label",
+    "prop": "fontSize",
+    "value": "16",
+    "cls": "exact-unbound"
+   }
+  ]
+ }
+}

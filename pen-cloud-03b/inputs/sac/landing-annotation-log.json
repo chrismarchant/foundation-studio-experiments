@@ -1,0 +1,167 @@
+[
+ {
+  "key": "desktop",
+  "section": "Navbar17",
+  "logicalId": "fs.section.navbar.desktop",
+  "h1": 0,
+  "h2": 0,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 0,
+  "link": 0
+ },
+ {
+  "key": "desktop",
+  "section": "Header80 / StickyStage",
+  "logicalId": "fs.section.hero.desktop",
+  "h1": 1,
+  "h2": 0,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 1,
+  "link": 0
+ },
+ {
+  "key": "desktop",
+  "section": "Layout620",
+  "logicalId": "fs.section.features.desktop",
+  "h1": 0,
+  "h2": 1,
+  "h4": 3,
+  "primary": 0,
+  "secondary": 1,
+  "link": 1
+ },
+ {
+  "key": "desktop",
+  "section": "Testimonial37",
+  "logicalId": "fs.section.testimonials.desktop",
+  "h1": 0,
+  "h2": 1,
+  "h4": 0,
+  "primary": 0,
+  "secondary": 0,
+  "link": 0
+ },
+ {
+  "key": "desktop",
+  "section": "Cta25",
+  "logicalId": "fs.section.cta.desktop",
+  "h1": 0,
+  "h2": 1,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 1,
+  "link": 0
+ },
+ {
+  "key": "tablet",
+  "section": "Navbar17",
+  "logicalId": "fs.section.navbar.tablet",
+  "h1": 0,
+  "h2": 0,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 0,
+  "link": 0
+ },
+ {
+  "key": "tablet",
+  "section": "Header80 / StickyStage",
+  "logicalId": "fs.section.hero.tablet",
+  "h1": 1,
+  "h2": 0,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 1,
+  "link": 0
+ },
+ {
+  "key": "tablet",
+  "section": "Layout620",
+  "logicalId": "fs.section.features.tablet",
+  "h1": 0,
+  "h2": 1,
+  "h4": 3,
+  "primary": 0,
+  "secondary": 1,
+  "link": 1
+ },
+ {
+  "key": "tablet",
+  "section": "Testimonial37",
+  "logicalId": "fs.section.testimonials.tablet",
+  "h1": 0,
+  "h2": 1,
+  "h4": 0,
+  "primary": 0,
+  "secondary": 0,
+  "link": 0
+ },
+ {
+  "key": "tablet",
+  "section": "Cta25",
+  "logicalId": "fs.section.cta.tablet",
+  "h1": 0,
+  "h2": 1,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 1,
+  "link": 0
+ },
+ {
+  "key": "mobile",
+  "section": "Navbar17",
+  "logicalId": "fs.section.navbar.mobile",
+  "h1": 0,
+  "h2": 0,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 0,
+  "link": 0
+ },
+ {
+  "key": "mobile",
+  "section": "Header80 / StickyStage",
+  "logicalId": "fs.section.hero.mobile",
+  "h1": 1,
+  "h2": 0,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 1,
+  "link": 0
+ },
+ {
+  "key": "mobile",
+  "section": "Layout620",
+  "logicalId": "fs.section.features.mobile",
+  "h1": 0,
+  "h2": 1,
+  "h4": 3,
+  "primary": 0,
+  "secondary": 1,
+  "link": 1
+ },
+ {
+  "key": "mobile",
+  "section": "Testimonial37",
+  "logicalId": "fs.section.testimonials.mobile",
+  "h1": 0,
+  "h2": 1,
+  "h4": 0,
+  "primary": 0,
+  "secondary": 0,
+  "link": 0
+ },
+ {
+  "key": "mobile",
+  "section": "Cta25",
+  "logicalId": "fs.section.cta.mobile",
+  "h1": 0,
+  "h2": 1,
+  "h4": 0,
+  "primary": 1,
+  "secondary": 1,
+  "link": 0
+ }
+]
