@@ -1,5 +1,5 @@
-import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { NotFoundRoute } from "@generated/routes";
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -10,7 +10,12 @@ export const Route = createRootRoute({
     ],
     links: [{ rel: "stylesheet", href: "/fonts/source-sans-3.css" }],
   }),
-  component: () => (
+  notFoundComponent: NotFoundRoute,
+  component: RootComponent,
+});
+
+function RootComponent() {
+  return (
     <html lang="en-GB">
       <head>
         <HeadContent />
@@ -20,6 +25,5 @@ export const Route = createRootRoute({
         <Scripts />
       </body>
     </html>
-  ),
-});
-export type _ = ReactNode;
+  );
+}

@@ -4,19 +4,11 @@ import { emitTokensCss, emitTokensTs } from "../lib/tokens.ts";
 
 export function emitTokens(ctx: Ctx): void {
   emit(ctx, `${OUT}/tokens.css`, emitTokensCss(ctx.tokens, ctx.dsc.breakpoints, ctx.header.css));
-  emit(
-    ctx,
-    `${OUT}/tokens.ts`,
-    emitTokensTs(ctx.tokens, ctx.dsc.breakpoints, ctx.dsc.revision, ctx.header.ts),
-  );
+  emit(ctx, `${OUT}/tokens.ts`, emitTokensTs(ctx.tokens, ctx.dsc.breakpoints, ctx.dsc.revision, ctx.header.ts));
 }
 
 export function emitCopy(ctx: Ctx): void {
-  emit(
-    ctx,
-    `${OUT}/copy.ts`,
-    `${ctx.header.ts}export const copy = ${JSON.stringify(ctx.copy, null, 2)} as const;\n`,
-  );
+  emit(ctx, `${OUT}/copy.ts`, `${ctx.header.ts}export const copy = ${JSON.stringify(ctx.copy, null, 2)} as const;\n`);
 }
 
 export function emitRuntime(ctx: Ctx): void {
@@ -106,7 +98,13 @@ export function emitBase(ctx: Ctx): void {
   css.rule("base", "ul", { padding: "0", "list-style": "none" });
   css.rule("base", "img", { display: "block" });
   css.rule("base", "button", { "font-family": "inherit" });
-  const outline = ctx.lit(F, "outline-width", "2px", "focus ring geometry (accessibility requirement, not DSC-governed)", "task:visible-focus");
+  const outline = ctx.lit(
+    F,
+    "outline-width",
+    "2px",
+    "focus ring geometry (accessibility requirement, not DSC-governed)",
+    "task:visible-focus",
+  );
   css.rule("base", ":focus-visible", {
     outline: `${outline} solid ${t("color.scheme.border")}`,
     "outline-offset": ctx.lit(F, "outline-offset", "2px", "focus ring geometry", "task:visible-focus"),

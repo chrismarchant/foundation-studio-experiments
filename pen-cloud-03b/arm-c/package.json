@@ -12,7 +12,7 @@
     "generate": "tsx generator/generate.ts",
     "generate:verify": "tsx generator/generate.ts --verify",
     "typecheck": "tsc -p generator/tsconfig.json --noEmit && pnpm -C app typecheck && pnpm -C ssr typecheck",
-    "lint": "biome check generator app/src/main.tsx app/src/App.tsx app/vite.config.ts ssr/src ssr/vite.config.ts ssr/server.mjs",
+    "lint": "biome check",
     "build": "pnpm generate && pnpm -C app build && pnpm -C ssr build",
     "serve": "pnpm -C app serve",
     "serve:ssr": "pnpm -C ssr serve"

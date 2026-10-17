@@ -1,5 +1,5 @@
-import type { Ctx } from "./ctx.ts";
 import type { Css } from "./css.ts";
+import type { Ctx } from "./ctx.ts";
 import type { FsMeta } from "./sac.ts";
 
 const KEYS: (keyof FsMeta)[] = [

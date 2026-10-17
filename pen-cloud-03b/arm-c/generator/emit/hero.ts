@@ -1,13 +1,13 @@
 import type { Ctx } from "../lib/ctx.ts";
-import { emit, emitCss, fsConst, HEADING, BODY, OUT, typo } from "../lib/emitutil.ts";
+import { BODY, emit, emitCss, fsConst, HEADING, OUT, typo } from "../lib/emitutil.ts";
 import { parseTw } from "../lib/twparse.ts";
 
 export function emitHero(ctx: Ctx): void {
   const F = "Hero.css";
   const id = "fs.section.hero";
   const dsc = ctx.comp(id);
-  const inter = dsc.interaction as Record<string, any> | undefined;
-  if (!inter || inter.library !== "motion/react") throw new Error("Hero interaction spec missing");
+  const inter = dsc.interaction;
+  if (inter?.library !== "motion/react") throw new Error("Hero interaction spec missing");
   const SEC = "Header80 / StickyStage";
   const o = ctx.obs;
   const srcI = `dsc:${id}.interaction`;
@@ -20,7 +20,8 @@ export function emitHero(ctx: Ctx): void {
   const sec = ctx.sac.meta("fs.section.hero.desktop.cta-secondary");
   if (root.tag !== "header") throw new Error("Expected SAC hero role to map to <header>");
   if (h1.tag !== "h1") throw new Error("Expected hero heading h1");
-  if (root.penpot !== dsc.external.penpot?.desktop) throw new Error("Hero Penpot desktop id differs between DSC and SAC");
+  if (root.penpot !== dsc.external.penpot?.desktop)
+    throw new Error("Hero Penpot desktop id differs between DSC and SAC");
 
   // mobile breakpoint: "useMediaQuery(max-width: 767px)"
   const mq = String(inter.breakpoint).match(/max-width:\s*(\d+)px/);
@@ -64,7 +65,13 @@ export function emitHero(ctx: Ctx): void {
   if (o.width("md", SEC, "HeroText") !== textW) throw new Error("HeroText width differs lg/md");
   css.rule("base", ".fs-hero__text-inner", {
     width: "100%",
-    "max-width": ctx.lit(F, "max-width", `${textW}px`, "hero text column width (observation)", `penpot-structure:${SEC}>HeroText.w`),
+    "max-width": ctx.lit(
+      F,
+      "max-width",
+      `${textW}px`,
+      "hero text column width (observation)",
+      `penpot-structure:${SEC}>HeroText.w`,
+    ),
     "text-align": "center",
     "pointer-events": "auto",
   });
@@ -72,8 +79,11 @@ export function emitHero(ctx: Ctx): void {
     color: dark,
     ...typo(ctx, F, HEADING({ size: "font.size.h1" }), ctx.bound(F, id, "headingFontSize")),
   });
-  css.resp(".fs-hero__description", "margin-top", o.perBp((bp) => o.height(bp, SEC, "Space24")), (v) =>
-    ctx.sp(F, "margin-top", v, `penpot-structure:${SEC}>Space24.h`),
+  css.resp(
+    ".fs-hero__description",
+    "margin-top",
+    o.perBp((bp) => o.height(bp, SEC, "Space24")),
+    (v) => ctx.sp(F, "margin-top", v, `penpot-structure:${SEC}>Space24.h`),
   );
   css.rule("base", ".fs-hero__description", {
     color: dark,
@@ -84,12 +94,15 @@ export function emitHero(ctx: Ctx): void {
     "justify-content": "center",
     gap: ctx.bound(F, id, "buttonGap"),
   });
-  css.resp(".fs-hero__actions", "margin-top", o.perBp((bp) => o.height(bp, SEC, "Space32")), (v) =>
-    ctx.sp(F, "margin-top", v, `penpot-structure:${SEC}>Space32.h`),
+  css.resp(
+    ".fs-hero__actions",
+    "margin-top",
+    o.perBp((bp) => o.height(bp, SEC, "Space32")),
+    (v) => ctx.sp(F, "margin-top", v, `penpot-structure:${SEC}>Space32.h`),
   );
 
   // image columns
-  const lay = inter.imageLayout as Record<string, any>;
+  const lay = inter.imageLayout;
   const colCommon = {
     position: "absolute",
     top: "0",
@@ -160,7 +173,7 @@ export function emitHero(ctx: Ctx): void {
 import { useRef } from "react";
 import { Button } from "./Button";
 import { copy } from "./copy";
-import { PLACEHOLDER_IMAGE, fsAttrs, useMediaQuery } from "./runtime";
+import { type FsMeta, PLACEHOLDER_IMAGE, fsAttrs, useMediaQuery } from "./runtime";
 import "./tokens.css";
 import "./Hero.css";
 
@@ -201,7 +214,6 @@ export function Hero({ subject }: HeroProps) {
     <header
       ref={ref}
       className="fs-hero"
-      aria-labelledby="fs-hero-heading"
       data-fs-subject={subject}
       {...fsAttrs(FS.root)}
     >
@@ -232,7 +244,7 @@ export function Hero({ subject }: HeroProps) {
         </motion.div>
         <div className="fs-hero__text">
           <div className="fs-hero__text-inner">
-            <${h1.tag} id="fs-hero-heading" className="fs-hero__heading" {...fsAttrs(FS.h1)}>
+            <${h1.tag} className="fs-hero__heading" {...fsAttrs(FS.h1)}>
               {copy.header80.heading}
             </${h1.tag}>
             <p className="fs-hero__description">{copy.header80.description}</p>

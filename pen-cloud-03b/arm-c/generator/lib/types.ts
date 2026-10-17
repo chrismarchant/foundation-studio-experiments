@@ -31,6 +31,7 @@ export interface DscComponent {
   bindings: DscBinding[];
   geometry?: Record<string, number>;
   responsive?: Record<string, Record<string, unknown>>;
+  // biome-ignore lint/suspicious/noExplicitAny: DSC interaction blocks are free-form specs
   interaction?: Record<string, any>;
 }
 
@@ -73,6 +74,7 @@ export interface PenNode {
   h: number;
   flex?: { dir: string; gap: [number, number]; pad: [number, number, number, number] };
   k?: PenNode[];
+  fill?: [string, number];
   text?: { chars: string; size: string; weight: string; lh: string; align: string };
 }
 

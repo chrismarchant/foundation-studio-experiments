@@ -6,8 +6,8 @@ export function emitNavbar(ctx: Ctx): void {
   const F = "Navbar.css";
   const id = "fs.section.navbar";
   const dsc = ctx.comp(id);
-  const inter = dsc.interaction as Record<string, any> | undefined;
-  if (!inter || inter.library !== "motion/react") throw new Error("Navbar interaction spec missing");
+  const inter = dsc.interaction;
+  if (inter?.library !== "motion/react") throw new Error("Navbar interaction spec missing");
   const SEC = "Navbar17";
   const o = ctx.obs;
   const srcOf = (sel: string) => `penpot-structure:${SEC}>${sel}`;
@@ -15,7 +15,8 @@ export function emitNavbar(ctx: Ctx): void {
   const root = ctx.sac.meta("fs.section.navbar.desktop", id);
   const cta = ctx.sac.meta("fs.section.navbar.desktop.cta-primary");
   if (root.tag !== "nav") throw new Error("Expected SAC navigation role to map to <nav>");
-  if (root.penpot !== dsc.external.penpot?.desktop) throw new Error("Navbar Penpot desktop id differs between DSC and SAC");
+  if (root.penpot !== dsc.external.penpot?.desktop)
+    throw new Error("Navbar Penpot desktop id differs between DSC and SAC");
 
   const css = ctx.newCss();
   const t = (x: string) => ctx.tokens.ref(F, x);
@@ -33,8 +34,18 @@ export function emitNavbar(ctx: Ctx): void {
     "justify-content": "space-between",
     "padding-inline": "var(--fs-layout-side-padding)",
   });
-  css.resp(".fs-navbar__bar", "height", o.perBp((bp) => o.rootHeight(bp, SEC)), (v) =>
-    ctx.lit(F, "height", `${v}px`, "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)", srcOf("root.h")),
+  css.resp(
+    ".fs-navbar__bar",
+    "height",
+    o.perBp((bp) => o.rootHeight(bp, SEC)),
+    (v) =>
+      ctx.lit(
+        F,
+        "height",
+        `${v}px`,
+        "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)",
+        srcOf("root.h"),
+      ),
   );
   const logoW = o.width("lg", SEC, "Logo");
   const logoH = o.height("lg", SEC, "Logo");
@@ -45,8 +56,11 @@ export function emitNavbar(ctx: Ctx): void {
     background: dark,
   });
   css.rule("base", ".fs-navbar__right", { display: "flex", "align-items": "center" });
-  css.resp(".fs-navbar__right", "gap", o.perBp((bp) => o.gap(bp, SEC, "NavRight")), (v) =>
-    ctx.sp(F, "gap", v, srcOf("NavRight.gap")),
+  css.resp(
+    ".fs-navbar__right",
+    "gap",
+    o.perBp((bp) => o.gap(bp, SEC, "NavRight")),
+    (v) => ctx.sp(F, "gap", v, srcOf("NavRight.gap")),
   );
 
   const hbW = o.width("lg", SEC, "Hamburger");
@@ -80,7 +94,11 @@ export function emitNavbar(ctx: Ctx): void {
     height: hb("height", lineH, "line thickness"),
     background: dark,
   });
-  css.rule("base", ".fs-navbar__line-middle", { position: "relative", width: "100%", height: hb("height", lineH, "line thickness") });
+  css.rule("base", ".fs-navbar__line-middle", {
+    position: "relative",
+    width: "100%",
+    height: hb("height", lineH, "line thickness"),
+  });
   css.rule("base", ".fs-navbar__line-middle .fs-navbar__line", { position: "absolute", top: "0", left: "0" });
 
   const panelUtils = String(inter.menu.panel)
@@ -89,7 +107,13 @@ export function emitNavbar(ctx: Ctx): void {
     .join(" ");
   const panel = parseTw(panelUtils);
   const pl = (prop: string, v: string) =>
-    ctx.lit(F, prop, v, "menu panel height (DSC interaction.menu.panel)", "dsc:fs.section.navbar.interaction.menu.panel");
+    ctx.lit(
+      F,
+      prop,
+      v,
+      "menu panel height (DSC interaction.menu.panel)",
+      "dsc:fs.section.navbar.interaction.menu.panel",
+    );
   css.rule("base", ".fs-navbar__panel", {
     position: "absolute",
     left: "0",
@@ -131,7 +155,13 @@ export function emitNavbar(ctx: Ctx): void {
     "font-weight": t("font.weight.semibold"),
   });
   css.rule("base", ".fs-navbar__social", { display: "flex", gap: ctx.sp(F, "gap", 16, "dsc:menu.bottom (assumed)") });
-  const icon = ctx.lit(F, "width", "24px", "social icon placeholder size (assumption: DSC gives no size)", "assumption:A3");
+  const icon = ctx.lit(
+    F,
+    "width",
+    "24px",
+    "social icon placeholder size (assumption: DSC gives no size)",
+    "assumption:A3",
+  );
   css.rule("base", ".fs-navbar__social-icon", { display: "block", width: icon, height: icon, background: dark });
   emitCss(ctx, `${OUT}/Navbar.css`, css);
 
@@ -163,14 +193,14 @@ export function emitNavbar(ctx: Ctx): void {
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
 import { copy } from "./copy";
-import { fsAttrs } from "./runtime";
+import { type FsMeta, fsAttrs } from "./runtime";
 import "./tokens.css";
 import "./Navbar.css";
 
 ${fsConst({ root, ctaPrimary: cta })}
 
 const MENU_ID = "fs-navbar-menu";
-const SOCIAL_ICONS = ${JSON.stringify(Array.from({ length: socialN }, (_, i) => `social-${i + 1}`))} as const;
+const SOCIAL_ICONS = ${JSON.stringify(Array.from({ length: socialN }, (_, i) => `Social link ${i + 1}`))} as const;
 
 const TOP_LINE: Variants = ${variantsTop};
 const MIDDLE_LINE_A: Variants = ${variantsMid(rot[0] as number)};
@@ -197,7 +227,9 @@ export function Navbar({ subject }: NavbarProps) {
   return (
     <header className="fs-navbar" data-fs-subject={subject} {...fsAttrs(FS.root)}>
       <nav className="fs-navbar__bar" aria-label="Main">
-        <a className="fs-navbar__logo" href="#" aria-label={copy.navbar.logoAlt} />
+        <a className="fs-navbar__logo" href="#">
+          <span className="fs-sr-only">{copy.navbar.logoAlt}</span>
+        </a>
         <div className="fs-navbar__right">
           <Button variant="primary" fs={FS.ctaPrimary}>
             {copy.navbar.button}
@@ -248,7 +280,9 @@ export function Navbar({ subject }: NavbarProps) {
               <ul className="fs-navbar__social" aria-label="Social">
                 {SOCIAL_ICONS.map((name) => (
                   <li key={name}>
-                    <a className="fs-navbar__social-icon" href="#" aria-label={name} />
+                    <a className="fs-navbar__social-icon" href="#">
+                      <span className="fs-sr-only">{name}</span>
+                    </a>
                   </li>
                 ))}
               </ul>

@@ -123,6 +123,7 @@ export function emitTokensTs(ts: TokenSet, bps: DscBreakpoint[], revision: strin
   o.push("export type FsTokenName = keyof typeof tokens;");
   o.push("");
   o.push("export function tokenVar(name: FsTokenName): string {");
+  // biome-ignore lint/suspicious/noTemplateCurlyInString: emitting source text
   o.push("  return `var(${tokens[name].cssVar})`;");
   o.push("}");
   o.push("");

@@ -28,7 +28,7 @@ async function newCtx(browser, width, height, extra = {}) {
 }
 
 /** Open a route, wait for subject + fonts, install helpers. */
-async function openRoute(ctx, url, route, copy) {
+async function openRoute(ctx, url, route, copy, { fast = false } = {}) {
   const page = await ctx.newPage();
   const meta = { url, status: null, externalRequests: [], consoleErrors: [], pageErrors: [], failedRequests: [] };
   const origin = new URL(url).origin;
@@ -40,10 +40,10 @@ async function openRoute(ctx, url, route, copy) {
   try { resp = await page.goto(url, { waitUntil: 'load', timeout: 30000 }); } catch (e) { meta.gotoError = String(e).slice(0, 300); }
   meta.status = resp ? resp.status() : null;
   try { await page.waitForSelector('[data-fs-subject]', { timeout: 8000 }); meta.subjectSelector = true; } catch { meta.subjectSelector = false; }
-  try { await page.waitForLoadState('networkidle', { timeout: 8000 }); } catch { meta.networkIdleTimeout = true; }
+  if (!fast) { try { await page.waitForLoadState('networkidle', { timeout: 8000 }); } catch { meta.networkIdleTimeout = true; } }
   try { meta.fonts = await page.evaluate(PS.readFonts); } catch (e) { meta.fonts = { error: String(e).slice(0, 200), source_sans_3_loaded: false }; }
   await page.evaluate(PS.installHelpers, { copy, route });
-  await sleep(150);
+  await sleep(fast ? 50 : 150);
   return { page, meta };
 }
 
@@ -147,8 +147,8 @@ export async function measurePages({ browser, arm, outDir, routes = ROUTES, log 
       } catch (e) { a11y.error = String(e).slice(0, 300); }
       // keyboard
       try {
-        a11y.focusVisible = await focusFirstButton(page);
         if (route === 'navbar' || route === 'cta25') a11y.tabSequence = await tabSequence(page);
+        a11y.focusVisible = await focusFirstButton(page);
       } catch (e) { a11y.keyboardError = String(e).slice(0, 300); }
       set('a11y', a11y);
       set('meta', meta);
@@ -159,8 +159,23 @@ export async function measurePages({ browser, arm, outDir, routes = ROUTES, log 
   return res;
 }
 
+// Reset the sequential-focus starting point to the top of the document.
+async function resetFocusStart(page) {
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    const b = document.body;
+    const had = b.hasAttribute('tabindex');
+    if (!had) b.setAttribute('tabindex', '-1');
+    b.focus({ preventScroll: true });
+    b.blur();
+    if (!had) b.removeAttribute('tabindex');
+    const sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  });
+}
+
 async function focusFirstButton(page) {
-  await page.evaluate(() => { window.scrollTo(0, 0); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); });
+  await resetFocusStart(page);
   const has = await page.evaluate(PS.markFirstButton);
   if (!has) return { found: false };
   let reachedByTab = false;
@@ -175,7 +190,7 @@ async function focusFirstButton(page) {
 }
 
 async function tabSequence(page) {
-  await page.evaluate(() => { window.scrollTo(0, 0); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); });
+  await resetFocusStart(page);
   const seq = [];
   let first = null;
   for (let i = 0; i < 25; i++) {
@@ -199,7 +214,7 @@ export async function measureResponsive({ browser, arm, log = () => {} }) {
     const ctx = await newCtx(browser, width, SWEEP_HEIGHT);
     for (const route of SWEEP_ROUTES) {
       const url = urlFor(arm, route, width, dsc);
-      const { page, meta } = await openRoute(ctx, url, route, copy);
+      const { page, meta } = await openRoute(ctx, url, route, copy, { fast: true });
       try {
         const s = await page.evaluate(PS.collectSweep);
         (out[route] ||= {})[width] = { url, ...s, fontsLoaded: !!(meta.fonts && meta.fonts.source_sans_3_loaded) };
