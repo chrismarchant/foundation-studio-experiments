@@ -41,6 +41,7 @@ export interface Dsc {
   tokens: { entries: DscToken[] };
   breakpoints: DscBreakpoint[];
   components: DscComponent[];
+  typography?: { family: string };
 }
 
 export interface SacAnnotation {
