@@ -9,6 +9,14 @@ const ROUTES = ['button', 'navbar', 'header80', 'layout620', 'testimonial37', 'c
 const VPS = [1440, 768, 375];
 const SWEEP_ROUTES = ['layout620', 'testimonial37', 'header80', 'page'];
 
+// r2 overrides (acceptance-specification change recorded after run r1); r1 keeps the original wording above.
+const R2_OVERRIDES = {
+  semantic: 'score = 100% of SAC-expected roles present at every viewport (role tree vs A is informational: the control has its own defects)',
+  responsive: 'column counts and padding-top of the nearest <section> (or data-fs-id section root) containing the route heading equal to A at every sweep width (375..1440, 64px steps) and no horizontal overflow',
+  tokenIntegrity: 'C only: boundShare over DSC-governed declarations = 100% (literals listed in generated-manifest.json ungoverned[] are excluded and counted; raw share is informational) and 0 DSC token mismatches/missing',
+  determinism: 'C only: pnpm generate:verify exit 0; every FROZEN.md entry (paths relative to the arm-c root: app/src/generated/**, generator/**) found on disk with an equal SHA-256; (bundle reproducibility reported separately)',
+  licence: 'C only: 0 matching lines >= 40 chars against Arm A reference source excluding pure import/export-from lines (reported separately); 0 forbidden-string hits (supplementary, not proof)',
+};
 export const THRESHOLDS = {
   reference: 'A (Relume React control) at the same route/viewport',
   semantic: 'score = 100% of SAC-expected roles present at every viewport AND role tree (tag, role, level, text) equal to A',
@@ -28,7 +36,9 @@ const tol = 0.51;
 const fmtPct = (x) => (x == null ? 'n/a' : (x * 100).toFixed(x === 1 || x === 0 ? 0 : 2) + '%');
 const sig = (r) => [r.tag, r.role, r.level, r.text].join('|');
 
-export function summarise(runDir) {
+export function summarise(runDir, { criteria = 'r2' } = {}) {
+  if (!['r1', 'r2'].includes(criteria)) throw new Error(`unknown --criteria ${criteria} (r1|r2)`);
+  const R2 = criteria === 'r2';
   runDir = path.resolve(runDir);
   const run = rj(runDir, 'run.json') || {};
   const arms = ARM_ORDER.filter((a) => fs.existsSync(path.join(runDir, a)));
@@ -42,7 +52,7 @@ export function summarise(runDir) {
     };
   }
   const A = data.A || null;
-  const out = { runDir, label: run.label || path.basename(runDir), generatedAt: new Date().toISOString(), dryRun: !!run.dryRun, referencePresent: !!A, thresholds: THRESHOLDS, arms: {} };
+  const out = { runDir, label: run.label || path.basename(runDir), generatedAt: new Date().toISOString(), dryRun: !!run.dryRun, criteria, referencePresent: !!A, thresholds: R2 ? { ...THRESHOLDS, ...R2_OVERRIDES } : THRESHOLDS, arms: {} };
 
   for (const arm of arms) {
     const D = data[arm];
