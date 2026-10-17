@@ -144,7 +144,7 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
   if (steps.includes('licence')) {
     const lic = fixtures.licenceResult;
     const file = J('C', 'licence.json');
-    add('licence: exactly the planted line matched (2 files)', lic?.matchCount === 2 && lic.uniqueMatchingHashes === 1, JSON.stringify({ m: lic?.matchCount, u: lic?.uniqueMatchingHashes }));
+    add('licence: exactly the planted line matched (1 C-side line)', lic?.matchCount === 1 && lic.uniqueMatchingHashes === 1, JSON.stringify({ m: lic?.matchCount, u: lic?.uniqueMatchingHashes }));
     add('licence: output has hashes only, never the line', !fs.readFileSync(path.join(outDir, 'C', 'licence.json'), 'utf8').includes('zzz-unique-marker'));
     add('licence: forbidden-string scan clean on clean root', file?.forbiddenStrings?.hitCount === 0);
     const planted = fs.mkdtempSync(path.join(os.tmpdir(), 'pc03b-planted-'));

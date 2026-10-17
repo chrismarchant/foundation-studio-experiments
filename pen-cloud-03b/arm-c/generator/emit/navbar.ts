@@ -146,7 +146,6 @@ export function emitNavbar(ctx: Ctx): void {
   const top = hb2.topLine;
   const mid = hb2.middleLines;
   const rot = mid.open.rotate as number[];
-  const linksN = ctx.copy.navbar.links.length;
   const socialN = Number(String(inter.menu.bottom).match(/(\d+) social icons/)?.[1] ?? 5);
   const variantsTop = `{
   open: { width: ${top.open.width}, transition: ${tr(top.open)} },
@@ -156,7 +155,6 @@ export function emitNavbar(ctx: Ctx): void {
   open: { rotate: ${deg}, transition: ${tr(mid.open)} },
   close: { rotate: ${mid.close.rotate}, transition: ${tr(mid.close)} },
 }`;
-  void linksN;
 
   emit(
     ctx,
@@ -165,7 +163,7 @@ export function emitNavbar(ctx: Ctx): void {
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
 import { copy } from "./copy";
-import { type FsMeta, fsAttrs } from "./runtime";
+import { fsAttrs } from "./runtime";
 import "./tokens.css";
 import "./Navbar.css";
 
@@ -196,13 +194,8 @@ export function Navbar({ subject }: NavbarProps) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const rootMeta: FsMeta = FS.root;
   return (
-    <header
-      className="fs-navbar"
-      data-fs-subject={subject}
-      {...fsAttrs(rootMeta)}
-    >
+    <header className="fs-navbar" data-fs-subject={subject} {...fsAttrs(FS.root)}>
       <nav className="fs-navbar__bar" aria-label="Main">
         <a className="fs-navbar__logo" href="#" aria-label={copy.navbar.logoAlt} />
         <div className="fs-navbar__right">
