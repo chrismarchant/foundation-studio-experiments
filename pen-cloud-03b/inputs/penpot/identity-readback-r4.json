@@ -1,0 +1,118 @@
+{
+ "readAt": "2026-10-19T09:28:14.616Z",
+ "file": "cd444aaf-0d8c-801b-8008-cde3b8b4d8bc",
+ "page": "4d569422-e5e3-8076-8008-cdeb4f0f8f0c",
+ "pageName": "PEN-CLOUD-02 Landing",
+ "method": "official Penpot MCP execute_code readback after the OD-50 corrections",
+ "sections": [
+  [
+   "cdec56e0c462",
+   "fs.section.navbar.desktop",
+   1440,
+   72
+  ],
+  [
+   "cdec570ada2a",
+   "fs.section.hero.desktop",
+   1440,
+   900
+  ],
+  [
+   "cdec5756d8d3",
+   "fs.section.features.desktop",
+   1440,
+   926
+  ],
+  [
+   "cdec58238586",
+   "fs.section.testimonials.desktop",
+   1440,
+   883
+  ],
+  [
+   "cdec58d0ed3a",
+   "fs.section.cta.desktop",
+   1440,
+   415
+  ],
+  [
+   "cdec691c465e",
+   "fs.section.navbar.tablet",
+   768,
+   72
+  ],
+  [
+   "cdec6934bfcc",
+   "fs.section.hero.tablet",
+   768,
+   1024
+  ],
+  [
+   "cdec6963eaef",
+   "fs.section.features.tablet",
+   768,
+   944
+  ],
+  [
+   "cdec69d0902a",
+   "fs.section.testimonials.tablet",
+   768,
+   1131
+  ],
+  [
+   "cdec6a816963",
+   "fs.section.cta.tablet",
+   768,
+   441
+  ],
+  [
+   "cdec6b14b2eb",
+   "fs.section.navbar.mobile",
+   375,
+   64
+  ],
+  [
+   "cdec6b29ee70",
+   "fs.section.hero.mobile",
+   375,
+   812
+  ],
+  [
+   "cdec6b55321c",
+   "fs.section.features.mobile",
+   375,
+   1335
+  ],
+  [
+   "cdec6bcfccf7",
+   "fs.section.testimonials.mobile",
+   375,
+   1464
+  ],
+  [
+   "cdec6c7f6ab4",
+   "fs.section.cta.mobile",
+   375,
+   449
+  ]
+ ],
+ "mains": [
+  [
+   "cdeb4ffc5595",
+   "fs.component.button.primary",
+   97,
+   50,
+   true
+  ],
+  [
+   "cdeb50084766",
+   "fs.component.button.secondary",
+   97,
+   50,
+   true
+  ]
+ ],
+ "identityShapeIdMatches": 17,
+ "reconciliationRecords": 39,
+ "note": "ids abbreviated to the last 12 hex characters of the 4d569422-e5e3-8076-8008- prefix; every identity's external.penpot.shapeId equals the live shape id; both mains report isComponentMainInstance true"
+}
