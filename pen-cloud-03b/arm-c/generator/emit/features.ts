@@ -52,7 +52,10 @@ export function emitFeatures(ctx: Ctx): void {
   );
   const headerW = o.width("lg", SEC, "Header");
   css.rule("base", ".fs-features__header", {
-    "max-width": ctx.lit(F, "max-width", `${headerW}px`, "section header column width (observation)", src("Header.w")),
+    // DSC-R4-01: bound text column; r1-r3 DSCs keep the observation
+    "max-width": ctx.hasBinding(id, "textColumnMaxWidth")
+      ? ctx.bound(F, id, "textColumnMaxWidth")
+      : ctx.lit(F, "max-width", `${headerW}px`, "section header column width (observation)", src("Header.w")),
   });
   css.rule("base", ".fs-features__tagline", typo(ctx, F, BODY("font.size.regular", "font.weight.semibold")));
   css.resp(

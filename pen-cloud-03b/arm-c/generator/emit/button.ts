@@ -12,8 +12,26 @@ export function emitButton(ctx: Ctx): void {
     if (v === undefined) throw new Error(`Button geometry ${prop} missing`);
     return ctx.lit(F, prop, `${v}px`, "DSC component geometry (not tokenised)", src);
   };
-  for (const k of ["height", "paddingX", "gap", "strokeWidth"] as const) {
+  // DSC-R4-02: geometry.sizing "padding" = padding + border + body line-height give the box; no fixed height.
+  const byPadding = geo.sizing === "padding";
+  for (const k of ["height", "paddingX", "paddingY", "gap", "strokeWidth", "labelLineHeight", "sizing"] as const) {
     if (secondary.geometry?.[k] !== geo[k]) throw new Error(`Button primary/secondary geometry differs: ${k}`);
+  }
+  if (byPadding) {
+    const { paddingY, labelLineHeight, strokeWidth } = geo;
+    if (paddingY === undefined || labelLineHeight === undefined || strokeWidth === undefined) {
+      throw new Error("Button geometry: padding sizing needs paddingY, labelLineHeight and strokeWidth");
+    }
+    if (paddingY * 2 + labelLineHeight + strokeWidth * 2 !== geo.height) {
+      throw new Error("Button geometry: height differs from paddingY x 2 + labelLineHeight + strokeWidth x 2");
+    }
+    // the label line box must be the body line-height token x the bound label font size
+    const fontPx = Number.parseFloat(
+      ctx.tokens.get(ctx.comp(primary.id).bindings.find((b) => b.property === "labelFontSize")?.token ?? "").value,
+    );
+    const lh = Number.parseFloat(ctx.tokens.get("font.lineHeight.body").value);
+    if (fontPx * lh !== labelLineHeight)
+      throw new Error("Button geometry: labelLineHeight differs from body line-height x label font size");
   }
 
   const css = ctx.newCss();
@@ -24,8 +42,9 @@ export function emitButton(ctx: Ctx): void {
     "align-items": "center",
     "justify-content": "center",
     gap: px("gap", geo.gap),
-    height: px("height", geo.height),
-    padding: `0 ${px("padding-inline", geo.paddingX)}`,
+    ...(byPadding
+      ? { padding: `${px("padding-block", geo.paddingY)} ${px("padding-inline", geo.paddingX)}` }
+      : { height: px("height", geo.height), padding: `0 ${px("padding-inline", geo.paddingX)}` }),
     "box-sizing": "border-box",
     border: `${px("border-width", geo.strokeWidth)} solid ${bP("strokeColor")}`,
     "border-radius": bP("borderRadius"),

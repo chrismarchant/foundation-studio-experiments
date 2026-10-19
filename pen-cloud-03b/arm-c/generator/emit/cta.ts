@@ -32,13 +32,16 @@ export function emitCta(ctx: Ctx): void {
     "margin-inline": "auto",
   });
   css.rule("base", ".fs-cta__content", {
-    "max-width": ctx.lit(
-      F,
-      "max-width",
-      `${o.width("lg", SEC, "Container")}px`,
-      "CTA text column width (observation)",
-      src("Container.w"),
-    ),
+    // DSC-R4-01: bound text column; r1-r3 DSCs keep the observation
+    "max-width": ctx.hasBinding(id, "textColumnMaxWidth")
+      ? ctx.bound(F, id, "textColumnMaxWidth")
+      : ctx.lit(
+          F,
+          "max-width",
+          `${o.width("lg", SEC, "Container")}px`,
+          "CTA text column width (observation)",
+          src("Container.w"),
+        ),
     "margin-inline": "auto",
     "text-align": "center",
   });

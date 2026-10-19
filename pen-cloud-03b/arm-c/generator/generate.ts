@@ -40,24 +40,30 @@ const ROOT = resolve(HERE, "..");
 const INPUT_DIR = resolve(ROOT, "../inputs");
 
 const DEFAULT_DSC = "dsc/fs.ds.relume-default.r1.json";
+const DEFAULT_STRUCTURE = "penpot/structure.json";
 
-/** DSC selection (C-R2-01): `--dsc <path relative to ../inputs>` or FS_DSC; default stays r1. */
-function selectedDsc(): string {
+/** CLI/env option `--<name> <path relative to ../inputs>`; falls back to the env var, then the default. */
+function selectedInput(name: string, env: string, fallback: string): string {
   const argv = process.argv;
-  const i = argv.findIndex((a) => a === "--dsc" || a.startsWith("--dsc="));
+  const i = argv.findIndex((a) => a === `--${name}` || a.startsWith(`--${name}=`));
   if (i >= 0) {
     const a = argv[i] as string;
     const v = a.includes("=") ? a.slice(a.indexOf("=") + 1) : argv[i + 1];
-    if (!v) throw new Error("--dsc requires a path relative to ../inputs");
+    if (!v) throw new Error(`--${name} requires a path relative to ../inputs`);
     return v;
   }
-  return process.env.FS_DSC || DEFAULT_DSC;
+  return process.env[env] || fallback;
 }
+
+/** DSC selection (C-R2-01): `--dsc <path>` or FS_DSC; default stays r1. */
+const selectedDsc = (): string => selectedInput("dsc", "FS_DSC", DEFAULT_DSC);
+/** Observation selection (C-R4-00): `--structure <path>` or FS_STRUCTURE; default stays the original observations. */
+const selectedStructure = (): string => selectedInput("structure", "FS_STRUCTURE", DEFAULT_STRUCTURE);
 
 const INPUT_FILES = {
   dsc: selectedDsc(),
   sac: "sac/landing-sac.json",
-  structure: "penpot/structure.json",
+  structure: selectedStructure(),
   copy: "copy.json",
 } as const;
 

@@ -77,13 +77,16 @@ export function emitHero(ctx: Ctx): void {
   if (o.width("md", SEC, "HeroText") !== textW) throw new Error("HeroText width differs lg/md");
   css.rule("base", ".fs-hero__text-inner", {
     width: "100%",
-    "max-width": ctx.lit(
-      F,
-      "max-width",
-      `${textW}px`,
-      "hero text column width (observation)",
-      `penpot-structure:${SEC}>HeroText.w`,
-    ),
+    // DSC-R4-01: the text column is the bound token; r1-r3 DSCs (no textColumnMaxWidth binding) keep the observation
+    "max-width": ctx.hasBinding(id, "textColumnMaxWidth")
+      ? ctx.bound(F, id, "textColumnMaxWidth")
+      : ctx.lit(
+          F,
+          "max-width",
+          `${textW}px`,
+          "hero text column width (observation)",
+          `penpot-structure:${SEC}>HeroText.w`,
+        ),
     "text-align": "center",
     "pointer-events": "auto",
   });

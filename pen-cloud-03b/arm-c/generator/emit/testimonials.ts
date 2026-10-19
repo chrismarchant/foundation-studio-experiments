@@ -96,13 +96,16 @@ export function emitTestimonials(ctx: Ctx): void {
     px("gap", "container row gap (observation; no DSC token)", "Container.gap"),
   );
   css.rule("base", ".fs-testimonials__header", {
-    "max-width": ctx.lit(
-      F,
-      "max-width",
-      `${o.width("lg", SEC, "Header")}px`,
-      "section header column width (observation)",
-      src("Header.w"),
-    ),
+    // DSC-R4-01: bound text column; r1-r3 DSCs keep the observation
+    "max-width": ctx.hasBinding(id, "textColumnMaxWidth")
+      ? ctx.bound(F, id, "textColumnMaxWidth")
+      : ctx.lit(
+          F,
+          "max-width",
+          `${o.width("lg", SEC, "Header")}px`,
+          "section header column width (observation)",
+          src("Header.w"),
+        ),
     "text-align": "center",
   });
   css.rule("base", ".fs-testimonials__heading", typo(ctx, F, HEADING(), ctx.bound(F, id, "headingFontSize")));

@@ -29,6 +29,17 @@ export interface DscBinding {
   token: string;
 }
 
+/** Button geometry (px). r4 adds paddingY, labelLineHeight and sizing "padding" (no fixed height). */
+export interface DscButtonGeometry {
+  height: number;
+  paddingX: number;
+  paddingY?: number;
+  gap: number;
+  strokeWidth: number;
+  labelLineHeight?: number;
+  sizing?: string;
+}
+
 export interface DscComponent {
   id: string;
   kind: string;
@@ -38,7 +49,9 @@ export interface DscComponent {
     claudeDesign?: Record<string, unknown>;
   };
   bindings: DscBinding[];
-  geometry?: Record<string, number>;
+  geometry?: DscButtonGeometry;
+  /** DSC r4 button rule text (not consumed; the geometry fields are). */
+  sizingRule?: string;
   responsive?: Record<string, Record<string, unknown>>;
   // biome-ignore lint/suspicious/noExplicitAny: DSC interaction blocks are free-form specs
   interaction?: Record<string, any>;

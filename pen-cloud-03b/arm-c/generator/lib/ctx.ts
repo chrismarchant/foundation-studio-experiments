@@ -30,6 +30,8 @@ export interface Ctx {
   comp(id: string): DscComponent;
   /** token bound by the DSC to `property` on component `id` */
   bound(file: string, compId: string, property: string): string;
+  /** whether the DSC binds `property` on component `id` (r4 bindings are absent in r1-r3) */
+  hasBinding(compId: string, property: string): boolean;
   newCss(): Css;
   /** register and return a literal for geometry the DSC does not govern by token */
   lit(file: string, property: string, value: string, reason: string, source: string): string;
@@ -38,7 +40,7 @@ export interface Ctx {
 }
 
 export function makeCtx(
-  base: Omit<Ctx, "comp" | "bound" | "newCss" | "lit" | "sp" | "files" | "ungov" | "conflicts">,
+  base: Omit<Ctx, "comp" | "bound" | "hasBinding" | "newCss" | "lit" | "sp" | "files" | "ungov" | "conflicts">,
 ): Ctx {
   const ungov = new Ungoverned();
   const ctx: Ctx = {
@@ -55,6 +57,9 @@ export function makeCtx(
       const b = ctx.comp(compId).bindings.find((x) => x.property === property);
       if (!b) throw new Error(`DSC binding ${compId}.${property} missing`);
       return base.tokens.ref(file, b.token);
+    },
+    hasBinding(compId, property) {
+      return ctx.comp(compId).bindings.some((x) => x.property === property);
     },
     newCss() {
       return new Css(base.header.css, breakpointOrder(base.dsc.breakpoints), base.dsc.screens);
