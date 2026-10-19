@@ -190,20 +190,20 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
     add(`determinism (D-7): verify script chosen by the --dsc revision (${expVerify}), recorded, and it is the one that ran`,
       d?.verifyScript === expVerify && d.generateVerify?.script === expVerify && fs.readFileSync(path.join(outDir, 'C', 'generate-verify.stdout.txt'), 'utf8').includes(`verify ok ${act.tag === 'r1' ? 'default' : act.tag}`), JSON.stringify({ v: d?.verifyScript, b: d?.selectionBasis?.verifyScript }));
     add('determinism (D-7): the older FROZEN files in the fixture carry a stale hash (so a wrong pick would fail)', fixtures.gens.length < 2 || fixtures.gens.filter((g) => g !== act).every((g) => { const t = fs.readFileSync(path.join(fixtures.armC, g.tag === 'r1' ? 'FROZEN.md' : `FROZEN-${g.tag}.md`), 'utf8'); return !compareFrozenRoot(Object.fromEntries(Object.entries(d.generated.hashes).map(([f, x]) => [`app/src/generated/${f}`, x])), t).allMatch; }));
-    add('determinism (r2+): every root-relative entry of the selected FROZEN file matches disk; "generated-manifest.json sha256:" header line is not an entry', d?.frozenRoot?.allMatch === true && d.frozenRoot.frozenEntries === 4 && d.frozenRoot.matched === 4 && d.frozenRoot.headerHashLinesIgnored?.length === 1 && path.basename(d.frozenRoot.file) === expFrozen, JSON.stringify(d?.frozenRoot));
+    add('determinism (r2+): every root-relative entry of the selected FROZEN file matches disk; "generated-manifest.json sha256:" header hash lines are not entries', d?.frozenRoot?.allMatch === true && d.frozenRoot.frozenEntries === 4 && d.frozenRoot.matched === 4 && d.frozenRoot.headerHashLinesIgnored?.length === 2 && d.frozenRoot.headerHashLinesIgnored.some((l) => l.startsWith('- generated-manifest.json sha256:')) && path.basename(d.frozenRoot.file) === expFrozen, JSON.stringify(d?.frozenRoot));
     add('determinism (r1 legacy) reproduces the path-prefix artefact: generator entry reported not on disk', d?.frozen?.allMatch === false && d.frozen.frozenNotOnDisk?.length === 1, JSON.stringify(d?.frozen)?.slice(0, 200));
     add('determinism: two builds identical', d?.bundleReproducibility?.identical === true, JSON.stringify(d?.bundleReproducibility));
     // negative test of the pure comparison
-    const text = fs.readFileSync(path.join(fixtures.armC, 'FROZEN.md'), 'utf8');
+    const text = fs.readFileSync(path.join(fixtures.armC, act.tag === 'r1' ? 'FROZEN.md' : `FROZEN-${act.tag}.md`), 'utf8');
     const tampered = { ...d.generated.hashes, 'index.js': sha256('tampered') };
     const tamperedRoot = { ...(() => { const h = {}; for (const [f, x] of Object.entries(d.generated.hashes)) h[`app/src/generated/${f}`] = x; return h; })(), 'generator/gen.mjs': sha256('x') };
     tamperedRoot['app/src/generated/index.js'] = sha256('tampered');
     const neg = compareFrozenRoot(tamperedRoot, text);
     add('determinism: tampered files are detected', neg.mismatched.length === 2 && !neg.allMatch, JSON.stringify(neg));
-    add('determinism: FROZEN.md parser finds entries', parseFrozen(text).entries.length === 4);
+    add('determinism: FROZEN parser finds entries (table layout of the r1 file too)', parseFrozen(text).entries.length === 4 && parseFrozen(fs.readFileSync(path.join(fixtures.armC, 'FROZEN.md'), 'utf8')).entries.length === 4);
     const tR = fs.readFileSync(path.join(fixtures.armC, expFrozen), 'utf8');
     const pf = parseFrozen(tR);
-    add('determinism: fenced FROZEN layout: 4 entries, header hash line reported separately', pf.entries.length === 4 && pf.fencedOnly && pf.headerHashLines.length === 1, JSON.stringify({ e: pf.entries.length, h: pf.headerHashLines }));
+    add('determinism: fenced FROZEN layout: 4 entries, header hash line reported separately', pf.entries.length === 4 && pf.fencedOnly && pf.headerHashLines.length === 2 && pf.headerHashLines.some((l) => l.startsWith('- generated-manifest.json sha256:')), JSON.stringify({ e: pf.entries.length, h: pf.headerHashLines }));
     add('determinism: DSC revision header parsed from FROZEN files', fixtures.gens.every((g) => parseFrozenRevision(fs.readFileSync(path.join(fixtures.armC, g.tag === 'r1' ? 'FROZEN.md' : `FROZEN-${g.tag}.md`), 'utf8')) === g.revision));
   }
   if (steps.includes('licence')) {
