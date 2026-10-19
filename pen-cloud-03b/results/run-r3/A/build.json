@@ -1,0 +1,97 @@
+{
+  "ran": true,
+  "cwd": "/home/user/pc03b-arm-a/app",
+  "command": "pnpm build",
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "durationMs": 6193,
+  "stdoutBytes": 409,
+  "stderrBytes": 0,
+  "stdoutFile": "A/build.stdout.txt",
+  "stderrFile": "A/build.stderr.txt",
+  "bundle": {
+    "distDir": "/home/user/pc03b-arm-a/app/dist",
+    "fileCount": 11,
+    "totalBytes": 582703,
+    "byExt": {
+      ".css": {
+        "files": 2,
+        "bytes": 19482,
+        "gzipBytes": 4206
+      },
+      ".js": {
+        "files": 1,
+        "bytes": 409868,
+        "gzipBytes": 130715
+      },
+      ".woff2": {
+        "files": 7,
+        "bytes": 152824,
+        "gzipBytes": 0
+      },
+      ".html": {
+        "files": 1,
+        "bytes": 529,
+        "gzipBytes": 344
+      }
+    },
+    "files": [
+      {
+        "file": "assets/index-CMJ4eUb1.css",
+        "bytes": 13362,
+        "gzipBytes": 3588
+      },
+      {
+        "file": "assets/index-g8cUEKT3.js",
+        "bytes": 409868,
+        "gzipBytes": 130715
+      },
+      {
+        "file": "fonts/source-sans-3.css",
+        "bytes": 6120,
+        "gzipBytes": 618
+      },
+      {
+        "file": "fonts/ss3-1.woff2",
+        "bytes": 28872,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-2.woff2",
+        "bytes": 10360,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-3.woff2",
+        "bytes": 60088,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-4.woff2",
+        "bytes": 10732,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-5.woff2",
+        "bytes": 9748,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-6.woff2",
+        "bytes": 18496,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-7.woff2",
+        "bytes": 14528,
+        "gzipBytes": null
+      },
+      {
+        "file": "index.html",
+        "bytes": 529,
+        "gzipBytes": 344
+      }
+    ]
+  }
+}

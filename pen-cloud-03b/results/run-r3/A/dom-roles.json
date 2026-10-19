@@ -1,0 +1,3427 @@
+{
+  "arm": "A",
+  "routes": {
+    "button": {
+      "375": {
+        "url": "http://127.0.0.1:4301/button",
+        "subjectFound": true,
+        "subjectName": "button",
+        "roles": [
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          }
+        ],
+        "tagCounts": {
+          "div": 3,
+          "button": 2
+        },
+        "sectionsFound": [],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 2,
+          "presentCount": 2,
+          "missing": [],
+          "expected": {
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/button",
+        "subjectFound": true,
+        "subjectName": "button",
+        "roles": [
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          }
+        ],
+        "tagCounts": {
+          "div": 3,
+          "button": 2
+        },
+        "sectionsFound": [],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 2,
+          "presentCount": 2,
+          "missing": [],
+          "expected": {
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/button",
+        "subjectFound": true,
+        "subjectName": "button",
+        "roles": [
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          }
+        ],
+        "tagCounts": {
+          "div": 3,
+          "button": 2
+        },
+        "sectionsFound": [],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 2,
+          "presentCount": 2,
+          "missing": [],
+          "expected": {
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      }
+    },
+    "navbar": {
+      "375": {
+        "url": "http://127.0.0.1:4301/navbar",
+        "subjectFound": true,
+        "subjectName": "navbar",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "a",
+            "role": "link",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          }
+        ],
+        "tagCounts": {
+          "div": 4,
+          "section": 1,
+          "a": 1,
+          "img": 1,
+          "button": 2,
+          "span": 5
+        },
+        "sectionsFound": [
+          "navbar"
+        ],
+        "semantic": {
+          "score": 0.5,
+          "visibleScore": 0.5,
+          "expectedCount": 2,
+          "presentCount": 1,
+          "missing": [
+            {
+              "role": "nav",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "nav": 1,
+            "button": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 1
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 1
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/navbar",
+        "subjectFound": true,
+        "subjectName": "navbar",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "a",
+            "role": "link",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          }
+        ],
+        "tagCounts": {
+          "div": 4,
+          "section": 1,
+          "a": 1,
+          "img": 1,
+          "button": 2,
+          "span": 5
+        },
+        "sectionsFound": [
+          "navbar"
+        ],
+        "semantic": {
+          "score": 0.5,
+          "visibleScore": 0.5,
+          "expectedCount": 2,
+          "presentCount": 1,
+          "missing": [
+            {
+              "role": "nav",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "nav": 1,
+            "button": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 1
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 1
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/navbar",
+        "subjectFound": true,
+        "subjectName": "navbar",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "a",
+            "role": "link",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "navbar"
+          }
+        ],
+        "tagCounts": {
+          "div": 4,
+          "section": 1,
+          "a": 1,
+          "img": 1,
+          "button": 2,
+          "span": 5
+        },
+        "sectionsFound": [
+          "navbar"
+        ],
+        "semantic": {
+          "score": 0.5,
+          "visibleScore": 0.5,
+          "expectedCount": 2,
+          "presentCount": 1,
+          "missing": [
+            {
+              "role": "nav",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "nav": 1,
+            "button": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 1
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 1
+        }
+      }
+    },
+    "header80": {
+      "375": {
+        "url": "http://127.0.0.1:4301/header80",
+        "subjectFound": true,
+        "subjectName": "header80",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          }
+        ],
+        "tagCounts": {
+          "div": 18,
+          "section": 1,
+          "img": 6,
+          "h1": 1,
+          "p": 1,
+          "button": 2
+        },
+        "sectionsFound": [
+          "header80"
+        ],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 3,
+          "presentCount": 3,
+          "missing": [],
+          "expected": {
+            "h1": 1,
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 1,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 1,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/header80",
+        "subjectFound": true,
+        "subjectName": "header80",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          }
+        ],
+        "tagCounts": {
+          "div": 18,
+          "section": 1,
+          "img": 6,
+          "h1": 1,
+          "p": 1,
+          "button": 2
+        },
+        "sectionsFound": [
+          "header80"
+        ],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 3,
+          "presentCount": 3,
+          "missing": [],
+          "expected": {
+            "h1": 1,
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 1,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 1,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/header80",
+        "subjectFound": true,
+        "subjectName": "header80",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          }
+        ],
+        "tagCounts": {
+          "div": 18,
+          "section": 1,
+          "img": 6,
+          "h1": 1,
+          "p": 1,
+          "button": 2
+        },
+        "sectionsFound": [
+          "header80"
+        ],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 3,
+          "presentCount": 3,
+          "missing": [],
+          "expected": {
+            "h1": 1,
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 1,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 1,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      }
+    },
+    "layout620": {
+      "375": {
+        "url": "http://127.0.0.1:4301/layout620",
+        "subjectFound": true,
+        "subjectName": "layout620",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Tagline Three reasons teams pick this sy",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Three reasons teams pick this synthetic ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Fast setup",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Honest metrics",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Portable output",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          }
+        ],
+        "tagCounts": {
+          "div": 14,
+          "section": 1,
+          "p": 5,
+          "h2": 1,
+          "img": 3,
+          "h3": 3,
+          "button": 2,
+          "svg": 1,
+          "path": 1
+        },
+        "sectionsFound": [
+          "layout620"
+        ],
+        "semantic": {
+          "score": 0.8333,
+          "visibleScore": 0.8333,
+          "expectedCount": 6,
+          "presentCount": 5,
+          "missing": [
+            {
+              "role": "link",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "h2": 1,
+            "h3": 3,
+            "button": 1,
+            "link": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 1,
+            "h3": 3,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 1,
+          "h3": 3,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/layout620",
+        "subjectFound": true,
+        "subjectName": "layout620",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Tagline Three reasons teams pick this sy",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Three reasons teams pick this synthetic ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Fast setup",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Honest metrics",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Portable output",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          }
+        ],
+        "tagCounts": {
+          "div": 14,
+          "section": 1,
+          "p": 5,
+          "h2": 1,
+          "img": 3,
+          "h3": 3,
+          "button": 2,
+          "svg": 1,
+          "path": 1
+        },
+        "sectionsFound": [
+          "layout620"
+        ],
+        "semantic": {
+          "score": 0.8333,
+          "visibleScore": 0.8333,
+          "expectedCount": 6,
+          "presentCount": 5,
+          "missing": [
+            {
+              "role": "link",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "h2": 1,
+            "h3": 3,
+            "button": 1,
+            "link": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 1,
+            "h3": 3,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 1,
+          "h3": 3,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/layout620",
+        "subjectFound": true,
+        "subjectName": "layout620",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Tagline Three reasons teams pick this sy",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Three reasons teams pick this synthetic ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Fast setup",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Honest metrics",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Portable output",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          }
+        ],
+        "tagCounts": {
+          "div": 14,
+          "section": 1,
+          "p": 5,
+          "h2": 1,
+          "img": 3,
+          "h3": 3,
+          "button": 2,
+          "svg": 1,
+          "path": 1
+        },
+        "sectionsFound": [
+          "layout620"
+        ],
+        "semantic": {
+          "score": 0.8333,
+          "visibleScore": 0.8333,
+          "expectedCount": 6,
+          "presentCount": 5,
+          "missing": [
+            {
+              "role": "link",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "h2": 1,
+            "h3": 3,
+            "button": 1,
+            "link": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 1,
+            "h3": 3,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 1,
+          "h3": 3,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "url": "http://127.0.0.1:4301/testimonial37",
+        "subjectFound": true,
+        "subjectName": "testimonial37",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Customer testimonials Synthetic social p",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Customer testimonials",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          }
+        ],
+        "tagCounts": {
+          "div": 20,
+          "section": 1,
+          "h1": 1,
+          "p": 5,
+          "img": 6,
+          "svg": 10,
+          "path": 10,
+          "h5": 2,
+          "span": 4
+        },
+        "sectionsFound": [
+          "testimonial37"
+        ],
+        "semantic": {
+          "score": 0,
+          "visibleScore": 0,
+          "expectedCount": 1,
+          "presentCount": 0,
+          "missing": [
+            {
+              "role": "h2",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "h2": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 1,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 2,
+            "h6": 0,
+            "button": 0,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 1,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 2,
+          "h6": 0,
+          "button": 0,
+          "link": 0
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/testimonial37",
+        "subjectFound": true,
+        "subjectName": "testimonial37",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Customer testimonials Synthetic social p",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Customer testimonials",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          }
+        ],
+        "tagCounts": {
+          "div": 20,
+          "section": 1,
+          "h1": 1,
+          "p": 5,
+          "img": 6,
+          "svg": 10,
+          "path": 10,
+          "h5": 2,
+          "span": 4
+        },
+        "sectionsFound": [
+          "testimonial37"
+        ],
+        "semantic": {
+          "score": 0,
+          "visibleScore": 0,
+          "expectedCount": 1,
+          "presentCount": 0,
+          "missing": [
+            {
+              "role": "h2",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "h2": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 1,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 2,
+            "h6": 0,
+            "button": 0,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 1,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 2,
+          "h6": 0,
+          "button": 0,
+          "link": 0
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/testimonial37",
+        "subjectFound": true,
+        "subjectName": "testimonial37",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Customer testimonials Synthetic social p",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Customer testimonials",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          }
+        ],
+        "tagCounts": {
+          "div": 20,
+          "section": 1,
+          "h1": 1,
+          "p": 5,
+          "img": 6,
+          "svg": 10,
+          "path": 10,
+          "h5": 2,
+          "span": 4
+        },
+        "sectionsFound": [
+          "testimonial37"
+        ],
+        "semantic": {
+          "score": 0,
+          "visibleScore": 0,
+          "expectedCount": 1,
+          "presentCount": 0,
+          "missing": [
+            {
+              "role": "h2",
+              "expected": 1,
+              "actual": 0
+            }
+          ],
+          "expected": {
+            "h2": 1
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 1,
+            "h2": 0,
+            "h3": 0,
+            "h4": 0,
+            "h5": 2,
+            "h6": 0,
+            "button": 0,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 1,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0,
+          "h5": 2,
+          "h6": 0,
+          "button": 0,
+          "link": 0
+        }
+      }
+    },
+    "cta25": {
+      "375": {
+        "url": "http://127.0.0.1:4301/cta25",
+        "subjectFound": true,
+        "subjectName": "cta25",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Ready to try the synthetic product? Clos",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Ready to try the synthetic product?",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          }
+        ],
+        "tagCounts": {
+          "div": 4,
+          "section": 1,
+          "h2": 1,
+          "p": 1,
+          "button": 2
+        },
+        "sectionsFound": [
+          "cta25"
+        ],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 3,
+          "presentCount": 3,
+          "missing": [],
+          "expected": {
+            "h2": 1,
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 1,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 1,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/cta25",
+        "subjectFound": true,
+        "subjectName": "cta25",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Ready to try the synthetic product? Clos",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Ready to try the synthetic product?",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          }
+        ],
+        "tagCounts": {
+          "div": 4,
+          "section": 1,
+          "h2": 1,
+          "p": 1,
+          "button": 2
+        },
+        "sectionsFound": [
+          "cta25"
+        ],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 3,
+          "presentCount": 3,
+          "missing": [],
+          "expected": {
+            "h2": 1,
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 1,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 1,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/cta25",
+        "subjectFound": true,
+        "subjectName": "cta25",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Ready to try the synthetic product? Clos",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Ready to try the synthetic product?",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          }
+        ],
+        "tagCounts": {
+          "div": 4,
+          "section": 1,
+          "h2": 1,
+          "p": 1,
+          "button": 2
+        },
+        "sectionsFound": [
+          "cta25"
+        ],
+        "semantic": {
+          "score": 1,
+          "visibleScore": 1,
+          "expectedCount": 3,
+          "presentCount": 3,
+          "missing": [],
+          "expected": {
+            "h2": 1,
+            "button": 2
+          },
+          "actual": {
+            "nav": 0,
+            "h1": 0,
+            "h2": 1,
+            "h3": 0,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0,
+            "button": 2,
+            "link": 0
+          }
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 0,
+          "h2": 1,
+          "h3": 0,
+          "h4": 0,
+          "h5": 0,
+          "h6": 0,
+          "button": 2,
+          "link": 0
+        }
+      }
+    },
+    "page": {
+      "375": {
+        "url": "http://127.0.0.1:4301/page",
+        "subjectFound": true,
+        "subjectName": "page",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "a",
+            "role": "link",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Tagline Three reasons teams pick this sy",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Three reasons teams pick this synthetic ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Fast setup",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Honest metrics",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Portable output",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Customer testimonials Synthetic social p",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Customer testimonials",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Ready to try the synthetic product? Clos",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Ready to try the synthetic product?",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          }
+        ],
+        "tagCounts": {
+          "div": 52,
+          "section": 5,
+          "a": 1,
+          "img": 16,
+          "button": 8,
+          "span": 9,
+          "h1": 2,
+          "p": 12,
+          "h2": 2,
+          "h3": 3,
+          "svg": 11,
+          "path": 11,
+          "h5": 2
+        },
+        "sectionsFound": [
+          "header80",
+          "layout620",
+          "testimonial37",
+          "cta25"
+        ],
+        "semantic": {
+          "score": 0.6875,
+          "visibleScore": 0.6875,
+          "expectedCount": 16,
+          "presentCount": 11,
+          "missing": [
+            {
+              "section": "navbar",
+              "role": "nav",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "navbar",
+              "role": "button",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "layout620",
+              "role": "link",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "testimonial37",
+              "role": "h2",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "role": "h1",
+              "expected": "exactly 1",
+              "actual": 2
+            }
+          ],
+          "expected": "sum of per-section expectations + exactly one h1",
+          "actual": {
+            "nav": 0,
+            "h1": 2,
+            "h2": 2,
+            "h3": 3,
+            "h4": 0,
+            "h5": 2,
+            "h6": 0,
+            "button": 8,
+            "link": 1
+          },
+          "perSection": {
+            "navbar": {
+              "score": 0,
+              "missing": [
+                {
+                  "role": "nav",
+                  "expected": 1,
+                  "actual": 0
+                },
+                {
+                  "role": "button",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 0,
+                "link": 0
+              }
+            },
+            "header80": {
+              "score": 1,
+              "missing": [],
+              "actual": {
+                "nav": 0,
+                "h1": 1,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            },
+            "layout620": {
+              "score": 0.8333,
+              "missing": [
+                {
+                  "role": "link",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 1,
+                "h3": 3,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            },
+            "testimonial37": {
+              "score": 0,
+              "missing": [
+                {
+                  "role": "h2",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 1,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 2,
+                "h6": 0,
+                "button": 0,
+                "link": 0
+              }
+            },
+            "cta25": {
+              "score": 1,
+              "missing": [],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 1,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            }
+          },
+          "h1Count": 2
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 2,
+          "h2": 2,
+          "h3": 3,
+          "h4": 0,
+          "h5": 2,
+          "h6": 0,
+          "button": 8,
+          "link": 1
+        }
+      },
+      "768": {
+        "url": "http://127.0.0.1:4301/page",
+        "subjectFound": true,
+        "subjectName": "page",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "a",
+            "role": "link",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Tagline Three reasons teams pick this sy",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Three reasons teams pick this synthetic ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Fast setup",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Honest metrics",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Portable output",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Customer testimonials Synthetic social p",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Customer testimonials",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Ready to try the synthetic product? Clos",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Ready to try the synthetic product?",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          }
+        ],
+        "tagCounts": {
+          "div": 52,
+          "section": 5,
+          "a": 1,
+          "img": 16,
+          "button": 8,
+          "span": 9,
+          "h1": 2,
+          "p": 12,
+          "h2": 2,
+          "h3": 3,
+          "svg": 11,
+          "path": 11,
+          "h5": 2
+        },
+        "sectionsFound": [
+          "header80",
+          "layout620",
+          "testimonial37",
+          "cta25"
+        ],
+        "semantic": {
+          "score": 0.6875,
+          "visibleScore": 0.6875,
+          "expectedCount": 16,
+          "presentCount": 11,
+          "missing": [
+            {
+              "section": "navbar",
+              "role": "nav",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "navbar",
+              "role": "button",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "layout620",
+              "role": "link",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "testimonial37",
+              "role": "h2",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "role": "h1",
+              "expected": "exactly 1",
+              "actual": 2
+            }
+          ],
+          "expected": "sum of per-section expectations + exactly one h1",
+          "actual": {
+            "nav": 0,
+            "h1": 2,
+            "h2": 2,
+            "h3": 3,
+            "h4": 0,
+            "h5": 2,
+            "h6": 0,
+            "button": 8,
+            "link": 1
+          },
+          "perSection": {
+            "navbar": {
+              "score": 0,
+              "missing": [
+                {
+                  "role": "nav",
+                  "expected": 1,
+                  "actual": 0
+                },
+                {
+                  "role": "button",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 0,
+                "link": 0
+              }
+            },
+            "header80": {
+              "score": 1,
+              "missing": [],
+              "actual": {
+                "nav": 0,
+                "h1": 1,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            },
+            "layout620": {
+              "score": 0.8333,
+              "missing": [
+                {
+                  "role": "link",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 1,
+                "h3": 3,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            },
+            "testimonial37": {
+              "score": 0,
+              "missing": [
+                {
+                  "role": "h2",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 1,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 2,
+                "h6": 0,
+                "button": 0,
+                "link": 0
+              }
+            },
+            "cta25": {
+              "score": 1,
+              "missing": [],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 1,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            }
+          },
+          "h1Count": 2
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 2,
+          "h2": 2,
+          "h3": 3,
+          "h4": 0,
+          "h5": 2,
+          "h6": 0,
+          "button": 8,
+          "link": 1
+        }
+      },
+      "1440": {
+        "url": "http://127.0.0.1:4301/page",
+        "subjectFound": true,
+        "subjectName": "page",
+        "roles": [
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "a",
+            "role": "link",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": null
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Design systems that move with your produ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "header80"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Tagline Three reasons teams pick this sy",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Three reasons teams pick this synthetic ",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Fast setup",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Honest metrics",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "h3",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 3,
+            "text": "Portable output",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "layout620"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Customer testimonials Synthetic social p",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h1",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 1,
+            "text": "Customer testimonials",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "h5",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 5,
+            "text": "\"A synthetic quote used only to evaluate",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "testimonial37"
+          },
+          {
+            "tag": "section",
+            "role": "generic",
+            "explicitRole": null,
+            "level": null,
+            "text": "Ready to try the synthetic product? Clos",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "h2",
+            "role": "heading",
+            "explicitRole": null,
+            "level": 2,
+            "text": "Ready to try the synthetic product?",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "explicitRole": null,
+            "level": null,
+            "text": "Button",
+            "ariaLabel": null,
+            "dataFsId": null,
+            "dataFsBbc": null,
+            "dataFsPenpot": null,
+            "visible": true,
+            "section": "cta25"
+          }
+        ],
+        "tagCounts": {
+          "div": 52,
+          "section": 5,
+          "a": 1,
+          "img": 16,
+          "button": 8,
+          "span": 9,
+          "h1": 2,
+          "p": 12,
+          "h2": 2,
+          "h3": 3,
+          "svg": 11,
+          "path": 11,
+          "h5": 2
+        },
+        "sectionsFound": [
+          "header80",
+          "layout620",
+          "testimonial37",
+          "cta25"
+        ],
+        "semantic": {
+          "score": 0.6875,
+          "visibleScore": 0.6875,
+          "expectedCount": 16,
+          "presentCount": 11,
+          "missing": [
+            {
+              "section": "navbar",
+              "role": "nav",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "navbar",
+              "role": "button",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "layout620",
+              "role": "link",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "section": "testimonial37",
+              "role": "h2",
+              "expected": 1,
+              "actual": 0
+            },
+            {
+              "role": "h1",
+              "expected": "exactly 1",
+              "actual": 2
+            }
+          ],
+          "expected": "sum of per-section expectations + exactly one h1",
+          "actual": {
+            "nav": 0,
+            "h1": 2,
+            "h2": 2,
+            "h3": 3,
+            "h4": 0,
+            "h5": 2,
+            "h6": 0,
+            "button": 8,
+            "link": 1
+          },
+          "perSection": {
+            "navbar": {
+              "score": 0,
+              "missing": [
+                {
+                  "role": "nav",
+                  "expected": 1,
+                  "actual": 0
+                },
+                {
+                  "role": "button",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 0,
+                "link": 0
+              }
+            },
+            "header80": {
+              "score": 1,
+              "missing": [],
+              "actual": {
+                "nav": 0,
+                "h1": 1,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            },
+            "layout620": {
+              "score": 0.8333,
+              "missing": [
+                {
+                  "role": "link",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 1,
+                "h3": 3,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            },
+            "testimonial37": {
+              "score": 0,
+              "missing": [
+                {
+                  "role": "h2",
+                  "expected": 1,
+                  "actual": 0
+                }
+              ],
+              "actual": {
+                "nav": 0,
+                "h1": 1,
+                "h2": 0,
+                "h3": 0,
+                "h4": 0,
+                "h5": 2,
+                "h6": 0,
+                "button": 0,
+                "link": 0
+              }
+            },
+            "cta25": {
+              "score": 1,
+              "missing": [],
+              "actual": {
+                "nav": 0,
+                "h1": 0,
+                "h2": 1,
+                "h3": 0,
+                "h4": 0,
+                "h5": 0,
+                "h6": 0,
+                "button": 2,
+                "link": 0
+              }
+            }
+          },
+          "h1Count": 2
+        },
+        "counts": {
+          "nav": 0,
+          "h1": 2,
+          "h2": 2,
+          "h3": 3,
+          "h4": 0,
+          "h5": 2,
+          "h6": 0,
+          "button": 8,
+          "link": 1
+        }
+      }
+    }
+  }
+}
