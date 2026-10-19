@@ -1,0 +1,1059 @@
+{
+ "dsc": "0.1",
+ "id": "fs.ds.relume-default",
+ "revision": "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b",
+ "createdAt": "2026-10-19T00:00:00Z",
+ "supersedes": "sha256:4243b7aa087b568fcf16cfab27ec72a2f3d04fc13fb5ff81c06c98ae8393cf25",
+ "changeLog": [
+  {
+   "kind": "specification",
+   "id": "DSC-R3-01",
+   "change": "Breakpoint model. Added top-level `screens` (Relume Tailwind preset theme.screens sm 480 / md 768 / lg 992 / xl 1280 / xxl 1440 with the matching theme.container.screens widths: sm 100%, md 100%, lg 992px, xl 1280px; container centred, 100% below sm, side padding 5% at every width) and `screensProvenance`. `breakpoints` keeps its three design tiers (the three Penpot canvases 1440/768/375) and their ids; lg.minWidth corrected from 1024 to 992, a `screen` field added to each (lg -> lg, md -> md, sm -> null) and `breakpointsNote` added to state that breakpoints are design tiers while the width-dependent container rule is screens[].container.",
+   "evidence": "PEN-CLOUD-03-B run r2 defect attribution D-3; Relume preset @relume_io/relume-tailwind 1.3.0 theme.screens and theme.container.screens"
+  },
+  {
+   "kind": "specification",
+   "id": "DSC-R3-02",
+   "change": "Hero image height rule. fs.section.hero interaction.imageLayout gains minHeightBelowScreen {screen: sm, value: 35vw}: below screens.sm (480px) every hero image box has min-height 35vw in addition to its 120% aspect padding (Relume `h-[35vw] pt-[120%] sm:h-auto` under border-box sizing, so the rendered height is max(35vw, 1.2 x width)); from sm the aspect alone applies. PEN-CLOUD-02 omitted this rule from the stored animation spec, and the r2 result record mis-stated the threshold as 640px; the preset sm screen is 480px.",
+   "evidence": "PEN-CLOUD-03-B run r2 defect attribution D-4; Relume preset @relume_io/relume-tailwind 1.3.0 theme.screens.sm"
+  },
+  {
+   "kind": "specification",
+   "id": "DSC-R3-03",
+   "change": "Hero text block. Added spacing tokens fs.token.space.hero.text-top (112px; md 96px; sm 64px) and fs.token.space.hero.text-bottom (112px; md 96px; sm inherits md), bindings textPaddingTop and textPaddingBottom on fs.section.hero, and a layout.textBlock rule. The Relume model places the hero text in a full-height flex container with items-center and padding pt-16 pb-24 (sm), pt-24 pb-24 (md), py-28 (lg); r1/r2 centred the text in the full stage with no padding.",
+   "evidence": "PEN-CLOUD-03-B run r2 defect attribution D-4; Relume preset @relume_io/relume-tailwind 1.3.0 spacing scale (pt-16, pt-24, pb-24, py-28)"
+  },
+  {
+   "kind": "specification",
+   "id": "DSC-R3-04",
+   "change": "Testimonials grid. fs.section.testimonials gains layout.grid: minmax(0, 1fr) tracks; cumulative mobile-first rules (base 1 column / auto rows; from sm 4 rows; from md 2 columns; from lg 4 columns and 2 rows); quote card spans 2 columns from sm; card index 2 is ordered last below lg; explicit rows are equal fr tracks with cards stretched. With a four-row template and no explicit columns, a two-column span forces the implicit grid to two columns from sm; r1/r2 emitted explicit columns only and no row template.",
+   "evidence": "PEN-CLOUD-03-B run r2 defect attribution D-5; Relume preset @relume_io/relume-tailwind 1.3.0 theme.screens (Testimonial37 responsive classes)"
+  }
+ ],
+ "provenance": [
+  {
+   "kind": "relume-library-mcp",
+   "retrievedAt": "2026-10-17T16:05:55Z",
+   "version": null,
+   "hash": null,
+   "licence": "unverified",
+   "note": "values only; no Relume source in this repository (OD-25/OD-37)"
+  },
+  {
+   "kind": "claude-design",
+   "artifact": "NsJsQNro6mtQS5B6xp4uXx",
+   "file": "project/tokens.json",
+   "hash": "sha256:5781caed9fab3882ab070859354e6417d0e06d6677be9a4c49ffe280c10a4638",
+   "version": 2
+  },
+  {
+   "kind": "penpot",
+   "fileId": "cd444aaf-0d8c-801b-8008-cde3b8b4d8bc",
+   "tokenSets": [
+    "4d569422-e5e3-8076-8008-cdeb4fa08bf2",
+    "4d569422-e5e3-8076-8008-cdf223f79fe3"
+   ],
+   "structureCapturedAt": "2026-10-17T17:28:39.806Z"
+  }
+ ],
+ "tokens": {
+  "sets": [
+   {
+    "id": "fs.tokens.relume",
+    "active": true,
+    "external": {
+     "penpotSetId": "4d569422-e5e3-8076-8008-cdeb4fa08bf2"
+    }
+   }
+  ],
+  "entries": [
+   {
+    "id": "fs.token.color.neutral.darkest",
+    "type": "color",
+    "value": "#000000",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "color.neutral.darkest",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fb6fe42",
+     "relume": "neutral-darkest"
+    }
+   },
+   {
+    "id": "fs.token.color.scheme.background",
+    "type": "color",
+    "value": "#ffffff",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "color.scheme.background",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4facb500",
+     "relume": "scheme-background"
+    }
+   },
+   {
+    "id": "fs.token.color.scheme.border",
+    "type": "color",
+    "value": "#000000",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "color.scheme.border",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fb5d650",
+     "relume": "scheme-border"
+    }
+   },
+   {
+    "id": "fs.token.color.scheme.btn-text",
+    "type": "color",
+    "value": "#ffffff",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "color.scheme.btn-text",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fb7fa74",
+     "relume": "scheme-btn-text"
+    }
+   },
+   {
+    "id": "fs.token.color.scheme.foreground",
+    "type": "color",
+    "value": "#ffffff",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "color.scheme.foreground",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fb2d75e",
+     "relume": "scheme-foreground"
+    }
+   },
+   {
+    "id": "fs.token.color.scheme.text",
+    "type": "color",
+    "value": "#000000",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "color.scheme.text",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fb49410",
+     "relume": "scheme-text"
+    }
+   },
+   {
+    "id": "fs.token.font.size.h1",
+    "type": "fontSize",
+    "value": "56px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.h1",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fba3aa0",
+     "relume": "text-h1"
+    }
+   },
+   {
+    "id": "fs.token.font.size.h2",
+    "type": "fontSize",
+    "value": "48px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.h2",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fbad8d0",
+     "relume": "text-h2"
+    }
+   },
+   {
+    "id": "fs.token.font.size.h3",
+    "type": "fontSize",
+    "value": "40px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.h3",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fc06b0e",
+     "relume": "text-h3"
+    }
+   },
+   {
+    "id": "fs.token.font.size.h4",
+    "type": "fontSize",
+    "value": "32px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.h4",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fc3cfe3",
+     "relume": "text-h4"
+    }
+   },
+   {
+    "id": "fs.token.font.size.h5",
+    "type": "fontSize",
+    "value": "24px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.h5",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fc4b7d1",
+     "relume": "text-h5"
+    }
+   },
+   {
+    "id": "fs.token.font.size.h6",
+    "type": "fontSize",
+    "value": "20px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.h6",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fcbaa09",
+     "relume": "text-h6"
+    }
+   },
+   {
+    "id": "fs.token.font.size.medium",
+    "type": "fontSize",
+    "value": "18px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.medium",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fcdfdba",
+     "relume": "text-medium"
+    }
+   },
+   {
+    "id": "fs.token.font.size.regular",
+    "type": "fontSize",
+    "value": "16px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.regular",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fce9072",
+     "relume": "text-regular"
+    }
+   },
+   {
+    "id": "fs.token.font.size.small",
+    "type": "fontSize",
+    "value": "14px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "font.size.small",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd0115f",
+     "relume": "text-small"
+    }
+   },
+   {
+    "id": "fs.token.radius.button",
+    "type": "borderRadius",
+    "value": "0px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "radius.button",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd66da7",
+     "relume": "rounded-button"
+    }
+   },
+   {
+    "id": "fs.token.radius.card",
+    "type": "borderRadius",
+    "value": "0px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "radius.card",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd6ea6b",
+     "relume": "rounded-card"
+    }
+   },
+   {
+    "id": "fs.token.radius.image",
+    "type": "borderRadius",
+    "value": "0px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "radius.image",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fdae293",
+     "relume": "rounded-image"
+    }
+   },
+   {
+    "id": "fs.token.space.gap.4",
+    "type": "spacing",
+    "value": "16px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "space.gap.4",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd35bed",
+     "relume": "gap-4"
+    }
+   },
+   {
+    "id": "fs.token.space.gap.6",
+    "type": "spacing",
+    "value": "24px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "space.gap.6",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd48afa",
+     "relume": "gap-6"
+    }
+   },
+   {
+    "id": "fs.token.space.gap.8",
+    "type": "spacing",
+    "value": "32px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "space.gap.8",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd50875",
+     "relume": "gap-8"
+    }
+   },
+   {
+    "id": "fs.token.space.section.lg",
+    "type": "spacing",
+    "value": "112px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "space.section.lg",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd08343",
+     "relume": "py-28"
+    },
+    "responsive": {
+     "md": "96px",
+     "sm": "64px"
+    }
+   },
+   {
+    "id": "fs.token.space.section.md",
+    "type": "spacing",
+    "value": "96px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "space.section.md",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd1339f",
+     "relume": "py-24"
+    }
+   },
+   {
+    "id": "fs.token.space.section.sm",
+    "type": "spacing",
+    "value": "64px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": "space.section.sm",
+     "penpotTokenId": "4d569422-e5e3-8076-8008-cdeb4fd2b3cf",
+     "relume": "py-16"
+    }
+   },
+   {
+    "id": "fs.token.font.lineHeight.heading",
+    "type": "lineHeight",
+    "value": "1.2",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "text-h1..h3 lineHeight"
+    }
+   },
+   {
+    "id": "fs.token.font.lineHeight.h4",
+    "type": "lineHeight",
+    "value": "1.3",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "text-h4"
+    }
+   },
+   {
+    "id": "fs.token.font.lineHeight.body",
+    "type": "lineHeight",
+    "value": "1.5",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "text-medium/regular/small"
+    }
+   },
+   {
+    "id": "fs.token.font.weight.bold",
+    "type": "weight",
+    "value": "700",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "font-bold"
+    }
+   },
+   {
+    "id": "fs.token.font.weight.semibold",
+    "type": "weight",
+    "value": "600",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "font-semibold"
+    }
+   },
+   {
+    "id": "fs.token.font.weight.regular",
+    "type": "weight",
+    "value": "400",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "font-normal"
+    }
+   },
+   {
+    "id": "fs.token.font.letterSpacing.heading",
+    "type": "letterSpacing",
+    "value": "-0.01em",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "text-h1..h6"
+    }
+   },
+   {
+    "id": "fs.token.font.family.sans",
+    "type": "family",
+    "value": "\"Source Sans 3\", system-ui, sans-serif",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "OD-40 fixed font (Relume prescribes none)"
+    }
+   },
+   {
+    "id": "fs.token.space.hero.text-top",
+    "type": "spacing",
+    "value": "112px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "pt-16 md:pt-24 lg:py-28"
+    },
+    "responsive": {
+     "md": "96px",
+     "sm": "64px"
+    }
+   },
+   {
+    "id": "fs.token.space.hero.text-bottom",
+    "type": "spacing",
+    "value": "112px",
+    "set": "fs.tokens.relume",
+    "external": {
+     "penpot": null,
+     "relume": "pb-24 lg:py-28"
+    },
+    "responsive": {
+     "md": "96px"
+    }
+   }
+  ]
+ },
+ "screens": [
+  {
+   "id": "sm",
+   "minWidth": 480,
+   "container": "100%"
+  },
+  {
+   "id": "md",
+   "minWidth": 768,
+   "container": "100%"
+  },
+  {
+   "id": "lg",
+   "minWidth": 992,
+   "container": "992px"
+  },
+  {
+   "id": "xl",
+   "minWidth": 1280,
+   "container": "1280px"
+  },
+  {
+   "id": "xxl",
+   "minWidth": 1440,
+   "container": "1280px"
+  }
+ ],
+ "screensProvenance": "@relume_io/relume-tailwind 1.3.0 dist/tailwind.config.js theme.screens and theme.container.screens; container below sm is 100%; side padding 5% at every width",
+ "breakpoints": [
+  {
+   "id": "lg",
+   "minWidth": 992,
+   "screen": "lg",
+   "canvas": 1440,
+   "container": 1280,
+   "sidePadding": "5%"
+  },
+  {
+   "id": "md",
+   "minWidth": 768,
+   "screen": "md",
+   "canvas": 768,
+   "container": 691,
+   "sidePadding": "5%"
+  },
+  {
+   "id": "sm",
+   "minWidth": 0,
+   "screen": null,
+   "canvas": 375,
+   "container": 337,
+   "sidePadding": "5%"
+  }
+ ],
+ "breakpointsNote": "breakpoints are the three design tiers (Penpot canvases 1440/768/375) used for observations and token overrides; their container field is the container width measured on that canvas. The width-dependent container rule is screens[].container (992px from lg, 1280px from xl, 100% below lg).",
+ "typography": {
+  "family": "fs.token.font.family.sans",
+  "fonts": "inputs/fonts/MANIFEST.json (Source Sans 3, OFL 1.1, OD-40)"
+ },
+ "components": [
+  {
+   "id": "fs.component.button.primary",
+   "kind": "primitive",
+   "external": {
+    "relume": {
+     "primitive": "button",
+     "variant": "default",
+     "size": "default"
+    },
+    "claudeDesign": {
+     "artifact": "NsJsQNro6mtQS5B6xp4uXx",
+     "component": "Button",
+     "props": {
+      "variant": "primary"
+     }
+    },
+    "penpot": {
+     "componentId": "4d569422-e5e3-8076-8008-cdeb5017d341",
+     "mainShapeId": "4d569422-e5e3-8076-8008-cdeb4ffc5595"
+    }
+   },
+   "bindings": [
+    {
+     "property": "fill",
+     "token": "fs.token.color.neutral.darkest"
+    },
+    {
+     "property": "strokeColor",
+     "token": "fs.token.color.scheme.border"
+    },
+    {
+     "property": "labelFill",
+     "token": "fs.token.color.scheme.btn-text"
+    },
+    {
+     "property": "borderRadius",
+     "token": "fs.token.radius.button"
+    },
+    {
+     "property": "labelFontSize",
+     "token": "fs.token.font.size.regular"
+    }
+   ],
+   "geometry": {
+    "height": 48,
+    "paddingX": 24,
+    "paddingY": 12,
+    "gap": 12,
+    "strokeWidth": 1
+   },
+   "dependencies": [
+    {
+     "name": "class-variance-authority",
+     "range": "0.7.1"
+    },
+    {
+     "name": "@radix-ui/react-slot",
+     "range": "*"
+    }
+   ]
+  },
+  {
+   "id": "fs.component.button.secondary",
+   "kind": "primitive",
+   "external": {
+    "relume": {
+     "primitive": "button",
+     "variant": "secondary",
+     "size": "default"
+    },
+    "claudeDesign": {
+     "artifact": "NsJsQNro6mtQS5B6xp4uXx",
+     "component": "Button",
+     "props": {
+      "variant": "secondary"
+     }
+    },
+    "penpot": {
+     "componentId": "4d569422-e5e3-8076-8008-cdeb501973cd",
+     "mainShapeId": "4d569422-e5e3-8076-8008-cdeb50084766"
+    }
+   },
+   "bindings": [
+    {
+     "property": "fill",
+     "token": "fs.token.color.scheme.foreground"
+    },
+    {
+     "property": "strokeColor",
+     "token": "fs.token.color.scheme.border"
+    },
+    {
+     "property": "labelFill",
+     "token": "fs.token.color.scheme.text"
+    },
+    {
+     "property": "borderRadius",
+     "token": "fs.token.radius.button"
+    },
+    {
+     "property": "labelFontSize",
+     "token": "fs.token.font.size.regular"
+    }
+   ],
+   "geometry": {
+    "height": 48,
+    "paddingX": 24,
+    "paddingY": 12,
+    "gap": 12,
+    "strokeWidth": 1
+   },
+   "dependencies": [
+    {
+     "name": "class-variance-authority",
+     "range": "0.7.1"
+    }
+   ]
+  },
+  {
+   "id": "fs.section.navbar",
+   "kind": "section",
+   "external": {
+    "relume": {
+     "slug": "navbar17_component",
+     "version": null,
+     "hash": null
+    },
+    "penpot": {
+     "desktop": "4d569422-e5e3-8076-8008-cdec56e0c462",
+     "tablet": "4d569422-e5e3-8076-8008-cdec691c465e",
+     "mobile": "4d569422-e5e3-8076-8008-cdec6b14b2eb"
+    }
+   },
+   "responsive": {
+    "lg": {
+     "canvas": 1440
+    },
+    "md": {
+     "canvas": 768
+    },
+    "sm": {
+     "canvas": 375
+    }
+   },
+   "bindings": [
+    {
+     "property": "background",
+     "token": "fs.token.color.scheme.background"
+    }
+   ],
+   "dependencies": [
+    {
+     "name": "motion",
+     "range": "^12.15.0"
+    }
+   ],
+   "interaction": {
+    "library": "motion/react",
+    "hamburger": {
+     "topLine": {
+      "open": {
+       "width": 0,
+       "duration": 0.1,
+       "ease": "easeIn"
+      },
+      "close": {
+       "width": "100%",
+       "duration": 0.1,
+       "delay": 0.3,
+       "ease": "linear"
+      }
+     },
+     "middleLines": {
+      "open": {
+       "rotate": [
+        135,
+        45
+       ],
+       "duration": 0.3,
+       "delay": 0.1,
+       "ease": "easeInOut"
+      },
+      "close": {
+       "rotate": 0,
+       "duration": 0.3
+      }
+     },
+     "bottomLine": "mirror of topLine"
+    },
+    "menu": {
+     "trigger": "isMenuOpen state",
+     "presence": "AnimatePresence",
+     "opacity": {
+      "open": 1,
+      "close": 0
+     },
+     "duration": 0.3,
+     "panel": "absolute inset-x-0 top-full h-[calc(100vh-4rem)] md:h-[calc(100vh-4.5rem)]",
+     "links": "8 links, text-h3 bold, right-aligned, border-t scheme-border",
+     "bottom": "Contact link + 5 social icons"
+    }
+   }
+  },
+  {
+   "id": "fs.section.hero",
+   "kind": "section",
+   "external": {
+    "relume": {
+     "slug": "section_header80",
+     "version": null,
+     "hash": null
+    },
+    "penpot": {
+     "desktop": "4d569422-e5e3-8076-8008-cdec570ada2a",
+     "tablet": "4d569422-e5e3-8076-8008-cdec6934bfcc",
+     "mobile": "4d569422-e5e3-8076-8008-cdec6b29ee70"
+    }
+   },
+   "responsive": {
+    "lg": {
+     "canvas": 1440
+    },
+    "md": {
+     "canvas": 768
+    },
+    "sm": {
+     "canvas": 375,
+     "initialTransform": "-12.5%"
+    }
+   },
+   "bindings": [
+    {
+     "property": "background",
+     "token": "fs.token.color.scheme.background"
+    },
+    {
+     "property": "headingFontSize",
+     "token": "fs.token.font.size.h1"
+    },
+    {
+     "property": "descriptionFontSize",
+     "token": "fs.token.font.size.medium"
+    },
+    {
+     "property": "buttonGap",
+     "token": "fs.token.space.gap.4"
+    },
+    {
+     "property": "textPaddingTop",
+     "token": "fs.token.space.hero.text-top"
+    },
+    {
+     "property": "textPaddingBottom",
+     "token": "fs.token.space.hero.text-bottom"
+    }
+   ],
+   "dependencies": [
+    {
+     "name": "motion",
+     "range": "^12.15.0"
+    }
+   ],
+   "interaction": {
+    "library": "motion/react",
+    "hooks": [
+     "useScroll",
+     "useSpring",
+     "useTransform"
+    ],
+    "scroll": {
+     "target": "section",
+     "offset": [
+      "start start",
+      "end end"
+     ]
+    },
+    "spring": {
+     "bounce": 0
+    },
+    "sectionHeight": {
+     "mobile": "150vh",
+     "desktop": "300vh"
+    },
+    "stage": "sticky top-0 h-screen overflow-hidden",
+    "transforms": {
+     "imagesLeft": {
+      "desktop": [
+       "0%",
+       "-85%"
+      ],
+      "mobile": [
+       "-12.5%",
+       "-85%"
+      ]
+     },
+     "imagesRight": {
+      "desktop": [
+       "0%",
+       "-60%"
+      ],
+      "mobile": [
+       "-12.5%",
+       "-85%"
+      ]
+     }
+    },
+    "breakpoint": "useMediaQuery(max-width: 767px)",
+    "imageLayout": {
+     "leftColumn": [
+      "w-[30vw] md:w-[28vw] lg:w-[22vw]",
+      "left-[52vw] mt-[-46vw] w-[30vw] md:w-[28vw] lg:left-[58vw] lg:w-[22vw]",
+      "left-[4vw] mt-[-5vw] w-[28vw] md:w-[26vw] lg:w-[20vw]",
+      "left-[64vw] mt-[-45vw] w-[26vw] md:w-[24vw] lg:w-[18vw]"
+     ],
+     "rightColumn": [
+      "w-[28vw] md:w-[26vw] lg:w-[20vw]",
+      "right-[50vw] mt-[-44vw] w-[26vw] md:w-[24vw] lg:right-[54vw] lg:w-[18vw]"
+     ],
+     "gap": "26vw",
+     "paddingTop": "70vh",
+     "aspect": "pt-[120%]",
+     "rightOpacity": 0.75,
+     "minHeightBelowScreen": {
+      "screen": "sm",
+      "value": "35vw"
+     }
+    }
+   },
+   "layout": {
+    "textBlock": {
+     "verticalAlign": "center",
+     "paddingTopBinding": "textPaddingTop",
+     "paddingBottomBinding": "textPaddingBottom",
+     "rule": "the text block is vertically centred inside the sticky stage's padded content box (stage height minus paddingTop and paddingBottom), so an asymmetric padding shifts the block by half the difference"
+    }
+   }
+  },
+  {
+   "id": "fs.section.features",
+   "kind": "section",
+   "external": {
+    "relume": {
+     "slug": "section_layout620",
+     "version": null,
+     "hash": null
+    },
+    "penpot": {
+     "desktop": "4d569422-e5e3-8076-8008-cdec5756d8d3",
+     "tablet": "4d569422-e5e3-8076-8008-cdec6963eaef",
+     "mobile": "4d569422-e5e3-8076-8008-cdec6b55321c"
+    }
+   },
+   "responsive": {
+    "lg": {
+     "canvas": 1440
+    },
+    "md": {
+     "canvas": 768
+    },
+    "sm": {
+     "canvas": 375
+    }
+   },
+   "bindings": [
+    {
+     "property": "paddingTop",
+     "token": "fs.token.space.section.lg"
+    },
+    {
+     "property": "paddingBottom",
+     "token": "fs.token.space.section.lg"
+    },
+    {
+     "property": "background",
+     "token": "fs.token.color.scheme.background"
+    },
+    {
+     "property": "headingFontSize",
+     "token": "fs.token.font.size.h2"
+    },
+    {
+     "property": "itemHeadingFontSize",
+     "token": "fs.token.font.size.h4"
+    },
+    {
+     "property": "gridGap",
+     "token": "fs.token.space.gap.8"
+    },
+    {
+     "property": "dividerColor",
+     "token": "fs.token.color.scheme.border"
+    }
+   ],
+   "dependencies": []
+  },
+  {
+   "id": "fs.section.testimonials",
+   "kind": "section",
+   "external": {
+    "relume": {
+     "slug": "section_testimonial37",
+     "version": null,
+     "hash": null
+    },
+    "penpot": {
+     "desktop": "4d569422-e5e3-8076-8008-cdec58238586",
+     "tablet": "4d569422-e5e3-8076-8008-cdec69d0902a",
+     "mobile": "4d569422-e5e3-8076-8008-cdec6bcfccf7"
+    }
+   },
+   "responsive": {
+    "lg": {
+     "canvas": 1440
+    },
+    "md": {
+     "canvas": 768
+    },
+    "sm": {
+     "canvas": 375
+    }
+   },
+   "bindings": [
+    {
+     "property": "paddingTop",
+     "token": "fs.token.space.section.lg"
+    },
+    {
+     "property": "paddingBottom",
+     "token": "fs.token.space.section.lg"
+    },
+    {
+     "property": "background",
+     "token": "fs.token.color.scheme.background"
+    },
+    {
+     "property": "headingFontSize",
+     "token": "fs.token.font.size.h2"
+    },
+    {
+     "property": "cardBorder",
+     "token": "fs.token.color.scheme.border"
+    },
+    {
+     "property": "cardFill",
+     "token": "fs.token.color.scheme.foreground"
+    },
+    {
+     "property": "cardRadius",
+     "token": "fs.token.radius.card"
+    },
+    {
+     "property": "gridGap",
+     "token": "fs.token.space.gap.8"
+    }
+   ],
+   "dependencies": [],
+   "layout": {
+    "grid": {
+     "track": "minmax(0, 1fr)",
+     "rules": [
+      {
+       "screen": null,
+       "columns": 1,
+       "rows": "auto"
+      },
+      {
+       "screen": "sm",
+       "rows": 4
+      },
+      {
+       "screen": "md",
+       "columns": 2
+      },
+      {
+       "screen": "lg",
+       "columns": 4,
+       "rows": 2
+      }
+     ],
+     "quoteCardSpan": {
+      "fromScreen": "sm",
+      "columns": 2
+     },
+     "orderBelowScreen": {
+      "screen": "lg",
+      "cardIndex": 2,
+      "order": "last"
+     },
+     "rowSizing": "explicit rows are equal fr tracks: every row in the template takes the tallest row's content height and cards stretch to the row (align-items: stretch); below sm there is no row template and rows are auto",
+     "provenance": "Relume Testimonial37 responsive model: grid gap-6 sm:grid-rows-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:grid-rows-2; quote card sm:col-span-2; quote card index 2 order-last lg:order-none"
+    }
+   }
+  },
+  {
+   "id": "fs.section.cta",
+   "kind": "section",
+   "external": {
+    "relume": {
+     "slug": "section_cta25",
+     "version": null,
+     "hash": null
+    },
+    "penpot": {
+     "desktop": "4d569422-e5e3-8076-8008-cdec58d0ed3a",
+     "tablet": "4d569422-e5e3-8076-8008-cdec6a816963",
+     "mobile": "4d569422-e5e3-8076-8008-cdec6c7f6ab4"
+    }
+   },
+   "responsive": {
+    "lg": {
+     "canvas": 1440
+    },
+    "md": {
+     "canvas": 768
+    },
+    "sm": {
+     "canvas": 375
+    }
+   },
+   "bindings": [
+    {
+     "property": "paddingTop",
+     "token": "fs.token.space.section.lg"
+    },
+    {
+     "property": "paddingBottom",
+     "token": "fs.token.space.section.lg"
+    },
+    {
+     "property": "background",
+     "token": "fs.token.color.scheme.background"
+    },
+    {
+     "property": "headingFontSize",
+     "token": "fs.token.font.size.h2"
+    },
+    {
+     "property": "descriptionFontSize",
+     "token": "fs.token.font.size.medium"
+    },
+    {
+     "property": "buttonGap",
+     "token": "fs.token.space.gap.4"
+    }
+   ],
+   "dependencies": []
+  }
+ ],
+ "acceptance": {
+  "tokenFidelity": "every binding resolves to the token value at the target breakpoint",
+  "identity": "every component and token has an fs.* id and at least one external reference"
+ }
+}
