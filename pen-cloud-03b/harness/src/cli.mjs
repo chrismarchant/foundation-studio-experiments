@@ -32,7 +32,7 @@ if (opt.help) {
   --skip-build      do not run pnpm build (servers must serve an existing build)
   --routes r1,r2    restrict the per-page measurements to these routes (debugging)
   --dry-run         validate the harness against built-in stub arms and fixtures, no real arm needed
-  --criteria r1|r2|r3  acceptance criteria used by the summary (default r3; r1 = original wording)
+  --criteria r1|r2|r3|r3.1  acceptance criteria used by the summary (default r3; r1 = original wording; r3.1 = r3 + OD-47 forbidden-string classification)
   --dsc <path>      DSC used for token ids, tiers (?bp= mapping) and sweep widths, relative to ../inputs
                     (default dsc/fs.ds.relume-default.r3.json when it exists, else ...r2.json)
   --frozen <file>   determinism: FROZEN file to compare against (relative to the arm-c root or absolute);
@@ -44,7 +44,7 @@ if (opt.help) {
 }
 
 const DRY = opt['dry-run'];
-if (!['r1', 'r2', 'r3'].includes(opt.criteria)) { console.error('--criteria must be r1, r2 or r3'); process.exit(2); }
+if (!['r1', 'r2', 'r3', 'r3.1'].includes(opt.criteria)) { console.error('--criteria must be r1, r2, r3 or r3.1'); process.exit(2); }
 let dscRel;
 try { dscRel = setDscRel(opt.dsc); } catch (e) { console.error(String(e.message || e)); process.exit(2); }
 if (opt['select-only']) {

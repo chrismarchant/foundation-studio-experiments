@@ -7,8 +7,8 @@ import { ROUTES, VIEWPORTS, SWEEP_ROUTES, sweepWidths, loadDsc, getDscRel, setDs
 import { compareFrozen, compareFrozenRoot, parseFrozen, parseFrozenRevision, selectDeterminismInputs, dscArgOfScript } from './determinism.mjs';
 import { aggregateTokens } from './measure.mjs';
 import { isZeroLength, expandAxes } from './tokenrules.mjs';
-import { referenceAnomalies } from '../summarise.mjs';
-import { forbiddenStringScan } from './licence.mjs';
+import { referenceAnomalies, summarise } from '../summarise.mjs';
+import { forbiddenStringScan, classifyHitOnDisk, isProvenanceAssignmentLine } from './licence.mjs';
 
 const round2 = (n) => Math.round(n * 10000) / 10000;
 const IMPORT_PLANT = "import { somethingShared } from '../lib/some-long-module-path-name-x';";
@@ -218,6 +218,84 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
       const f = forbiddenStringScan(planted);
       add('licence: forbidden-string scan detects a planted string', f.hitCount === 1 && f.hits[0].patternIndex === 0, JSON.stringify(f));
     } finally { fs.rmSync(planted, { recursive: true, force: true }); }
+  }
+  // criteria r3.1 (OD-47): classification of forbidden-string hits by field designation (fixtures assembled at runtime, never literal here)
+  {
+    const P = ['@relume', '_io'].join(''), P0 = ['relume', '-icons'].join('');
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pc03b-r31-'));
+    const tmpOut = fs.mkdtempSync(path.join(os.tmpdir(), 'pc03b-r31-out-'));
+    try {
+      const w = (rel, text) => { ensureDir(path.dirname(path.join(root, rel))); fs.writeFileSync(path.join(root, rel), text); };
+      // JSON: provenance-field occurrences only (nested + *Provenance suffix) -> provenanceField
+      w('inputs/dsc/prov-only.json', JSON.stringify({ revision: 'x', screensProvenance: `${P}/preset 1.3.0 theme.screens`, nested: { deep: { sourceProvenance: `from ${P}` } }, evidence: 'nothing here' }, null, 2));
+      // JSON: provenance field AND the same string in a non-provenance value (evidence) -> other
+      w('inputs/dsc/prov-and-evidence.json', JSON.stringify({ screensProvenance: `${P} 1.3.0`, changeLog: [{ id: 'a', evidence: `attribution via ${P}` }] }, null, 2));
+      // JSON: string in a key name, in an array item of a non-provenance key -> other
+      w('inputs/dsc/keyname.json', JSON.stringify({ [P]: 'v', provenanceNote: 'x' }));
+      // JSON: provenance-named key whose value is not a string (array/object) -> only direct string values qualify -> other
+      w('inputs/dsc/prov-array.json', JSON.stringify({ provenance: [`${P} 1.0`] }));
+      // Markdown notes -> other
+      w('inputs/dsc/NOTES.md', `Notes mention \`${P}\` 1.3.0 as the preset.\n`);
+      // Builder script: only provenance assignments -> builderAssignment with line numbers
+      w('scripts/build-ok.py', ['d = {', "    'kind': 'x',", `    'screensProvenance': '${P} 1.3.0 dist/tailwind.config.js',`, '}', `provenance = "${P}"`, `d["sourceProvenance"] = '${P}'`, ''].join('\n'));
+      // Builder script: provenance assignment plus a changelog entry with the string -> other
+      w('scripts/build-mixed.py', [`    'screensProvenance': '${P} 1.3.0',`, `    {'kind': 'specification', 'evidence': 'via ${P}', 'provenanceNote': 'y'},`, ''].join('\n'));
+      // Builder script: provenance key but a second statement on the same line -> other
+      w('scripts/build-sneaky.mjs', `const screensProvenance = '${P}'; import x from '${P}';\n`);
+      // .py outside scripts/, lockfile and manifest mention -> other
+      w('tools/build.py', `screensProvenance = '${P}'\n`);
+      w('pnpm-lock.yaml', `  '${P}/preset':\n    specifier: 1\n`);
+      w('package.json', JSON.stringify({ dependencies: { [P + '/preset']: '1.0.0' } }));
+      // pattern 0 inside a provenance field is classified by the same rule (field designation, not by string)
+      w('inputs/dsc/p0.json', JSON.stringify({ iconsProvenance: P0 }));
+      const scan = forbiddenStringScan(root);
+      const cls = (f, i) => scan.hits.find((h) => h.file === f && (i === undefined || h.patternIndex === i));
+      add('licence r3.1: JSON with every occurrence inside provenance string values (any depth, *Provenance suffix) -> provenanceField with the field paths',
+        cls('inputs/dsc/prov-only.json')?.classification === 'provenanceField' && cls('inputs/dsc/prov-only.json').fields.join() === '/screensProvenance,/nested/deep/sourceProvenance', JSON.stringify(cls('inputs/dsc/prov-only.json')));
+      add('licence r3.1: JSON with a second occurrence outside a provenance field (evidence) -> other',
+        cls('inputs/dsc/prov-and-evidence.json')?.classification === 'other' && cls('inputs/dsc/prov-and-evidence.json').occurrencesElsewhere === 1, JSON.stringify(cls('inputs/dsc/prov-and-evidence.json')));
+      add('licence r3.1: JSON key name containing the string, or a provenance key holding an array -> other',
+        cls('inputs/dsc/keyname.json')?.classification === 'other' && cls('inputs/dsc/prov-array.json')?.classification === 'other');
+      add('licence r3.1: markdown notes -> other', cls('inputs/dsc/NOTES.md')?.classification === 'other');
+      add('licence r3.1: scripts/*.py with only provenance assignments (dict entry, name = "..", d["xProvenance"] = ..) -> builderAssignment with line numbers 3,5,6',
+        cls('scripts/build-ok.py')?.classification === 'builderAssignment' && cls('scripts/build-ok.py').lines.join() === '3,5,6', JSON.stringify(cls('scripts/build-ok.py')));
+      add('licence r3.1: builder script with a non-provenance line containing the string -> other (lists the offending line)',
+        cls('scripts/build-mixed.py')?.classification === 'other' && cls('scripts/build-mixed.py').otherLines.join() === '2' && cls('scripts/build-mixed.py').provenanceAssignmentLines.join() === '1', JSON.stringify(cls('scripts/build-mixed.py')));
+      add('licence r3.1: a provenance key followed by a second statement on the same line, a .py outside scripts/, a lockfile and a package manifest -> other',
+        ['scripts/build-sneaky.mjs', 'tools/build.py', 'pnpm-lock.yaml', 'package.json'].every((f) => cls(f)?.classification === 'other'));
+      add('licence r3.1: pattern 0 is detected and judged by the same field rule (no pattern removed or relaxed)', cls('inputs/dsc/p0.json', 0)?.classification === 'provenanceField' && scan.patternsChecked === 3);
+      add('licence r3.1: every hit still counted and listed (detection unchanged): hitCount equals the number of hits, classificationCounts add up',
+        scan.hitCount === scan.hits.length && scan.hitCount === 13 && scan.classificationCounts.provenanceField === 2 && scan.classificationCounts.builderAssignment === 1 && scan.classificationCounts.other === 10, JSON.stringify([scan.hitCount, scan.classificationCounts]));
+      add('licence r3.1: assignment-line recogniser accepts dict/assign forms and rejects comparison, call, or non-provenance keys',
+        ["'screensProvenance': 'a',", 'provenance = "a"', 'const sourceProvenance = `a`;', 'x.screensProvenance = "a"'].every(isProvenanceAssignmentLine)
+        && !["'evidence': 'a',", 'provenance == "a"', 'foo("provenance", "a")', "'provenanceNote': 'a'", "provenance = 'a' + other"].some(isProvenanceAssignmentLine));
+      add('licence r3.1: classifyHitOnDisk (summarise-time re-derivation) agrees with the scan-time classification', classifyHitOnDisk(root, 'scripts/build-ok.py', 1).classification === 'builderAssignment' && classifyHitOnDisk(root, 'missing.json', 1).classification === 'other');
+
+      // Row judgement: r3 (and r1/r2) any hit fails; r3.1 passes only when every hit is provenanceField/builderAssignment. Stored hits without classification are re-derived from disk.
+      const mkRun = (name, forb, criteria) => {
+        const d = ensureDir(path.join(tmpOut, name));
+        writeJson(path.join(d, 'run.json'), { label: name, criteria });
+        writeJson(path.join(d, 'C', 'licence.json'), { licenceLines: { matchCount: 0, matchCountExclImports: 0, importLineMatchCount: 0, uniqueMatchingHashes: 0, scannedLines: 0, referenceLines: 0, matches: [] }, forbiddenStrings: forb });
+        return d;
+      };
+      const row = (dir, crit) => { summarise(dir, { criteria: crit, suffix: `-${crit}` }); return readJson(path.join(dir, `summary-${crit}.json`))?.arms?.C?.checks?.find((c) => c.name.startsWith('forbidden strings')); };
+      const subset = (files) => ({ ...scan, hits: scan.hits.filter((h) => files.includes(h.file)), hitCount: scan.hits.filter((h) => files.includes(h.file)).length });
+      const okOnly = subset(['inputs/dsc/prov-only.json', 'scripts/build-ok.py']);
+      const withMd = subset(['inputs/dsc/prov-only.json', 'scripts/build-ok.py', 'inputs/dsc/NOTES.md']);
+      const dOk = mkRun('ok', okOnly, 'r3'), dMd = mkRun('md', withMd, 'r3');
+      const stripped = { ...withMd, hits: withMd.hits.map(({ file, patternIndex }) => ({ file, patternIndex })) }; // shape of a run r3 licence.json
+      const dOld = mkRun('old', stripped, 'r3');
+      const rOkR3 = row(dOk, 'r3'), rOkR2 = row(dOk, 'r2'), rOkR31 = row(dOk, 'r3.1'), rMdR3 = row(dMd, 'r3'), rMdR31 = row(dMd, 'r3.1'), rOldR31 = row(dOld, 'r3.1'), rOldR3 = row(dOld, 'r3');
+      add('licence r3.1 row: provenanceField + builderAssignment hits only -> PASS under r3.1, still FAIL under r3 and r2 (judgement of earlier criteria unchanged)',
+        rOkR31?.status === 'PASS' && rOkR3?.status === 'FAIL' && rOkR2?.status === 'FAIL', JSON.stringify([rOkR31?.status, rOkR3?.status, rOkR2?.status]));
+      add('licence r3.1 row: an `other` (markdown) hit fails the row under r3.1 and r3', rMdR31?.status === 'FAIL' && rMdR3?.status === 'FAIL' && rMdR31.value.counts.other === 1);
+      add('licence r3.1 row: value lists every hit with its classification and the builder line numbers',
+        rOkR31?.value?.listing?.length === 2 && rOkR31.value.listing.some((l) => l.includes('scripts/build-ok.py') && l.includes('builderAssignment lines 3,5,6')) && rOkR31.value.listing.some((l) => l.includes('provenanceField')), JSON.stringify(rOkR31?.value?.listing));
+      add('licence r3.1 row: stored hits without a classification are re-derived from the files on disk and the row says so',
+        rOldR31?.status === 'FAIL' && rOldR31.value.counts.other === 1 && rOldR31.value.counts.builderAssignment === 1 && rOldR31.value.counts.provenanceField === 1 && /re-derived from the files? on disk/.test(rOldR31.value.classificationSource) && rOldR3?.status === 'FAIL', JSON.stringify(rOldR31?.value?.counts));
+      const s31 = readJson(path.join(dOk, 'summary-r3.1.json'));
+      add('licence r3.1: summarise accepts --criteria r3.1 (summary labelled r3.1, licence threshold text names the classification)', s31?.criteria === 'r3.1' && /provenanceField/.test(s31.thresholds.licence) && fs.readFileSync(path.join(dOk, 'summary-r3.1.md'), 'utf8').includes('Criteria: **r3.1**'));
+    } finally { fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(tmpOut, { recursive: true, force: true }); }
   }
   // unit checks of the r2 refinements
   {

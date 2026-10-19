@@ -5,6 +5,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { judgeGovernedR3, parseUngoverned } from './src/tokenrules.mjs';
+import { classifyHitOnDisk } from './src/licence.mjs';
 
 const HARNESS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ARM_ORDER = ['A', 'B', 'Bp', 'C', 'Cssr'];
@@ -21,6 +22,10 @@ const R2_OVERRIDES = {
   licence: 'C only: 0 matching lines >= 40 chars against Arm A reference source excluding pure import/export-from lines (reported separately); 0 forbidden-string hits (supplementary, not proof)',
 };
 // r3 = r2 + D-6 (token accounting) + D-7 (frozen-hash / verify-script selection); sweep widths now include the DSC boundaries.
+// r3.1 (amendment under OD-47) = r3 except the forbidden-string row: hits are classified by field designation, not by string.
+const R31_OVERRIDES = {
+  licence: 'C only: 0 matching lines >= 40 chars against Arm A reference source (supplementary, not proof); forbidden strings (all 3 patterns, every hit still detected and listed): each hit is classified and the row passes only when every hit is provenanceField (.json file, every occurrence inside the string value of a key named provenance / screensProvenance / *Provenance, found by walking the parsed JSON) or builderAssignment (scripts/*.py|ts|mjs|js, every line containing the string is a provenance-key assignment or dictionary entry); any other hit (markdown notes, source, generated files, lockfiles, package manifests, mixed files) fails it',
+};
 const R3_OVERRIDES = {
   responsive: 'column counts and padding-top of the nearest <section> (or data-fs-id section root) containing the route heading equal to A at every sweep width (the 64px series 375..1440 plus every DSC screens[]/breakpoints[] minWidth and minWidth-1 inside 375..1440) and no horizontal overflow',
   tokenIntegrity: 'C only: boundShare over DSC-governed declarations = 100% and 0 DSC token mismatches/missing. D-6 accounting: zero lengths (0, 0px, 0rem, 0em, 0%, -0px, all-zero multi-values) are neutral; a literal is excluded when generated-manifest.json ungoverned[] covers it (strict: same file basename; loose: stylesheet not identifiable; viaShorthand: each non-zero component covered on its axis, padding-left/right <-> padding-inline, padding-top/bottom <-> padding-block, row/column-gap <-> gap, border-*-radius <-> border-radius, and the shorthands); raw share is informational',
@@ -54,7 +59,7 @@ const sig = (r) => [r.tag, r.role, r.level, r.text].join('|');
  */
 export function governedView(tok, criteria, { det = null, manifestPath = null, runDir = null } = {}) {
   const al = tok.arm_level || {};
-  if (criteria !== 'r3') return { gv: al.governedR2 || al.governed, rejudged: false, source: 'stored (r2 rule)' };
+  if (criteria !== 'r3' && criteria !== 'r3.1') return { gv: al.governedR2 || al.governed, rejudged: false, source: 'stored (r2 rule)' };
   if (al.governed?.rule === 'r3' || al.governed?.unavailable) return { gv: al.governed, rejudged: false, source: 'stored (r3 measurement)' };
   const lits = al.rawLiterals || al.literalSamples;
   if (!lits || lits.length !== al.literalDecls) {
@@ -89,8 +94,9 @@ export function governedView(tok, criteria, { det = null, manifestPath = null, r
 }
 
 export function summarise(runDir, { criteria = 'r3', suffix = '', outDir = null, manifestPath = null } = {}) {
-  if (!['r1', 'r2', 'r3'].includes(criteria)) throw new Error(`unknown --criteria ${criteria} (r1|r2|r3)`);
-  const R3 = criteria === 'r3';
+  if (!['r1', 'r2', 'r3', 'r3.1'].includes(criteria)) throw new Error(`unknown --criteria ${criteria} (r1|r2|r3|r3.1)`);
+  const R31 = criteria === 'r3.1'; // r3.1 = r3 + the OD-47 classification of forbidden-string hits (nothing else differs)
+  const R3 = criteria === 'r3' || R31;
   const R2 = criteria === 'r2' || R3; // r3 keeps every r2 refinement
   runDir = path.resolve(runDir);
   const writeDir = outDir ? path.resolve(outDir) : runDir;
@@ -109,7 +115,7 @@ export function summarise(runDir, { criteria = 'r3', suffix = '', outDir = null,
   const A = data.A || null;
   const tokenAccounting = {};
   let determinismInputs = null;
-  const out = { runDir, label: run.label || path.basename(runDir), generatedAt: new Date().toISOString(), dryRun: !!run.dryRun, criteria, referencePresent: !!A, thresholds: R3 ? { ...THRESHOLDS, ...R2_OVERRIDES, ...R3_OVERRIDES } : R2 ? { ...THRESHOLDS, ...R2_OVERRIDES } : THRESHOLDS, arms: {} };
+  const out = { runDir, label: run.label || path.basename(runDir), generatedAt: new Date().toISOString(), dryRun: !!run.dryRun, criteria, referencePresent: !!A, thresholds: R3 ? { ...THRESHOLDS, ...R2_OVERRIDES, ...R3_OVERRIDES, ...(R31 ? R31_OVERRIDES : {}) } : R2 ? { ...THRESHOLDS, ...R2_OVERRIDES } : THRESHOLDS, arms: {} };
   out.runCriteria = run.criteria || null;
 
   for (const arm of arms) {
@@ -362,7 +368,22 @@ export function summarise(runDir, { criteria = 'r3', suffix = '', outDir = null,
           value: { importLineMatchCount: l.importLineMatchCount, locations: l.importLineMatches?.slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
         add({ dimension: 'licence', route: '-', name: R2 ? 'matching non-import lines >= 40 chars vs Arm A source (supplementary, not proof)' : 'matching lines >= 40 chars vs Arm A source (supplementary, not proof)', threshold: '0', status: nonImport === 0 ? 'PASS' : 'FAIL',
           value: { matchCount: nonImport, uniqueHashes: l.uniqueMatchingHashes, scannedLines: l.scannedLines, referenceLines: l.referenceLines, locations: l.matches?.filter((m) => !(R2 && m.importLine)).slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
-        add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir', threshold: '0 hits', status: fb.hitCount === 0 ? 'PASS' : 'FAIL', value: { hitCount: fb.hitCount, filesScanned: fb.filesScanned, hits: fb.hits?.slice(0, 20) } });
+        if (R31) {
+          // r3.1 (OD-47): every hit is still listed; it passes only when every hit is provenanceField or builderAssignment.
+          let rederived = 0;
+          const hits = (fb.hits || []).map((h) => {
+            if (h.patternIndex === undefined) return h; // 'skipped: larger than limit' notes are not hits
+            if (h.classification) return { ...h, classificationSource: 'stored in licence.json (scan-time)' };
+            rederived++;
+            return { ...h, ...classifyHitOnDisk(fb.root, h.file, h.patternIndex), classificationSource: `re-derived from the file on disk under ${fb.root} at summarise time (the stored hit has no classification)` };
+          });
+          const real = hits.filter((h) => h.patternIndex !== undefined);
+          const counts = { provenanceField: 0, builderAssignment: 0, other: 0 };
+          real.forEach((h) => { counts[h.classification === 'provenanceField' || h.classification === 'builderAssignment' ? h.classification : 'other']++; });
+          const listing = real.map((h) => `${h.file} [pattern ${h.patternIndex}] ${h.classification}${h.classification === 'builderAssignment' ? ` lines ${h.lines.join(',')}` : ''}${h.classification === 'provenanceField' ? ` ${h.fields.join(',')}` : ''}${h.classification === 'other' && h.reason ? ` - ${h.reason}` : ''}`);
+          add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir (r3.1: provenance fields / builder assignments only)', threshold: '0 hits other than provenanceField or builderAssignment', status: counts.other === 0 ? 'PASS' : 'FAIL',
+            value: { criteria: 'r3.1 (amendment under OD-47)', hitCount: fb.hitCount, filesScanned: fb.filesScanned, counts, classificationSource: rederived ? `${rederived} of ${real.length} hit(s) re-derived from the files on disk at summarise time (the stored licence.json hits carry no classification); the files may have changed since the run` : 'stored in licence.json', listing, hits: hits.slice(0, 50) } });
+        } else add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir', threshold: '0 hits', status: fb.hitCount === 0 ? 'PASS' : 'FAIL', value: { hitCount: fb.hitCount, filesScanned: fb.filesScanned, hits: fb.hits?.slice(0, 20) } });
       } else add({ dimension: 'licence', route: '-', name: 'licence check', threshold: '0', status: 'MISSING', value: 'step not run (run after C is frozen: --licence)' });
     }
 
@@ -406,7 +427,8 @@ const short = (v, n = 160) => { const s = cell(v); return s.length > n ? s.slice
 function renderMd(s) {
   const L = [];
   L.push(`# PEN-CLOUD-03-B acceptance summary${s.dryRun ? ' (DRY RUN - stub arms, not a result)' : ''}`, '');
-  const critNote = s.criteria === 'r3' ? ' (= r2: semantic roles only; section padding; root-relative FROZEN; import lines excluded - plus D-6 token accounting and D-7 FROZEN/verify-script selection)'
+  const critNote = s.criteria === 'r3.1' ? ' (= r3, plus the OD-47 amendment: forbidden-string hits are classified provenanceField / builderAssignment / other and only `other` hits fail; patterns and detection unchanged)'
+    : s.criteria === 'r3' ? ' (= r2: semantic roles only; section padding; root-relative FROZEN; import lines excluded - plus D-6 token accounting and D-7 FROZEN/verify-script selection)'
     : s.criteria === 'r2' ? ' (semantic: roles only; governed token share; section padding; root-relative FROZEN; import lines excluded)' : ' (original acceptance wording)';
   L.push(`Criteria: **${s.criteria}**${critNote}${s.runCriteria && s.runCriteria !== s.criteria ? `  ·  re-judged: the run was recorded under ${s.runCriteria}` : ''}`, '');
   if (s.determinismInputs) {
@@ -481,8 +503,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     else pos.push(args[i]);
   }
   if (!pos.length) {
-    console.error('usage: node summarise.mjs <run-dir> [--criteria r1|r2|r3] [--out <dir>] [--suffix <s>] [--manifest <file>]\n'
-      + '  default criteria r3. When the criteria differ from the ones the run was recorded under, the files are written as summary-<criteria>.{json,md}\n'
+    console.error('usage: node summarise.mjs <run-dir> [--criteria r1|r2|r3|r3.1] [--out <dir>] [--suffix <s>] [--manifest <file>]\n'
+      + '  default criteria r3 (OD-51). When the criteria differ from the ones the run was recorded under, the files are written as summary-<criteria>.{json,md}\n'
       + '  so the original summary is not overwritten; --out writes into another directory instead of the run directory.');
     process.exit(2);
   }

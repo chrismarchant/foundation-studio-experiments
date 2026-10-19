@@ -62,6 +62,83 @@ export function licenceCheck({ armCDir, relumeSrc }) {
   };
 }
 
+// ---------------------------------------------------------------------------------------------------------------
+// Criteria r3.1 (amendment under OD-47): classification of forbidden-string hits. Detection is unchanged (every hit
+// is still found and listed); only the judgement under --criteria r3.1 uses the classification. The exemption is by
+// field designation, never by string: no package name is allow-listed.
+//   provenanceField   .json file; EVERY occurrence of the matched string lies inside the string value of a key named
+//                     `provenance` or `screensProvenance` or ending in `Provenance` (any depth; found by walking the parsed JSON).
+//   builderAssignment file under scripts/ with a .py/.ts/.mjs/.js extension; EVERY line containing the string is an
+//                     assignment / dictionary entry whose key is `provenance`, `screensProvenance` or ends in `Provenance`
+//                     and whose value is a single string literal.
+//   other             everything else (markdown, source, generated files, lockfiles, manifests, mixed files).
+// ---------------------------------------------------------------------------------------------------------------
+export const CLASSIFICATION_RULE = 'r3.1';
+export const isProvenanceKey = (k) => typeof k === 'string' && (k === 'provenance' || k === 'screensProvenance' || k.endsWith('Provenance'));
+const countOcc = (hay, needle) => { let n = 0, i = 0; while ((i = hay.indexOf(needle, i)) !== -1) { n++; i += needle.length; } return n; };
+
+// Walk parsed JSON; count occurrences inside string values held directly by a provenance-named key, and in everything else.
+function walkJson(node, needle, state, ptr = '') {
+  if (Array.isArray(node)) { node.forEach((v, i) => walkJson(v, needle, state, `${ptr}/${i}`)); return; }
+  if (node && typeof node === 'object') {
+    for (const [k, v] of Object.entries(node)) {
+      const here = `${ptr}/${k}`;
+      state.outside += countOcc(k, needle); // an occurrence in a key name is never inside a value
+      if (typeof v === 'string') {
+        const n = countOcc(v, needle);
+        if (n) { if (isProvenanceKey(k)) { state.inside += n; state.fields.push(here); } else { state.outside += n; state.outsidePaths.push(here); } }
+      } else walkJson(v, needle, state, here);
+    }
+    return;
+  }
+  if (typeof node === 'string') { const n = countOcc(node, needle); if (n) { state.outside += n; state.outsidePaths.push(ptr || '/'); } }
+}
+
+const KEY_RE = '(?:provenance|screensProvenance|[A-Za-z0-9_$]*Provenance)';
+const STR_RE = '(?:[rRbBuUfF]{0,2}(?:\'(?:[^\'\\\\]|\\\\.)*\'|"(?:[^"\\\\]|\\\\.)*")|`[^`$\\\\]*`)';
+// `'key': 'literal'`, `key: 'literal'`, `key = 'literal'`, `const key = '...'`, `obj.key = '...'`, `d['key'] = '...'`; optional trailing , or ; and comment.
+const ASSIGN_RES = [
+  new RegExp(`^\\s*(?:(?:const|let|var)\\s+)?(?:['"]${KEY_RE}['"]|${KEY_RE})\\s*[:=](?![=>])\\s*${STR_RE}\\s*[,;]?\\s*(?:#.*|//.*)?$`),
+  new RegExp(`^\\s*(?:[A-Za-z_$][\\w$.]*)?\\[\\s*['"]${KEY_RE}['"]\\s*\\]\\s*=(?!=)\\s*${STR_RE}\\s*[,;]?\\s*(?:#.*|//.*)?$`),
+  new RegExp(`^\\s*(?:[A-Za-z_$][\\w$]*\\.)+${KEY_RE}\\s*=(?!=)\\s*${STR_RE}\\s*[,;]?\\s*(?:#.*|//.*)?$`),
+];
+export const isProvenanceAssignmentLine = (line) => ASSIGN_RES.some((re) => re.test(line));
+const BUILDER_EXT = new Set(['.py', '.ts', '.mjs', '.js']);
+
+/** Classify one hit (file relative to the scan root, contents as a Buffer, needle = the matched string). */
+export function classifyHitContent(file, buf, needle) {
+  const ext = path.posix.extname(file).toLowerCase();
+  const text = buf.toString('utf8');
+  const total = countOcc(text, needle);
+  if (ext === '.json') {
+    let parsed;
+    try { parsed = JSON.parse(text); } catch (e) { return { classification: 'other', occurrences: total, reason: 'json file does not parse; cannot locate the occurrences by walking values' }; }
+    const st = { inside: 0, outside: 0, fields: [], outsidePaths: [] };
+    walkJson(parsed, needle, st);
+    // Raw count must be fully accounted for by occurrences inside provenance string values (guards against escapes / duplicate keys).
+    if (st.inside > 0 && st.outside === 0 && st.inside === total) return { classification: 'provenanceField', occurrences: total, fields: st.fields };
+    return { classification: 'other', occurrences: total, occurrencesInProvenanceFields: st.inside, occurrencesElsewhere: total - st.inside, provenanceFields: st.fields, elsewhere: st.outsidePaths.slice(0, 20),
+      reason: `json: ${total - st.inside} of ${total} occurrence(s) are not inside the string value of a provenance-named key` };
+  }
+  if (file.startsWith('scripts/') && BUILDER_EXT.has(ext)) {
+    const ok = [], bad = [];
+    text.split(/\r?\n/).forEach((l, i) => { if (l.includes(needle)) (isProvenanceAssignmentLine(l) ? ok : bad).push(i + 1); });
+    if (ok.length && !bad.length) return { classification: 'builderAssignment', occurrences: total, lines: ok };
+    return { classification: 'other', occurrences: total, provenanceAssignmentLines: ok, otherLines: bad.slice(0, 50), otherLineCount: bad.length,
+      reason: `builder script: ${bad.length} line(s) containing the string are not a provenance-key assignment` };
+  }
+  return { classification: 'other', occurrences: total, reason: `not a provenance-designated file type (${ext || 'no extension'}${file.startsWith('scripts/') ? ', under scripts/' : ''})` };
+}
+
+/** Classify a hit by reading the file from disk (used by summarise when a stored hit has no classification). */
+export function classifyHitOnDisk(root, file, patternIndex) {
+  const needle = FORBIDDEN[patternIndex];
+  if (needle === undefined) return { classification: 'other', reason: `unknown patternIndex ${patternIndex}` };
+  let buf;
+  try { buf = fs.readFileSync(path.join(root, file)); } catch { return { classification: 'other', reason: `file not readable at ${path.join(root, file)}; cannot classify (treated as other)` }; }
+  return classifyHitContent(file, buf, needle);
+}
+
 export function forbiddenStringScan(root) {
   const hits = [];
   let scanned = 0;
@@ -71,7 +148,10 @@ export function forbiddenStringScan(root) {
     if (st.size > MAX_BYTES) { hits.push({ file: f, note: 'skipped: larger than limit' }); continue; }
     const buf = fs.readFileSync(full);
     scanned++;
-    FORBIDDEN.forEach((s, i) => { if (buf.includes(s)) hits.push({ file: f, patternIndex: i }); });
+    FORBIDDEN.forEach((s, i) => { if (buf.includes(s)) hits.push({ file: f, patternIndex: i, ...classifyHitContent(f, buf, s) }); });
   }
-  return { root, patternsChecked: FORBIDDEN.length, filesScanned: scanned, hitCount: hits.filter((h) => h.patternIndex !== undefined).length, hits };
+  const real = hits.filter((h) => h.patternIndex !== undefined);
+  const by = (c) => real.filter((h) => h.classification === c).length;
+  return { root, patternsChecked: FORBIDDEN.length, filesScanned: scanned, hitCount: real.length,
+    classificationRule: CLASSIFICATION_RULE, classificationCounts: { provenanceField: by('provenanceField'), builderAssignment: by('builderAssignment'), other: by('other') }, hits };
 }
