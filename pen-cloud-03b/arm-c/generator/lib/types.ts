@@ -7,9 +7,18 @@ export interface DscToken {
   external?: Record<string, unknown>;
 }
 
+/** Relume screen (DSC r3 `screens`): min-width plus the container width that applies from it. */
+export interface DscScreen {
+  id: string;
+  minWidth: number;
+  container: string;
+}
+
 export interface DscBreakpoint {
   id: string;
   minWidth: number;
+  /** Screen this design tier coincides with (DSC r3); null = below the smallest screen layer (base). */
+  screen?: string | null;
   canvas: number;
   container: number;
   sidePadding: string;
@@ -33,6 +42,8 @@ export interface DscComponent {
   responsive?: Record<string, Record<string, unknown>>;
   // biome-ignore lint/suspicious/noExplicitAny: DSC interaction blocks are free-form specs
   interaction?: Record<string, any>;
+  // biome-ignore lint/suspicious/noExplicitAny: DSC layout blocks are free-form specs
+  layout?: Record<string, any>;
 }
 
 export interface Dsc {
@@ -41,6 +52,8 @@ export interface Dsc {
   revision: string;
   tokens: { entries: DscToken[] };
   breakpoints: DscBreakpoint[];
+  /** DSC r3 and later; absent in r1/r2. */
+  screens?: DscScreen[];
   components: DscComponent[];
   typography?: { family: string };
 }

@@ -27,11 +27,21 @@ export const BROWSER_CONTEXT = {
 
 export const SWEEP_ROUTES = ['layout620', 'testimonial37', 'header80', 'page'];
 export const SWEEP_HEIGHT = 900;
-export function sweepWidths() {
-  const w = [];
-  for (let x = 375; x <= 1440; x += 64) w.push(x);
-  if (w[w.length - 1] !== 1440) w.push(1440); // always include the desktop canvas
-  return w;
+export const SWEEP_MIN = 375;
+export const SWEEP_MAX = 1440;
+
+/**
+ * Responsive sweep widths (r3 rule): the 64-px series 375..1440 (1440 always included) united with every
+ * `screens[].minWidth` and `breakpoints[].minWidth` of the DSC and each of those minus one, clipped to
+ * [375, 1440], sorted, unique. A DSC without `screens` (r1/r2) contributes its breakpoints only.
+ */
+export function sweepWidths(dsc = loadDsc()) {
+  const set = new Set();
+  for (let x = SWEEP_MIN; x <= SWEEP_MAX; x += 64) set.add(x);
+  set.add(SWEEP_MAX); // always include the desktop canvas
+  const mins = [...(dsc.screens || []), ...(dsc.breakpoints || [])].map((s) => s && s.minWidth).filter((m) => Number.isFinite(m));
+  for (const m of mins) for (const x of [m, m - 1]) if (x >= SWEEP_MIN && x <= SWEEP_MAX) set.add(x);
+  return [...set].sort((a, b) => a - b);
 }
 
 export const PROBE_P = [0, 0.25, 0.5, 0.75, 1];
@@ -56,10 +66,28 @@ export const EXPECTED = {
 export const PAGE_SECTIONS = ['navbar', 'header80', 'layout620', 'testimonial37', 'cta25'];
 
 export function loadJson(p) { return JSON.parse(fs.readFileSync(p, 'utf8')); }
-export function loadDsc() { return loadJson(path.join(INPUTS_DIR, 'dsc', 'fs.ds.relume-default.r1.json')); }
+
+// DSC selection: `--dsc <path relative to ../inputs>`; default r3 when that file exists, else r2.
+export const DSC_DEFAULT_CANDIDATES = ['dsc/fs.ds.relume-default.r3.json', 'dsc/fs.ds.relume-default.r2.json'];
+export function defaultDscRel() {
+  return DSC_DEFAULT_CANDIDATES.find((c) => fs.existsSync(path.join(INPUTS_DIR, c))) || DSC_DEFAULT_CANDIDATES[DSC_DEFAULT_CANDIDATES.length - 1];
+}
+let activeDscRel = null;
+/** Select the DSC used by every later loadDsc() call (relative to ../inputs). Returns the path used. */
+export function setDscRel(rel) {
+  const r = rel || defaultDscRel();
+  if (!fs.existsSync(path.join(INPUTS_DIR, r))) throw new Error(`--dsc ${r}: no such file under ${INPUTS_DIR}`);
+  activeDscRel = r;
+  return r;
+}
+export function getDscRel() { return activeDscRel || defaultDscRel(); }
+export function loadDsc(rel = getDscRel()) { return loadJson(path.join(INPUTS_DIR, rel)); }
 export function loadCopy() { return loadJson(path.join(INPUTS_DIR, 'copy.json')); }
 
-/** DSC breakpoints → bp name for an arbitrary width (desktop >=1024, tablet >=768, else mobile). */
+/**
+ * DSC breakpoint tiers (`breakpoints`, never `screens`) → bp name for an arbitrary width.
+ * r1/r2: desktop >=1024; r3: desktop >=992 (tablet >=768, else mobile). Arm B's `?bp=` follows these tiers.
+ */
 export function bpForWidth(width, dsc) {
   const bps = [...dsc.breakpoints].sort((a, b) => b.minWidth - a.minWidth);
   const hit = bps.find((b) => width >= b.minWidth) || bps[bps.length - 1];

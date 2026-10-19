@@ -8,7 +8,8 @@ import {
   EXPECTED, PAGE_SECTIONS, loadCopy, loadDsc, bpForWidth,
 } from './config.mjs';
 import * as PS from './page-scripts.mjs';
-import { ensureDir, writeJson, sleep, round } from './util.mjs';
+import { ensureDir, writeJson, sleep, round, sha256 } from './util.mjs';
+import { normaliseTokenValue, parseUngoverned, judgeGovernedR3, judgeGovernedLegacy } from './tokenrules.mjs';
 
 export async function launchBrowser() {
   return chromium.launch({ headless: true });
@@ -211,7 +212,7 @@ export async function measureResponsive({ browser, arm, log = () => {} }) {
   const copy = loadCopy();
   const dsc = loadDsc();
   const out = {};
-  for (const width of sweepWidths()) {
+  for (const width of sweepWidths(dsc)) {
     const ctx = await newCtx(browser, width, SWEEP_HEIGHT);
     for (const route of SWEEP_ROUTES) {
       const url = urlFor(arm, route, width, dsc);
@@ -271,67 +272,34 @@ export async function measureScrollProbe({ browser, arm, log = () => {} }) {
 }
 
 // ---------- aggregate token integrity ----------
-function normaliseHex(v) {
-  let s = String(v).trim().toLowerCase();
-  let m = /^#([0-9a-f]{3})$/.exec(s);
-  if (m) return '#' + m[1].split('').map((c) => c + c).join('');
-  m = /^#([0-9a-f]{6})([0-9a-f]{2})?$/.exec(s);
-  if (m) return m[2] && m[2] !== 'ff' ? '#' + m[1] + m[2] : '#' + m[1];
-  m = /^rgba?\(\s*(\d+)[\s,]+(\d+)[\s,]+(\d+)(?:[\s,/]+([\d.]+))?\s*\)$/.exec(s);
-  if (m && (m[4] === undefined || Number(m[4]) === 1)) return '#' + [m[1], m[2], m[3]].map((n) => Number(n).toString(16).padStart(2, '0')).join('');
-  return null;
-}
-export function normaliseTokenValue(v) {
-  const s = String(v).trim();
-  const hex = normaliseHex(s);
-  if (hex) return hex;
-  let m = /^(-?\d*\.?\d+)(px|rem|em)?$/i.exec(s);
-  if (m) {
-    const n = Number(m[1]);
-    const u = (m[2] || '').toLowerCase();
-    if (u === 'rem') return `${round(n * 16, 4)}px`;
-    if (u === '' && n === 0) return '0px';
-    return `${round(n, 4)}${u}`;
-  }
-  return s.replace(/["']/g, '').replace(/\s*,\s*/g, ',').replace(/\s+/g, ' ').toLowerCase();
-}
+// Value normalisation and the manifest-coverage rules live in tokenrules.mjs (shared with summarise.mjs).
+export { normaliseTokenValue };
 const squash = (s) => s.replace(/[-_.]/g, '').toLowerCase();
 
 /** Read generated-manifest.json `ungoverned[]` (entries {file, property, value, reason, source}). */
 export function loadUngovernedManifest(file) {
   try {
     const j = JSON.parse(fs.readFileSync(file, 'utf8'));
-    const entries = Array.isArray(j.ungoverned) ? j.ungoverned : [];
-    return { path: file, entries, count: entries.length, reasons: [...new Set(entries.map((e) => e.reason))].slice(0, 20) };
+    const u = parseUngoverned(j);
+    return { path: file, ...u, dscRevision: j.dsc?.revision ?? null, sha256: sha256(fs.readFileSync(file)) };
   } catch (e) { return { path: file, entries: null, error: String(e.message || e).slice(0, 200) }; }
 }
 
 /**
- * Coverage of a literal declaration by the manifest:
- *  strict = same file basename + property + value;
- *  loose  = same property + value where the stylesheet is not identifiable as any manifest file (e.g. a hashed bundle).
+ * Token integrity over all pages. Raw classes come from the browser (`var`, `literal`, `otherVar`, `neutral`, ...)
+ * and are not changed here, so r1/r2 numbers stay reproducible. On top of them two manifest accountings are made
+ * for C/C-SSR:
+ *   governed    : r3 rule (D-6) - zero lengths neutral, shorthand/longhand-aware coverage, `coverage` counts;
+ *   governedR2  : the r2 rule (exact strict/loose, `0px` still a literal), kept so `--criteria r2` is unchanged.
+ * `rawLiterals` is the complete union of literal declarations so a stored run can be re-judged by summarise.mjs.
  */
-export function makeCoverage(entries) {
-  const nv = (v) => normaliseTokenValue(String(v).replace(/\s*!important\s*$/i, ''));
-  const bn = (f) => String(f || '').split('?')[0].split('/').pop();
-  const files = new Set(entries.map((e) => bn(e.file)));
-  const strict = new Set(entries.map((e) => `${bn(e.file)}|${String(e.property).toLowerCase()}|${nv(e.value)}`));
-  const loose = new Set(entries.map((e) => `${String(e.property).toLowerCase()}|${nv(e.value)}`));
-  return (d) => {
-    const base = bn(d.sheet);
-    if (strict.has(`${base}|${d.prop}|${nv(d.value)}`)) return 'strict';
-    if (!files.has(base) && loose.has(`${d.prop}|${nv(d.value)}`)) return 'loose';
-    return null;
-  };
-}
-
 export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
-  const cover = manifest && manifest.entries ? makeCoverage(manifest.entries) : null;
+  const entries = manifest && manifest.entries ? manifest.entries : null;
+  const manifestInfo = entries ? { path: manifest.path, entries: manifest.count, reasons: manifest.reasons, dscRevision: manifest.dscRevision ?? null, sha256: manifest.sha256 ?? null } : null;
   const union = new Map();
   const perPage = {};
   const unreadable = new Set();
   let fsVars = {};
-  let rootProbe = {};
   for (const [route, byW] of Object.entries(tokenPages)) {
     for (const [w, t] of Object.entries(byW)) {
       if (t.error) { (perPage[route] ||= {})[w] = { error: t.error }; continue; }
@@ -343,11 +311,18 @@ export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
         if (!union.has(d.key)) union.set(d.key, d);
       }
       c.boundShare = c.var + c.literal ? round(c.var / (c.var + c.literal), 4) : null;
-      if (cover) {
+      if (entries) {
         const lit = t.decls.filter((d) => !d.shorthand && d.cls === 'literal');
-        c.excludedByManifest = lit.filter((d) => cover(d)).length;
-        c.governedLiteral = lit.length - c.excludedByManifest;
-        c.boundShareGoverned = c.var + c.governedLiteral ? round(c.var / (c.var + c.governedLiteral), 4) : null;
+        const g3 = judgeGovernedR3({ literals: lit, varDecls: c.var, entries });
+        const g2 = judgeGovernedLegacy({ literals: lit, varDecls: c.var, entries });
+        c.zeroLengthNeutral = g3.zeroLengthNeutral;
+        c.excludedByManifest = g3.excludedByManifest;
+        c.governedLiteral = g3.uncoveredLiteralDecls;
+        c.boundShareGoverned = g3.boundShareGoverned;
+        c.coverage = g3.coverage;
+        c.excludedByManifestR2 = g2.excludedByManifest;
+        c.governedLiteralR2 = g2.uncoveredLiteralDecls;
+        c.boundShareGovernedR2 = g2.boundShareGoverned;
       }
       c.decls = t.decls.length; c.inlineStyleElements = t.inlineStyleElements;
       (perPage[route] ||= {})[w] = c;
@@ -356,41 +331,27 @@ export function aggregateTokens({ arm, tokenPages, dsc, manifest = null }) {
     }
   }
   const tot = { var: 0, literal: 0, otherVar: 0, neutral: 0, unknown: 0, mixed: 0 };
-  const literalSamples = [];
-  const excl = { strict: 0, loose: 0, uncoveredTruncated: 0 };
-  const uncovered = [];
+  const rawLiterals = [];
   for (const d of union.values()) {
     if (d.shorthand) continue;
     tot[d.cls]++;
     if (d.cls === 'var' && d.mixed) tot.mixed++;
-    if (d.cls === 'literal' && literalSamples.length < 300) literalSamples.push({ selector: d.selector, prop: d.prop, value: d.value, sheet: d.sheet });
-    if (d.cls === 'literal' && cover) {
-      const how = cover(d);
-      if (how === 'strict') excl.strict++;
-      else if (how === 'loose') excl.loose++;
-      else if (uncovered.length < 300) uncovered.push({ selector: d.selector, prop: d.prop, value: d.value, sheet: d.sheet });
-      else excl.uncoveredTruncated++;
-    }
+    if (d.cls === 'literal') rawLiterals.push({ selector: d.selector, prop: d.prop, value: d.value, sheet: d.sheet });
   }
   const agg = {
     varDecls: tot.var, literalDecls: tot.literal, otherVarDecls: tot.otherVar, neutralDecls: tot.neutral, unreadableValueDecls: tot.unknown, mixedVarDecls: tot.mixed,
     boundShare: tot.var + tot.literal ? round(tot.var / (tot.var + tot.literal), 4) : null,
     boundShareStrict: tot.var + tot.literal + tot.otherVar ? round(tot.var / (tot.var + tot.literal + tot.otherVar), 4) : null,
-    uniqueDeclarations: union.size, literalSamples, unreadableSheets: [...unreadable],
+    uniqueDeclarations: union.size, literalSamples: rawLiterals.slice(0, 300), rawLiterals, unreadableSheets: [...unreadable],
   };
-  if (cover) {
-    const excluded = excl.strict + excl.loose;
-    const real = tot.literal - excluded;
-    agg.governed = {
-      manifest: { path: manifest.path, entries: manifest.count, reasons: manifest.reasons },
-      excludedByManifest: excluded, excludedStrict: excl.strict, excludedLoose: excl.loose,
-      uncoveredLiteralDecls: real, uncoveredLiterals: uncovered,
-      boundShareGoverned: tot.var + real ? round(tot.var / (tot.var + real), 4) : null,
-    };
+  if (entries) {
+    agg.governed = judgeGovernedR3({ literals: rawLiterals, varDecls: tot.var, entries, manifestInfo });
+    agg.governedR2 = judgeGovernedLegacy({ literals: rawLiterals, varDecls: tot.var, entries, manifestInfo });
   } else if (arm.isC) {
     agg.governed = { manifest: manifest ? { path: manifest.path, error: manifest.error } : null, unavailable: true };
   }
   const result = { arm: arm.id, arm_level: agg, perPage };
+  if (entries) result.manifestEntries = entries;
   if (arm.isC) result.tokens = compareTokens(dsc, fsVars);
   return result;
 }

@@ -2,8 +2,11 @@
 // Reads a harness run directory and emits summary.json + summary.md (PASS/FAIL against the PEN-CLOUD-03-B thresholds).
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { judgeGovernedR3, parseUngoverned } from './src/tokenrules.mjs';
 
+const HARNESS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ARM_ORDER = ['A', 'B', 'Bp', 'C', 'Cssr'];
 const ROUTES = ['button', 'navbar', 'header80', 'layout620', 'testimonial37', 'cta25', 'page'];
 const VPS = [1440, 768, 375];
@@ -16,6 +19,12 @@ const R2_OVERRIDES = {
   tokenIntegrity: 'C only: boundShare over DSC-governed declarations = 100% (literals listed in generated-manifest.json ungoverned[] are excluded and counted; raw share is informational) and 0 DSC token mismatches/missing',
   determinism: 'C only: pnpm generate:verify exit 0; every FROZEN.md entry (paths relative to the arm-c root: app/src/generated/**, generator/**) found on disk with an equal SHA-256; (bundle reproducibility reported separately)',
   licence: 'C only: 0 matching lines >= 40 chars against Arm A reference source excluding pure import/export-from lines (reported separately); 0 forbidden-string hits (supplementary, not proof)',
+};
+// r3 = r2 + D-6 (token accounting) + D-7 (frozen-hash / verify-script selection); sweep widths now include the DSC boundaries.
+const R3_OVERRIDES = {
+  responsive: 'column counts and padding-top of the nearest <section> (or data-fs-id section root) containing the route heading equal to A at every sweep width (the 64px series 375..1440 plus every DSC screens[]/breakpoints[] minWidth and minWidth-1 inside 375..1440) and no horizontal overflow',
+  tokenIntegrity: 'C only: boundShare over DSC-governed declarations = 100% and 0 DSC token mismatches/missing. D-6 accounting: zero lengths (0, 0px, 0rem, 0em, 0%, -0px, all-zero multi-values) are neutral; a literal is excluded when generated-manifest.json ungoverned[] covers it (strict: same file basename; loose: stylesheet not identifiable; viaShorthand: each non-zero component covered on its axis, padding-left/right <-> padding-inline, padding-top/bottom <-> padding-block, row/column-gap <-> gap, border-*-radius <-> border-radius, and the shorthands); raw share is informational',
+  determinism: 'C only: the FROZEN*.md whose "DSC revision:" equals generated-manifest.json dsc.revision and the generate:verify* script whose --dsc file has that revision are selected and recorded (D-7); that script exits 0; every entry of the selected FROZEN file (paths relative to the arm-c root) found on disk with an equal SHA-256; (bundle reproducibility reported separately)',
 };
 export const THRESHOLDS = {
   reference: 'A (Relume React control) at the same route/viewport',
@@ -36,10 +45,56 @@ const tol = 0.51;
 const fmtPct = (x) => (x == null ? 'n/a' : (x * 100).toFixed(x === 1 || x === 0 ? 0 : 2) + '%');
 const sig = (r) => [r.tag, r.role, r.level, r.text].join('|');
 
-export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
-  if (!['r1', 'r2'].includes(criteria)) throw new Error(`unknown --criteria ${criteria} (r1|r2)`);
-  const R2 = criteria === 'r2';
+/**
+ * Governed-token accounting for an arm-C token-integrity.json under the given criteria.
+ *  r1  : not used (raw boundShare).
+ *  r2  : the r2 rule (exact strict/loose; `0px` is a literal) - stored `governedR2`, or `governed` of an r2-era file.
+ *  r3  : the D-6 rule - stored `governed` when it was measured by an r3 harness, otherwise re-judged here from the
+ *        complete raw literal list and the manifest (verified against the run's recorded manifest hash).
+ */
+export function governedView(tok, criteria, { det = null, manifestPath = null, runDir = null } = {}) {
+  const al = tok.arm_level || {};
+  if (criteria !== 'r3') return { gv: al.governedR2 || al.governed, rejudged: false, source: 'stored (r2 rule)' };
+  if (al.governed?.rule === 'r3' || al.governed?.unavailable) return { gv: al.governed, rejudged: false, source: 'stored (r3 measurement)' };
+  const lits = al.rawLiterals || al.literalSamples;
+  if (!lits || lits.length !== al.literalDecls) {
+    return { gv: { unavailable: true, manifest: al.governed?.manifest ?? null }, rejudged: false,
+      source: `cannot re-judge: only ${lits ? lits.length : 0} of ${al.literalDecls} raw literal declarations are stored - the r3 accounting applies from the next run` };
+  }
+  const expectSha = al.governed?.manifest?.sha256 || det?.generated?.hashes?.['generated-manifest.json'] || null;
+  let entries = tok.manifestEntries, info = null;
+  if (entries) info = { path: al.governed?.manifest?.path ?? null, entries: entries.length, embedded: true };
+  else {
+    // The manifest the run measured may have been regenerated since: take the first candidate whose sha256 equals the one recorded by the run.
+    const cands = [manifestPath, al.governed?.manifest?.path, runDir && path.join(runDir, 'C', 'generated-manifest.json'),
+      runDir && path.join(HARNESS_DIR, 'rejudge', path.basename(runDir), 'generated-manifest.json')].filter(Boolean);
+    const tried = [];
+    for (const mp of cands) {
+      try {
+        const buf = fs.readFileSync(mp);
+        const sha = crypto.createHash('sha256').update(buf).digest('hex');
+        tried.push(`${mp} (${sha.slice(0, 12)})`);
+        if (expectSha && sha !== expectSha && mp !== manifestPath) continue; // an explicit --manifest is used as given, flagged below
+        const u = parseUngoverned(JSON.parse(buf.toString('utf8')));
+        entries = u.entries;
+        info = { path: mp, entries: u.count, reasons: u.reasons, sha256: sha, runRecordedSha256: expectSha, shaMatchesRun: expectSha ? sha === expectSha : null };
+        break;
+      } catch { /* try the next candidate */ }
+    }
+    if (!entries) return { gv: { unavailable: true, manifest: { runRecordedSha256: expectSha, tried } }, rejudged: false,
+      source: `cannot re-judge: no copy of the manifest this run measured (sha256 ${expectSha ? expectSha.slice(0, 12) : 'unknown'}) is available${tried.length ? `; found ${tried.join(', ')}` : ''} - pass --manifest <file> with the matching copy` };
+  }
+  const gv = judgeGovernedR3({ literals: lits, varDecls: al.varDecls, entries, manifestInfo: info });
+  return { gv, rejudged: true, source: `re-judged from the stored ${al.rawLiterals ? 'rawLiterals' : 'literalSamples'} (${lits.length} literal declarations) and the manifest (${entries.length} entries, sha256 ${info.sha256 ? info.sha256.slice(0, 12) : 'embedded'}${info.shaMatchesRun === false ? ' - NOT the run-recorded manifest' : ''})` };
+}
+
+export function summarise(runDir, { criteria = 'r3', suffix = '', outDir = null, manifestPath = null } = {}) {
+  if (!['r1', 'r2', 'r3'].includes(criteria)) throw new Error(`unknown --criteria ${criteria} (r1|r2|r3)`);
+  const R3 = criteria === 'r3';
+  const R2 = criteria === 'r2' || R3; // r3 keeps every r2 refinement
   runDir = path.resolve(runDir);
+  const writeDir = outDir ? path.resolve(outDir) : runDir;
+  fs.mkdirSync(writeDir, { recursive: true });
   const run = rj(runDir, 'run.json') || {};
   const arms = ARM_ORDER.filter((a) => fs.existsSync(path.join(runDir, a)));
   const data = {};
@@ -52,7 +107,10 @@ export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
     };
   }
   const A = data.A || null;
-  const out = { runDir, label: run.label || path.basename(runDir), generatedAt: new Date().toISOString(), dryRun: !!run.dryRun, criteria, referencePresent: !!A, thresholds: R2 ? { ...THRESHOLDS, ...R2_OVERRIDES } : THRESHOLDS, arms: {} };
+  const tokenAccounting = {};
+  let determinismInputs = null;
+  const out = { runDir, label: run.label || path.basename(runDir), generatedAt: new Date().toISOString(), dryRun: !!run.dryRun, criteria, referencePresent: !!A, thresholds: R3 ? { ...THRESHOLDS, ...R2_OVERRIDES, ...R3_OVERRIDES } : R2 ? { ...THRESHOLDS, ...R2_OVERRIDES } : THRESHOLDS, arms: {} };
+  out.runCriteria = run.criteria || null;
 
   for (const arm of arms) {
     const D = data[arm];
@@ -193,12 +251,15 @@ export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
     if (D.tok) {
       const al = D.tok.arm_level || {};
       const tk = D.tok.tokens;
-      const gv = al.governed;
+      const view = isC && R2 ? governedView(D.tok, criteria, { det: data.C?.det, manifestPath, runDir }) : null;
+      const gv = view ? view.gv : al.governed;
+      if (view) tokenAccounting[arm] = { rule: gv?.rule ?? 'r2', source: view.source, rejudged: view.rejudged, boundShareGoverned: gv?.boundShareGoverned ?? null, coverage: gv?.coverage ?? null, zeroLengthNeutral: gv?.zeroLengthNeutral ?? null, uncoveredLiteralDecls: gv?.uncoveredLiteralDecls ?? null };
       if (isC && R2) {
-        add({ dimension: 'tokens', route: 'ALL', name: 'boundShare over DSC-governed declarations = 100%', threshold: '100% (manifest-listed ungoverned literals excluded)',
+        add({ dimension: 'tokens', route: 'ALL', name: 'boundShare over DSC-governed declarations = 100%', threshold: R3 ? '100% (D-6 accounting: zero lengths neutral; manifest coverage strict/loose/viaShorthand)' : '100% (manifest-listed ungoverned literals excluded)',
           status: !gv || gv.unavailable ? 'MISSING' : gv.boundShareGoverned === 1 ? 'PASS' : 'FAIL',
-          value: !gv || gv.unavailable ? { note: 'generated-manifest.json ungoverned[] not readable', manifest: gv?.manifest ?? null }
-            : { boundShareGoverned: gv.boundShareGoverned, rawBoundShare_info: al.boundShare, varDecls: al.varDecls, rawLiteralDecls: al.literalDecls, unreadableValueDecls: al.unreadableValueDecls,
+          value: !gv || gv.unavailable ? { note: view.source !== 'stored (r2 rule)' && view.source !== 'stored (r3 measurement)' ? view.source : 'generated-manifest.json ungoverned[] not readable', manifest: gv?.manifest ?? null }
+            : { boundShareGoverned: gv.boundShareGoverned, rule: gv.rule ?? 'r2', accounting: view.source, rawBoundShare_info: al.boundShare, varDecls: al.varDecls, rawLiteralDecls: al.literalDecls, unreadableValueDecls: al.unreadableValueDecls,
+                ...(R3 ? { zeroLengthNeutral: gv.zeroLengthNeutral, coverage: gv.coverage, viaShorthandScope: gv.viaShorthandScope } : {}),
                 excludedByManifest: gv.excludedByManifest, excludedStrict: gv.excludedStrict, excludedLoose_fileNotIdentifiable: gv.excludedLoose,
                 uncoveredLiteralDecls: gv.uncoveredLiteralDecls, uncoveredLiterals: (gv.uncoveredLiterals || []).slice(0, 15), manifest: gv.manifest } });
         add({ dimension: 'tokens', route: 'ALL', name: 'DSC token values (computed :root) have 0 mismatches', threshold: '0 mismatches, 0 missing',
@@ -217,10 +278,13 @@ export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
       for (const route of ROUTES) {
         const p = D.tok.perPage?.[route]?.[1440];
         if (!p) continue;
-        const share = isC && R2 ? p.boundShareGoverned : p.boundShare;
+        let share;
+        if (isC && R2 && view?.rejudged) share = view.gv.uncoveredLiteralDecls === 0 ? (p.var > 0 ? 1 : null) : undefined; // every page literal is in the union list: none uncovered => share 1 (derived)
+        else if (isC && R2) share = R3 && al.governed?.rule === 'r3' ? p.boundShareGoverned : R3 ? undefined : (p.boundShareGovernedR2 !== undefined ? p.boundShareGovernedR2 : p.boundShareGoverned);
+        else share = p.boundShare;
         add({ dimension: 'tokens', route, name: isC && R2 ? 'governed boundShare @1440' : 'boundShare @1440', threshold: isC ? '100%' : 'n/a',
           status: isC ? (R2 && share === undefined ? 'MISSING' : share === 1 ? 'PASS' : 'FAIL') : 'INFO', level: isC ? 'required' : 'info',
-          value: { share, rawBoundShare: p.boundShare, var: p.var, literal: p.literal, excludedByManifest: p.excludedByManifest } });
+          value: { share, rawBoundShare: p.boundShare, var: p.var, literal: p.literal, excludedByManifest: p.excludedByManifest, ...(view?.rejudged && share !== undefined ? { derivedFromUnionRejudge: true } : {}) } });
       }
     }
 
@@ -268,10 +332,25 @@ export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
     // determinism + licence (C only)
     if (arm === 'C') {
       if (D.det) {
-        add({ dimension: 'determinism', route: '-', name: 'pnpm generate:verify exit code', threshold: 'exit 0', status: D.det.generateVerify?.exitCode === 0 ? 'PASS' : 'FAIL', value: `exit ${D.det.generateVerify?.exitCode}` });
+        // D-7: which FROZEN file and verify script were used. Runs recorded by an r1/r2-era harness hard-coded FROZEN.md and `generate:verify`.
+        const recorded = D.det.selectionBasis !== undefined;
+        const base = (f) => (f ? String(f).split('/').pop() : null);
+        const sel = recorded
+          ? { frozenFile: base(D.det.frozenFile), verifyScript: D.det.verifyScript, manifestRevision: D.det.manifestRevision, selectionBasis: D.det.selectionBasis, selectionOk: D.det.selection?.ok !== false }
+          : { frozenFile: base(D.det.frozenRoot?.file || D.det.frozen?.file), verifyScript: D.det.generateVerify?.script || 'generate:verify', manifestRevision: null,
+              selectionBasis: 'not recorded: hard-coded FROZEN.md and generate:verify (harness before the D-7 fix)', selectionOk: null };
+        determinismInputs = { ...sel, recorded };
+        const stale = R3 && !recorded; // r3 cannot accept a comparison made against a hard-coded (possibly wrong-generation) FROZEN file / verify script
+        const staleNote = 'determinism was recorded with a hard-coded FROZEN.md / generate:verify (D-7): re-run the determinism step with the r3 harness';
+        add({ dimension: 'determinism', route: '-', level: 'info', name: R3 ? 'inputs selected for the check (D-7: by manifest dsc.revision)' : 'inputs used for the check', threshold: 'n/a', status: 'INFO',
+          value: `FROZEN file ${sel.frozenFile || 'NONE'}; verify script ${sel.verifyScript}; manifest dsc.revision ${sel.manifestRevision || 'n/a'}; basis: ${typeof sel.selectionBasis === 'string' ? sel.selectionBasis : `frozen - ${sel.selectionBasis.frozen}; verify - ${sel.selectionBasis.verifyScript}`}` });
+        add({ dimension: 'determinism', route: '-', name: `pnpm ${sel.verifyScript} exit code`, threshold: 'exit 0', status: stale ? 'MISSING' : D.det.generateVerify?.exitCode === 0 ? 'PASS' : 'FAIL',
+          value: stale ? { note: staleNote, recordedExit: D.det.generateVerify?.exitCode, verifyScript: sel.verifyScript } : `exit ${D.det.generateVerify?.exitCode} (${sel.verifyScript})` });
         const f = R2 && D.det.frozenRoot ? D.det.frozenRoot : D.det.frozen;
-        add({ dimension: 'determinism', route: '-', name: R2 ? 'every FROZEN.md entry (root-relative) matches disk' : 'generated/ hashes == FROZEN.md', threshold: 'all equal', status: !f ? 'MISSING' : f.missing ? 'FAIL' : f.allMatch ? 'PASS' : 'FAIL',
-          value: f ? { files: D.det.generated?.fileCount, unlisted: f.unlisted?.slice?.(0, 10), frozenEntries: f.frozenEntries, matched: f.matched, mismatched: f.mismatched, notInFrozen: f.notInFrozen?.slice?.(0, 10), frozenNotOnDisk: f.frozenNotOnDisk?.slice?.(0, 10), aggregateFound: f.aggregateFound, missingFile: f.missing } : null });
+        add({ dimension: 'determinism', route: '-', name: R2 ? `every ${sel.frozenFile || 'FROZEN'} entry (root-relative) matches disk` : 'generated/ hashes == FROZEN.md', threshold: 'all equal',
+          status: stale ? 'MISSING' : !f ? 'MISSING' : f.missing ? 'FAIL' : f.allMatch ? 'PASS' : 'FAIL',
+          value: stale ? { note: staleNote, recordedFile: sel.frozenFile }
+            : f ? { frozenFile: sel.frozenFile, verifyScript: sel.verifyScript, manifestRevision: sel.manifestRevision, selectionBasis: sel.selectionBasis, files: D.det.generated?.fileCount, unlisted: f.unlisted?.slice?.(0, 10), frozenEntries: f.frozenEntries, matched: f.matched, mismatched: f.mismatched, notInFrozen: f.notInFrozen?.slice?.(0, 10), frozenNotOnDisk: f.frozenNotOnDisk?.slice?.(0, 10), aggregateFound: f.aggregateFound, missingFile: f.missing, reason: f.reason } : null });
         const br = D.det.bundleReproducibility;
         add({ dimension: 'determinism', route: '-', name: 'bundle reproducibility (two builds, reported separately)', threshold: 'identical dist hashes (info)', level: 'info', status: br?.identical ? 'PASS' : br?.buildDir ? 'FAIL' : 'MISSING',
           value: br ? { exitCodes: br.exitCodes, fileCounts: br.fileCounts, differingFiles: br.differingFiles?.slice(0, 20) } : null });
@@ -295,10 +374,12 @@ export function summarise(runDir, { criteria = 'r2', suffix = '' } = {}) {
     out.arms[arm] = { reference: isRef, verdict: { required: tally('required'), stretch: tally('stretch'), info: tally('info') }, checks };
   }
   out.aReferenceAnomalies = referenceAnomalies(A);
-  fs.writeFileSync(path.join(runDir, `summary${suffix}.json`), JSON.stringify(out, null, 2) + '\n');
-  fs.writeFileSync(path.join(runDir, `summary${suffix}.md`), renderMd(out));
+  out.determinismInputs = determinismInputs;
+  out.tokenAccounting = tokenAccounting;
+  fs.writeFileSync(path.join(writeDir, `summary${suffix}.json`), JSON.stringify(out, null, 2) + '\n');
+  fs.writeFileSync(path.join(writeDir, `summary${suffix}.md`), renderMd(out));
   const tl = Object.entries(out.arms).map(([a, r]) => `${a}: ${r.reference ? 'reference' : `${r.verdict.required.pass} pass / ${r.verdict.required.fail} fail / ${r.verdict.required.missing} missing`}`).join('; ');
-  console.log(`  wrote ${path.join(runDir, `summary${suffix}.json`)} and summary${suffix}.md [${criteria}]  (${tl})`);
+  console.log(`  wrote ${path.join(writeDir, `summary${suffix}.json`)} and summary${suffix}.md [${criteria}]  (${tl})`);
   return out;
 }
 
@@ -325,7 +406,16 @@ const short = (v, n = 160) => { const s = cell(v); return s.length > n ? s.slice
 function renderMd(s) {
   const L = [];
   L.push(`# PEN-CLOUD-03-B acceptance summary${s.dryRun ? ' (DRY RUN - stub arms, not a result)' : ''}`, '');
-  L.push(`Criteria: **${s.criteria}**${s.criteria === 'r2' ? ' (semantic: roles only; governed token share; section padding; root-relative FROZEN; import lines excluded)' : ' (original acceptance wording)'}`, '');
+  const critNote = s.criteria === 'r3' ? ' (= r2: semantic roles only; section padding; root-relative FROZEN; import lines excluded - plus D-6 token accounting and D-7 FROZEN/verify-script selection)'
+    : s.criteria === 'r2' ? ' (semantic: roles only; governed token share; section padding; root-relative FROZEN; import lines excluded)' : ' (original acceptance wording)';
+  L.push(`Criteria: **${s.criteria}**${critNote}${s.runCriteria && s.runCriteria !== s.criteria ? `  ·  re-judged: the run was recorded under ${s.runCriteria}` : ''}`, '');
+  if (s.determinismInputs) {
+    const d = s.determinismInputs;
+    L.push(`Determinism inputs: FROZEN file **${d.frozenFile || 'NONE'}**; verify script **${d.verifyScript}**; manifest dsc.revision \`${d.manifestRevision || 'n/a'}\`; basis: ${typeof d.selectionBasis === 'string' ? d.selectionBasis : `${d.selectionBasis.frozen}; ${d.selectionBasis.verifyScript}`}`, '');
+  }
+  for (const [a, t] of Object.entries(s.tokenAccounting || {})) {
+    L.push(`Token accounting (${a}): rule ${t.rule}; governed share ${fmtPct(t.boundShareGoverned)}${t.coverage ? `; coverage strict ${t.coverage.strict} / loose ${t.coverage.loose} / viaShorthand ${t.coverage.viaShorthand} / uncovered ${t.coverage.uncovered}; zero-length neutral ${t.zeroLengthNeutral}` : `; uncovered ${t.uncoveredLiteralDecls ?? 'n/a'}`}; ${t.source}`, '');
+  }
   L.push(`Run: \`${s.label}\`  ·  generated ${s.generatedAt}  ·  reference arm A ${s.referencePresent ? 'present' : '**absent** (comparisons marked MISSING)'}`, '');
   L.push('## Verdict (required checks)', '', '| Arm | PASS | FAIL | MISSING | stretch PASS/FAIL |', '|---|---|---|---|---|');
   for (const [a, r] of Object.entries(s.arms)) {
@@ -364,7 +454,7 @@ function renderMd(s) {
     L.push('', `## ${d}`, '', '| Arm | Route | Check | Measured | Threshold | Status |', '|---|---|---|---|---|---|');
     for (const [a, r] of Object.entries(s.arms)) for (const c of r.checks.filter((x) => x.dimension === d)) {
       const lvl = c.level === 'required' ? '' : ` _(${c.level})_`;
-      L.push(`| ${a} | ${c.route} | ${c.name}${lvl} | ${short(compactValue(d, c.value))} | ${c.threshold || ''} | **${c.status}** |`);
+      L.push(`| ${a} | ${c.route} | ${c.name}${lvl} | ${short(compactValue(d, c.value), d === 'determinism' || d === 'tokens' ? 420 : 160)} | ${c.threshold || ''} | **${c.status}** |`);
     }
   }
   L.push('', '_Full per-viewport/per-sample values are in summary.json and the per-arm JSON files._', '');
@@ -382,9 +472,21 @@ function compactValue(dim, v) {
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const args = process.argv.slice(2).filter((a) => a !== '--');
-  const ci = args.indexOf('--criteria');
-  const criteria = ci >= 0 ? args[ci + 1] : 'r2';
-  const dir = args.find((a, i) => !a.startsWith('--') && i !== ci + 1);
-  if (!dir) { console.error('usage: node summarise.mjs <run-dir> [--criteria r1|r2]'); process.exit(2); }
-  summarise(dir, { criteria });
+  const opts = { criteria: 'r3', out: null, suffix: null, manifest: null };
+  const pos = [];
+  for (let i = 0; i < args.length; i++) {
+    const m = /^--(criteria|out|suffix|manifest)(?:=(.*))?$/.exec(args[i]);
+    if (m) opts[m[1]] = m[2] !== undefined ? m[2] : args[++i];
+    else if (args[i].startsWith('--')) { console.error(`unknown option ${args[i]}`); process.exit(2); }
+    else pos.push(args[i]);
+  }
+  if (!pos.length) {
+    console.error('usage: node summarise.mjs <run-dir> [--criteria r1|r2|r3] [--out <dir>] [--suffix <s>] [--manifest <file>]\n'
+      + '  default criteria r3. When the criteria differ from the ones the run was recorded under, the files are written as summary-<criteria>.{json,md}\n'
+      + '  so the original summary is not overwritten; --out writes into another directory instead of the run directory.');
+    process.exit(2);
+  }
+  const runJson = rj(path.resolve(pos[0]), 'run.json') || {};
+  const suffix = opts.suffix !== null ? opts.suffix : runJson.criteria && runJson.criteria !== opts.criteria ? `-${opts.criteria}` : '';
+  summarise(pos[0], { criteria: opts.criteria, suffix, outDir: opts.out, manifestPath: opts.manifest });
 }

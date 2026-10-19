@@ -1,8 +1,26 @@
+import type { Layer } from "../lib/css.ts";
 import type { Ctx } from "../lib/ctx.ts";
 import { BODY, emit, emitCss, fsConst, HEADING, OUT, typo } from "../lib/emitutil.ts";
 
-/** Index of the quote card that is ordered last below `lg` (task/contract statement, see ARM-C-NOTES). */
-const LAST_BELOW_LG_INDEX = 2;
+/** DSC r3 `fs.section.testimonials` `layout.grid` (cumulative mobile-first rules keyed by screen; null = base). */
+interface GridSpec {
+  track: string;
+  rules: { screen: Layer | null; columns?: number; rows?: number | "auto" }[];
+  quoteCardSpan: { fromScreen: Layer; columns: number };
+  orderBelowScreen: { screen: Layer; cardIndex: number; order: "last" };
+}
+
+/** r1/r2 DSCs carry no layout.grid: the grid they described implicitly (1 / 2 / 4 columns, span from md, index 2). */
+const LEGACY_GRID: GridSpec = {
+  track: "minmax(0, 1fr)",
+  rules: [
+    { screen: null, columns: 1, rows: "auto" },
+    { screen: "md", columns: 2 },
+    { screen: "lg", columns: 4 },
+  ],
+  quoteCardSpan: { fromScreen: "md", columns: 2 },
+  orderBelowScreen: { screen: "lg", cardIndex: 2, order: "last" },
+};
 
 export function emitTestimonials(ctx: Ctx): void {
   const F = "Testimonials.css";
@@ -17,8 +35,12 @@ export function emitTestimonials(ctx: Ctx): void {
   if (root.tag !== "section") throw new Error("Expected testimonials -> <section>");
   if (root.penpot !== dsc.external.penpot?.desktop)
     throw new Error("Testimonials Penpot desktop id differs between DSC and SAC");
+  const grid = (dsc.layout?.grid as GridSpec | undefined) ?? LEGACY_GRID;
+  const lastIdx = grid.orderBelowScreen.cardIndex;
+  const lastScreen = grid.orderBelowScreen.screen;
+  if (grid.orderBelowScreen.order !== "last") throw new Error("Unsupported testimonials orderBelowScreen.order");
   const cards = ctx.copy.testimonial37.cards;
-  if (cards[LAST_BELOW_LG_INDEX]?.kind !== "quote") throw new Error("Card index 2 is expected to be a quote card");
+  if (cards[lastIdx]?.kind !== "quote") throw new Error(`Card index ${lastIdx} is expected to be a quote card`);
 
   // design observation vs intent: grid gap at sm
   const obsGapSm = o.gap("sm", SEC, "Grid");
@@ -34,9 +56,9 @@ export function emitTestimonials(ctx: Ctx): void {
   const obsOrder = ["logo", "logo", "quote", "quote", "logo", "logo"];
   ctx.conflicts.push({
     id: "testimonials.order.below-lg",
-    intent: `Owner task statement: card index ${LAST_BELOW_LG_INDEX} (first quote card) is ordered last below lg`,
+    intent: `Owner task statement: card index ${lastIdx} (first quote card) is ordered last below ${lastScreen}`,
     observed: `Penpot tablet/mobile boards keep DOM order (${obsOrder.join(", ")}) with both quote cards adjacent`,
-    resolution: "Task statement followed (CSS order: 1 on card index 2 below lg)",
+    resolution: `Task statement followed (CSS order: 1 on card index ${lastIdx} below ${lastScreen})`,
   });
 
   const css = ctx.newCss();
@@ -92,17 +114,36 @@ export function emitTestimonials(ctx: Ctx): void {
   );
   css.rule("base", ".fs-testimonials__description", typo(ctx, F, BODY("font.size.medium")));
 
+  // Grid tracks (DSC-R3-04): cumulative mobile-first rules keyed by screen; rows "auto" = no row template.
+  let rowTemplate = false;
+  const gridDecls = (r: GridSpec["rules"][number]): Record<string, string> => {
+    const d: Record<string, string> = {};
+    // C-R3-05: r3 base "columns: 1" is the implicit single column (no explicit template, so the sm quote-card
+    // span can create the second implicit column); r1/r2 (no layout.grid) keep their explicit one-track template.
+    if (r.columns !== undefined && !(r.screen === null && r.columns === 1 && dsc.layout?.grid)) {
+      d["grid-template-columns"] = r.columns === 1 ? grid.track : `repeat(${r.columns}, ${grid.track})`;
+    }
+    if (typeof r.rows === "number") {
+      d["grid-template-rows"] = `repeat(${r.rows}, ${grid.track})`;
+      rowTemplate = true;
+    } else if (r.rows === "auto" && rowTemplate) {
+      throw new Error("Testimonials grid: rows 'auto' after a row template is not supported");
+    }
+    return d;
+  };
+  const gridRules = [...grid.rules].sort((a, b) => (a.screen === null ? -1 : b.screen === null ? 1 : 0));
+  const baseGrid = gridRules.find((r) => r.screen === null);
+  if (!baseGrid) throw new Error("Testimonials grid: base rule (screen null) missing");
   css.rule("base", ".fs-testimonials__grid", {
     width: "100%",
     display: "grid",
-    "grid-template-columns": "minmax(0, 1fr)",
+    ...gridDecls(baseGrid),
     gap: ctx.bound(F, id, "gridGap"),
     margin: "0",
     padding: "0",
     "list-style": "none",
   });
-  css.rule("md", ".fs-testimonials__grid", { "grid-template-columns": "repeat(2, minmax(0, 1fr))" });
-  css.rule("lg", ".fs-testimonials__grid", { "grid-template-columns": "repeat(4, minmax(0, 1fr))" });
+  for (const r of gridRules) if (r.screen !== null) css.rule(r.screen, ".fs-testimonials__grid", gridDecls(r));
 
   css.rule("base", ".fs-testimonials__card", {
     background: ctx.bound(F, id, "cardFill"),
@@ -120,9 +161,11 @@ export function emitTestimonials(ctx: Ctx): void {
   });
   css.resp(".fs-testimonials__card--logo", "padding", o.perBp(padOf("LogoCard")), padPair("LogoCard.pad"));
   css.resp(".fs-testimonials__card--quote", "padding", o.perBp(padOf("QuoteCard")), padPair("QuoteCard.pad"));
-  css.rule("md", ".fs-testimonials__card--quote", { "grid-column": "span 2" });
-  css.rule("base", ".fs-testimonials__card--last-below-lg", { order: "1" });
-  css.rule("lg", ".fs-testimonials__card--last-below-lg", { order: "0" });
+  css.rule(grid.quoteCardSpan.fromScreen, ".fs-testimonials__card--quote", {
+    "grid-column": `span ${grid.quoteCardSpan.columns}`,
+  });
+  css.rule("base", `.fs-testimonials__card--last-below-${lastScreen}`, { order: "1" });
+  css.rule(lastScreen, `.fs-testimonials__card--last-below-${lastScreen}`, { order: "0" });
 
   const sq = (n: string, sel: string) => ({
     w: ctx.lit(F, "width", `${o.width("lg", SEC, sel)}px`, `${n} placeholder (ARM-CONTRACT)`, src(sel)),
@@ -175,7 +218,7 @@ import "./Testimonials.css";
 
 ${fsConst({ root, h2 })}
 
-const LAST_BELOW_LG_INDEX = ${LAST_BELOW_LG_INDEX};
+const LAST_BELOW_${lastScreen.toUpperCase()}_INDEX = ${lastIdx};
 const STAR_KEYS = ["star-1", "star-2", "star-3", "star-4", "star-5"] as const;
 
 export interface TestimonialsProps {
@@ -199,7 +242,7 @@ export function Testimonials({ subject }: TestimonialsProps) {
         </div>
         <ul className="fs-testimonials__grid">
           {copy.testimonial37.cards.map((card, i) => {
-            const order = i === LAST_BELOW_LG_INDEX ? " fs-testimonials__card--last-below-lg" : "";
+            const order = i === LAST_BELOW_${lastScreen.toUpperCase()}_INDEX ? " fs-testimonials__card--last-below-${lastScreen}" : "";
             if (card.kind === "logo") {
               return (
                 <li key={"logo-" + i} className={"fs-testimonials__card fs-testimonials__card--logo" + order}>

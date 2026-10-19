@@ -2,13 +2,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
-import { ARM_ORDER, EXP_DIR, ARM_A_ROOT, ROUTES, makeArms, loadDsc, BROWSER_CONTEXT, VIEWPORTS, sweepWidths } from './config.mjs';
+import { ARM_ORDER, EXP_DIR, ARM_A_ROOT, ROUTES, makeArms, loadDsc, setDscRel, BROWSER_CONTEXT, VIEWPORTS, sweepWidths } from './config.mjs';
 import { ensureDir, writeJson, readJson } from './util.mjs';
 import { startArmServer, stopAllServers } from './servers.mjs';
 import { launchBrowser, measurePages, measureResponsive, measureScrollProbe, aggregateTokens, loadUngovernedManifest } from './measure.mjs';
 import { runBuild } from './build.mjs';
 import { runVisual } from './visual.mjs';
-import { runDeterminism } from './determinism.mjs';
+import { runDeterminism, selectDeterminismInputs } from './determinism.mjs';
 import { licenceCheck, forbiddenStringScan } from './licence.mjs';
 import { summarise } from '../summarise.mjs';
 
@@ -19,7 +19,8 @@ const { values: opt } = parseArgs({
     arms: { type: 'string' }, out: { type: 'string' }, label: { type: 'string' }, steps: { type: 'string' },
     'dry-run': { type: 'boolean', default: false }, licence: { type: 'boolean', default: false },
     'skip-build': { type: 'boolean', default: false }, 'no-summary': { type: 'boolean', default: false },
-    routes: { type: 'string' }, criteria: { type: 'string', default: 'r2' }, help: { type: 'boolean', default: false },
+    routes: { type: 'string' }, criteria: { type: 'string', default: 'r3' }, help: { type: 'boolean', default: false },
+    dsc: { type: 'string' }, frozen: { type: 'string' }, 'verify-script': { type: 'string' }, 'select-only': { type: 'boolean', default: false },
   },
   allowPositionals: false,
 });
@@ -31,13 +32,26 @@ if (opt.help) {
   --skip-build      do not run pnpm build (servers must serve an existing build)
   --routes r1,r2    restrict the per-page measurements to these routes (debugging)
   --dry-run         validate the harness against built-in stub arms and fixtures, no real arm needed
-  --criteria r1|r2  acceptance criteria used by the summary (default r2; r1 = original wording)
+  --criteria r1|r2|r3  acceptance criteria used by the summary (default r3; r1 = original wording)
+  --dsc <path>      DSC used for token ids, tiers (?bp= mapping) and sweep widths, relative to ../inputs
+                    (default dsc/fs.ds.relume-default.r3.json when it exists, else ...r2.json)
+  --frozen <file>   determinism: FROZEN file to compare against (relative to the arm-c root or absolute);
+                    default: the FROZEN*.md whose "DSC revision:" equals generated-manifest.json dsc.revision
+  --verify-script <name>  determinism: package.json script to run instead of the auto-selected generate:verify*
+  --select-only     print the determinism selection for the arm-c tree on disk (no verify run) and exit
   --no-summary      do not run summarise.mjs afterwards`);
   process.exit(0);
 }
 
 const DRY = opt['dry-run'];
-if (!['r1', 'r2'].includes(opt.criteria)) { console.error('--criteria must be r1 or r2'); process.exit(2); }
+if (!['r1', 'r2', 'r3'].includes(opt.criteria)) { console.error('--criteria must be r1, r2 or r3'); process.exit(2); }
+let dscRel;
+try { dscRel = setDscRel(opt.dsc); } catch (e) { console.error(String(e.message || e)); process.exit(2); }
+if (opt['select-only']) {
+  const sel = selectDeterminismInputs({ armCDir: makeArms().C.rootDir, frozenOverride: opt.frozen, verifyOverride: opt['verify-script'] });
+  console.log(JSON.stringify(sel, null, 2));
+  process.exit(sel.selectionOk ? 0 : 1);
+}
 const ALL_STEPS = ['build', 'pages', 'responsive', 'scroll', 'visual', 'determinism', 'licence'];
 let steps = opt.steps ? opt.steps.split(',').map((s) => s.trim()).filter(Boolean) : ALL_STEPS.filter((s) => s !== 'licence');
 if ((opt.licence || (DRY && !opt.steps)) && !steps.includes('licence')) steps.push('licence');
@@ -94,11 +108,17 @@ const needServers = has('pages') || has('responsive') || has('scroll');
 const run = {
   label, criteria: opt.criteria, startedAt: new Date().toISOString(), dryRun: DRY, arms: armIds, steps, routes,
   node: process.version, cwd: process.cwd(),
-  browser: { engine: 'chromium', context: BROWSER_CONTEXT, viewports: VIEWPORTS, sweepWidths: sweepWidths() },
+  browser: { engine: 'chromium', context: BROWSER_CONTEXT, viewports: VIEWPORTS },
   ports: Object.fromEntries(armIds.map((a) => [a, arms[a].port])),
 };
 const dsc = loadDsc();
+run.dsc = dscRel; // path relative to ../inputs
 run.dscRevision = dsc.revision;
+run.dscScreens = Array.isArray(dsc.screens) ? dsc.screens.map((s) => ({ id: s.id, minWidth: s.minWidth })) : null;
+run.dscBreakpoints = dsc.breakpoints.map((b) => ({ id: b.id, minWidth: b.minWidth }));
+run.sweepWidths = sweepWidths(dsc);
+run.browser.sweepWidths = run.sweepWidths;
+run.determinismOverrides = { frozen: opt.frozen || null, verifyScript: opt['verify-script'] || null };
 
 let exitCode = 0;
 const builtGroups = new Map();
@@ -144,7 +164,7 @@ try {
         const tok = aggregateTokens({ arm, tokenPages: r.tokens, dsc, manifest });
         writeJson(path.join(dir, 'token-integrity.json'), tok);
       }
-      if (has('responsive')) writeJson(path.join(dir, 'responsive.json'), { arm: id, widths: sweepWidths(), height: 900, routes: await measureResponsive({ browser, arm, log }) });
+      if (has('responsive')) writeJson(path.join(dir, 'responsive.json'), { arm: id, dsc: dscRel, widths: sweepWidths(dsc), height: 900, routes: await measureResponsive({ browser, arm, log }) });
       if (has('scroll')) writeJson(path.join(dir, 'scroll-probe.json'), { arm: id, viewports: await measureScrollProbe({ browser, arm, log }) });
     } catch (e) {
       log(`  MEASUREMENT FAILED: ${e.stack || e}`);
@@ -172,7 +192,7 @@ try {
   // determinism (C only)
   if (has('determinism') && (armIds.includes('C') || armIds.includes('Cssr'))) {
     log('\n=== determinism (C) ===');
-    const d = await runDeterminism({ armCDir: arms.C.rootDir, outDir, armId: 'C', log });
+    const d = await runDeterminism({ armCDir: arms.C.rootDir, outDir, armId: 'C', frozenOverride: opt.frozen, verifyOverride: opt['verify-script'], harnessDscRevision: dsc.revision, log });
     writeJson(path.join(outDir, 'C', 'determinism.json'), d);
   }
 
@@ -201,6 +221,7 @@ try {
 
   if (DRY) {
     summarise(outDir, { criteria: 'r1', suffix: '-r1' });
+    summarise(outDir, { criteria: 'r2', suffix: '-r2' });
     const { assertDryRun } = await import('./dryrun.mjs');
     const result = assertDryRun({ outDir, armIds, fixtures, steps });
     writeJson(path.join(outDir, 'dry-run-assertions.json'), result);

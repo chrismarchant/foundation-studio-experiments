@@ -38,6 +38,8 @@ export const tokens = {
   "space.gap.4": { id: "fs.token.space.gap.4", type: "spacing", value: "16px", cssVar: "--fs-space-gap-4" },
   "space.gap.6": { id: "fs.token.space.gap.6", type: "spacing", value: "24px", cssVar: "--fs-space-gap-6" },
   "space.gap.8": { id: "fs.token.space.gap.8", type: "spacing", value: "32px", cssVar: "--fs-space-gap-8" },
+  "space.hero.text-bottom": { id: "fs.token.space.hero.text-bottom", type: "spacing", value: "112px", cssVar: "--fs-space-hero-text-bottom", responsive: {"md":"96px"} },
+  "space.hero.text-top": { id: "fs.token.space.hero.text-top", type: "spacing", value: "112px", cssVar: "--fs-space-hero-text-top", responsive: {"md":"96px","sm":"64px"} },
   "space.section.lg": { id: "fs.token.space.section.lg", type: "spacing", value: "112px", cssVar: "--fs-space-section-lg", responsive: {"md":"96px","sm":"64px"} },
   "space.section.md": { id: "fs.token.space.section.md", type: "spacing", value: "96px", cssVar: "--fs-space-section-md" },
   "space.section.sm": { id: "fs.token.space.section.sm", type: "spacing", value: "64px", cssVar: "--fs-space-section-sm" },
@@ -50,9 +52,17 @@ export function tokenVar(name: FsTokenName): string {
 }
 
 export const breakpoints = [
-  { id: "lg", minWidth: 1024, canvas: 1440, container: 1280, sidePadding: "5%" },
+  { id: "lg", minWidth: 992, canvas: 1440, container: 1280, sidePadding: "5%" },
   { id: "md", minWidth: 768, canvas: 768, container: 691, sidePadding: "5%" },
   { id: "sm", minWidth: 0, canvas: 375, container: 337, sidePadding: "5%" },
 ] as const;
 
-export const dscRevision = "sha256:4243b7aa087b568fcf16cfab27ec72a2f3d04fc13fb5ff81c06c98ae8393cf25";
+export const screens = [
+  { id: "sm", minWidth: 480, container: "100%" },
+  { id: "md", minWidth: 768, container: "100%" },
+  { id: "lg", minWidth: 992, container: "992px" },
+  { id: "xl", minWidth: 1280, container: "1280px" },
+  { id: "xxl", minWidth: 1440, container: "1280px" },
+] as const;
+
+export const dscRevision = "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b";

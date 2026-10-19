@@ -223,6 +223,7 @@ function scanGovernedProperties(files: OutFile[], registered: string[]): void {
         const ok =
           registered.some((r) => r.startsWith(`${name}|`) && r.includes(lit)) ||
           prop === "grid-template-columns" ||
+          prop === "grid-template-rows" ||
           prop === "grid-column";
         if (!ok) problems.push(`${name}: unregistered literal ${lit} in ${prop}: ${val}`);
       }

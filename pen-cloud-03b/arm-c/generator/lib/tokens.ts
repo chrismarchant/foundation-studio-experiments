@@ -1,4 +1,4 @@
-import type { Bp, DscBreakpoint, DscToken } from "./types.ts";
+import type { Bp, DscBreakpoint, DscScreen, DscToken } from "./types.ts";
 
 /** `fs.token.color.scheme.btn-text` -> `--fs-color-scheme-btn-text` */
 export function cssVarName(id: string): string {
@@ -65,7 +65,7 @@ export function breakpointOrder(bps: DscBreakpoint[]): DscBreakpoint[] {
   return [...bps].sort((a, b) => b.minWidth - a.minWidth); // lg, md, sm
 }
 
-export function emitTokensCss(ts: TokenSet, bps: DscBreakpoint[], header: string): string {
+export function emitTokensCss(ts: TokenSet, bps: DscBreakpoint[], header: string, screens?: DscScreen[]): string {
   const ordered = breakpointOrder(bps);
   const lg = ordered[0];
   const md = ordered[1];
@@ -73,9 +73,24 @@ export function emitTokensCss(ts: TokenSet, bps: DscBreakpoint[], header: string
   const out: string[] = [header];
   out.push(":root {");
   for (const e of ts.entries) out.push(`  ${cssVarName(e.id)}: ${e.value};`);
-  out.push(`  --fs-layout-container-max: ${lg.container}px;`);
+  // r3: the container follows screens[].container (first screen's value below it); r1/r2: fixed lg container.
+  const screenList = screens ? [...screens].sort((a, b) => a.minWidth - b.minWidth) : [];
+  const baseScreen = screenList[0];
+  out.push(`  --fs-layout-container-max: ${baseScreen ? baseScreen.container : `${lg.container}px`};`);
   out.push(`  --fs-layout-side-padding: ${lg.sidePadding};`);
   out.push("}");
+  let prevContainer = baseScreen?.container;
+  for (const s of screenList) {
+    if (s.container === prevContainer) continue;
+    prevContainer = s.container;
+    out.push("");
+    out.push(`/* container: ${s.container} from screen ${s.id} */`);
+    out.push(`@media (min-width: ${s.minWidth}px) {`);
+    out.push("  :root {");
+    out.push(`    --fs-layout-container-max: ${s.container};`);
+    out.push("  }");
+    out.push("}");
+  }
   // Desktop-first token overrides, one @media per non-base breakpoint, widest first.
   // A breakpoint applies from its own minWidth downwards until the next lower one overrides it.
   for (let i = 1; i < ordered.length; i++) {
@@ -97,7 +112,13 @@ export function emitTokensCss(ts: TokenSet, bps: DscBreakpoint[], header: string
   return `${out.join("\n")}\n`;
 }
 
-export function emitTokensTs(ts: TokenSet, bps: DscBreakpoint[], revision: string, header: string): string {
+export function emitTokensTs(
+  ts: TokenSet,
+  bps: DscBreakpoint[],
+  revision: string,
+  header: string,
+  screens?: DscScreen[],
+): string {
   const ordered = breakpointOrder(bps);
   const o: string[] = [header];
   o.push("export interface FsToken {");
@@ -135,6 +156,14 @@ export function emitTokensTs(ts: TokenSet, bps: DscBreakpoint[], revision: strin
   }
   o.push("] as const;");
   o.push("");
+  if (screens) {
+    o.push("export const screens = [");
+    for (const s of screens) {
+      o.push(`  { id: ${JSON.stringify(s.id)}, minWidth: ${s.minWidth}, container: ${JSON.stringify(s.container)} },`);
+    }
+    o.push("] as const;");
+    o.push("");
+  }
   o.push(`export const dscRevision = ${JSON.stringify(revision)};`);
   return `${o.join("\n")}\n`;
 }

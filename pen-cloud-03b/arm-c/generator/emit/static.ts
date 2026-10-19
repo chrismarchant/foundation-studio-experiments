@@ -3,8 +3,9 @@ import { emit, emitCss, OUT } from "../lib/emitutil.ts";
 import { emitTokensCss, emitTokensTs } from "../lib/tokens.ts";
 
 export function emitTokens(ctx: Ctx): void {
-  emit(ctx, `${OUT}/tokens.css`, emitTokensCss(ctx.tokens, ctx.dsc.breakpoints, ctx.header.css));
-  emit(ctx, `${OUT}/tokens.ts`, emitTokensTs(ctx.tokens, ctx.dsc.breakpoints, ctx.dsc.revision, ctx.header.ts));
+  const { breakpoints, screens } = ctx.dsc;
+  emit(ctx, `${OUT}/tokens.css`, emitTokensCss(ctx.tokens, breakpoints, ctx.header.css, screens));
+  emit(ctx, `${OUT}/tokens.ts`, emitTokensTs(ctx.tokens, breakpoints, ctx.dsc.revision, ctx.header.ts, screens));
 }
 
 export function emitCopy(ctx: Ctx): void {

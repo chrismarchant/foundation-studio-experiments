@@ -30,16 +30,34 @@
   --fs-space-gap-4: 16px;
   --fs-space-gap-6: 24px;
   --fs-space-gap-8: 32px;
+  --fs-space-hero-text-bottom: 112px;
+  --fs-space-hero-text-top: 112px;
   --fs-space-section-lg: 112px;
   --fs-space-section-md: 96px;
   --fs-space-section-sm: 64px;
-  --fs-layout-container-max: 1280px;
+  --fs-layout-container-max: 100%;
   --fs-layout-side-padding: 5%;
 }
 
-/* md: below 1024px (canvas 768) */
-@media (max-width: 1023.98px) {
+/* container: 992px from screen lg */
+@media (min-width: 992px) {
   :root {
+    --fs-layout-container-max: 992px;
+  }
+}
+
+/* container: 1280px from screen xl */
+@media (min-width: 1280px) {
+  :root {
+    --fs-layout-container-max: 1280px;
+  }
+}
+
+/* md: below 992px (canvas 768) */
+@media (max-width: 991.98px) {
+  :root {
+    --fs-space-hero-text-bottom: 96px;
+    --fs-space-hero-text-top: 96px;
     --fs-space-section-lg: 96px;
   }
 }
@@ -47,6 +65,7 @@
 /* sm: below 768px (canvas 375) */
 @media (max-width: 767.98px) {
   :root {
+    --fs-space-hero-text-top: 64px;
     --fs-space-section-lg: 64px;
   }
 }

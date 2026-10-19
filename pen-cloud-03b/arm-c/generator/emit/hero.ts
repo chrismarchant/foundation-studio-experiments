@@ -1,3 +1,4 @@
+import type { Layer } from "../lib/css.ts";
 import type { Ctx } from "../lib/ctx.ts";
 import { BODY, emit, emitCss, fsConst, HEADING, OUT, typo } from "../lib/emitutil.ts";
 import { parseTw } from "../lib/twparse.ts";
@@ -50,7 +51,11 @@ export function emitHero(ctx: Ctx): void {
     overflow: "hidden",
   });
 
-  // text block
+  // text block (DSC-R3-03: layout.textBlock, absent in r1/r2)
+  const textBlock = dsc.layout?.textBlock as
+    | { verticalAlign: string; paddingTopBinding: string; paddingBottomBinding: string }
+    | undefined;
+  if (textBlock && textBlock.verticalAlign !== "center") throw new Error("Unexpected hero textBlock.verticalAlign");
   css.rule("base", ".fs-hero__text", {
     position: "absolute",
     inset: "0",
@@ -59,6 +64,13 @@ export function emitHero(ctx: Ctx): void {
     "align-items": "center",
     "justify-content": "center",
     "padding-inline": "var(--fs-layout-side-padding)",
+    // DSC-R3-03: the text block is centred inside the stage's padded content box (layout.textBlock)
+    ...(textBlock
+      ? {
+          "padding-top": ctx.bound(F, id, textBlock.paddingTopBinding),
+          "padding-bottom": ctx.bound(F, id, textBlock.paddingBottomBinding),
+        }
+      : {}),
     "pointer-events": "none",
   });
   const textW = o.width("lg", SEC, "HeroText");
@@ -122,6 +134,20 @@ export function emitHero(ctx: Ctx): void {
     opacity: lit("opacity", String(lay.rightOpacity)),
   });
   css.rule("base", ".fs-hero__img", { position: "relative" });
+  // DSC-R3-02: below the given screen every image box has min-height <value>; from that screen the aspect alone applies
+  const mh = lay.minHeightBelowScreen as { screen: Layer; value: string } | undefined;
+  if (mh) {
+    css.rule("base", ".fs-hero__img", {
+      "min-height": ctx.lit(
+        F,
+        "min-height",
+        mh.value,
+        `hero image box minimum height below screen ${mh.screen}`,
+        `${srcI}.imageLayout.minHeightBelowScreen`,
+      ),
+    });
+    css.rule(mh.screen, ".fs-hero__img", { "min-height": "0" });
+  }
   const aspect = String(lay.aspect).match(/^pt-\[(.+)\]$/);
   if (!aspect) throw new Error("Cannot parse hero image aspect");
   css.rule("base", ".fs-hero__img::before", {

@@ -127,7 +127,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .fs-features__container {
     gap: 80px;
   }

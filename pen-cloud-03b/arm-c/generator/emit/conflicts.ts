@@ -47,6 +47,15 @@ export function emitConflicts(ctx: Ctx): void {
     resolution: "CSS border-box with 1px border and 24px padding kept (rendered width is label + 50px)",
   });
 
+  const heroDsc = ctx.comp("fs.section.hero");
+  const tb = heroDsc.layout?.textBlock as { paddingTopBinding: string; paddingBottomBinding: string } | undefined;
+  const padTok = (binding: string) => heroDsc.bindings.find((b) => b.property === binding)?.token ?? "";
+  const textBlockIntent = (bp: Bp): string => {
+    const top = ctx.tokens.valueAt(padTok(tb?.paddingTopBinding ?? ""), bp);
+    const bottom = ctx.tokens.valueAt(padTok(tb?.paddingBottomBinding ?? ""), bp);
+    const shift = (Number.parseFloat(top) - Number.parseFloat(bottom)) / 2;
+    return `Hero text block vertically centred in the 100vh sticky stage's padded content box (DSC layout.textBlock; padding-top ${top} = ${padTok(tb?.paddingTopBinding ?? "")}, padding-bottom ${bottom} = ${padTok(tb?.paddingBottomBinding ?? "")} at ${bp}; net shift of the block ${shift}px from the stage centre)`;
+  };
   for (const bp of BPS) {
     const stage = o.section(bp, "Header80 / StickyStage");
     const text = o.q(bp, "Header80 / StickyStage", "HeroText");
@@ -55,9 +64,13 @@ export function emitConflicts(ctx: Ctx): void {
     if (Math.abs(observedTop - centredTop) > 1) {
       ctx.conflicts.push({
         id: `hero.text-offset.${bp}`,
-        intent: "Hero text vertically centred in the 100vh sticky stage (DSC gives no offset)",
+        intent: tb
+          ? textBlockIntent(bp)
+          : "Hero text vertically centred in the 100vh sticky stage (DSC gives no offset)",
         observed: `Penpot ${bp}: text block top ${observedTop}px vs ${centredTop}px if centred (${(observedTop - centredTop).toFixed(1)}px lower)`,
-        resolution: "Centred; offset not reproduced (not derivable from the DSC)",
+        resolution: tb
+          ? "DSC wins: centred in the padded stage with the bound paddings; the Penpot offset is not reproduced as a separate value"
+          : "Centred; offset not reproduced (not derivable from the DSC)",
       });
     }
   }
@@ -68,12 +81,14 @@ export function emitConflicts(ctx: Ctx): void {
     observed: `copy.json provides ${ctx.copy.navbar.links.length} links; Penpot boards show only the closed bar`,
     resolution: "copy.json wins for the link count (copy is identical across arms)",
   });
+  const scr = ctx.dsc.screens;
   ctx.conflicts.push({
     id: "container.fluid",
     intent: "DSC breakpoints list container 1280 / 691 / 337 with 5% side padding",
     observed: "691 and 337 equal 90% of the 768 and 375 canvases (canvas minus 5% padding each side)",
-    resolution:
-      "Container is fluid: max-width 1280px (lg container) inside 5% side padding; md/sm values arise from the padding",
+    resolution: scr
+      ? `Container is fluid: max-width follows screens[].container (${scr.map((s) => `${s.id} ${s.minWidth}px: ${s.container}`).join(", ")}) inside 5% side padding; md/sm values arise from the padding`
+      : "Container is fluid: max-width 1280px (lg container) inside 5% side padding; md/sm values arise from the padding",
   });
   const gapSmObs = o.gap("sm", "Layout620", "Grid");
   ctx.conflicts.push({

@@ -57,7 +57,7 @@ export function makeCtx(
       return base.tokens.ref(file, b.token);
     },
     newCss() {
-      return new Css(base.header.css, breakpointOrder(base.dsc.breakpoints));
+      return new Css(base.header.css, breakpointOrder(base.dsc.breakpoints), base.dsc.screens);
     },
     lit(file, property, value, reason, source) {
       ungov.add({ file, property, value, reason, source });
