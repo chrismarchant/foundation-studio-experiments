@@ -1,0 +1,98 @@
+{
+  "sharedWith": "C",
+  "ran": true,
+  "cwd": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app",
+  "command": "pnpm build",
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "durationMs": 5478,
+  "stdoutBytes": 462,
+  "stderrBytes": 0,
+  "stdoutFile": "C/build.stdout.txt",
+  "stderrFile": "C/build.stderr.txt",
+  "bundle": {
+    "distDir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/dist",
+    "fileCount": 11,
+    "totalBytes": 552494,
+    "byExt": {
+      ".css": {
+        "files": 2,
+        "bytes": 20324,
+        "gzipBytes": 3124
+      },
+      ".js": {
+        "files": 1,
+        "bytes": 378893,
+        "gzipBytes": 119512
+      },
+      ".woff2": {
+        "files": 7,
+        "bytes": 152824,
+        "gzipBytes": 0
+      },
+      ".html": {
+        "files": 1,
+        "bytes": 453,
+        "gzipBytes": 284
+      }
+    },
+    "files": [
+      {
+        "file": "assets/index-BiciwWzk.css",
+        "bytes": 14204,
+        "gzipBytes": 2506
+      },
+      {
+        "file": "assets/index-CKwApYVv.js",
+        "bytes": 378893,
+        "gzipBytes": 119512
+      },
+      {
+        "file": "fonts/source-sans-3.css",
+        "bytes": 6120,
+        "gzipBytes": 618
+      },
+      {
+        "file": "fonts/ss3-1.woff2",
+        "bytes": 28872,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-2.woff2",
+        "bytes": 10360,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-3.woff2",
+        "bytes": 60088,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-4.woff2",
+        "bytes": 10732,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-5.woff2",
+        "bytes": 9748,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-6.woff2",
+        "bytes": 18496,
+        "gzipBytes": null
+      },
+      {
+        "file": "fonts/ss3-7.woff2",
+        "bytes": 14528,
+        "gzipBytes": null
+      },
+      {
+        "file": "index.html",
+        "bytes": 453,
+        "gzipBytes": 284
+      }
+    ]
+  }
+}

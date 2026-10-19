@@ -1,0 +1,172 @@
+{
+  "label": "run-r3",
+  "criteria": "r3",
+  "startedAt": "2026-10-19T08:31:40.000Z",
+  "dryRun": false,
+  "arms": [
+    "A",
+    "B",
+    "Bp",
+    "C",
+    "Cssr"
+  ],
+  "steps": [
+    "build",
+    "pages",
+    "responsive",
+    "scroll",
+    "visual",
+    "determinism",
+    "licence"
+  ],
+  "routes": [
+    "button",
+    "navbar",
+    "header80",
+    "layout620",
+    "testimonial37",
+    "cta25",
+    "page"
+  ],
+  "node": "v22.22.0",
+  "cwd": "/home/user/foundation-studio-experiments/pen-cloud-03b/harness",
+  "browser": {
+    "engine": "chromium",
+    "context": {
+      "deviceScaleFactor": 1,
+      "locale": "en-GB",
+      "timezoneId": "UTC",
+      "colorScheme": "light",
+      "reducedMotion": "no-preference"
+    },
+    "viewports": [
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "bp": null
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024,
+        "bp": "tablet"
+      },
+      {
+        "name": "mobile",
+        "width": 375,
+        "height": 812,
+        "bp": "mobile"
+      }
+    ],
+    "sweepWidths": [
+      375,
+      439,
+      479,
+      480,
+      503,
+      567,
+      631,
+      695,
+      759,
+      767,
+      768,
+      823,
+      887,
+      951,
+      991,
+      992,
+      1015,
+      1079,
+      1143,
+      1207,
+      1271,
+      1279,
+      1280,
+      1335,
+      1399,
+      1439,
+      1440
+    ],
+    "version": "141.0.7390.37"
+  },
+  "ports": {
+    "A": 4301,
+    "B": 4302,
+    "Bp": 4303,
+    "C": 4304,
+    "Cssr": 4305
+  },
+  "dsc": "dsc/fs.ds.relume-default.r3.json",
+  "dscRevision": "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b",
+  "dscScreens": [
+    {
+      "id": "sm",
+      "minWidth": 480
+    },
+    {
+      "id": "md",
+      "minWidth": 768
+    },
+    {
+      "id": "lg",
+      "minWidth": 992
+    },
+    {
+      "id": "xl",
+      "minWidth": 1280
+    },
+    {
+      "id": "xxl",
+      "minWidth": 1440
+    }
+  ],
+  "dscBreakpoints": [
+    {
+      "id": "lg",
+      "minWidth": 992
+    },
+    {
+      "id": "md",
+      "minWidth": 768
+    },
+    {
+      "id": "sm",
+      "minWidth": 0
+    }
+  ],
+  "sweepWidths": [
+    375,
+    439,
+    479,
+    480,
+    503,
+    567,
+    631,
+    695,
+    759,
+    767,
+    768,
+    823,
+    887,
+    951,
+    991,
+    992,
+    1015,
+    1079,
+    1143,
+    1207,
+    1271,
+    1279,
+    1280,
+    1335,
+    1399,
+    1439,
+    1440
+  ],
+  "determinismOverrides": {
+    "frozen": null,
+    "verifyScript": null
+  },
+  "finishedAt": "2026-10-19T08:40:33.791Z"
+}

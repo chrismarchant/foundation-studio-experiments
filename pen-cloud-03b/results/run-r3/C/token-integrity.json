@@ -1,0 +1,1541 @@
+{
+  "arm": "C",
+  "arm_level": {
+    "varDecls": 94,
+    "literalDecls": 20,
+    "otherVarDecls": 0,
+    "neutralDecls": 1,
+    "unreadableValueDecls": 0,
+    "mixedVarDecls": 0,
+    "boundShare": 0.8246,
+    "boundShareStrict": 0.8246,
+    "uniqueDeclarations": 115,
+    "literalSamples": [
+      {
+        "selector": ".fs-button",
+        "prop": "gap",
+        "value": "12px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-button",
+        "prop": "padding",
+        "value": "0px 24px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-route-button",
+        "prop": "padding",
+        "value": "80px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-navbar__right",
+        "prop": "gap",
+        "value": "8px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-navbar__toggle",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-navbar__lines",
+        "prop": "gap",
+        "value": "5px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-sr-only",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-hero__col",
+        "prop": "gap",
+        "value": "26vw",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-hero__col",
+        "prop": "padding-top",
+        "value": "70vh",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-hero__img::before",
+        "prop": "padding-top",
+        "value": "120%",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "48px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__link",
+        "prop": "gap",
+        "value": "8px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "72px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "80px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "48px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__grid",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__stars",
+        "prop": "gap",
+        "value": "4px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": "ul",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "72px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "80px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      }
+    ],
+    "rawLiterals": [
+      {
+        "selector": ".fs-button",
+        "prop": "gap",
+        "value": "12px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-button",
+        "prop": "padding",
+        "value": "0px 24px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-route-button",
+        "prop": "padding",
+        "value": "80px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-navbar__right",
+        "prop": "gap",
+        "value": "8px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-navbar__toggle",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-navbar__lines",
+        "prop": "gap",
+        "value": "5px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-sr-only",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-hero__col",
+        "prop": "gap",
+        "value": "26vw",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-hero__col",
+        "prop": "padding-top",
+        "value": "70vh",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-hero__img::before",
+        "prop": "padding-top",
+        "value": "120%",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "48px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__link",
+        "prop": "gap",
+        "value": "8px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "72px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-features__container",
+        "prop": "gap",
+        "value": "80px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "48px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__grid",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__stars",
+        "prop": "gap",
+        "value": "4px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": "ul",
+        "prop": "padding",
+        "value": "0px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "72px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      },
+      {
+        "selector": ".fs-testimonials__container",
+        "prop": "gap",
+        "value": "80px",
+        "sheet": "/assets/index-BiciwWzk.css"
+      }
+    ],
+    "unreadableSheets": [],
+    "governed": {
+      "rule": "r3",
+      "manifest": {
+        "path": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/src/generated/generated-manifest.json",
+        "entries": 75,
+        "reasons": [
+          "DSC component geometry (not tokenised)",
+          "no spacing token equals this observed value",
+          "CTA text column width (observation)",
+          "divider thickness (task: 1px dividers)",
+          "container row gap (observation; no DSC token)",
+          "link label/chevron gap (observation: two spaces in 'Button  ›')",
+          "feature icon placeholder (ARM-CONTRACT 48x48)",
+          "section header column width (observation)",
+          "scroll-parallax geometry (DSC interaction block, not tokenised)",
+          "hero text column width (observation)",
+          "hero image box minimum height below screen sm",
+          "image aspect ratio (DSC interaction.imageLayout.aspect)",
+          "divider thickness",
+          "hamburger line gap (observation; ARM-CONTRACT 24x2 lines)",
+          "hamburger line thickness (observation; ARM-CONTRACT 24x2 lines)",
+          "logo placeholder size (ARM-CONTRACT 84x36)",
+          "hamburger hit area (observation; ARM-CONTRACT 24x2 lines)",
+          "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)",
+          "menu panel height (DSC interaction.menu.panel)",
+          "hamburger line length (observation; ARM-CONTRACT 24x2 lines)"
+        ],
+        "dscRevision": "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b",
+        "sha256": "c921a1048bbb67207a99de9561d4776aeb65c82c2b058ec8c895235b67fceea6"
+      },
+      "coverage": {
+        "strict": 0,
+        "loose": 15,
+        "viaShorthand": 1,
+        "uncovered": 0
+      },
+      "viaShorthandScope": {
+        "strict": 0,
+        "loose": 1
+      },
+      "zeroLengthNeutral": 4,
+      "zeroLengthNeutralSamples": [
+        {
+          "selector": ".fs-navbar__toggle",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": ".fs-sr-only",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": ".fs-testimonials__grid",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": "ul",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        }
+      ],
+      "excludedByManifest": 16,
+      "excludedStrict": 0,
+      "excludedLoose": 15,
+      "excludedViaShorthand": 1,
+      "uncoveredLiteralDecls": 0,
+      "uncoveredLiterals": [],
+      "literalDeclsAfterZeroRule": 16,
+      "boundShareGoverned": 1
+    },
+    "governedR2": {
+      "rule": "r2",
+      "manifest": {
+        "path": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/src/generated/generated-manifest.json",
+        "entries": 75,
+        "reasons": [
+          "DSC component geometry (not tokenised)",
+          "no spacing token equals this observed value",
+          "CTA text column width (observation)",
+          "divider thickness (task: 1px dividers)",
+          "container row gap (observation; no DSC token)",
+          "link label/chevron gap (observation: two spaces in 'Button  ›')",
+          "feature icon placeholder (ARM-CONTRACT 48x48)",
+          "section header column width (observation)",
+          "scroll-parallax geometry (DSC interaction block, not tokenised)",
+          "hero text column width (observation)",
+          "hero image box minimum height below screen sm",
+          "image aspect ratio (DSC interaction.imageLayout.aspect)",
+          "divider thickness",
+          "hamburger line gap (observation; ARM-CONTRACT 24x2 lines)",
+          "hamburger line thickness (observation; ARM-CONTRACT 24x2 lines)",
+          "logo placeholder size (ARM-CONTRACT 84x36)",
+          "hamburger hit area (observation; ARM-CONTRACT 24x2 lines)",
+          "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)",
+          "menu panel height (DSC interaction.menu.panel)",
+          "hamburger line length (observation; ARM-CONTRACT 24x2 lines)"
+        ],
+        "dscRevision": "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b",
+        "sha256": "c921a1048bbb67207a99de9561d4776aeb65c82c2b058ec8c895235b67fceea6"
+      },
+      "excludedByManifest": 15,
+      "excludedStrict": 0,
+      "excludedLoose": 15,
+      "uncoveredLiteralDecls": 5,
+      "uncoveredLiterals": [
+        {
+          "selector": ".fs-button",
+          "prop": "padding",
+          "value": "0px 24px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": ".fs-navbar__toggle",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": ".fs-sr-only",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": ".fs-testimonials__grid",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        },
+        {
+          "selector": "ul",
+          "prop": "padding",
+          "value": "0px",
+          "sheet": "/assets/index-BiciwWzk.css"
+        }
+      ],
+      "boundShareGoverned": 0.9495
+    }
+  },
+  "perPage": {
+    "button": {
+      "375": {
+        "var": 13,
+        "literal": 3,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 4,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8125,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 3,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 2,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 2,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9286,
+        "decls": 21,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 13,
+        "literal": 3,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 4,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8125,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 3,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 2,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 2,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9286,
+        "decls": 21,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 13,
+        "literal": 3,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 4,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8125,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 3,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 2,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 2,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9286,
+        "decls": 21,
+        "inlineStyleElements": 0
+      }
+    },
+    "navbar": {
+      "375": {
+        "var": 13,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 2,
+        "boundShare": 0.6842,
+        "zeroLengthNeutral": 2,
+        "excludedByManifest": 4,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 3,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 3,
+        "governedLiteralR2": 3,
+        "boundShareGovernedR2": 0.8125,
+        "decls": 29,
+        "inlineStyleElements": 4
+      },
+      "768": {
+        "var": 13,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 2,
+        "boundShare": 0.6842,
+        "zeroLengthNeutral": 2,
+        "excludedByManifest": 4,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 3,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 3,
+        "governedLiteralR2": 3,
+        "boundShareGovernedR2": 0.8125,
+        "decls": 29,
+        "inlineStyleElements": 4
+      },
+      "1440": {
+        "var": 14,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 2,
+        "boundShare": 0.7,
+        "zeroLengthNeutral": 2,
+        "excludedByManifest": 4,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 3,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 3,
+        "governedLiteralR2": 3,
+        "boundShareGovernedR2": 0.8235,
+        "decls": 30,
+        "inlineStyleElements": 4
+      }
+    },
+    "header80": {
+      "375": {
+        "var": 25,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8333,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 5,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 4,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 4,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9615,
+        "decls": 36,
+        "inlineStyleElements": 2
+      },
+      "768": {
+        "var": 25,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8333,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 5,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 4,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 4,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9615,
+        "decls": 36,
+        "inlineStyleElements": 2
+      },
+      "1440": {
+        "var": 25,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8333,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 5,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 4,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 4,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9615,
+        "decls": 36,
+        "inlineStyleElements": 2
+      }
+    },
+    "layout620": {
+      "375": {
+        "var": 36,
+        "literal": 4,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 8,
+        "shorthandLiteral": 0,
+        "boundShare": 0.9,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 4,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 3,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 3,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.973,
+        "decls": 49,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 38,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 9,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8837,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 5,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 4,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 4,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9744,
+        "decls": 53,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 38,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 9,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8636,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 6,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 5,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 5,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9744,
+        "decls": 54,
+        "inlineStyleElements": 0
+      }
+    },
+    "testimonial37": {
+      "375": {
+        "var": 30,
+        "literal": 4,
+        "otherVar": 0,
+        "neutral": 0,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8824,
+        "zeroLengthNeutral": 2,
+        "excludedByManifest": 2,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 2,
+          "viaShorthand": 0,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 2,
+        "governedLiteralR2": 2,
+        "boundShareGovernedR2": 0.9375,
+        "decls": 40,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 32,
+        "literal": 5,
+        "otherVar": 0,
+        "neutral": 0,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8649,
+        "zeroLengthNeutral": 2,
+        "excludedByManifest": 3,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 3,
+          "viaShorthand": 0,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 3,
+        "governedLiteralR2": 2,
+        "boundShareGovernedR2": 0.9412,
+        "decls": 43,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 32,
+        "literal": 6,
+        "otherVar": 0,
+        "neutral": 0,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 6,
+        "shorthandLiteral": 0,
+        "boundShare": 0.8421,
+        "zeroLengthNeutral": 2,
+        "excludedByManifest": 4,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 4,
+          "viaShorthand": 0,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 4,
+        "governedLiteralR2": 2,
+        "boundShareGovernedR2": 0.9412,
+        "decls": 44,
+        "inlineStyleElements": 0
+      }
+    },
+    "cta25": {
+      "375": {
+        "var": 23,
+        "literal": 2,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.92,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 2,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 1,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 1,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9583,
+        "decls": 31,
+        "inlineStyleElements": 0
+      },
+      "768": {
+        "var": 23,
+        "literal": 2,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.92,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 2,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 1,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 1,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9583,
+        "decls": 31,
+        "inlineStyleElements": 0
+      },
+      "1440": {
+        "var": 23,
+        "literal": 2,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 5,
+        "shorthandLiteral": 0,
+        "boundShare": 0.92,
+        "zeroLengthNeutral": 0,
+        "excludedByManifest": 2,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 1,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 1,
+        "governedLiteralR2": 1,
+        "boundShareGovernedR2": 0.9583,
+        "decls": 31,
+        "inlineStyleElements": 0
+      }
+    },
+    "page": {
+      "375": {
+        "var": 88,
+        "literal": 15,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 19,
+        "shorthandLiteral": 2,
+        "boundShare": 0.8544,
+        "zeroLengthNeutral": 4,
+        "excludedByManifest": 11,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 10,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 10,
+        "governedLiteralR2": 5,
+        "boundShareGovernedR2": 0.9462,
+        "decls": 126,
+        "inlineStyleElements": 6
+      },
+      "768": {
+        "var": 92,
+        "literal": 17,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 20,
+        "shorthandLiteral": 2,
+        "boundShare": 0.844,
+        "zeroLengthNeutral": 4,
+        "excludedByManifest": 13,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 12,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 12,
+        "governedLiteralR2": 5,
+        "boundShareGovernedR2": 0.9485,
+        "decls": 133,
+        "inlineStyleElements": 6
+      },
+      "1440": {
+        "var": 93,
+        "literal": 19,
+        "otherVar": 0,
+        "neutral": 1,
+        "unknown": 0,
+        "mixed": 0,
+        "shorthandVar": 20,
+        "shorthandLiteral": 2,
+        "boundShare": 0.8304,
+        "zeroLengthNeutral": 4,
+        "excludedByManifest": 15,
+        "governedLiteral": 0,
+        "boundShareGoverned": 1,
+        "coverage": {
+          "strict": 0,
+          "loose": 14,
+          "viaShorthand": 1,
+          "uncovered": 0
+        },
+        "excludedByManifestR2": 14,
+        "governedLiteralR2": 5,
+        "boundShareGovernedR2": 0.949,
+        "decls": 136,
+        "inlineStyleElements": 6
+      }
+    }
+  },
+  "manifestEntries": [
+    {
+      "file": "Button.css",
+      "property": "border-width",
+      "reason": "DSC component geometry (not tokenised)",
+      "source": "dsc:fs.component.button.*.geometry",
+      "value": "1px"
+    },
+    {
+      "file": "Button.css",
+      "property": "gap",
+      "reason": "DSC component geometry (not tokenised)",
+      "source": "dsc:fs.component.button.*.geometry",
+      "value": "12px"
+    },
+    {
+      "file": "Button.css",
+      "property": "height",
+      "reason": "DSC component geometry (not tokenised)",
+      "source": "dsc:fs.component.button.*.geometry",
+      "value": "48px"
+    },
+    {
+      "file": "Button.css",
+      "property": "padding-inline",
+      "reason": "DSC component geometry (not tokenised)",
+      "source": "dsc:fs.component.button.*.geometry",
+      "value": "24px"
+    },
+    {
+      "file": "Cta.css",
+      "property": "margin-top",
+      "reason": "no spacing token equals this observed value",
+      "source": "penpot-structure:Cta25>Container>Space[0].h",
+      "value": "20px"
+    },
+    {
+      "file": "Cta.css",
+      "property": "max-width",
+      "reason": "CTA text column width (observation)",
+      "source": "penpot-structure:Cta25>Container.w",
+      "value": "512px"
+    },
+    {
+      "file": "Features.css",
+      "property": "border-width",
+      "reason": "divider thickness (task: 1px dividers)",
+      "source": "task:dividers",
+      "value": "1px"
+    },
+    {
+      "file": "Features.css",
+      "property": "gap",
+      "reason": "container row gap (observation; no DSC token)",
+      "source": "penpot-structure:Layout620>Container.gap",
+      "value": "48px"
+    },
+    {
+      "file": "Features.css",
+      "property": "gap",
+      "reason": "container row gap (observation; no DSC token)",
+      "source": "penpot-structure:Layout620>Container.gap",
+      "value": "72px"
+    },
+    {
+      "file": "Features.css",
+      "property": "gap",
+      "reason": "container row gap (observation; no DSC token)",
+      "source": "penpot-structure:Layout620>Container.gap",
+      "value": "80px"
+    },
+    {
+      "file": "Features.css",
+      "property": "gap",
+      "reason": "link label/chevron gap (observation: two spaces in 'Button  ›')",
+      "source": "penpot-structure:Layout620>LinkButton",
+      "value": "8px"
+    },
+    {
+      "file": "Features.css",
+      "property": "height",
+      "reason": "feature icon placeholder (ARM-CONTRACT 48x48)",
+      "source": "penpot-structure:Layout620>Item1>Icon",
+      "value": "48px"
+    },
+    {
+      "file": "Features.css",
+      "property": "margin-top",
+      "reason": "no spacing token equals this observed value",
+      "source": "penpot-structure:Layout620>Header>Space[0].h",
+      "value": "12px"
+    },
+    {
+      "file": "Features.css",
+      "property": "margin-top",
+      "reason": "no spacing token equals this observed value",
+      "source": "penpot-structure:Layout620>Item1>Space[1].h",
+      "value": "20px"
+    },
+    {
+      "file": "Features.css",
+      "property": "max-width",
+      "reason": "section header column width (observation)",
+      "source": "penpot-structure:Layout620>Header.w",
+      "value": "512px"
+    },
+    {
+      "file": "Features.css",
+      "property": "width",
+      "reason": "feature icon placeholder (ARM-CONTRACT 48x48)",
+      "source": "penpot-structure:Layout620>Item1>Icon",
+      "value": "48px"
+    },
+    {
+      "file": "Hero.css",
+      "property": "gap",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "26vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "100vh"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "150vh"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "300vh"
+    },
+    {
+      "file": "Hero.css",
+      "property": "left",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "4vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "left",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "52vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "left",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "58vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "left",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "64vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "margin-top",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "-44vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "margin-top",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "-45vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "margin-top",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "-46vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "margin-top",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "-5vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "margin-top",
+      "reason": "no spacing token equals this observed value",
+      "source": "penpot-structure:Header80 / StickyStage>Space24.h",
+      "value": "20px"
+    },
+    {
+      "file": "Hero.css",
+      "property": "max-width",
+      "reason": "hero text column width (observation)",
+      "source": "penpot-structure:Header80 / StickyStage>HeroText.w",
+      "value": "512px"
+    },
+    {
+      "file": "Hero.css",
+      "property": "min-height",
+      "reason": "hero image box minimum height below screen sm",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.minHeightBelowScreen",
+      "value": "35vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "opacity",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "0.75"
+    },
+    {
+      "file": "Hero.css",
+      "property": "padding-top",
+      "reason": "image aspect ratio (DSC interaction.imageLayout.aspect)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "120%"
+    },
+    {
+      "file": "Hero.css",
+      "property": "padding-top",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "70vh"
+    },
+    {
+      "file": "Hero.css",
+      "property": "right",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "50vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "right",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "54vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "18vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "20vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "22vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "24vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "26vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "28vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "width",
+      "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
+      "source": "dsc:fs.section.hero.interaction",
+      "value": "30vw"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "border-width",
+      "reason": "divider thickness",
+      "source": "dsc:menu.links border-t",
+      "value": "1px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "gap",
+      "reason": "hamburger line gap (observation; ARM-CONTRACT 24x2 lines)",
+      "source": "penpot-structure:Navbar17>Hamburger",
+      "value": "5px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "gap",
+      "reason": "no spacing token equals this observed value",
+      "source": "penpot-structure:Navbar17>NavRight.gap",
+      "value": "8px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "hamburger line thickness (observation; ARM-CONTRACT 24x2 lines)",
+      "source": "penpot-structure:Navbar17>Hamburger",
+      "value": "2px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "logo placeholder size (ARM-CONTRACT 84x36)",
+      "source": "penpot-structure:Navbar17>Logo",
+      "value": "36px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "hamburger hit area (observation; ARM-CONTRACT 24x2 lines)",
+      "source": "penpot-structure:Navbar17>Hamburger",
+      "value": "48px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)",
+      "source": "penpot-structure:Navbar17>root.h",
+      "value": "64px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "navbar bar height (observation; panel offsets in the DSC use the same 4rem/4.5rem)",
+      "source": "penpot-structure:Navbar17>root.h",
+      "value": "72px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "menu panel height (DSC interaction.menu.panel)",
+      "source": "dsc:fs.section.navbar.interaction.menu.panel",
+      "value": "calc(100vh - 4.5rem)"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "height",
+      "reason": "menu panel height (DSC interaction.menu.panel)",
+      "source": "dsc:fs.section.navbar.interaction.menu.panel",
+      "value": "calc(100vh - 4rem)"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "width",
+      "reason": "hamburger line length (observation; ARM-CONTRACT 24x2 lines)",
+      "source": "penpot-structure:Navbar17>Hamburger",
+      "value": "24px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "width",
+      "reason": "social icon placeholder size (assumption: DSC gives no size)",
+      "source": "assumption:A3",
+      "value": "24px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "width",
+      "reason": "hamburger hit area (observation; ARM-CONTRACT 24x2 lines)",
+      "source": "penpot-structure:Navbar17>Hamburger",
+      "value": "48px"
+    },
+    {
+      "file": "Navbar.css",
+      "property": "width",
+      "reason": "logo placeholder size (ARM-CONTRACT 84x36)",
+      "source": "penpot-structure:Navbar17>Logo",
+      "value": "84px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "border-width",
+      "reason": "card border thickness (observation: 1px inner stroke)",
+      "source": "penpot-structure:Testimonial37>LogoCard.stroke",
+      "value": "1px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "gap",
+      "reason": "container row gap (observation; no DSC token)",
+      "source": "penpot-structure:Testimonial37>Container.gap",
+      "value": "48px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "gap",
+      "reason": "star gap (observation)",
+      "source": "penpot-structure:Testimonial37>Stars.gap",
+      "value": "4px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "gap",
+      "reason": "container row gap (observation; no DSC token)",
+      "source": "penpot-structure:Testimonial37>Container.gap",
+      "value": "72px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "gap",
+      "reason": "container row gap (observation; no DSC token)",
+      "source": "penpot-structure:Testimonial37>Container.gap",
+      "value": "80px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "height",
+      "reason": "star placeholder (ARM-CONTRACT)",
+      "source": "penpot-structure:Testimonial37>Star",
+      "value": "24px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "height",
+      "reason": "logo placeholder (ARM-CONTRACT)",
+      "source": "penpot-structure:Testimonial37>Logo",
+      "value": "48px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "height",
+      "reason": "avatar placeholder (ARM-CONTRACT)",
+      "source": "penpot-structure:Testimonial37>Avatar",
+      "value": "56px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "margin-top",
+      "reason": "no spacing token equals this observed value",
+      "source": "penpot-structure:Testimonial37>Header>Space.h",
+      "value": "20px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "max-width",
+      "reason": "section header column width (observation)",
+      "source": "penpot-structure:Testimonial37>Header.w",
+      "value": "512px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "width",
+      "reason": "logo placeholder (ARM-CONTRACT)",
+      "source": "penpot-structure:Testimonial37>Logo",
+      "value": "120px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "width",
+      "reason": "star placeholder (ARM-CONTRACT)",
+      "source": "penpot-structure:Testimonial37>Star",
+      "value": "24px"
+    },
+    {
+      "file": "Testimonials.css",
+      "property": "width",
+      "reason": "avatar placeholder (ARM-CONTRACT)",
+      "source": "penpot-structure:Testimonial37>Avatar",
+      "value": "56px"
+    },
+    {
+      "file": "base.css",
+      "property": "outline-offset",
+      "reason": "focus ring geometry",
+      "source": "task:visible-focus",
+      "value": "2px"
+    },
+    {
+      "file": "base.css",
+      "property": "outline-width",
+      "reason": "focus ring geometry (accessibility requirement, not DSC-governed)",
+      "source": "task:visible-focus",
+      "value": "2px"
+    },
+    {
+      "file": "routes.css",
+      "property": "max-width",
+      "reason": "route layout from ARM-CONTRACT (/button container)",
+      "source": "ARM-CONTRACT.md#routes",
+      "value": "1440px"
+    },
+    {
+      "file": "routes.css",
+      "property": "padding",
+      "reason": "route layout from ARM-CONTRACT (/button container)",
+      "source": "ARM-CONTRACT.md#routes",
+      "value": "80px"
+    },
+    {
+      "file": "runtime.ts",
+      "property": "fill",
+      "reason": "image placeholder colour (ARM-CONTRACT; not a DSC token)",
+      "source": "ARM-CONTRACT.md",
+      "value": "#d9d9d9"
+    }
+  ],
+  "tokens": {
+    "tokenCount": 34,
+    "ok": 34,
+    "mismatchCount": 0,
+    "missingCount": 0,
+    "mismatches": [],
+    "missing": [],
+    "definedFsVars": 36,
+    "extraFsVars": [
+      "--fs-layout-container-max",
+      "--fs-layout-side-padding"
+    ],
+    "resolvedNames": {
+      "fs.token.color.neutral.darkest": "--fs-color-neutral-darkest",
+      "fs.token.color.scheme.background": "--fs-color-scheme-background",
+      "fs.token.color.scheme.border": "--fs-color-scheme-border",
+      "fs.token.color.scheme.btn-text": "--fs-color-scheme-btn-text",
+      "fs.token.color.scheme.foreground": "--fs-color-scheme-foreground",
+      "fs.token.color.scheme.text": "--fs-color-scheme-text",
+      "fs.token.font.size.h1": "--fs-font-size-h1",
+      "fs.token.font.size.h2": "--fs-font-size-h2",
+      "fs.token.font.size.h3": "--fs-font-size-h3",
+      "fs.token.font.size.h4": "--fs-font-size-h4",
+      "fs.token.font.size.h5": "--fs-font-size-h5",
+      "fs.token.font.size.h6": "--fs-font-size-h6",
+      "fs.token.font.size.medium": "--fs-font-size-medium",
+      "fs.token.font.size.regular": "--fs-font-size-regular",
+      "fs.token.font.size.small": "--fs-font-size-small",
+      "fs.token.radius.button": "--fs-radius-button",
+      "fs.token.radius.card": "--fs-radius-card",
+      "fs.token.radius.image": "--fs-radius-image",
+      "fs.token.space.gap.4": "--fs-space-gap-4",
+      "fs.token.space.gap.6": "--fs-space-gap-6",
+      "fs.token.space.gap.8": "--fs-space-gap-8",
+      "fs.token.space.section.lg": "--fs-space-section-lg",
+      "fs.token.space.section.md": "--fs-space-section-md",
+      "fs.token.space.section.sm": "--fs-space-section-sm",
+      "fs.token.font.lineHeight.heading": "--fs-font-lineHeight-heading",
+      "fs.token.font.lineHeight.h4": "--fs-font-lineHeight-h4",
+      "fs.token.font.lineHeight.body": "--fs-font-lineHeight-body",
+      "fs.token.font.weight.bold": "--fs-font-weight-bold",
+      "fs.token.font.weight.semibold": "--fs-font-weight-semibold",
+      "fs.token.font.weight.regular": "--fs-font-weight-regular",
+      "fs.token.font.letterSpacing.heading": "--fs-font-letterSpacing-heading",
+      "fs.token.font.family.sans": "--fs-font-family-sans",
+      "fs.token.space.hero.text-top": "--fs-space-hero-text-top",
+      "fs.token.space.hero.text-bottom": "--fs-space-hero-text-bottom"
+    }
+  }
+}

@@ -3,6 +3,8 @@
 | Input | Location | Source | Hash / id |
 |---|---|---|---|
 | DSC r1 | `inputs/dsc/fs.ds.relume-default.r1.json` | built by `scripts/build-dsc-r1.py` from the Penpot serialisation and the PEN-CLOUD-02/03 mappings; byte-identical on rerun | `revision` field inside the file |
+| DSC r2 | `inputs/dsc/fs.ds.relume-default.r2.json` | `scripts/build-dsc-r2.py` (DSC-R2-01); supersedes r1 | `sha256:4243b7aa…` |
+| DSC r3 | `inputs/dsc/fs.ds.relume-default.r3.json` (+ `DSC-R3-NOTES.md`) | `scripts/build-dsc-r3.py` (DSC-R3-01..04: Relume preset screens 480/768/992/1280/1440 and container widths, lg tier 992; hero image min-height below sm; hero text-block tokens; testimonials grid rules); supersedes r2; commit `d15d2b1` | `sha256:16fa9a00…` |
 | Penpot serialisation | `inputs/penpot/serialisation.json` | official Penpot MCP `execute_code` read of `FS_Test001` (`cd444aaf-0d8c-801b-8008-cde3b8b4d8bc`): token sets, components, Landing boards, bindings, plugin data | 2026-10-17 |
 | Penpot structure readback | `inputs/penpot/structure.json` | official MCP tree walk of the three Landing boards and Hero A (geometry, flex, text, fills, tokens, component refs, identity + semantic plugin data) | `capturedAt` inside the file |
 | SAC annotations | `inputs/sac/landing-sac.json` (+ `landing-annotation-log.json`) | `foundation.semantic` written through the official MCP on the Landing sections (OD-38 rules) and read back | 2026-10-17 |
@@ -11,6 +13,8 @@
 | Fonts | `inputs/fonts/` | Source Sans 3 (OFL 1.1) subsets from Google Fonts, pinned by hash in `MANIFEST.json` (OD-40) | see manifest |
 | Synthetic copy | `inputs/copy.json` | authored for PEN-CLOUD-02; shared by all arms | — |
 | Arm A (Relume React control) | **outside this repository**, untracked, `/home/user/pc03b-arm-a/` in the agent environment | Relume Library MCP `get_component` for `navbar17_component`, `section_header80`, `section_layout620`, `section_testimonial37`, `section_cta25` with primitives, retrieved 2026-10-17 | section/primitive file hashes recorded in `results/arm-a-source-hashes.txt` (hashes only; no source) |
+
+Arm C revisions: r1 `9498478` (`FROZEN.md`), r2 `d2460c4` (`FROZEN-r2.md`), r3 `76fcd2b` (`FROZEN-r3.md`, C-R3-01..05 generated from DSC r3 under the same isolation rule; the one translation correction C-R3-05 was made before the freeze and before any comparison). Harness: criteria r2 `0ff5803`, criteria r3 `fc4c0a4` (D-6/D-7 corrections, screen-boundary sweep). Run r3 licence scan: 3 hits of the forbidden pattern `@relume_io` in the DSC r3 provenance citation (`screensProvenance`), `scripts/build-dsc-r3.py` and `DSC-R3-NOTES.md`; the string names the npm package of the Relume Tailwind preset as the provenance of the screen values and is not source or a dependency; recorded as a required failure, owner decision OD-47.
 
 Rules in force: OD-25/OD-37 (no Relume source enters any repository), OD-41 (Penpot structure is a design observation, not canonical intent), the Arm C isolation rule (Arm C's agent never sees Arm A or comparison results before C is frozen).
 
