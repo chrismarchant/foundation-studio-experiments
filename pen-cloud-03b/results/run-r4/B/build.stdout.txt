@@ -1,0 +1,56 @@
+
+> pen-cloud-03b-arm-b@1.0.0 build /home/user/foundation-studio-experiments/pen-cloud-03b/arm-b
+> pnpm generate && pnpm build:static && pnpm build:react
+
+
+> pen-cloud-03b-arm-b@1.0.0 generate /home/user/foundation-studio-experiments/pen-cloud-03b/arm-b
+> node scripts/dedupe.mjs && node scripts/wrap.mjs && node scripts/copy-fonts.mjs
+
+desktop  navbar           elements   47 ->   14  removed top-level 8
+desktop  header80         elements  138 ->   39  removed top-level 18
+desktop  layout620        elements  395 ->   88  removed top-level 32
+desktop  testimonial37    elements  533 ->   87  removed top-level 46
+desktop  cta25            elements  116 ->   31  removed top-level 10
+tablet   navbar           elements   47 ->   14  removed top-level 8
+tablet   header80         elements  138 ->   39  removed top-level 18
+tablet   layout620        elements  395 ->   88  removed top-level 32
+tablet   testimonial37    elements  473 ->   87  removed top-level 46
+tablet   cta25            elements  116 ->   31  removed top-level 10
+mobile   navbar           elements   47 ->   14  removed top-level 8
+mobile   header80         elements  138 ->   39  removed top-level 18
+mobile   layout620        elements  399 ->   89  removed top-level 33
+mobile   testimonial37    elements  457 ->   85  removed top-level 44
+mobile   cta25            elements  116 ->   31  removed top-level 10
+library  button-primary   elements   13 ->    7  removed top-level 1
+library  button-secondary elements   13 ->    7  removed top-level 1
+totals { before: 3581, after: 790, removedTop: 343, fontReplacements: 86 }
+wrapped 21 route variants; motion attributes in route files: 6
+react/public/fonts: 8 files
+
+> pen-cloud-03b-arm-b@1.0.0 build:static /home/user/foundation-studio-experiments/pen-cloud-03b/arm-b
+> node scripts/build-static.mjs
+
+static/: 21 documents
+
+> pen-cloud-03b-arm-b@1.0.0 build:react /home/user/foundation-studio-experiments/pen-cloud-03b/arm-b
+> pnpm --filter pen-cloud-03b-arm-b-react build
+
+
+> pen-cloud-03b-arm-b-react@1.0.0 build /home/user/foundation-studio-experiments/pen-cloud-03b/arm-b/react
+> vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node prerender.mjs
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 73 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  0.44 kB │ gzip:  0.32 kB
+dist/assets/index-DlbloHPI.js  675.70 kB │ gzip: 92.07 kB
+✓ built in 1.50s
+vite v7.3.7 building ssr environment for production...
+transforming...
+✓ 46 modules transformed.
+rendering chunks...
+dist-ssr/entry-server.js  473.44 kB
+✓ built in 198ms
+prerendered 7 routes (desktop variant) into dist/

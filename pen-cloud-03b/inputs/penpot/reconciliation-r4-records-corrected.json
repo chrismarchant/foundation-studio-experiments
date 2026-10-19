@@ -1,0 +1,105 @@
+{
+ "recordCorrectedAt": "2026-10-19T09:42:17.651Z",
+ "method": "official Penpot MCP execute_code: foundation.reconciliation.after re-read after Penpot recomputed the layout; the synchronous value is kept as afterRecordedSynchronously",
+ "note": "structure.r4.json (frozen input of C-R4) keeps the synchronously recorded after values in its pd; this overlay holds the corrected live records",
+ "records": {
+  "4d569422-e5e3-8076-8008-cdeb4ffc5595": {
+   "name": "Button / Button / Primary",
+   "after": {
+    "w": 97,
+    "h": 50,
+    "pt": 13,
+    "pb": 13,
+    "pl": 25,
+    "pr": 25
+   }
+  },
+  "4d569422-e5e3-8076-8008-cdeb50084766": {
+   "name": "Button / Button / Secondary",
+   "after": {
+    "w": 97,
+    "h": 50,
+    "pt": 13,
+    "pb": 13,
+    "pl": 25,
+    "pr": 25
+   }
+  },
+  "4d569422-e5e3-8076-8008-cdec6c060faf": {
+   "name": "QuoteCard",
+   "after": {
+    "h": 297,
+    "kids": [
+     {
+      "n": "Stars",
+      "h": 24
+     },
+     {
+      "n": "Space",
+      "h": 20
+     },
+     {
+      "n": "Quote",
+      "h": 81
+     },
+     {
+      "n": "Space",
+      "h": 20
+     },
+     {
+      "n": "Author",
+      "h": 104
+     }
+    ]
+   }
+  },
+  "4d569422-e5e3-8076-8008-cdec6c3852d2": {
+   "name": "QuoteCard",
+   "after": {
+    "h": 297,
+    "kids": [
+     {
+      "n": "Stars",
+      "h": 24
+     },
+     {
+      "n": "Space",
+      "h": 20
+     },
+     {
+      "n": "Quote",
+      "h": 81
+     },
+     {
+      "n": "Space",
+      "h": 20
+     },
+     {
+      "n": "Author",
+      "h": 104
+     }
+    ]
+   }
+  },
+  "4d569422-e5e3-8076-8008-cdec6c28977d": {
+   "name": "Author",
+   "after": {
+    "dir": "column",
+    "gap": 0,
+    "ai": "start",
+    "h": 104,
+    "w": 168
+   }
+  },
+  "4d569422-e5e3-8076-8008-cdec6c5d6589": {
+   "name": "Author",
+   "after": {
+    "dir": "column",
+    "gap": 0,
+    "ai": "start",
+    "h": 104,
+    "w": 168
+   }
+  }
+ }
+}
