@@ -38,18 +38,24 @@
       "sha256": "36f94de26b3d42b2704958c444dc9c6c458286faf65cbe56b4219594919e1b02",
       "capturedAt": "2026-10-17T17:28:39.806Z",
       "revision": null
+    },
+    "overlay": {
+      "path": "inputs/penpot/reconciliation-r4-records-corrected.json",
+      "sha256": "23d6897f869583246fdc0a255abae6a3ade0e217f424037831e0c1b43384922e",
+      "capturedAt": "2026-10-19T09:42:17.651Z",
+      "revision": null
     }
   },
   "summary": {
-    "overall": "FAIL",
+    "overall": "PASS",
     "checks": 29,
-    "pass": 27,
-    "fail": 2,
+    "pass": 29,
+    "fail": 0,
     "groups": {
       "A": "PASS",
       "B": "PASS",
       "C": "PASS",
-      "R": "FAIL"
+      "R": "PASS"
     },
     "required": "PASS",
     "reconciliationRecords": {
@@ -1127,33 +1133,214 @@
     {
       "id": "R1",
       "group": "R",
-      "title": "Record fidelity: reconciliation record before/after x, y, w, h agree with the original and corrected observations (board nodes)",
-      "status": "FAIL",
-      "detail": "37 records checked, 4 field mismatches (record x is page-absolute: tier offsets {\"desktop\":0,\"tablet\":1600,\"mobile\":2500})",
-      "mismatches": [
+      "title": "Record fidelity: reconciliation record before/after (geometry, flex, child heights) agree with the original and corrected observations (board nodes)",
+      "status": "PASS",
+      "detail": "37 records checked, 0 mismatches (record x is page-absolute: tier offsets {\"desktop\":0,\"tablet\":1600,\"mobile\":2500}). overlay inputs/penpot/reconciliation-r4-records-corrected.json (recordCorrectedAt 2026-10-19T09:42:17.651Z) used for 6 nodes; 4 board records evaluated against the overlay. Frozen records alone: 6 mismatches (QuoteCard 060faf after.h: frozen record 249, observed 297; QuoteCard 060faf after.kids: frozen record Stars:24,Space:20,Quote:81,Space:20,Author:56, observed Stars:24,Space:20,Quote:81,Space:20,Author:104; Author 28977d after.h: frozen record 56, observed 104; QuoteCard 3852d2 after.h: frozen record 249, observed 297; QuoteCard 3852d2 after.kids: frozen record Stars:24,Space:20,Quote:81,Space:20,Author:56, observed Stars:24,Space:20,Quote:81,Space:20,Author:104; Author 5d6589 after.h: frozen record 56, observed 104).",
+      "mismatches": [],
+      "frozenMismatches": [
         {
           "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+          "name": "QuoteCard",
           "field": "after.h",
           "record": 249,
-          "observed": 297
+          "observed": 297,
+          "main": false
+        },
+        {
+          "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+          "name": "QuoteCard",
+          "field": "after.kids",
+          "record": "Stars:24,Space:20,Quote:81,Space:20,Author:56",
+          "observed": "Stars:24,Space:20,Quote:81,Space:20,Author:104",
+          "main": false
         },
         {
           "id": "4d569422-e5e3-8076-8008-cdec6c28977d",
+          "name": "Author",
           "field": "after.h",
           "record": 56,
-          "observed": 104
+          "observed": 104,
+          "main": false
         },
         {
           "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+          "name": "QuoteCard",
           "field": "after.h",
           "record": 249,
-          "observed": 297
+          "observed": 297,
+          "main": false
+        },
+        {
+          "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+          "name": "QuoteCard",
+          "field": "after.kids",
+          "record": "Stars:24,Space:20,Quote:81,Space:20,Author:56",
+          "observed": "Stars:24,Space:20,Quote:81,Space:20,Author:104",
+          "main": false
         },
         {
           "id": "4d569422-e5e3-8076-8008-cdec6c5d6589",
+          "name": "Author",
           "field": "after.h",
           "record": 56,
-          "observed": 104
+          "observed": 104,
+          "main": false
+        }
+      ],
+      "overlayUsed": [
+        {
+          "id": "4d569422-e5e3-8076-8008-cdec6c060faf",
+          "name": "QuoteCard",
+          "main": false,
+          "frozenAfter": {
+            "h": 249,
+            "kids": [
+              {
+                "n": "Stars",
+                "h": 24
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Quote",
+                "h": 81
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Author",
+                "h": 56
+              }
+            ]
+          },
+          "overlayAfter": {
+            "h": 297,
+            "kids": [
+              {
+                "n": "Stars",
+                "h": 24
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Quote",
+                "h": 81
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Author",
+                "h": 104
+              }
+            ]
+          },
+          "frozenMismatches": 2,
+          "overlayMismatches": 0
+        },
+        {
+          "id": "4d569422-e5e3-8076-8008-cdec6c28977d",
+          "name": "Author",
+          "main": false,
+          "frozenAfter": {
+            "dir": "column",
+            "gap": 0,
+            "ai": "start",
+            "h": 56
+          },
+          "overlayAfter": {
+            "dir": "column",
+            "gap": 0,
+            "ai": "start",
+            "h": 104,
+            "w": 168
+          },
+          "frozenMismatches": 1,
+          "overlayMismatches": 0
+        },
+        {
+          "id": "4d569422-e5e3-8076-8008-cdec6c3852d2",
+          "name": "QuoteCard",
+          "main": false,
+          "frozenAfter": {
+            "h": 249,
+            "kids": [
+              {
+                "n": "Stars",
+                "h": 24
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Quote",
+                "h": 81
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Author",
+                "h": 56
+              }
+            ]
+          },
+          "overlayAfter": {
+            "h": 297,
+            "kids": [
+              {
+                "n": "Stars",
+                "h": 24
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Quote",
+                "h": 81
+              },
+              {
+                "n": "Space",
+                "h": 20
+              },
+              {
+                "n": "Author",
+                "h": 104
+              }
+            ]
+          },
+          "frozenMismatches": 2,
+          "overlayMismatches": 0
+        },
+        {
+          "id": "4d569422-e5e3-8076-8008-cdec6c5d6589",
+          "name": "Author",
+          "main": false,
+          "frozenAfter": {
+            "dir": "column",
+            "gap": 0,
+            "ai": "start",
+            "h": 56
+          },
+          "overlayAfter": {
+            "dir": "column",
+            "gap": 0,
+            "ai": "start",
+            "h": 104,
+            "w": 168
+          },
+          "frozenMismatches": 1,
+          "overlayMismatches": 0
         }
       ],
       "pageOffsets": {
@@ -1166,36 +1353,89 @@
       "id": "R2",
       "group": "R",
       "title": "Record fidelity: button-main reconciliation record `after` size and padding agree with the observed corrected main",
-      "status": "FAIL",
-      "detail": "4 mismatches: Button / Button / Primary after.w record 95 vs observed 97; Button / Button / Primary after.h record 48 vs observed 50; Button / Button / Secondary after.w record 95 vs observed 97; Button / Button / Secondary after.h record 48 vs observed 50",
-      "mismatches": [
+      "status": "PASS",
+      "detail": "2 mains checked, 0 mismatches. overlay inputs/penpot/reconciliation-r4-records-corrected.json (recordCorrectedAt 2026-10-19T09:42:17.651Z) used for 6 nodes; 2 mains evaluated against the overlay. Frozen records alone: 4 mismatches (Button / Button / Primary fc5595 after.w: frozen record 95, observed 97; Button / Button / Primary fc5595 after.h: frozen record 48, observed 50; Button / Button / Secondary 084766 after.w: frozen record 95, observed 97; Button / Button / Secondary 084766 after.h: frozen record 48, observed 50).",
+      "mismatches": [],
+      "frozenMismatches": [
         {
           "id": "4d569422-e5e3-8076-8008-cdeb4ffc5595",
           "name": "Button / Button / Primary",
           "field": "after.w",
           "record": 95,
-          "observed": 97
+          "observed": 97,
+          "main": true
         },
         {
           "id": "4d569422-e5e3-8076-8008-cdeb4ffc5595",
           "name": "Button / Button / Primary",
           "field": "after.h",
           "record": 48,
-          "observed": 50
+          "observed": 50,
+          "main": true
         },
         {
           "id": "4d569422-e5e3-8076-8008-cdeb50084766",
           "name": "Button / Button / Secondary",
           "field": "after.w",
           "record": 95,
-          "observed": 97
+          "observed": 97,
+          "main": true
         },
         {
           "id": "4d569422-e5e3-8076-8008-cdeb50084766",
           "name": "Button / Button / Secondary",
           "field": "after.h",
           "record": 48,
-          "observed": 50
+          "observed": 50,
+          "main": true
+        }
+      ],
+      "overlayUsed": [
+        {
+          "id": "4d569422-e5e3-8076-8008-cdeb4ffc5595",
+          "name": "Button / Button / Primary",
+          "main": true,
+          "frozenAfter": {
+            "w": 95,
+            "h": 48,
+            "pt": 13,
+            "pb": 13,
+            "pl": 25,
+            "pr": 25
+          },
+          "overlayAfter": {
+            "w": 97,
+            "h": 50,
+            "pt": 13,
+            "pb": 13,
+            "pl": 25,
+            "pr": 25
+          },
+          "frozenMismatches": 2,
+          "overlayMismatches": 0
+        },
+        {
+          "id": "4d569422-e5e3-8076-8008-cdeb50084766",
+          "name": "Button / Button / Secondary",
+          "main": true,
+          "frozenAfter": {
+            "w": 95,
+            "h": 48,
+            "pt": 13,
+            "pb": 13,
+            "pl": 25,
+            "pr": 25
+          },
+          "overlayAfter": {
+            "w": 97,
+            "h": 50,
+            "pt": 13,
+            "pb": 13,
+            "pl": 25,
+            "pr": 25
+          },
+          "frozenMismatches": 2,
+          "overlayMismatches": 0
         }
       ]
     },
@@ -5936,8 +6176,8 @@
   "notes": [
     {
       "id": "N1",
-      "title": "Button-main reconciliation records are stale",
-      "detail": "2 button mains carry foundation.reconciliation with after.w/h 95x48, 95x48 (identical to before) while the observed mains are 97x50, 97x50 with padding [13,25,13,25]; the record captures the padding change but not the resulting size."
+      "title": "Frozen button-main reconciliation records are stale",
+      "detail": "2 button mains carry foundation.reconciliation with after.w/h 95x48, 95x48 (identical to before) while the observed mains are 97x50, 97x50 with padding [13,25,13,25]; the frozen record captured the padding change but not the recomputed size. The overlay supplies the recomputed values and group R judges against it."
     },
     {
       "id": "N2",
@@ -5976,8 +6216,8 @@
     },
     {
       "id": "N9",
-      "title": "Reconciliation record after.h is stale on mobile quote-card nodes",
-      "detail": "4 records (QuoteCard 249 vs observed 297, Author 56 vs observed 104, QuoteCard 249 vs observed 297, Author 56 vs observed 104) record heights 48 px smaller than the corrected observation, which is the DSC-consistent one (Author 104 = Avatar 56 + NameBlock 48, QuoteCard 297 = padding 48 + Stars 24 + Space 20 + Quote 81 + Space 20 + Author 104)."
+      "title": "Frozen reconciliation records are stale on mobile quote-card nodes",
+      "detail": "6 field(s) differ in the frozen structure.r4.json records (QuoteCard after.h 249 vs observed 297, QuoteCard after.kids Stars:24,Space:20,Quote:81,Space:20,Author:56 vs observed Stars:24,Space:20,Quote:81,Space:20,Author:104, Author after.h 56 vs observed 104, QuoteCard after.h 249 vs observed 297, QuoteCard after.kids Stars:24,Space:20,Quote:81,Space:20,Author:56 vs observed Stars:24,Space:20,Quote:81,Space:20,Author:104, Author after.h 56 vs observed 104); the observed values are DSC-consistent (Author 104 = Avatar 56 + NameBlock 48, QuoteCard 297 = padding 48 + Stars 24 + Space 20 + Quote 81 + Space 20 + Author 104). The overlay supplies the recomputed values and group R judges against it."
     }
   ]
 }

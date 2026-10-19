@@ -19,6 +19,9 @@ const INPUTS = {
   recon: 'inputs/penpot/reconciliation-r4.json',
   sac: 'inputs/sac/landing-sac.json',
 };
+// optional overlay with corrected live reconciliation records (the frozen structure.r4.json must not change)
+const OVERLAY_PATH = 'inputs/penpot/reconciliation-r4-records-corrected.json';
+try { readFileSync(resolve(ROOT, OVERLAY_PATH)); INPUTS.overlay = OVERLAY_PATH; } catch { /* overlay absent: group R judges the frozen records */ }
 const raw = {};
 const J = {};
 for (const [k, p] of Object.entries(INPUTS)) {
@@ -26,6 +29,7 @@ for (const [k, p] of Object.entries(INPUTS)) {
   J[k] = JSON.parse(raw[k].toString('utf8'));
 }
 const { dscR4: D4, dscR3: D3, orig: O, corr: C, recon: R, sac: S } = J;
+const OV = J.overlay ?? null;
 
 // ---------------------------------------------------------------------------------------------------------------
 // helpers
@@ -310,6 +314,7 @@ for (const id of FN.order) {
 
 // A4 reconciliation records vs plugin data
 let pageOffsets = {};
+let recordFidelity = null;
 const recNodes = FN.order.filter((id) => recordOf(FN.map.get(id).node));
 const mainsWithRec = (C.buttonMains || []).filter((m) => recordOf(m));
 {
@@ -357,7 +362,6 @@ const mainsWithRec = (C.buttonMains || []).filter((m) => recordOf(m));
     allBad.length === 0, `${compared} nodes compared; ${allBad.length} differ`, { failing: allBad });
   // record x values are page-absolute (the tablet and mobile boards sit at x offsets on the page); structure x is
   // board-relative, so derive the offset per tier from the first record and require it to be constant
-  const inc = [];
   const offs = {};
   for (const id of recNodes) {
     const rn = FN.map.get(id);
@@ -365,29 +369,70 @@ const mainsWithRec = (C.buttonMains || []).filter((m) => recordOf(m));
     const rcd = recordOf(rn.node);
     if (!(rn.tier in offs) && rcd.before && 'x' in rcd.before) offs[rn.tier] = rcd.before.x - a.x;
   }
-  for (const id of recNodes) {
-    const rn = FN.map.get(id);
-    const b = rn.node;
-    const a = FO.map.get(id).node;
-    const rcd = recordOf(b);
-    const off = offs[rn.tier] ?? 0;
-    for (const k of ['x', 'y', 'w', 'h']) {
-      const o = k === 'x' ? off : 0;
-      if (rcd.before && k in rcd.before && !near(rcd.before[k], a[k] + o, ROUND_TOL)) inc.push({ id, field: `before.${k}`, record: rcd.before[k], observed: a[k] + o });
-      if (rcd.after && k in rcd.after && !near(rcd.after[k], b[k] + o, ROUND_TOL)) inc.push({ id, field: `after.${k}`, record: rcd.after[k], observed: b[k] + o });
-    }
-  }
   pageOffsets = offs;
-  add('R1', 'R', 'Record fidelity: reconciliation record before/after x, y, w, h agree with the original and corrected observations (board nodes)',
-    inc.length === 0, `${recNodes.length} records checked, ${inc.length} field mismatches (record x is page-absolute: tier offsets ${JSON.stringify(offs)})`, { mismatches: inc, pageOffsets: offs });
-  const mi = [];
-  for (const m of mainsWithRec) {
-    const rcd = recordOf(m);
-    const obs = { w: m.w, h: m.h, pt: m.flex.pad[0], pb: m.flex.pad[2], pl: m.flex.pad[3], pr: m.flex.pad[1] };
-    for (const k of Object.keys(rcd.after)) if (!near(rcd.after[k], obs[k], 0.05)) mi.push({ id: m.id, name: m.n, field: `after.${k}`, record: rcd.after[k], observed: obs[k] });
+  // compare one side (before/after) of a record with an observed node: geometry, padding, flex and child heights
+  const compareSide = (side, r, node, off) => {
+    const out = [];
+    const bad = (field, record, observed) => out.push({ id: node.id, name: node.n, field: `${side}.${field}`, record, observed });
+    for (const k of Object.keys(r)) {
+      if (k === 'x' || k === 'y' || k === 'w' || k === 'h') {
+        const obs = node[k] + (k === 'x' ? off : 0);
+        if (!near(r[k], obs, ROUND_TOL)) bad(k, r[k], obs);
+      } else if (k === 'pt' || k === 'pr' || k === 'pb' || k === 'pl') {
+        const obs = node.flex?.pad?.[{ pt: 0, pr: 1, pb: 2, pl: 3 }[k]];
+        if (!near(r[k], obs, ROUND_TOL)) bad(k, r[k], obs);
+      } else if (k === 'dir' || k === 'ai') {
+        if (r[k] !== node.flex?.[k]) bad(k, r[k], node.flex?.[k]);
+      } else if (k === 'gap') {
+        if (!near(r.gap, node.flex?.gap?.[0], ROUND_TOL)) bad('gap', r.gap, node.flex?.gap?.[0]);
+      } else if (k === 'kids') {
+        const kids = node.k || [];
+        const okK = r.kids.length === kids.length && r.kids.every((q, i) => q.n === kids[i].n && near(q.h, kids[i].h, ROUND_TOL));
+        if (!okK) bad('kids', r.kids.map((q) => `${q.n}:${q.h}`).join(','), kids.map((q) => `${q.n}:${q.h}`).join(','));
+      }
+    }
+    return out;
+  };
+  const ovRecs = OV?.records ?? {};
+  const frozenInc = []; // judged on the frozen records exactly as stored in structure.r4.json
+  const inc = []; // judged with the overlay's `after` where the overlay has an entry
+  const overlayUsed = [];
+  const targets = [...recNodes.map((id) => ({ id, node: FN.map.get(id).node, tier: FN.map.get(id).tier, main: false })), ...mainsWithRec.map((m) => ({ id: m.id, node: m, tier: null, main: true }))];
+  for (const t of targets) {
+    const rcd = recordOf(t.node);
+    const off = t.main ? 0 : offs[t.tier] ?? 0;
+    const before = t.main ? [] : compareSide('before', rcd.before || {}, FO.map.get(t.id).node, off);
+    const after = compareSide('after', rcd.after || {}, t.node, off);
+    const ov = ovRecs[t.id];
+    let effective = after;
+    if (ov) {
+      effective = compareSide('after', ov.after, t.node, off);
+      if (ov.name !== t.node.n) effective.push({ id: t.id, name: t.node.n, field: 'overlay.name', record: ov.name, observed: t.node.n });
+      overlayUsed.push({ id: t.id, name: t.node.n, main: t.main, frozenAfter: rcd.after, overlayAfter: ov.after, frozenMismatches: after.length, overlayMismatches: effective.length });
+    }
+    frozenInc.push(...before.map((m) => ({ ...m, main: t.main })), ...after.map((m) => ({ ...m, main: t.main })));
+    inc.push(...before.map((m) => ({ ...m, main: t.main })), ...effective.map((m) => ({ ...m, main: t.main })));
   }
+  const ovStray = Object.keys(ovRecs).filter((id) => !targets.some((t) => t.id === id));
+  for (const id of ovStray) inc.push({ id, name: ovRecs[id].name, field: 'overlay.target', record: 'overlay entry', observed: 'no node with a reconciliation record', main: false });
+  const frozenText = (list) => list.map((m) => `${m.name} ${m.id.slice(-6)} ${m.field}: frozen record ${m.record}, observed ${m.observed}`).join('; ');
+  const ovText = OV ? `overlay ${OVERLAY_PATH} (recordCorrectedAt ${OV.recordCorrectedAt}) used for ${overlayUsed.length} nodes` : 'no overlay present; frozen records judged as stored';
+  const boardInc = inc.filter((m) => !m.main);
+  const mainInc = inc.filter((m) => m.main);
+  const frozenBoard = frozenInc.filter((m) => !m.main);
+  const frozenMain = frozenInc.filter((m) => m.main);
+  const usedBoard = overlayUsed.filter((u) => !u.main);
+  const usedMain = overlayUsed.filter((u) => u.main);
+  const usedText = (list) => list.map((u) => `${u.name} ${u.id.slice(-6)}: frozen after ${JSON.stringify(u.frozenAfter)} -> overlay ${JSON.stringify(u.overlayAfter)}`).join('; ');
+  add('R1', 'R', 'Record fidelity: reconciliation record before/after (geometry, flex, child heights) agree with the original and corrected observations (board nodes)',
+    boardInc.length === 0,
+    `${recNodes.length} records checked, ${boardInc.length} mismatches (record x is page-absolute: tier offsets ${JSON.stringify(offs)}). ${ovText}; ${usedBoard.length} board records evaluated against the overlay. Frozen records alone: ${frozenBoard.length} mismatches` + (frozenBoard.length ? ` (${frozenText(frozenBoard)})` : '') + '.',
+    { mismatches: boardInc, frozenMismatches: frozenBoard, overlayUsed: usedBoard, pageOffsets: offs });
   add('R2', 'R', 'Record fidelity: button-main reconciliation record `after` size and padding agree with the observed corrected main',
-    mi.length === 0, mi.length ? `${mi.length} mismatches: ` + mi.map((x) => `${x.name} ${x.field} record ${x.record} vs observed ${x.observed}`).join('; ') : 'all agree', { mismatches: mi });
+    mainInc.length === 0,
+    `${mainsWithRec.length} mains checked, ${mainInc.length} mismatches. ${ovText}; ${usedMain.length} mains evaluated against the overlay. Frozen records alone: ${frozenMain.length} mismatches` + (frozenMain.length ? ` (${frozenText(frozenMain)})` : '') + '.',
+    { mismatches: mainInc, frozenMismatches: frozenMain, overlayUsed: usedMain });
+  recordFidelity = { frozenInc, overlayUsed, overlayPresent: !!OV };
 }
 
 // ===============================================================================================================
@@ -911,8 +956,14 @@ for (const id of FO.order) {
 // Notes (observations about the inputs; not PASS/FAIL)
 // ===============================================================================================================
 {
-  const stale = mainsWithRec.filter((m) => !near(recordOf(m).after.w, m.w, 0.05) || !near(recordOf(m).after.h, m.h, 0.05));
-  if (stale.length) notes.push({ id: 'N1', title: 'Button-main reconciliation records are stale', detail: `${stale.length} button mains carry ${REC} with after.w/h ${stale.map((m) => `${recordOf(m).after.w}x${recordOf(m).after.h}`).join(', ')} (identical to before) while the observed mains are ${stale.map((m) => `${m.w}x${m.h}`).join(', ')} with padding ${JSON.stringify(stale[0].flex.pad)}; the record captures the padding change but not the resulting size.` });
+  {
+    const fz = recordFidelity.frozenInc;
+    const resolved = recordFidelity.overlayPresent ? 'The overlay supplies the recomputed values and group R judges against it.' : 'No overlay is present, so group R judges the stale values.';
+    const fm = fz.filter((m) => m.main);
+    if (fm.length) notes.push({ id: 'N1', title: 'Frozen button-main reconciliation records are stale', detail: `${mainsWithRec.length} button mains carry ${REC} with after.w/h ${mainsWithRec.map((m) => `${recordOf(m).after.w}x${recordOf(m).after.h}`).join(', ')} (identical to before) while the observed mains are ${mainsWithRec.map((m) => `${m.w}x${m.h}`).join(', ')} with padding ${JSON.stringify(mainsWithRec[0].flex.pad)}; the frozen record captured the padding change but not the recomputed size. ${resolved}` });
+    const fb = fz.filter((m) => !m.main);
+    if (fb.length) notes.push({ id: 'N9', title: 'Frozen reconciliation records are stale on mobile quote-card nodes', detail: `${fb.length} field(s) differ in the frozen structure.r4.json records (${fb.map((m) => `${m.name} ${m.field} ${m.record} vs observed ${m.observed}`).join(', ')}); the observed values are DSC-consistent (Author 104 = Avatar 56 + NameBlock 48, QuoteCard 297 = padding 48 + Stars 24 + Space 20 + Quote 81 + Space 20 + Author 104). ${resolved}` });
+  }
   notes.push({ id: 'N2', title: 'Corrected capture differs in representation from the original', detail: `structure.r4.json is described as the same schema, but text.align is absent on ${schema.textAlignDropped}/${schema.textNodes} text nodes, stroke is [{w,a,c}] instead of [colour, alpha, align] on ${schema.strokeReshaped} nodes (alpha dropped, width added), and component display names changed on ${schema.componentNameChanged} nodes (e.g. "Button / Button/Primary" -> "Primary"). These were normalised before diffing, so text alignment (for example the centred H1) cannot be verified.` });
   const mdp = tierGeom.tablet;
   notes.push({ id: 'N3', title: 'DSC container values are rounded', detail: `DSC breakpoints md.container = ${mdp.dscContainer} but canvas x (1 - 2 x 5 %) = ${r2(mdp.derivedContainer)}; the Penpot tablet text columns and containers are ${r2(mdp.derivedContainer)} (checks use the derived value). sm.container = ${tierGeom.mobile.dscContainer} vs derived ${r2(tierGeom.mobile.canvas * 0.9)}; the Penpot mobile board uses ${tierGeom.mobile.dscContainer}.` });
@@ -927,10 +978,6 @@ for (const id of FO.order) {
   notes.push({ id: 'N5', title: 'Features Grid gap is outside R4-05 and not fully on DSC tokens', detail: `DSC features gridGap stays on fs.token.space.gap.8 (32). Observed, untouched by R4: ${fg.join('; ')}. The desktop columnGap token is named "cd.space.gap-8" (not a DSC-mapped Penpot token name), tablet has no token binding, and mobile is a stacked list with 0 gap.` });
   notes.push({ id: 'N6', title: 'DSC revision', detail: `fs.ds.relume-default.r4.json revision ${D4.revision}; supersedes ${D4.supersedes}.` });
   if (Object.values(pageOffsets).some((v) => v !== 0)) notes.push({ id: 'N8', title: 'Reconciliation record x values are page-absolute', detail: `foundation.reconciliation before/after x are page coordinates (tier offsets ${JSON.stringify(pageOffsets)}), while structure x is board-relative; y, w and h are in the same frame. The record check applies the constant per-tier offset.` });
-  {
-    const stale2 = recNodes.filter((id) => { const b = FN.map.get(id).node; const rcd = recordOf(b); return rcd.after && 'h' in rcd.after && !near(rcd.after.h, b.h, ROUND_TOL); });
-    if (stale2.length) notes.push({ id: 'N9', title: 'Reconciliation record after.h is stale on mobile quote-card nodes', detail: `${stale2.length} records (${stale2.map((id) => `${FN.map.get(id).node.n} ${recordOf(FN.map.get(id).node).after.h} vs observed ${FN.map.get(id).node.h}`).join(', ')}) record heights 48 px smaller than the corrected observation, which is the DSC-consistent one (Author 104 = Avatar 56 + NameBlock 48, QuoteCard 297 = padding 48 + Stars 24 + Space 20 + Quote 81 + Space 20 + Author 104).` });
-  }
   notes.push({ id: 'N7', title: 'Right-column hero image interpretation', detail: 'DSC columnInsetRule pins the right column\'s right edge to the inset. The check requires every right image to end at or inside width - inset and the first (Image5) to end exactly at it; the second right image is offset left by its own vw rule (right-[54vw] / right-[50vw]) and legitimately ends well inside.' });
 }
 
@@ -1002,7 +1049,7 @@ const report = {
   report: 'DRT',
   experiment: 'PEN-CLOUD-03-B',
   revision: 'R4',
-  inputs: Object.fromEntries(Object.entries(INPUTS).map(([k, p]) => [k, { path: p, sha256: sha(raw[k]), capturedAt: J[k].capturedAt ?? J[k].createdAt ?? null, revision: J[k].revision ?? null }])),
+  inputs: Object.fromEntries(Object.entries(INPUTS).map(([k, p]) => [k, { path: p, sha256: sha(raw[k]), capturedAt: J[k].capturedAt ?? J[k].createdAt ?? J[k].recordCorrectedAt ?? null, revision: J[k].revision ?? null }])),
   summary: {
     overall: fail === 0 ? 'PASS' : 'FAIL',
     checks: checks.length, pass, fail,
@@ -1138,7 +1185,8 @@ md.push('## R. Record fidelity (extra checks)');
 md.push('');
 for (const c of checks.filter((x) => x.group === 'R')) {
   md.push(`- **${c.id} ${c.status}** ${c.title}. ${c.detail}`);
-  for (const m of (c.mismatches || []).filter((x) => x.field)) md.push(`  - \`${m.id.slice(-12)}\` ${m.name ?? FN.map.get(m.id)?.node.n ?? ''} ${m.field}: record ${m.record}, observed ${m.observed}`);
+  for (const u of c.overlayUsed || []) md.push(`  - overlay used for \`${u.id.slice(-12)}\` ${u.name}: frozen record said ${JSON.stringify(u.frozenAfter)}, overlay says ${JSON.stringify(u.overlayAfter)}`);
+  for (const m of c.mismatches || []) md.push(`  - MISMATCH \`${m.id.slice(-12)}\` ${m.name} ${m.field}: record ${m.record}, observed ${m.observed}`);
 }
 md.push('');
 md.push('## Notes on the inputs (reported, not corrected)');
