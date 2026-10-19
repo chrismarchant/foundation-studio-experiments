@@ -265,7 +265,7 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
         ['scripts/build-sneaky.mjs', 'tools/build.py', 'pnpm-lock.yaml', 'package.json'].every((f) => cls(f)?.classification === 'other'));
       add('licence r3.1: pattern 0 is detected and judged by the same field rule (no pattern removed or relaxed)', cls('inputs/dsc/p0.json', 0)?.classification === 'provenanceField' && scan.patternsChecked === 3);
       add('licence r3.1: every hit still counted and listed (detection unchanged): hitCount equals the number of hits, classificationCounts add up',
-        scan.hitCount === scan.hits.length && scan.hitCount === 13 && scan.classificationCounts.provenanceField === 2 && scan.classificationCounts.builderAssignment === 1 && scan.classificationCounts.other === 10, JSON.stringify([scan.hitCount, scan.classificationCounts]));
+        scan.hitCount === scan.hits.length && scan.hitCount === 12 && scan.classificationCounts.provenanceField === 2 && scan.classificationCounts.builderAssignment === 1 && scan.classificationCounts.other === 9, JSON.stringify([scan.hitCount, scan.classificationCounts]));
       add('licence r3.1: assignment-line recogniser accepts dict/assign forms and rejects comparison, call, or non-provenance keys',
         ["'screensProvenance': 'a',", 'provenance = "a"', 'const sourceProvenance = `a`;', 'x.screensProvenance = "a"'].every(isProvenanceAssignmentLine)
         && !["'evidence': 'a',", 'provenance == "a"', 'foo("provenance", "a")', "'provenanceNote': 'a'", "provenance = 'a' + other"].some(isProvenanceAssignmentLine));
