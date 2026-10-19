@@ -1,7 +1,7 @@
 {
  "dsc": "0.1",
  "id": "fs.ds.relume-default",
- "revision": "sha256:066de30691c0d123b8bf5682200b533f7e459b41afb1e50254e48bdbc2318ae2",
+ "revision": "sha256:6defaaa003c0d979526811cf6fa0a40f35b1f3ee9a726c0d77c27eb06ecc8918",
  "createdAt": "2026-10-19T12:00:00Z",
  "supersedes": "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b",
  "changeLog": [
@@ -66,7 +66,7 @@
    "ruling": "OD-50",
    "record": "PEN-CLOUD-03-B-R4-RESULT.md",
    "correctedStructure": "inputs/penpot/structure.r4.json",
-   "capturedAt": "pending"
+   "capturedAt": "2026-10-19T09:23:58.447Z"
   }
  ],
  "tokens": {
