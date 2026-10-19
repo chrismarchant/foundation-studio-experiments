@@ -139,19 +139,62 @@ export function classifyHitOnDisk(root, file, patternIndex) {
   return classifyHitContent(file, buf, needle);
 }
 
-export function forbiddenStringScan(root) {
+// ---------------------------------------------------------------------------------------------------------------
+// Informational `scope` of an `other` hit (never changes pass/fail): `frozenPriorRevision` when the file is a DSC JSON,
+// DSC notes file or builder script of a DSC revision lower than the revision the run's arm-c manifest points at
+// (manifest dsc.revision matched against the `revision` fields of inputs/dsc/fs.ds.relume-default.r<N>.json),
+// `current` otherwise, including when the manifest revision cannot be matched.
+// ---------------------------------------------------------------------------------------------------------------
+const REVISIONED_FILES = [/^inputs\/dsc\/fs\.ds\.relume-default\.r(\d+)\.json$/, /^inputs\/dsc\/DSC-R(\d+)-NOTES\.md$/, /^scripts\/build-dsc-r(\d+)\.(?:py|ts|mjs|js)$/];
+export const revisionNumberOfFile = (file) => { for (const re of REVISIONED_FILES) { const m = re.exec(file); if (m) return Number(m[1]); } return null; };
+
+/** Revision number N (of fs.ds.relume-default.r<N>.json under <root>/inputs/dsc) whose `revision` equals manifestRevision, else null. */
+export function manifestRevisionNumber(root, manifestRevision) {
+  if (!manifestRevision) return null;
+  const dir = path.join(root, 'inputs', 'dsc');
+  let names; try { names = fs.readdirSync(dir); } catch { return null; }
+  for (const n of names) {
+    const m = /^fs\.ds\.relume-default\.r(\d+)\.json$/.exec(n);
+    if (!m) continue;
+    try { if (JSON.parse(fs.readFileSync(path.join(dir, n), 'utf8')).revision === manifestRevision) return Number(m[1]); } catch { /* unreadable DSC: ignore */ }
+  }
+  return null;
+}
+/** dsc.revision of <armC>/app/src/generated/generated-manifest.json, or null. */
+export function readManifestRevision(armCDir) {
+  try { return JSON.parse(fs.readFileSync(path.join(armCDir, 'app', 'src', 'generated', 'generated-manifest.json'), 'utf8')).dsc?.revision || null; } catch { return null; }
+}
+export function scopeOfFile(root, file, manifestRevision) {
+  const n = revisionNumberOfFile(file), cur = manifestRevisionNumber(root, manifestRevision);
+  return n !== null && cur !== null && n < cur ? 'frozenPriorRevision' : 'current';
+}
+/** Counts of hits by classification and, for `other`, by scope. */
+export function countClassifications(hits) {
+  const real = hits.filter((h) => h.patternIndex !== undefined);
+  const by = (c) => real.filter((h) => h.classification === c).length;
+  const others = real.filter((h) => h.classification !== 'provenanceField' && h.classification !== 'builderAssignment');
+  return { provenanceField: by('provenanceField'), builderAssignment: by('builderAssignment'), other: others.length,
+    otherByScope: { frozenPriorRevision: others.filter((h) => h.scope === 'frozenPriorRevision').length, current: others.filter((h) => h.scope !== 'frozenPriorRevision').length } };
+}
+
+export function forbiddenStringScan(root, { manifestRevision = null } = {}) {
   const hits = [];
   let scanned = 0;
+  const scopeCache = new Map();
   for (const f of walkFiles(root, { skipDirs: SKIP })) {
     const full = path.join(root, f);
     let st; try { st = fs.statSync(full); } catch { continue; }
     if (st.size > MAX_BYTES) { hits.push({ file: f, note: 'skipped: larger than limit' }); continue; }
     const buf = fs.readFileSync(full);
     scanned++;
-    FORBIDDEN.forEach((s, i) => { if (buf.includes(s)) hits.push({ file: f, patternIndex: i, ...classifyHitContent(f, buf, s) }); });
+    FORBIDDEN.forEach((s, i) => {
+      if (!buf.includes(s)) return;
+      const c = classifyHitContent(f, buf, s);
+      if (c.classification === 'other') { if (!scopeCache.has(f)) scopeCache.set(f, scopeOfFile(root, f, manifestRevision)); c.scope = scopeCache.get(f); }
+      hits.push({ file: f, patternIndex: i, ...c });
+    });
   }
   const real = hits.filter((h) => h.patternIndex !== undefined);
-  const by = (c) => real.filter((h) => h.classification === c).length;
   return { root, patternsChecked: FORBIDDEN.length, filesScanned: scanned, hitCount: real.length,
-    classificationRule: CLASSIFICATION_RULE, classificationCounts: { provenanceField: by('provenanceField'), builderAssignment: by('builderAssignment'), other: by('other') }, hits };
+    classificationRule: CLASSIFICATION_RULE, manifestRevision, classificationCounts: countClassifications(hits), hits };
 }

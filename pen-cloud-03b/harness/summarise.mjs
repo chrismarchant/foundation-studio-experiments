@@ -5,7 +5,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { judgeGovernedR3, parseUngoverned } from './src/tokenrules.mjs';
-import { classifyHitOnDisk } from './src/licence.mjs';
+import { classifyHitOnDisk, scopeOfFile, countClassifications } from './src/licence.mjs';
 
 const HARNESS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ARM_ORDER = ['A', 'B', 'Bp', 'C', 'Cssr'];
@@ -91,6 +91,27 @@ export function governedView(tok, criteria, { det = null, manifestPath = null, r
   }
   const gv = judgeGovernedR3({ literals: lits, varDecls: al.varDecls, entries, manifestInfo: info });
   return { gv, rejudged: true, source: `re-judged from the stored ${al.rawLiterals ? 'rawLiterals' : 'literalSamples'} (${lits.length} literal declarations) and the manifest (${entries.length} entries, sha256 ${info.sha256 ? info.sha256.slice(0, 12) : 'embedded'}${info.shaMatchesRun === false ? ' - NOT the run-recorded manifest' : ''})` };
+}
+
+/**
+ * Forbidden-string hits with classification and scope. Stored values (scan-time) are used when present; otherwise
+ * they are re-derived from the files on disk under fb.root at summarise time (run r3 and earlier carry neither).
+ * `manifestRevision` = the arm-c manifest dsc.revision the run recorded (C/determinism.json), else the one stored with the scan.
+ */
+function enrichForbiddenHits(fb, manifestRevision) {
+  const rev = manifestRevision || fb.manifestRevision || null;
+  let rederived = 0;
+  const hits = (fb.hits || []).map((h) => {
+    if (h.patternIndex === undefined) return h; // 'skipped: larger than limit' notes are not hits
+    let o = h;
+    let how = 'stored in licence.json (scan-time)';
+    if (!h.classification) { o = { ...h, ...classifyHitOnDisk(fb.root, h.file, h.patternIndex) }; rederived++; how = `re-derived from the file on disk under ${fb.root} at summarise time (the stored hit has no classification)`; }
+    const isOther = o.classification !== 'provenanceField' && o.classification !== 'builderAssignment';
+    if (isOther && !o.scope) o = { ...o, scope: scopeOfFile(fb.root, h.file, rev) };
+    return { ...o, classificationSource: how };
+  });
+  const real = hits.filter((h) => h.patternIndex !== undefined);
+  return { hits, real, rederived, counts: countClassifications(hits), manifestRevision: rev };
 }
 
 export function summarise(runDir, { criteria = 'r3', suffix = '', outDir = null, manifestPath = null } = {}) {
@@ -368,22 +389,14 @@ export function summarise(runDir, { criteria = 'r3', suffix = '', outDir = null,
           value: { importLineMatchCount: l.importLineMatchCount, locations: l.importLineMatches?.slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
         add({ dimension: 'licence', route: '-', name: R2 ? 'matching non-import lines >= 40 chars vs Arm A source (supplementary, not proof)' : 'matching lines >= 40 chars vs Arm A source (supplementary, not proof)', threshold: '0', status: nonImport === 0 ? 'PASS' : 'FAIL',
           value: { matchCount: nonImport, uniqueHashes: l.uniqueMatchingHashes, scannedLines: l.scannedLines, referenceLines: l.referenceLines, locations: l.matches?.filter((m) => !(R2 && m.importLine)).slice(0, 20).map((m) => `${m.file}:${m.line} ${m.sha256.slice(0, 12)}`) } });
+        const enr = enrichForbiddenHits(fb, D.det?.manifestRevision);
         if (R31) {
           // r3.1 (OD-47): every hit is still listed; it passes only when every hit is provenanceField or builderAssignment.
-          let rederived = 0;
-          const hits = (fb.hits || []).map((h) => {
-            if (h.patternIndex === undefined) return h; // 'skipped: larger than limit' notes are not hits
-            if (h.classification) return { ...h, classificationSource: 'stored in licence.json (scan-time)' };
-            rederived++;
-            return { ...h, ...classifyHitOnDisk(fb.root, h.file, h.patternIndex), classificationSource: `re-derived from the file on disk under ${fb.root} at summarise time (the stored hit has no classification)` };
-          });
-          const real = hits.filter((h) => h.patternIndex !== undefined);
-          const counts = { provenanceField: 0, builderAssignment: 0, other: 0 };
-          real.forEach((h) => { counts[h.classification === 'provenanceField' || h.classification === 'builderAssignment' ? h.classification : 'other']++; });
-          const listing = real.map((h) => `${h.file} [pattern ${h.patternIndex}] ${h.classification}${h.classification === 'builderAssignment' ? ` lines ${h.lines.join(',')}` : ''}${h.classification === 'provenanceField' ? ` ${h.fields.join(',')}` : ''}${h.classification === 'other' && h.reason ? ` - ${h.reason}` : ''}`);
+          const { hits, real, rederived, counts } = enr;
+          const listing = real.map((h) => `${h.file} [pattern ${h.patternIndex}] ${h.classification}${h.classification === 'builderAssignment' ? ` lines ${h.lines.join(',')}` : ''}${h.classification === 'provenanceField' ? ` ${h.fields.join(',')}` : ''}${h.classification === 'other' ? ` (scope ${h.scope})${h.reason ? ` - ${h.reason}` : ''}` : ''}`);
           add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir (r3.1: provenance fields / builder assignments only)', threshold: '0 hits other than provenanceField or builderAssignment', status: counts.other === 0 ? 'PASS' : 'FAIL',
-            value: { criteria: 'r3.1 (amendment under OD-47)', hitCount: fb.hitCount, filesScanned: fb.filesScanned, counts, classificationSource: rederived ? `${rederived} of ${real.length} hit(s) re-derived from the files on disk at summarise time (the stored licence.json hits carry no classification); the files may have changed since the run` : 'stored in licence.json', listing, hits: hits.slice(0, 50) } });
-        } else add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir', threshold: '0 hits', status: fb.hitCount === 0 ? 'PASS' : 'FAIL', value: { hitCount: fb.hitCount, filesScanned: fb.filesScanned, hits: fb.hits?.slice(0, 20) } });
+            value: { criteria: 'r3.1 (amendment under OD-47)', hitCount: fb.hitCount, filesScanned: fb.filesScanned, counts, scopeBasis: `manifest dsc.revision ${enr.manifestRevision || 'n/a'} (scope is informational only)`, classificationSource: rederived ? `${rederived} of ${real.length} hit(s) re-derived from the files on disk at summarise time (the stored licence.json hits carry no classification); the files may have changed since the run` : 'stored in licence.json', listing, hits: hits.slice(0, 50) } });
+        } else add({ dimension: 'licence', route: '-', name: 'forbidden strings under experiment dir', threshold: '0 hits', status: fb.hitCount === 0 ? 'PASS' : 'FAIL', value: { hitCount: fb.hitCount, filesScanned: fb.filesScanned, hits: fb.hits?.slice(0, 20), informational: { otherByScope: enr.counts.otherByScope, counts: enr.counts, scopeBasis: `manifest dsc.revision ${enr.manifestRevision || 'n/a'}` } } });
       } else add({ dimension: 'licence', route: '-', name: 'licence check', threshold: '0', status: 'MISSING', value: 'step not run (run after C is frozen: --licence)' });
     }
 

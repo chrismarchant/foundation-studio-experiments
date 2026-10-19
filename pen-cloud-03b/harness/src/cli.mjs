@@ -9,7 +9,7 @@ import { launchBrowser, measurePages, measureResponsive, measureScrollProbe, agg
 import { runBuild } from './build.mjs';
 import { runVisual } from './visual.mjs';
 import { runDeterminism, selectDeterminismInputs } from './determinism.mjs';
-import { licenceCheck, forbiddenStringScan } from './licence.mjs';
+import { licenceCheck, forbiddenStringScan, readManifestRevision } from './licence.mjs';
 import { summarise } from '../summarise.mjs';
 
 const argv = process.argv.slice(2).filter((a) => a !== '--');
@@ -202,7 +202,7 @@ try {
     const relumeSrc = DRY ? fixtures.relumeSrc : path.join(ARM_A_ROOT, 'relume-src');
     const armCDir = arms.C.rootDir;
     const lic = licenceCheck({ armCDir, relumeSrc });
-    const forb = forbiddenStringScan(DRY ? fixtures.cleanRoot : EXP_DIR);
+    const forb = forbiddenStringScan(DRY ? fixtures.cleanRoot : EXP_DIR, { manifestRevision: readManifestRevision(armCDir) });
     ensureDir(path.join(outDir, 'C'));
     writeJson(path.join(outDir, 'C', 'licence.json'), { licenceLines: lic, forbiddenStrings: forb });
     log(`  matching lines: ${lic.matchCount}; forbidden-string hits: ${forb.hitCount}`);

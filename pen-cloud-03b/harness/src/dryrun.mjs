@@ -297,6 +297,39 @@ export function assertDryRun({ outDir, armIds, fixtures, steps }) {
       add('licence r3.1: summarise accepts --criteria r3.1 (summary labelled r3.1, licence threshold text names the classification)', s31?.criteria === 'r3.1' && /provenanceField/.test(s31.thresholds.licence) && fs.readFileSync(path.join(dOk, 'summary-r3.1.md'), 'utf8').includes('Criteria: **r3.1**'));
     } finally { fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(tmpOut, { recursive: true, force: true }); }
   }
+  // criteria r3.1: informational `scope` of `other` hits (frozenPriorRevision = revision number below the manifest's DSC revision); never changes pass/fail
+  {
+    const P = ['@relume', '_io'].join('');
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pc03b-scope-'));
+    const tmpOut = fs.mkdtempSync(path.join(os.tmpdir(), 'pc03b-scope-out-'));
+    try {
+      const w = (rel, text) => { ensureDir(path.dirname(path.join(root, rel))); fs.writeFileSync(path.join(root, rel), text); };
+      const rev = (n) => `sha256:${String(n).repeat(64)}`;
+      for (const n of [1, 2]) {
+        w(`inputs/dsc/fs.ds.relume-default.r${n}.json`, JSON.stringify({ revision: rev(n), evidence: `via ${P}` }));
+        w(`inputs/dsc/DSC-R${n}-NOTES.md`, `uses ${P}\n`);
+        w(`scripts/build-dsc-r${n}.py`, `x = {'evidence': '${P}'}\n`);
+      }
+      w('README.md', `mentions ${P}\n`);
+      const scan = forbiddenStringScan(root, { manifestRevision: rev(2) });
+      const sc = (f) => scan.hits.find((h) => h.file === f)?.scope;
+      add('licence r3.1 scope: `other` hits of a DSC JSON / notes / builder script with a revision number below the manifest revision are frozenPriorRevision; the manifest revision itself and other files are current; counts split by scope',
+        ['inputs/dsc/fs.ds.relume-default.r1.json', 'inputs/dsc/DSC-R1-NOTES.md', 'scripts/build-dsc-r1.py'].every((f) => sc(f) === 'frozenPriorRevision')
+        && ['inputs/dsc/fs.ds.relume-default.r2.json', 'inputs/dsc/DSC-R2-NOTES.md', 'scripts/build-dsc-r2.py', 'README.md'].every((f) => sc(f) === 'current')
+        && scan.classificationCounts.other === 7 && scan.classificationCounts.otherByScope.frozenPriorRevision === 3 && scan.classificationCounts.otherByScope.current === 4, JSON.stringify([scan.classificationCounts, scan.hits.map((h) => [h.file, h.scope])]));
+      const unmatched = forbiddenStringScan(root, { manifestRevision: rev(9) });
+      add('licence r3.1 scope: a manifest revision that matches no DSC file falls back to current', unmatched.classificationCounts.otherByScope.frozenPriorRevision === 0 && unmatched.classificationCounts.otherByScope.current === 7);
+      const d = ensureDir(path.join(tmpOut, 'run'));
+      writeJson(path.join(d, 'run.json'), { label: 'scope', criteria: 'r3' });
+      writeJson(path.join(d, 'C', 'determinism.json'), { manifestRevision: rev(2) });
+      writeJson(path.join(d, 'C', 'licence.json'), { licenceLines: { matchCount: 0, matchCountExclImports: 0, importLineMatchCount: 0, matches: [] }, forbiddenStrings: { ...scan, hits: scan.hits.map(({ file, patternIndex }) => ({ file, patternIndex })), classificationCounts: undefined } });
+      summarise(d, { criteria: 'r3.1', suffix: '-r3.1' }); summarise(d, { criteria: 'r3', suffix: '-r3' });
+      const r31 = readJson(path.join(d, 'summary-r3.1.json')).arms.C.checks.find((c) => c.name.startsWith('forbidden strings'));
+      const r3 = readJson(path.join(d, 'summary-r3.json')).arms.C.checks.find((c) => c.name.startsWith('forbidden strings'));
+      add('licence r3.1 scope: summarise re-derives scope from the run-recorded manifest revision and reports other-by-scope in the row; the row is FAIL under r3 and r3.1 whatever the scope',
+        r31.status === 'FAIL' && r3.status === 'FAIL' && r31.value.counts.otherByScope.frozenPriorRevision === 3 && r31.value.counts.otherByScope.current === 4 && r3.value.informational.otherByScope.frozenPriorRevision === 3, JSON.stringify([r31.value.counts, r3.value.informational]));
+    } finally { fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(tmpOut, { recursive: true, force: true }); }
+  }
   // unit checks of the r2 refinements
   {
     const mk = (prop, value, sheet) => ({ key: `${sheet}|${prop}|${value}`, sheet, selector: '.x', prop, value, cls: 'literal', mixed: false, shorthand: false });
