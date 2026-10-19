@@ -9,7 +9,7 @@
     {
       "id": "button.width.stroke",
       "intent": "DSC geometry: paddingX 24, strokeWidth 1 (CSS border + padding)",
-      "observed": "Penpot Primary is 95px wide with an inner stroke (24 + label + 24); a CSS border adds 2px",
+      "observed": "Penpot Primary is 97px wide with an inner stroke (24 + label + 24); a CSS border adds 2px",
       "resolution": "CSS border-box with 1px border and 24px padding kept (rendered width is label + 50px)"
     },
     {
@@ -27,19 +27,19 @@
     {
       "id": "hero.text-offset.lg",
       "intent": "Hero text block vertically centred in the 100vh sticky stage's padded content box (DSC layout.textBlock; padding-top 112px = fs.token.space.hero.text-top, padding-bottom 112px = fs.token.space.hero.text-bottom at lg; net shift of the block 0px from the stage centre)",
-      "observed": "Penpot lg: text block top 320px vs 256.5px if centred (63.5px lower)",
+      "observed": "Penpot lg: text block top 320px vs 302.5px if centred (17.5px lower)",
       "resolution": "DSC wins: centred in the padded stage with the bound paddings; the Penpot offset is not reproduced as a separate value"
     },
     {
       "id": "hero.text-offset.md",
       "intent": "Hero text block vertically centred in the 100vh sticky stage's padded content box (DSC layout.textBlock; padding-top 96px = fs.token.space.hero.text-top, padding-bottom 96px = fs.token.space.hero.text-bottom at md; net shift of the block 0px from the stage centre)",
-      "observed": "Penpot md: text block top 382px vs 318.5px if centred (63.5px lower)",
+      "observed": "Penpot md: text block top 382px vs 364.5px if centred (17.5px lower)",
       "resolution": "DSC wins: centred in the padded stage with the bound paddings; the Penpot offset is not reproduced as a separate value"
     },
     {
       "id": "hero.text-offset.sm",
       "intent": "Hero text block vertically centred in the 100vh sticky stage's padded content box (DSC layout.textBlock; padding-top 64px = fs.token.space.hero.text-top, padding-bottom 96px = fs.token.space.hero.text-bottom at sm; net shift of the block -16px from the stage centre)",
-      "observed": "Penpot sm: text block top 276px vs 171.5px if centred (104.5px lower)",
+      "observed": "Penpot sm: text block top 276px vs 170.50000000000037px if centred (105.5px lower)",
       "resolution": "DSC wins: centred in the padded stage with the bound paddings; the Penpot offset is not reproduced as a separate value"
     },
     {
@@ -47,12 +47,6 @@
       "intent": "DSC navbar interaction.menu.links: 8 links",
       "observed": "copy.json provides 4 links; Penpot boards show only the closed bar",
       "resolution": "copy.json wins for the link count (copy is identical across arms)"
-    },
-    {
-      "id": "testimonials.grid-gap.sm",
-      "intent": "DSC binds gridGap to fs.token.space.gap.8 = 32px at every breakpoint",
-      "observed": "Penpot mobile Grid gap is 24px",
-      "resolution": "DSC wins: 32px at sm as well"
     },
     {
       "id": "testimonials.order.below-lg",
@@ -63,7 +57,7 @@
   ],
   "dsc": {
     "id": "fs.ds.relume-default",
-    "revision": "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b",
+    "revision": "sha256:6defaaa003c0d979526811cf6fa0a40f35b1f3ee9a726c0d77c27eb06ecc8918",
     "version": "0.1"
   },
   "files": [
@@ -101,7 +95,7 @@
     },
     {
       "path": "app/src/generated/Button.css",
-      "sha256": "16f9df324dd11f15c4f475da55d18ab2010af2a08cdbeca3b7096a599a859116"
+      "sha256": "500c16daf8c74abf5000571c44a04d032fbfba6116feec9833126538cdf5f5bd"
     },
     {
       "path": "app/src/generated/Button.tsx",
@@ -109,7 +103,7 @@
     },
     {
       "path": "app/src/generated/Cta.css",
-      "sha256": "a9acb0e81bfccefac789eaccffc9fabfb6ef17e308d803c6d8f4f8308bb8c45e"
+      "sha256": "7e1b0a764745491aba5506d771abbc0417010e789da4c899fec0d704cfc25d52"
     },
     {
       "path": "app/src/generated/Cta.tsx",
@@ -117,7 +111,7 @@
     },
     {
       "path": "app/src/generated/Features.css",
-      "sha256": "7d3ec72e4ea240d9c579bf5006ce4ab15bde34e2fedabc3db572f81f5914c6eb"
+      "sha256": "2a7134edebe81ddabc78bdf49bf26388665a5c85faf11a76c140847abf603f44"
     },
     {
       "path": "app/src/generated/Features.tsx",
@@ -125,7 +119,7 @@
     },
     {
       "path": "app/src/generated/Hero.css",
-      "sha256": "a5e258b64b589a6c1916db08dd62c5767e5087c1496af4fe7ee710325feffcf6"
+      "sha256": "3690cad08bd697ea10e03f05cb8af0e3d1b40aad9061bb7337079a83565b20cb"
     },
     {
       "path": "app/src/generated/Hero.tsx",
@@ -141,7 +135,7 @@
     },
     {
       "path": "app/src/generated/Testimonials.css",
-      "sha256": "d518997abab0408e62028a58b0b2e6b42acee803cd33e1d1847686045d0968c8"
+      "sha256": "13279359f10e0540efc26c251e98c29581d5da4efb7abbe08f248f3059bdc917"
     },
     {
       "path": "app/src/generated/Testimonials.tsx",
@@ -169,11 +163,11 @@
     },
     {
       "path": "app/src/generated/tokens.css",
-      "sha256": "b407ac1e6b8d0d43ad80997b1a89dcff4627e53a24e60ae5b60cda5317f3fc7d"
+      "sha256": "2e2f681c6a8e250d8531497a04350a1eb6819b02bc4ffffa9fe6a1d313b2c9c0"
     },
     {
       "path": "app/src/generated/tokens.ts",
-      "sha256": "d7fe53a0257c5c59585cea4767c76f1b5eb3497b95ee4e168b5a2f1b942f5a40"
+      "sha256": "8311a5c75a55297cee530c4e4ed60b0affcf212cd309c6f9366f18806971f368"
     },
     {
       "path": "ssr/public/fonts/source-sans-3.css",
@@ -209,30 +203,30 @@
     }
   ],
   "generator": {
-    "generator/emit/button.ts": "8857ce070caeafd0e7fbab5a2d710cebfb83f94b49662d7799cd86902af58d7a",
+    "generator/emit/button.ts": "dd413c074c786d623f19d65e84c47be736c1cdcd45c718682dea123eebde2a33",
     "generator/emit/conflicts.ts": "423d7c237ba9da801583ad8328a8b68f0f95d201ed3860bca52eb96df7c75fc9",
-    "generator/emit/cta.ts": "f4e09fbf7decd66e3beb7e3f2adb739e318506eb1be71e278beabada361c1b8e",
-    "generator/emit/features.ts": "92914dad43c2e9704b7057ec3c2b0ce86e75d0b39457ccafa4c6751a59f56665",
-    "generator/emit/hero.ts": "9f4855dedff447fe6e48171d269a177135f6c0726d0ca8f8c68517647d7b91db",
+    "generator/emit/cta.ts": "90aa883605d1fbad6448c547bc95b22a885a8d92cd377886a60c4d258e9e757b",
+    "generator/emit/features.ts": "f1e1ac97089168e193daa909db6dc1792de89770aed8f7a62bc7d18c8ee49b20",
+    "generator/emit/hero.ts": "7b34e7dceede7cb5d9324d423a2e5e51c10c6a9fa9a92636921e6da60a8fc0ac",
     "generator/emit/navbar.ts": "d4c9c1f481c6d5572b210e62f50d619be3256dfc4b78a0e14661185e832dce35",
     "generator/emit/routes.ts": "9451f80b0dcdf5acc33e280fd6477350219a9787e969d4c213bd3545a3580a42",
     "generator/emit/static.ts": "14ec891c4e6df5f319cc26300e6ec997890f4ecb42ffb5f7d1a110fbd5357154",
-    "generator/emit/testimonials.ts": "8072de9a9e24ba55f1bdc11f198d208d392102689fbc6e3580feeec9d48c571a",
-    "generator/generate.ts": "7de088a7d111296d46e877031e06a033779b3fea3d9f2c096888838ebca996ac",
+    "generator/emit/testimonials.ts": "d4a7cea67b8e1d8fa95b7c54fa44f2ceded7c455c24741f5244cfd9535d132c7",
+    "generator/generate.ts": "b1e488d39d97251d4e8ae7a8133d0a2d150c5854eb2b53cc14b5120e4c044767",
     "generator/lib/css.ts": "604aa61838a08d84b0a2cbc26f42dc37352aca08bf700e82cdcdade0570677fa",
-    "generator/lib/ctx.ts": "349aafb1d480254841ec9128059e5f67608bbd461f0bcdb606942f88fa04148f",
+    "generator/lib/ctx.ts": "6bef0d0a7e62d5885335d3da27303c59e7040a88d04f42126a7add7fa097a9e6",
     "generator/lib/emitutil.ts": "c7eb5dcc76b176bd2d38058c3a3da6cc695023bafdbc77c13deeb64568e045b5",
     "generator/lib/io.ts": "9d95e90a3d8dcaf926027dc60cda4e45a0fdb5c968a42740e955b2da57df79f0",
     "generator/lib/obs.ts": "c71891620666ff23feba1064c2ed6a9a5d63ce8c2b3308329f44e04e3190a7c1",
     "generator/lib/sac.ts": "8f35df951748a933fb6b903c8df5e84c9b3d55dc0574928f8c301eb0fc3d124c",
     "generator/lib/tokens.ts": "5cb2b2601d1107556803a36567813e01401de4048a2be6403bbf1e975771034e",
     "generator/lib/twparse.ts": "bebb2f78703ef6e56c1f6afa45d36daaf2485ca276522887afd050eb2759a495",
-    "generator/lib/types.ts": "acc07fc07c9c9aa84330a8bfee22e80a169ed677ebd1caf7b8f6f48330562189",
+    "generator/lib/types.ts": "b54659dafbda541c5350f48cafc5c9a49e2b4eaf86e38d029db4718a61f1fbe2",
     "generator/tsconfig.json": "e56b997aa1f6ffc5a64d96fcb233074fe640998868d511e27f7fe2cc1ce62a28"
   },
   "inputs": {
     "../inputs/copy.json": "af8154ee64ed982dd63a7ef8b07fc4016229a60458b4c78c9ff64e9bbaa2cf66",
-    "../inputs/dsc/fs.ds.relume-default.r3.json": "38b1e13e956eadfbec57ed3f802dc2e9e9732910be5231629de36159c0330eef",
+    "../inputs/dsc/fs.ds.relume-default.r4.json": "a957e18028dffab784acb10e67560678dc3723ef73da390fa320a41687212fe9",
     "../inputs/fonts/MANIFEST.json": "261df4482f6d22fa056f707c65b31b0b0cc5aa42958d39b270c83073ab9eda2d",
     "../inputs/fonts/source-sans-3.css": "e9a751883bf0c84fe7ec5703ec460b6cbe68da56b1186184128b9e7b0e204875",
     "../inputs/fonts/ss3-1.woff2": "19143dca075972bc84e3fd9eab7416dd40cc565dccb2435a044bdfabe060c7d5",
@@ -242,7 +236,7 @@
     "../inputs/fonts/ss3-5.woff2": "67fbab24bd97c2161850ce1b5308fe8bb4ad1dd9ddf3c38e875b185e5bacf52d",
     "../inputs/fonts/ss3-6.woff2": "b6b721e08d0324b9e743858e8260463085d4c5e1e684f036f9d4a8ca6c62996f",
     "../inputs/fonts/ss3-7.woff2": "dd6ec3878cf37dc8b864562acf1a37bd8c9e0ca638d7f75a7cd6b6f7ae16cf3d",
-    "../inputs/penpot/structure.json": "a75e8d792856d54c41ce011ade176268d93b6c0633f3ac066468515494a5d8ba",
+    "../inputs/penpot/structure.r4.json": "1c1b14f8df3d6b245f101ca9a719a9cd40a275f6e6e544afd88b72be6c9a68e8",
     "../inputs/sac/landing-sac.json": "36f94de26b3d42b2704958c444dc9c6c458286faf65cbe56b4219594919e1b02"
   },
   "sac": {
@@ -251,7 +245,7 @@
   },
   "schema": "arm-c/generated-manifest/1",
   "tokens": {
-    "count": 34,
+    "count": 37,
     "cssVars": [
       "--fs-color-neutral-darkest",
       "--fs-color-scheme-background",
@@ -279,9 +273,12 @@
       "--fs-radius-button",
       "--fs-radius-card",
       "--fs-radius-image",
+      "--fs-size-text-column-max",
       "--fs-space-gap-4",
+      "--fs-space-gap-5",
       "--fs-space-gap-6",
       "--fs-space-gap-8",
+      "--fs-space-grid-gap",
       "--fs-space-hero-text-bottom",
       "--fs-space-hero-text-top",
       "--fs-space-section-lg",
@@ -318,7 +315,9 @@
         "fs.token.font.size.medium",
         "fs.token.font.weight.bold",
         "fs.token.font.weight.regular",
+        "fs.token.size.text-column.max",
         "fs.token.space.gap.4",
+        "fs.token.space.gap.5",
         "fs.token.space.gap.6",
         "fs.token.space.gap.8",
         "fs.token.space.section.lg"
@@ -339,7 +338,9 @@
         "fs.token.font.weight.bold",
         "fs.token.font.weight.regular",
         "fs.token.font.weight.semibold",
+        "fs.token.size.text-column.max",
         "fs.token.space.gap.4",
+        "fs.token.space.gap.5",
         "fs.token.space.gap.6",
         "fs.token.space.gap.8",
         "fs.token.space.section.lg"
@@ -355,7 +356,9 @@
         "fs.token.font.weight.bold",
         "fs.token.font.weight.regular",
         "fs.token.radius.image",
+        "fs.token.size.text-column.max",
         "fs.token.space.gap.4",
+        "fs.token.space.gap.5",
         "fs.token.space.gap.6",
         "fs.token.space.gap.8",
         "fs.token.space.hero.text-bottom",
@@ -393,9 +396,12 @@
         "fs.token.font.weight.semibold",
         "fs.token.radius.card",
         "fs.token.radius.image",
+        "fs.token.size.text-column.max",
         "fs.token.space.gap.4",
+        "fs.token.space.gap.5",
         "fs.token.space.gap.6",
         "fs.token.space.gap.8",
+        "fs.token.space.grid.gap",
         "fs.token.space.section.lg"
       ],
       "base.css": [
@@ -430,10 +436,10 @@
     },
     {
       "file": "Button.css",
-      "property": "height",
+      "property": "padding-block",
       "reason": "DSC component geometry (not tokenised)",
       "source": "dsc:fs.component.button.*.geometry",
-      "value": "48px"
+      "value": "12px"
     },
     {
       "file": "Button.css",
@@ -441,20 +447,6 @@
       "reason": "DSC component geometry (not tokenised)",
       "source": "dsc:fs.component.button.*.geometry",
       "value": "24px"
-    },
-    {
-      "file": "Cta.css",
-      "property": "margin-top",
-      "reason": "no spacing token equals this observed value",
-      "source": "penpot-structure:Cta25>Container>Space[0].h",
-      "value": "20px"
-    },
-    {
-      "file": "Cta.css",
-      "property": "max-width",
-      "reason": "CTA text column width (observation)",
-      "source": "penpot-structure:Cta25>Container.w",
-      "value": "512px"
     },
     {
       "file": "Features.css",
@@ -507,20 +499,6 @@
     },
     {
       "file": "Features.css",
-      "property": "margin-top",
-      "reason": "no spacing token equals this observed value",
-      "source": "penpot-structure:Layout620>Item1>Space[1].h",
-      "value": "20px"
-    },
-    {
-      "file": "Features.css",
-      "property": "max-width",
-      "reason": "section header column width (observation)",
-      "source": "penpot-structure:Layout620>Header.w",
-      "value": "512px"
-    },
-    {
-      "file": "Features.css",
       "property": "width",
       "reason": "feature icon placeholder (ARM-CONTRACT 48x48)",
       "source": "penpot-structure:Layout620>Item1>Icon",
@@ -550,9 +528,51 @@
     {
       "file": "Hero.css",
       "property": "height",
+      "reason": "hero image box height = 120% x widest image of the column (20vw at lg)",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.aspectBase",
+      "value": "24vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "hero image box height = 120% x widest image of the column (22vw at lg)",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.aspectBase",
+      "value": "26.4vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
       "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
       "source": "dsc:fs.section.hero.interaction",
       "value": "300vh"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "hero image box height = 120% x widest image of the column (26vw at md)",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.aspectBase",
+      "value": "31.2vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "hero image box height = 120% x widest image of the column (28vw at base)",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.aspectBase",
+      "value": "33.6vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "hero image box height = 120% x widest image of the column (28vw at md)",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.aspectBase",
+      "value": "33.6vw"
+    },
+    {
+      "file": "Hero.css",
+      "property": "height",
+      "reason": "hero image box height = 120% x widest image of the column (30vw at base)",
+      "source": "dsc:fs.section.hero.interaction.imageLayout.aspectBase",
+      "value": "36vw"
     },
     {
       "file": "Hero.css",
@@ -612,20 +632,6 @@
     },
     {
       "file": "Hero.css",
-      "property": "margin-top",
-      "reason": "no spacing token equals this observed value",
-      "source": "penpot-structure:Header80 / StickyStage>Space24.h",
-      "value": "20px"
-    },
-    {
-      "file": "Hero.css",
-      "property": "max-width",
-      "reason": "hero text column width (observation)",
-      "source": "penpot-structure:Header80 / StickyStage>HeroText.w",
-      "value": "512px"
-    },
-    {
-      "file": "Hero.css",
       "property": "min-height",
       "reason": "hero image box minimum height below screen sm",
       "source": "dsc:fs.section.hero.interaction.imageLayout.minHeightBelowScreen",
@@ -637,13 +643,6 @@
       "reason": "scroll-parallax geometry (DSC interaction block, not tokenised)",
       "source": "dsc:fs.section.hero.interaction",
       "value": "0.75"
-    },
-    {
-      "file": "Hero.css",
-      "property": "padding-top",
-      "reason": "image aspect ratio (DSC interaction.imageLayout.aspect)",
-      "source": "dsc:fs.section.hero.interaction",
-      "value": "120%"
     },
     {
       "file": "Hero.css",
@@ -868,20 +867,6 @@
       "reason": "avatar placeholder (ARM-CONTRACT)",
       "source": "penpot-structure:Testimonial37>Avatar",
       "value": "56px"
-    },
-    {
-      "file": "Testimonials.css",
-      "property": "margin-top",
-      "reason": "no spacing token equals this observed value",
-      "source": "penpot-structure:Testimonial37>Header>Space.h",
-      "value": "20px"
-    },
-    {
-      "file": "Testimonials.css",
-      "property": "max-width",
-      "reason": "section header column width (observation)",
-      "source": "penpot-structure:Testimonial37>Header.w",
-      "value": "512px"
     },
     {
       "file": "Testimonials.css",

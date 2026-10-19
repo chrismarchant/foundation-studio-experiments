@@ -12,7 +12,7 @@
   margin-inline: auto;
 }
 .fs-cta__content {
-  max-width: 512px;
+  max-width: var(--fs-size-text-column-max);
   margin-inline: auto;
   text-align: center;
 }
@@ -23,7 +23,7 @@
   letter-spacing: var(--fs-font-letterSpacing-heading);
 }
 .fs-cta__description {
-  margin-top: 20px;
+  margin-top: var(--fs-space-gap-5);
   font-size: var(--fs-font-size-medium);
   font-weight: var(--fs-font-weight-regular);
   line-height: var(--fs-font-lineHeight-body);

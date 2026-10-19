@@ -35,9 +35,12 @@ export const tokens = {
   "radius.button": { id: "fs.token.radius.button", type: "borderRadius", value: "0px", cssVar: "--fs-radius-button" },
   "radius.card": { id: "fs.token.radius.card", type: "borderRadius", value: "0px", cssVar: "--fs-radius-card" },
   "radius.image": { id: "fs.token.radius.image", type: "borderRadius", value: "0px", cssVar: "--fs-radius-image" },
+  "size.text-column.max": { id: "fs.token.size.text-column.max", type: "sizing", value: "768px", cssVar: "--fs-size-text-column-max" },
   "space.gap.4": { id: "fs.token.space.gap.4", type: "spacing", value: "16px", cssVar: "--fs-space-gap-4" },
+  "space.gap.5": { id: "fs.token.space.gap.5", type: "spacing", value: "20px", cssVar: "--fs-space-gap-5" },
   "space.gap.6": { id: "fs.token.space.gap.6", type: "spacing", value: "24px", cssVar: "--fs-space-gap-6" },
   "space.gap.8": { id: "fs.token.space.gap.8", type: "spacing", value: "32px", cssVar: "--fs-space-gap-8" },
+  "space.grid.gap": { id: "fs.token.space.grid.gap", type: "spacing", value: "32px", cssVar: "--fs-space-grid-gap", responsive: {"sm":"24px"} },
   "space.hero.text-bottom": { id: "fs.token.space.hero.text-bottom", type: "spacing", value: "112px", cssVar: "--fs-space-hero-text-bottom", responsive: {"md":"96px"} },
   "space.hero.text-top": { id: "fs.token.space.hero.text-top", type: "spacing", value: "112px", cssVar: "--fs-space-hero-text-top", responsive: {"md":"96px","sm":"64px"} },
   "space.section.lg": { id: "fs.token.space.section.lg", type: "spacing", value: "112px", cssVar: "--fs-space-section-lg", responsive: {"md":"96px","sm":"64px"} },
@@ -65,4 +68,4 @@ export const screens = [
   { id: "xxl", minWidth: 1440, container: "1280px" },
 ] as const;
 
-export const dscRevision = "sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b";
+export const dscRevision = "sha256:6defaaa003c0d979526811cf6fa0a40f35b1f3ee9a726c0d77c27eb06ecc8918";

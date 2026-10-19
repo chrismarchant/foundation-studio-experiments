@@ -10,6 +10,13 @@ interface GridSpec {
   orderBelowScreen: { screen: Layer; cardIndex: number; order: "last" };
 }
 
+/** DSC r4 `fs.section.testimonials` `layout.quoteCard` (tier keys are the design tiers; "observation" = Penpot Author.gap). */
+interface QuoteCardSpec {
+  starsGapBelow: { sm: string; md: string };
+  quoteGapBelow: { sm: string; md: string };
+  author: Record<"sm" | "md", { direction: string; align: string; gap: string }>;
+}
+
 /** r1/r2 DSCs carry no layout.grid: the grid they described implicitly (1 / 2 / 4 columns, span from md, index 2). */
 const LEGACY_GRID: GridSpec = {
   track: "minmax(0, 1fr)",
@@ -44,13 +51,18 @@ export function emitTestimonials(ctx: Ctx): void {
 
   // design observation vs intent: grid gap at sm
   const obsGapSm = o.gap("sm", SEC, "Grid");
-  const tokGap = ctx.tokens.valueAt(dsc.bindings.find((b) => b.property === "gridGap")?.token ?? "", "sm");
+  // DSC-R4-05: the bound token may carry an sm override (fs.token.space.grid.gap); r4 observation 24px agrees with it
+  const gapTokId = dsc.bindings.find((b) => b.property === "gridGap")?.token ?? "";
+  const tokGap = ctx.tokens.valueAt(gapTokId, "sm");
   if (`${obsGapSm}px` !== tokGap) {
+    const gapTok = ctx.tokens.get(gapTokId);
     ctx.conflicts.push({
       id: "testimonials.grid-gap.sm",
-      intent: `DSC binds gridGap to fs.token.space.gap.8 = ${tokGap} at every breakpoint`,
+      intent: gapTok.responsive?.sm
+        ? `DSC binds gridGap to ${gapTokId} = ${gapTok.value} (sm ${gapTok.responsive.sm})`
+        : `DSC binds gridGap to ${gapTokId} = ${tokGap} at every breakpoint`,
       observed: `Penpot mobile Grid gap is ${obsGapSm}px`,
-      resolution: "DSC wins: 32px at sm as well",
+      resolution: `DSC wins: ${tokGap} at sm as well`,
     });
   }
   const obsOrder = ["logo", "logo", "quote", "quote", "logo", "logo"];
@@ -96,7 +108,10 @@ export function emitTestimonials(ctx: Ctx): void {
     px("gap", "container row gap (observation; no DSC token)", "Container.gap"),
   );
   css.rule("base", ".fs-testimonials__header", {
-    // DSC-R4-01: bound text column; r1-r3 DSCs keep the observation
+    // DSC-R4-01: bound text column = min(container width, token); the header is a centred flex item (container
+    // align-items: center), so it needs width 100% to reach the column width instead of shrinking to its content.
+    // r1-r3 DSCs keep the observation and the shrink-wrapped header.
+    ...(ctx.hasBinding(id, "textColumnMaxWidth") ? { width: "100%" } : {}),
     "max-width": ctx.hasBinding(id, "textColumnMaxWidth")
       ? ctx.bound(F, id, "textColumnMaxWidth")
       : ctx.lit(
@@ -182,24 +197,51 @@ export function emitTestimonials(ctx: Ctx): void {
     gap: ctx.lit(F, "gap", `${o.gap("lg", SEC, "Stars")}px`, "star gap (observation)", src("Stars.gap")),
   });
   css.rule("base", ".fs-testimonials__star", { display: "block", width: star.w, height: star.h, background: dark });
-  css.resp(
-    ".fs-testimonials__quote",
-    "margin-top",
-    o.perBp((bp) => o.height(bp, SEC, "QuoteCard > Space", 0)),
-    sp("margin-top", "QuoteCard>Space[0].h"),
-  );
-  css.rule("base", ".fs-testimonials__quote", typo(ctx, F, BODY("font.size.medium")));
-  css.resp(
-    ".fs-testimonials__author",
-    "margin-top",
-    o.perBp((bp) => o.height(bp, SEC, "QuoteCard > Space", 1)),
-    sp("margin-top", "QuoteCard>Space[1].h"),
-  );
-  css.rule("base", ".fs-testimonials__author", {
-    display: "flex",
-    "align-items": "center",
-    gap: ctx.sp(F, "gap", o.gap("lg", SEC, "Author"), src("Author.gap")),
-  });
+  // DSC-R4-03 layout.quoteCard (absent in r1-r3: spacing and author block come from the observations, as before)
+  const qc = dsc.layout?.quoteCard as QuoteCardSpec | undefined;
+  const authorGap = ctx.sp(F, "gap", o.gap("lg", SEC, "Author"), src("Author.gap"));
+  if (qc) {
+    // tier keys: sm = below the md tier, md = md tier upward (incl. lg)
+    const tier = <T>(v: { sm: T; md: T }) => ({ sm: v.sm, md: v.md, lg: v.md });
+    css.resp(".fs-testimonials__stars", "margin-bottom", tier(qc.starsGapBelow), (id) => ctx.tokens.ref(F, id));
+    css.resp(".fs-testimonials__quote", "margin-bottom", tier(qc.quoteGapBelow), (id) => ctx.tokens.ref(F, id));
+    css.rule("base", ".fs-testimonials__quote", typo(ctx, F, BODY("font.size.medium")));
+    const authorOf = (a: QuoteCardSpec["author"]["sm"]) => ({
+      direction: a.direction,
+      align: a.align === "start" ? "flex-start" : a.align,
+      gap: a.gap === "observation" ? authorGap : a.gap,
+    });
+    const aSm = authorOf(qc.author.sm);
+    const aMd = authorOf(qc.author.md);
+    css.rule("base", ".fs-testimonials__author", {
+      display: "flex",
+      "flex-direction": aSm.direction,
+      "align-items": aSm.align,
+      gap: aSm.gap,
+    });
+    css.resp(".fs-testimonials__author", "flex-direction", tier({ sm: aSm.direction, md: aMd.direction }), (v) => v);
+    css.resp(".fs-testimonials__author", "align-items", tier({ sm: aSm.align, md: aMd.align }), (v) => v);
+    css.resp(".fs-testimonials__author", "gap", tier({ sm: aSm.gap, md: aMd.gap }), (v) => v);
+  } else {
+    css.resp(
+      ".fs-testimonials__quote",
+      "margin-top",
+      o.perBp((bp) => o.height(bp, SEC, "QuoteCard > Space", 0)),
+      sp("margin-top", "QuoteCard>Space[0].h"),
+    );
+    css.rule("base", ".fs-testimonials__quote", typo(ctx, F, BODY("font.size.medium")));
+    css.resp(
+      ".fs-testimonials__author",
+      "margin-top",
+      o.perBp((bp) => o.height(bp, SEC, "QuoteCard > Space", 1)),
+      sp("margin-top", "QuoteCard>Space[1].h"),
+    );
+    css.rule("base", ".fs-testimonials__author", {
+      display: "flex",
+      "align-items": "center",
+      gap: authorGap,
+    });
+  }
   const av = sq("avatar", "Avatar");
   css.rule("base", ".fs-testimonials__avatar", {
     width: av.w,

@@ -5,8 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  height: 48px;
-  padding: 0 24px;
+  padding: 12px 24px;
   box-sizing: border-box;
   border: 1px solid var(--fs-color-scheme-border);
   border-radius: var(--fs-radius-button);

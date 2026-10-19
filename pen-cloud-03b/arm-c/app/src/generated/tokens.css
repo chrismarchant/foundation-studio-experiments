@@ -27,9 +27,12 @@
   --fs-radius-button: 0px;
   --fs-radius-card: 0px;
   --fs-radius-image: 0px;
+  --fs-size-text-column-max: 768px;
   --fs-space-gap-4: 16px;
+  --fs-space-gap-5: 20px;
   --fs-space-gap-6: 24px;
   --fs-space-gap-8: 32px;
+  --fs-space-grid-gap: 32px;
   --fs-space-hero-text-bottom: 112px;
   --fs-space-hero-text-top: 112px;
   --fs-space-section-lg: 112px;
@@ -65,6 +68,7 @@
 /* sm: below 768px (canvas 375) */
 @media (max-width: 767.98px) {
   :root {
+    --fs-space-grid-gap: 24px;
     --fs-space-hero-text-top: 64px;
     --fs-space-section-lg: 64px;
   }

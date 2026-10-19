@@ -73,8 +73,12 @@ export function emitHero(ctx: Ctx): void {
       : {}),
     "pointer-events": "none",
   });
-  const textW = o.width("lg", SEC, "HeroText");
-  if (o.width("md", SEC, "HeroText") !== textW) throw new Error("HeroText width differs lg/md");
+  // observation fallback (r1-r3 DSCs without textColumnMaxWidth); the r4 observations differ per tier and are not emitted
+  const observedTextWidth = (): number => {
+    const w = o.width("lg", SEC, "HeroText");
+    if (o.width("md", SEC, "HeroText") !== w) throw new Error("HeroText width differs lg/md");
+    return w;
+  };
   css.rule("base", ".fs-hero__text-inner", {
     width: "100%",
     // DSC-R4-01: the text column is the bound token; r1-r3 DSCs (no textColumnMaxWidth binding) keep the observation
@@ -83,7 +87,7 @@ export function emitHero(ctx: Ctx): void {
       : ctx.lit(
           F,
           "max-width",
-          `${textW}px`,
+          `${observedTextWidth()}px`,
           "hero text column width (observation)",
           `penpot-structure:${SEC}>HeroText.w`,
         ),
@@ -118,11 +122,16 @@ export function emitHero(ctx: Ctx): void {
 
   // image columns
   const lay = inter.imageLayout;
+  // DSC-R4-04 columnInset: the left column's left edge and the right column's right edge sit at the side padding
+  let colBox: Record<string, string> = { left: "0", width: "100%" };
+  if (lay.columnInset !== undefined) {
+    if (lay.columnInset !== "layout.sidePadding") throw new Error(`Unsupported hero columnInset ${lay.columnInset}`);
+    colBox = { left: "var(--fs-layout-side-padding)", right: "var(--fs-layout-side-padding)" };
+  }
   const colCommon = {
     position: "absolute",
     top: "0",
-    left: "0",
-    width: "100%",
+    ...colBox,
     display: "flex",
     "flex-direction": "column",
     gap: lit("gap", String(lay.gap)),
@@ -153,11 +162,59 @@ export function emitHero(ctx: Ctx): void {
   }
   const aspect = String(lay.aspect).match(/^pt-\[(.+)\]$/);
   if (!aspect) throw new Error("Cannot parse hero image aspect");
-  css.rule("base", ".fs-hero__img::before", {
-    content: '""',
-    display: "block",
-    "padding-top": lit("padding-top", aspect[1] as string, "image aspect ratio (DSC interaction.imageLayout.aspect)"),
-  });
+  // DSC-R4-04 aspectBase "column": the aspect resolves against the column's widest image, so every image of a
+  // column has the same explicit height (aspect x widest width at that layer); r1-r3: per-item ::before padding.
+  if (lay.aspectBase !== undefined && lay.aspectBase !== "column") {
+    throw new Error(`Unsupported hero aspectBase ${lay.aspectBase}`);
+  }
+  if (lay.aspectBase === "column") {
+    const ratio = Number.parseFloat(aspect[1] as string) / 100;
+    if (!(ratio > 0) || !String(aspect[1]).endsWith("%")) throw new Error("Hero aspectBase column needs a % aspect");
+    for (const [cls, items] of [
+      [".fs-hero__col--left .fs-hero__img", lay.leftColumn as string[]],
+      [".fs-hero__col--right .fs-hero__img", lay.rightColumn as string[]],
+    ] as const) {
+      let width = 0;
+      let prev: string | undefined;
+      for (const layer of ["base", "md", "lg"] as const) {
+        // cumulative mobile-first widths: a layer without its own w- utility inherits the previous layer's
+        const widest = Math.max(
+          ...items.map((utils) => {
+            const d = parseTw(utils);
+            const own =
+              layer === "base"
+                ? d.base.width
+                : layer === "md"
+                  ? (d.md.width ?? d.base.width)
+                  : (d.lg.width ?? d.md.width ?? d.base.width);
+            const m = String(own).match(/^(\d+(?:\.\d+)?)vw$/);
+            if (!m) throw new Error(`Hero image width "${own}" is not a vw value`);
+            return Number(m[1]);
+          }),
+        );
+        width = widest;
+        const h = `${Number((width * ratio).toFixed(4))}vw`;
+        if (h !== prev) {
+          css.rule(layer, cls, {
+            height: ctx.lit(
+              F,
+              "height",
+              h,
+              `hero image box height = ${aspect[1]} x widest image of the column (${width}vw at ${layer})`,
+              `${srcI}.imageLayout.aspectBase`,
+            ),
+          });
+          prev = h;
+        }
+      }
+    }
+  } else {
+    css.rule("base", ".fs-hero__img::before", {
+      content: '""',
+      display: "block",
+      "padding-top": lit("padding-top", aspect[1] as string, "image aspect ratio (DSC interaction.imageLayout.aspect)"),
+    });
+  }
   css.rule("base", ".fs-hero__ph", {
     position: "absolute",
     inset: "0",

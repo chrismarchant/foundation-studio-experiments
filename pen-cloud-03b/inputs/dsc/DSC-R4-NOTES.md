@@ -1,7 +1,7 @@
 # DSC r4 specification note (PEN-CLOUD-03-B)
 
 File: `inputs/dsc/fs.ds.relume-default.r4.json`
-Revision: `sha256:066de30691c0d123b8bf5682200b533f7e459b41afb1e50254e48bdbc2318ae2`
+Revision: `sha256:6defaaa003c0d979526811cf6fa0a40f35b1f3ee9a726c0d77c27eb06ecc8918`
 Supersedes (r3): `sha256:16fa9a00ebf3af917d4270869f42ee1a6ea06f36dd9565fa7efab05ba179738b`
 Created: 2026-10-19T12:00:00Z
 Authority: PEN-CLOUD-03-B run r3 defect attribution D-11..D-15; owner ruling OD-50 (Penpot reconciliation).
@@ -39,10 +39,6 @@ unchanged (designated provenance field, OD-47). The Relume values below come fro
   md:gap-8`). The testimonials `gridGap` binding moves to it; the features `gridGap` stays on
   `fs.token.space.gap.8`.
 
-## Provenance and pending value
+## Provenance
 
-`provenance` has a fourth entry, `penpot-reconciliation` (ruling OD-50, record `PEN-CLOUD-03-B-R4-RESULT.md`,
-corrected structure `inputs/penpot/structure.r4.json`). Its `capturedAt` is read from that file when it exists.
-It does not exist yet, so `capturedAt` is `"pending"` and the revision above is for the pending state. After
-the corrected observations are captured, re-run the build command: `capturedAt` is filled in and the revision
-changes.
+The fourth provenance entry (`penpot-reconciliation`, OD-50) reads `capturedAt` from `inputs/penpot/structure.r4.json`, the corrected observations captured 2026-10-19T09:23:58Z after the five corrections; the revision above is the final one built with that capture (the earlier draft built with `capturedAt: "pending"` had revision `sha256:066de306…` and was never used by a generator run).

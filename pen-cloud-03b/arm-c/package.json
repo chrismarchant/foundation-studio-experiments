@@ -15,9 +15,11 @@
     "generate:verify:r2": "tsx generator/generate.ts --verify --dsc dsc/fs.ds.relume-default.r2.json",
     "generate:r3": "tsx generator/generate.ts --dsc dsc/fs.ds.relume-default.r3.json",
     "generate:verify:r3": "tsx generator/generate.ts --verify --dsc dsc/fs.ds.relume-default.r3.json",
+    "generate:r4": "tsx generator/generate.ts --dsc dsc/fs.ds.relume-default.r4.json --structure penpot/structure.r4.json",
+    "generate:verify:r4": "tsx generator/generate.ts --verify --dsc dsc/fs.ds.relume-default.r4.json --structure penpot/structure.r4.json",
     "typecheck": "tsc -p generator/tsconfig.json --noEmit && pnpm -C app typecheck && pnpm -C ssr typecheck",
     "lint": "biome check",
-    "build": "pnpm generate:r3 && pnpm -C app build && pnpm -C ssr build",
+    "build": "pnpm generate:r4 && pnpm -C app build && pnpm -C ssr build",
     "serve": "pnpm -C app serve",
     "serve:ssr": "pnpm -C ssr serve"
   },
