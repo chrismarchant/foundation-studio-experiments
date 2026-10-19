@@ -1,0 +1,5 @@
+
+> pc03b-arm-c@1.0.0 generate:verify:r4 /home/user/foundation-studio-experiments/pen-cloud-03b/arm-c
+> tsx generator/generate.ts --verify --dsc dsc/fs.ds.relume-default.r4.json --structure penpot/structure.r4.json
+
+generate:verify OK (36 files identical)

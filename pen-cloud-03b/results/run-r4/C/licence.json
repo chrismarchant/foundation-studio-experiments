@@ -1,0 +1,122 @@
+{
+  "licenceLines": {
+    "minLineLength": 40,
+    "referenceFiles": 9,
+    "referenceLines": 208,
+    "targets": [
+      {
+        "dir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/app/src/generated",
+        "exists": true
+      },
+      {
+        "dir": "/home/user/foundation-studio-experiments/pen-cloud-03b/arm-c/generator",
+        "exists": true
+      }
+    ],
+    "scannedFiles": 40,
+    "scannedLines": 1611,
+    "matchCount": 1,
+    "uniqueMatchingHashes": 1,
+    "matches": [
+      {
+        "importLine": true,
+        "file": "app/src/generated/Hero.tsx",
+        "line": 2,
+        "sha256": "0549bfa6255a3dafc22317f0a2b92e4db0d0ca08a0ec256621d7243490d5938a"
+      }
+    ],
+    "matchCountExclImports": 0,
+    "importLineMatchCount": 1,
+    "importLineMatches": [
+      {
+        "importLine": true,
+        "file": "app/src/generated/Hero.tsx",
+        "line": 2,
+        "sha256": "0549bfa6255a3dafc22317f0a2b92e4db0d0ca08a0ec256621d7243490d5938a"
+      }
+    ],
+    "note": "Supplementary, not proof. Only hashes and C-side file:line locations are recorded, never the lines."
+  },
+  "forbiddenStrings": {
+    "root": "/home/user/foundation-studio-experiments/pen-cloud-03b",
+    "patternsChecked": 3,
+    "filesScanned": 1549,
+    "hitCount": 5,
+    "classificationRule": "r3.1",
+    "manifestRevision": "sha256:6defaaa003c0d979526811cf6fa0a40f35b1f3ee9a726c0d77c27eb06ecc8918",
+    "classificationCounts": {
+      "provenanceField": 1,
+      "builderAssignment": 1,
+      "other": 3,
+      "otherByScope": {
+        "frozenPriorRevision": 3,
+        "current": 0
+      }
+    },
+    "hits": [
+      {
+        "file": "inputs/dsc/DSC-R3-NOTES.md",
+        "patternIndex": 1,
+        "classification": "other",
+        "occurrences": 1,
+        "reason": "not a provenance-designated file type (.md)",
+        "scope": "frozenPriorRevision"
+      },
+      {
+        "file": "inputs/dsc/fs.ds.relume-default.r3.json",
+        "patternIndex": 1,
+        "classification": "other",
+        "occurrences": 5,
+        "occurrencesInProvenanceFields": 1,
+        "occurrencesElsewhere": 4,
+        "provenanceFields": [
+          "/screensProvenance"
+        ],
+        "elsewhere": [
+          "/changeLog/0/evidence",
+          "/changeLog/1/evidence",
+          "/changeLog/2/evidence",
+          "/changeLog/3/evidence"
+        ],
+        "reason": "json: 4 of 5 occurrence(s) are not inside the string value of a provenance-named key",
+        "scope": "frozenPriorRevision"
+      },
+      {
+        "file": "inputs/dsc/fs.ds.relume-default.r4.json",
+        "patternIndex": 1,
+        "classification": "provenanceField",
+        "occurrences": 1,
+        "fields": [
+          "/screensProvenance"
+        ]
+      },
+      {
+        "file": "scripts/build-dsc-r3.py",
+        "patternIndex": 1,
+        "classification": "other",
+        "occurrences": 5,
+        "provenanceAssignmentLines": [
+          74
+        ],
+        "otherLines": [
+          65,
+          66,
+          67,
+          68
+        ],
+        "otherLineCount": 4,
+        "reason": "builder script: 4 line(s) containing the string are not a provenance-key assignment",
+        "scope": "frozenPriorRevision"
+      },
+      {
+        "file": "scripts/build-dsc-r4.py",
+        "patternIndex": 1,
+        "classification": "builderAssignment",
+        "occurrences": 1,
+        "lines": [
+          94
+        ]
+      }
+    ]
+  }
+}
